@@ -1,0 +1,21 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  padding-bottom: 50px;
+  &__image {
+    margin-top: -32px;
+    margin-right: -108px;
+    z-index: 15;
+    .dots {
+      position: absolute;
+      left: -70px;
+      bottom: -70px;
+      z-index: -1;
+    }
+  }
+  &__description {
+    @include text-style();
+    margin-bottom: -32px;
+    padding-left: 115px;
+  }
+}

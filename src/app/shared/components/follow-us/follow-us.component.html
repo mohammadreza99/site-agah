@@ -1,0 +1,21 @@
+<div class="row social">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-6 text-center">
+        <div class="row">
+          <div class="col-8">
+            <p>Follow Us</p>
+            <ag-social></ag-social>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img
+    class="dot"
+    src="assets/images/{{ dotsInRight ? 'dots1' : 'dots1-r' }}.png"
+    [style.left]="dotsInRight ? 'auto' : 0"
+    [style.right]="dotsInLeft ? 'auto' : 0"
+    alt="dot"
+  />
+</div>

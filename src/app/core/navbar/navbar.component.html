@@ -1,0 +1,59 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light fixed-top justify-content-between justify-content-lg-center"
+  [class.shadow-sm]="isScrolled"
+  [ngClass]="{
+    'bg-white shadow-sm': isScrolled,
+    'is-not-home': !isHomePage
+  }"
+>
+  <div class="container justify-content-start">
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand mar-r-32" href="#"><ag-logo></ag-logo></a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-none d-lg-flex w-100">
+        <li class="nav-item mar-r-32">
+          <a
+            class="nav-link"
+            [routerLink]="['/products']"
+            routerLinkActive="active"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item mar-r-32">
+          <a class="nav-link" href="#">Solutions</a>
+        </li>
+        <li class="nav-item mar-r-32">
+          <ag-menu popperText="Academy"></ag-menu>
+        </li>
+        <li class="nav-item mar-r-32">
+          <a class="nav-link" href="#">Stockholders</a>
+        </li>
+        <li class="nav-item mar-r-32">
+          <a class="nav-link" href="#">Job Oppurtinity</a>
+        </li>
+        <li class="nav-item mar-r-48">
+          <ag-menu
+            popperText="About Us"
+            [popperList]="[
+              { text: 'About Us', path: '/about' },
+              { text: 'History', path: '/about/history' },
+              { text: 'Boared', path: '/about/boared' },
+              { text: 'Employer', path: '/about/employer' },
+              { text: 'Stockholder', path: '/about/stockholder' },
+              { text: 'Contact Us', path: '/about/contact-us' }
+            ]"
+          ></ag-menu>
+        </li>
+        <li class="nav-item flex-grow-1"></li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-center" href="#">
+            <i class="fas fa-globe-americas mr-1"></i>
+            En
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

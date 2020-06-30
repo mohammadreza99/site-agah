@@ -1,0 +1,52 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+button {
+  @include text-style($white);
+  outline: none;
+  border: 1px solid transparent;
+  background-color: $primary;
+  transition: all 0.2s;
+  white-space: nowrap;
+  cursor: pointer;
+  &:hover,
+  &:active {
+    background-color: $primary-hover;
+  }
+  &.raised {
+    box-shadow: $shadow-md rgba(68, 193, 195, 0.3);
+  }
+  &.outline {
+    @include text-style($button-color);
+    border-color: $primary;
+    background-color: $white;
+    &:hover,
+    &:active {
+      color: $primary-hover;
+    }
+    &.raised {
+      box-shadow: $shadow-md rgba(68, 193, 195, 0.3);
+      border-color: transparent;
+      &:hover,
+      &:active {
+        border-color: $primary-hover;
+        color: $button-color;
+      }
+    }
+  }
+  &.link {
+    @include text-style($primary, $font-weight: 500);
+    border-radius: 0;
+    background-color: $white;
+    border-bottom: 2px solid $primary;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    &:hover,
+    &:active {
+      color: $primary-hover;
+    }
+  }
+}

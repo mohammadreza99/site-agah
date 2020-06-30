@@ -1,0 +1,40 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+  margin-bottom: 162px;
+}
+
+.directors {
+  position: relative;
+  img {
+    position: absolute;
+    &.right-dots {
+      top: 50%;
+      transform: translateY(-50%);
+      right: -40px;
+    }
+    &.left-dots {
+      left: 50px;
+      top: -50px;
+    }
+  }
+  &__overlay {
+    width: 100%;
+    &-bg {
+      position: absolute;
+      width: 100%;
+      padding: 12%;
+      background: $polarous-blue-002;
+      border-radius: 0 22px 22px 0;
+      left: -40px;
+      bottom: -162px;
+    }
+    &-button {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: calc(-162px - 20px);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "abstracts/mixins";
+
+.header {
+  background-image: linear-gradient(rgb(204, 238, 238), transparent);
+  h1 {
+    @include text-style(#484848, $font-size-xxxl, $font-weight: 600);
+  }
+  p {
+    @include text-style(#484848);
+  }
+}

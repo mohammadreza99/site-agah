@@ -1,0 +1,46 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  padding-bottom: 50px;
+  position: relative;
+  &__image {
+    z-index: 15;
+    margin-top: -32px;
+    margin-right: -108px;
+  }
+  &__description {
+    margin-bottom: -32px;
+    padding-right: 32px;
+    padding-left: 115px;
+    p {
+      @include text-style();
+    }
+    h6 {
+      @include text-style($title-color3, $font-size-xl, $font-weight: 600);
+    }
+  }
+  
+  .path {
+    position: absolute;
+    z-index: -1;
+    right: 15px;
+    left: auto;
+    bottom: 20px;
+    width: 137px;
+  }
+
+  &.rtl {
+    .wrapper__image {
+      margin-left: -108px;
+      margin-right: 0;
+    }
+    .wrapper__description {
+      padding-right: 115px;
+      padding-left: 32px;
+    }
+    .path {
+      left: 15px;
+      right: auto;
+    }
+  }
+}

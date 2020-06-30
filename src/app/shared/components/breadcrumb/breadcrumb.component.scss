@@ -1,0 +1,9 @@
+@import "abstracts/mixins";
+li {
+  &:hover {
+    cursor: pointer;
+    span {
+      color: $primary;
+    }
+  }
+}

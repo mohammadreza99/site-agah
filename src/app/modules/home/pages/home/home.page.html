@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <section>
+    <ag-header></ag-header>
+  </section>
+  <section class="mar-t-56">
+    <div class="row">
+      <div class="container products">
+        <div class="row">
+          <div class="col-12">
+            <ag-lined-header
+              class="mar-b-80"
+              text="Our Products"
+            ></ag-lined-header>
+            <ag-product-list [products]="products"></ag-product-list>
+            <div class="text-center">
+              <ag-button
+                class="mar-t-56"
+                [outline]="true"
+                [raised]="true"
+                label="See More Projects"
+              ></ag-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <ag-vision></ag-vision>
+  </section>
+  <section class="mar-t-156">
+    <ag-personnel
+      [personnel]="personnel"
+      title="Board of Directors"
+    ></ag-personnel>
+  </section>
+  <section class="pad-t-156">
+    <ag-testimonials [testimonials]="testimonials"></ag-testimonials>
+  </section>
+  <section class="mar-t-156">
+    <ag-request></ag-request>
+  </section>
+  <section class="mar-t-156">
+    <ag-cards [list]="blogs" title="Blog Post"></ag-cards>
+    <ag-button
+      class="mar-t-80 text-center"
+      label="See More Posts"
+      [raised]="true"
+      [outline]="true"
+    ></ag-button>
+  </section>
+  <section class="mar-t-156 mar-b-156">
+    <ag-follow-us></ag-follow-us>
+  </section>
+</div>

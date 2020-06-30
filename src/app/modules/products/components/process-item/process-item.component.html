@@ -1,0 +1,18 @@
+<div class="wrapper container-fluid pad-t-32 {{ direction }}">
+  <div class="row justify-content-start" [class.flex-row-reverse]="isRtl">
+    <div class="col-5 wrapper__image ag-blur-effect ag-rounded-lg">
+      <img class="img-fluid" [src]="image" />
+    </div>
+    <div
+      class="col-6 wrapper__description ag-blur-effect pad-t-32 pad-b-32 bg-white ag-rounded-lg"
+    >
+      <h6>{{ title }}</h6>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+  <img
+    class="path"
+    src="assets/images/{{ isRtl ? 'process-r' : 'process' }}.png"
+    alt="path"
+  />
+</div>

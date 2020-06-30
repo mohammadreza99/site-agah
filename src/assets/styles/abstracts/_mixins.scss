@@ -1,0 +1,55 @@
+@import "abstracts/variables";
+
+@mixin text-style(
+  $color: $body-color /*#414141*/,
+  $size: $font-size-md /*16px*/,
+  $line-height: $line-height-lg /*2*/,
+  $font-weight: normal,
+  $family: $base-font-family
+) {
+  color: $color;
+  font-size: $size;
+  font-family: $family;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+@each $spaceSize in $spaces {
+  @each $direction in $directions {
+    .pad-#{str-slice($direction, 0, 1)}-#{$spaceSize} {
+      padding-#{$direction}: #{$spaceSize}px !important;
+    }
+
+    .mar-#{str-slice($direction, 0, 1)}-#{$spaceSize} {
+      margin-#{$direction}: #{$spaceSize}px !important;
+    }
+  }
+
+  .pad-#{$spaceSize} {
+    padding: #{$spaceSize}px !important;
+  }
+
+  .pad-y-#{$spaceSize} {
+    padding-top: #{$spaceSize}px !important;
+    padding-bottom: #{$spaceSize}px !important;
+  }
+
+  .pad-x-#{$spaceSize} {
+    padding-left: #{$spaceSize}px !important;
+    padding-right: #{$spaceSize}px !important;
+  }
+
+  .mar-#{$spaceSize} {
+    margin: #{$spaceSize}px !important;
+  }
+
+  .mar-y-#{$spaceSize} {
+    padding-top: #{$spaceSize}px !important;
+    padding-bottom: #{$spaceSize}px !important;
+  }
+
+  .mar-x-#{$spaceSize} {
+    padding-left: #{$spaceSize}px !important;
+    padding-right: #{$spaceSize}px !important;
+  }
+}

@@ -1,0 +1,9 @@
+@import "abstracts/mixins";
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  span {
+    @include text-style(#414141, 20px, $font-weight: 600);
+  }
+}

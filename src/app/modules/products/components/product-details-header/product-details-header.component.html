@@ -1,0 +1,29 @@
+<div class="row header">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 pad-t-48">
+        <ag-breadcrumb
+          [breadcrumbs]="['Home', 'Products', 'Simple']"
+        ></ag-breadcrumb>
+      </div>
+      <div class="col-9 mar-t-40 text-center">
+        <h1>{{ title }}</h1>
+        <p class="mar-t-32">
+          {{ description }}
+        </p>
+        <ag-button
+          [routerLink]="siteUrl"
+          class="mar-t-32"
+          label="product Website"
+        ></ag-button>
+        <div class="ag-blur-effect">
+          <img
+            [src]="image"
+            alt="title"
+            class="img-fluid mar-t-40 w-100 ag-rounded-lg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

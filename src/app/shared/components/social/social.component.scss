@@ -1,0 +1,51 @@
+@import "abstracts/mixins";
+
+.social {
+  a {
+    color: $white;
+    &:hover {
+      text-decoration: none;
+      i {
+        color: $primary;
+      }
+    }
+  }
+
+  [class*="__icon"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  &.colored {
+    a {
+      transition: all 0.4s;
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: $shadow-lg rgba($color: #000000, $alpha: 0.16);
+        i {
+          color: $white;
+        }
+      }
+    }
+    .rounded-circle {
+      width: 70px;
+      height: 70px;
+    }
+    .social__icon {
+      &-facebook {
+        background-image: linear-gradient(to bottom, #3069cc, #68ccff);
+      }
+      &-instagram {
+        background-image: linear-gradient(to bottom, #f25841, #ff809d);
+      }
+      &-twitter {
+        background-image: linear-gradient(to bottom, #44c1c3, #3ddbba);
+      }
+      &-linkedin {
+        background-image: linear-gradient(to bottom, #2bc273, #36f591);
+      }
+    }
+  }
+}

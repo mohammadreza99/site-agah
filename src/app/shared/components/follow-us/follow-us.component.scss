@@ -1,0 +1,18 @@
+@import "abstracts/mixins";
+
+.social {
+  background-image: url("../../../../assets/images/social.png");
+  background-repeat: no-repeat;
+  padding: 14% 0;
+  background-size: 110% auto;
+  position: relative;
+  background-position: top;
+  p {
+    @include text-style($title-color3, $font-size-xxl, $line-height-sm, 600);
+    margin-bottom: 65px;
+  }
+  .dot {
+    position: absolute;
+    top: -200px;
+  }
+}

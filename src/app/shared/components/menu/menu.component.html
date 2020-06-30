@@ -1,0 +1,26 @@
+<span
+  class="d-inline-block wrapper"
+  [popper]="popperContent"
+  [popperPlacement]="popperPlacement"
+  #popper
+>
+  <span class="nav-link d-flex align-items-center">
+    {{ popperText }}
+    <i class="fal fa-chevron-down ml-2 fa-sm"></i>
+  </span>
+</span>
+<popper-content #popperContent>
+  <div>
+    <ul class="list-group">
+      <li
+        *ngFor="let item of popperList"
+        class="list-group__item mar-b-24 mar-t-24 px-3 d-flex align-items-center"
+      >
+        <a [routerLink]="item.path" (click)="popperContent.hide()">
+          <i class="fal fa-chevron-right mr-2 fa-sm"></i>
+          {{ item.text }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</popper-content>

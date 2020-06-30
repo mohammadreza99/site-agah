@@ -1,0 +1,5 @@
+<ag-navbar [isHomePage]="isHomePage"></ag-navbar>
+<main class="main" [class.is-not-home]="!isHomePage">
+  <router-outlet></router-outlet>
+</main>
+<ag-footer> </ag-footer>

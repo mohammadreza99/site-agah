@@ -1,0 +1,60 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  &__input {
+    &-control {
+      border: 1px solid $field-color;
+      border-radius: $radius-md;
+      text-align: right;
+      font-size: $font-size-md;
+      outline: 0;
+      padding: 10.5px;
+      &.ng-dirty.ng-valid {
+        background-color: $polarous-blue-001;
+      }
+      &:focus {
+        border-color: $primary;
+      }
+      &.is-invalid {
+        border-color: $orange;
+      }
+    }
+    &-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $body-color;
+    }
+  }
+  &__error {
+    color: $orange;
+  }
+  &.rtl {
+    text-align: right;
+    .wrapper__input {
+      &-control {
+        text-align: right;
+        &.has-icon {
+          padding-right: 2rem !important;
+        }
+      }
+      &-icon {
+        right: 0.5rem;
+      }
+    }
+  }
+  &.ltr {
+    text-align: left;
+    .wrapper__input {
+      &-control {
+        text-align: left;
+        &.has-icon {
+          padding-left: 2rem !important;
+        }
+      }
+      &-icon {
+        left: 0.5rem;
+      }
+    }
+  }
+}

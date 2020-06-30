@@ -1,0 +1,32 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+    .overlay {
+      opacity: 1;
+    }
+  }
+
+  h5 {
+    @include text-style($white, $font-size-xl);
+  }
+
+  .overlay {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparentize($color: $primary, $amount: 0.3);
+    transition: all 0.3s;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

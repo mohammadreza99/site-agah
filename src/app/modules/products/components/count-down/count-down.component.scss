@@ -1,0 +1,39 @@
+@import "abstracts/mixins";
+.count-down {
+  background-image: linear-gradient(to bottom, #cceeee, #88d7d8);
+  justify-content: space-around;
+  overflow: hidden;
+
+  .title {
+    @include text-style($title-color1, $font-size-lg, $font-weight: 600);
+  }
+  countdown {
+    flex-grow: 1;
+    &::ng-deep {
+      .wrapper {
+        @include text-style();
+        text-align: center;
+      }
+
+      .semi {
+        @include text-style($polarous-blue-014, 26px,1.4);
+      }
+      .time {
+        @include text-style($title-color1, $font-size-lg, $font-weight: 600);
+        span{
+          @include text-style($primary);
+        }
+      }
+    }
+  }
+
+  .progress {
+    height: 6px;
+    background-image: linear-gradient(to left, #3069cc, #68ccff);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 50px;
+    transition: all 0.3s;
+  }
+}

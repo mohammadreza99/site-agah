@@ -1,0 +1,7 @@
+<div
+  class="count-down d-flex align-items-center ag-rounded-lg ag-shadow-lg py-3 px-4 position-relative"
+>
+  <span class="title">{{ title }}</span>
+  <countdown (event)="onCountChange($event)" [config]="config"></countdown>
+  <div class="progress" [style.width.%]="getProggresssWidth()"></div>
+</div>

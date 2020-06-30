@@ -1,0 +1,23 @@
+<div class="wrapper bg-white ag-rounded-lg ag-blur-effect">
+  <div
+    class="wrapper__header d-flex align-items-center justify-content-between pr-4"
+  >
+    <div class="wrapper__header__owner d-flex align-items-center">
+      <div class="wrapper__header__owner-image mr-3">
+        <img class="ag-rounded-lg" [src]="customerImage" [alt]="customerName" />
+      </div>
+      <div class="wrapper__header__owner-name">
+        <p class="mb-0">{{ customerName }}</p>
+        <p class="mb-0">{{ projectName }}</p>
+      </div>
+    </div>
+    <div class="wrapper__header__quote">
+      <img src="assets/images/quote.png" alt="quote" />
+    </div>
+  </div>
+  <div class="wrapper__comment p-4">
+    <p class="mb-0">
+      {{ comment }}
+    </p>
+  </div>
+</div>

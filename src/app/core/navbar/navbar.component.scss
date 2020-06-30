@@ -1,0 +1,22 @@
+@import "abstracts/mixins";
+
+.navbar {
+  background-image: linear-gradient(to bottom, $white, rgba(255, 255, 255, 0));
+  background-color: transparent;
+  z-index: 1000;
+  transition: all 0.4s;
+  .nav-item {
+    @include text-style($title-color3, $font-size-lg);
+    .nav-link {
+      padding-left: 0;
+      padding-right: 0;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  &.is-not-home {
+    background-color: $white;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  }
+}

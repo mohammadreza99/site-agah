@@ -1,0 +1,30 @@
+<div
+  class="d-flex align-items-center wrapper"
+  [ngClass]="{ 'flex-row-reverse': isRtl }"
+>
+  <div
+    class="wrapper__image ag-rounded-lg ag-blur-effect"
+    [ngClass]="{ 'mr-4': isLtr, 'ml-4': isRtl }"
+  >
+    <img class="ag-rounded-lg w-100" [src]="imageUrl" [alt]="title" />
+    <img class="wrapper__image-dots" src="assets/images/dots4.png" alt="dots" />
+  </div>
+  <div class="wrapper__content">
+    <h3 class="wrapper__content-header mar-b-24">{{ title }}</h3>
+    <div class="description mar-b-24">
+      {{ description }}
+    </div>
+    <div class="d-flex align-items-center">
+      <ag-button
+        class="mar-r-32"
+        [raised]="true"
+        label="Product Website"
+      ></ag-button>
+      <ag-button
+        [routerLink]="['/products', id]"
+        [outline]="true"
+        label="Read More"
+      ></ag-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+  <ag-lined-header class="mar-b-80" text="Features"></ag-lined-header>
+  <div class="col-12 path">
+    <img class="w-100" src="assets/images/path.png" alt="path" />
+  </div>
+  <div class="container features">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <div class="row justify-content-between">
+          <div
+            class="col-2"
+            *ngFor="
+              let f of features | slice: 0:4;
+              let even = even;
+              let odd = odd
+            "
+          >
+            <ag-feature-item
+              [class.odd]="odd"
+              [class.even]="even"
+              [text]="f.text"
+              [image]="f.image"
+            ></ag-feature-item>
+          </div>
+        </div>
+        <div class="decription mar-t-80 text-center">
+          <p>{{ description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

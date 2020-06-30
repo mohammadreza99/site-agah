@@ -1,0 +1,15 @@
+@import "abstracts/mixins";
+
+.header {
+  position: relative;
+  text-align: center;
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h2 {
+      @include text-style($title-color1, $font-size-xxxxl, $font-weight: 600);
+    }
+  }
+}

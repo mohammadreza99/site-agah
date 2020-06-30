@@ -1,0 +1,11 @@
+@import "abstracts/mixins";
+
+ag-process-item {
+  &:last-of-type {
+    &::ng-deep {
+      img.path {
+        display: none;
+      }
+    }
+  }
+}

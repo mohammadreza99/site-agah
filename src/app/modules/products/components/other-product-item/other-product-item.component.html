@@ -1,0 +1,11 @@
+<div class="wrapper ag-blur-effect ag-rounded-lg text-center">
+  <img class="w-100" [src]="image" [alt]="title" />
+  <div class="overlay">
+    <h5 class="mar-b-40">{{ title }}</h5>
+    <ag-button
+      [outline]="true"
+      label="Read More"
+      [routerLink]="['/products', id]"
+    ></ag-button>
+  </div>
+</div>

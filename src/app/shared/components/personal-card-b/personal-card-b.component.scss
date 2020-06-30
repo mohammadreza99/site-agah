@@ -1,0 +1,34 @@
+@import "abstracts/mixins";
+
+.employer {
+  background-color: $white;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__image {
+    background-image: linear-gradient(
+      234deg,
+      rgba(204, 238, 238, 0.15),
+      #88d7d8
+    );
+    padding: 15px;
+  }
+  &__name {
+    @include text-style($title-color3, $font-size-lg, $line-height-sm);
+  }
+  &__post {
+    @include text-style($body-color);
+  }
+  &__social {
+    opacity: 0;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  &:hover {
+    box-shadow: $shadow-md rgba(0, 0, 0, 0.1);
+    .employer__social {
+      opacity: 1;
+    }
+  }
+}

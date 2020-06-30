@@ -1,0 +1,9 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  background-color: $polarous-blue-002;
+  border-radius: $radius-xxl;
+  .partner {
+    width: 20%;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <section>
+    <ag-vision type="about-page"></ag-vision>
+  </section>
+
+  <section class="mar-t-156">
+    <ag-histories [histories]="histories"></ag-histories>
+  </section>
+  <section class="mar-t-156">
+    <ag-personnel
+      title="Board of Directors"
+      [personnel]="personnel"
+    ></ag-personnel>
+  </section>
+  <section class="pad-t-156">
+    <ag-employers [employers]="employers"></ag-employers>
+  </section>
+  <section class="mar-t-156">
+    <ag-personnel title="Stockholders" [personnel]="personnel"></ag-personnel>
+  </section>
+  <section class="pad-t-156">
+    <ag-cards title="News & Events" [list]="blogs"></ag-cards>
+  </section>
+  <section class="mar-t-156 mar-b-156">
+    <ag-follow-us dotsPosition="right"></ag-follow-us>
+  </section>
+</div>

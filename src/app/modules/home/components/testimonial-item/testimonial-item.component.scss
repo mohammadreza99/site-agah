@@ -1,0 +1,32 @@
+@import "abstracts/mixins";
+.wrapper {
+  &__header {
+    &__owner {
+      &-image {
+        margin-top: -25px;
+        margin-left: -25px;
+        img {
+          width: 100%;
+        }
+      }
+      &-name {
+        p:first-child {
+          @include text-style($body-color);
+        }
+        p:last-child {
+          @include text-style($subtitle-color, $font-size-sm);
+        }
+      }
+    }
+    &__quote {
+      img {
+        width: 68px;
+      }
+    }
+    &__comment {
+      p {
+        @include text-style($body-color);
+      }
+    }
+  }
+}

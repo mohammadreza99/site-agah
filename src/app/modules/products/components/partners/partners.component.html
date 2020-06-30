@@ -1,0 +1,19 @@
+<div class="row ">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="wrapper ag-shadow-lg">
+          <div class="row flex-wrap pad-80">
+            <div
+              class="partner text-center mar-b-72"
+              *ngFor="let p of partners; let even = even"
+              [class.mar-t-40]="even"
+            >
+              <img class="img-fluid" [src]="p.image" [alt]="p.name" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

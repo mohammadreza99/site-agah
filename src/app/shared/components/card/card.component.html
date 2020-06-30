@@ -1,0 +1,25 @@
+<div class="card border-0 ag-rounded-lg">
+  <img class="card-img-top img-fluid" [src]="image" [alt]="title" />
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text card-desc">
+      {{ description }}
+    </p>
+    <div
+      class="d-flex align-items-center"
+      [ngClass]="{ 'justify-content-between': isBlog }"
+    >
+      <ag-button [link]="true" label="read more"></ag-button>
+      <div class="d-flex align-items-center card-bottom" *ngIf="isBlog">
+        <div class="d-flex align-items-center mr-3">
+          <ag-icon color="#b7b7b7" class="mr-2" icon="fa-comments"></ag-icon
+          >{{ commentCounts }}
+        </div>
+        <div class="d-flex align-items-center">
+          <ag-icon color="#b7b7b7" class="mr-2" icon="fa-calendar-alt"></ag-icon
+          >{{ date }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

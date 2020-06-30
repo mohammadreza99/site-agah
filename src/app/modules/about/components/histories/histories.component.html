@@ -1,0 +1,33 @@
+<div class="row employers">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ag-lined-header class="mar-b-80" text="Agah History"></ag-lined-header>
+        <div class="bullets mb-5">
+          <div class="bullet" *ngFor="let h of histories; let i = index">
+            <div
+              class="bullet__circle"
+              [class.active]="i <= activeSlide"
+              (click)="onBulletClick(i)"
+            >
+              <span>{{ h.year }}</span>
+            </div>
+            <div class="bullet__line"></div>
+          </div>
+        </div>
+        <ag-carousel
+          [showBullets]="false"
+          [showArrows]="false"
+          [allowTouchMove]="false"
+        >
+          <div class="swiper-slide p-5" *ngFor="let h of histories">
+            <ag-history-item
+              [image]="h.image"
+              [description]="h.description"
+            ></ag-history-item>
+          </div>
+        </ag-carousel>
+      </div>
+    </div>
+  </div>
+</div>

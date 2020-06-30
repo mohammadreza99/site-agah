@@ -1,0 +1,17 @@
+@import "abstracts/mixins";
+
+.request {
+  padding: 3% 0 3% 0;
+  margin-bottom: calc(93px - 3%);
+  background-image: linear-gradient(
+    to right,
+    $polarous-blue-003 0%,
+    $polarous-blue-007 100%
+  );
+  img {
+    margin-bottom: -93px;
+  }
+  p {
+    @include text-style($title-color1, $font-size-xl, $font-weight: 600);
+  }
+}

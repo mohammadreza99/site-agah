@@ -1,0 +1,17 @@
+@import "abstracts/mixins";
+
+:host {
+  width: 100%;
+  display: block;
+}
+h3 {
+  @include text-style($title-color1, $font-size-xxxl, $font-weight: 600);
+  position: relative;
+  img {
+    width: 164px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

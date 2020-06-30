@@ -1,0 +1,26 @@
+@import "abstracts/mixins";
+
+.footer {
+  background-color: $dark-green-005;
+  line-height: $line-height-sm;
+  color: $white;
+  .col-4 > *:first-child {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    margin: 0;
+  }
+  &__newsletter {
+    ag-button ::ng-deep button {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+  h3,
+  a {
+    @include text-style($white, $font-size-lg, normal);
+  }
+  a:hover {
+    color: $primary;
+  }
+}

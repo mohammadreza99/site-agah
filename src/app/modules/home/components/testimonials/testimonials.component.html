@@ -1,0 +1,20 @@
+<div class="row testimonial">
+  <div class="container">
+    <div class="row justify-content-center">
+      <ag-lined-header class="mar-b-80" text="Testimonial"></ag-lined-header>
+      <div class="col-8 wrapper">
+        <ag-carousel>
+          <div class="swiper-slide p-5" *ngFor="let t of testimonials">
+            <ag-testimonial-item
+              [customerName]="t.customerName"
+              [customerImage]="t.customerImage"
+              [projectName]="t.projectName"
+              [comment]="t.comment"
+            ></ag-testimonial-item>
+          </div>
+        </ag-carousel>
+      </div>
+    </div>
+  </div>
+  <img class="dot" src="assets/images/dots1.png" alt="dot" />
+</div>
