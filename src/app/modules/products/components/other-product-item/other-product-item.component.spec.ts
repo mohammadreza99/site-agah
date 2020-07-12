@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OtherProductItemComponent } from './other-product-item.component';
+import { OtherProductItemComponent } from '@modules/products/components/other-product-item/other-product-item.component';
 
 describe('OtherProductItemComponent', () => {
   let component: OtherProductItemComponent;
@@ -8,9 +8,8 @@ describe('OtherProductItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OtherProductItemComponent ]
-    })
-    .compileComponents();
+      declarations: [OtherProductItemComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

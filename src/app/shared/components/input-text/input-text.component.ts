@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
-import { Validations } from '../../models/validation.model';
+import { Validations } from '@shared/models/validation.model';
 
 @Component({
   selector: 'ag-input-text',
@@ -17,13 +17,13 @@ import { Validations } from '../../models/validation.model';
   styleUrls: ['./input-text.component.scss'],
 })
 export class InputTextComponent implements OnInit, ControlValueAccessor {
-  constructor(@Optional() @Self() public ngControl?: NgControl) {
+  constructor(@Self() @Optional() private ngControl?: NgControl) {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }
   }
 
-  @Input() placeholder: string;
+  @Input() placeholder: string = null;
   @Input() errors: Validations[] = [];
   @Input() label: string;
   @Input() icon: string;
@@ -36,26 +36,48 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
   @Output() onBlur = new EventEmitter();
   @Output() onFocus = new EventEmitter();
 
-  controlOnChange: (value?: any) => void;
+  controlOnChanged: (value?: any) => void;
   controlOnTouched: () => void;
   value: any = '';
+  hasValueAccessor = false;
 
   ngOnInit(): void {}
 
-  writeValue(obj: any): void {
-    this.value = obj;
+  writeValue(value: any): void {
+    this.hasValueAccessor = true;
+    this.value = value;
   }
 
   registerOnChange(fn: any): void {
-    this.controlOnChange = fn;
+    this.hasValueAccessor = true;
+    this.controlOnChanged = fn;
   }
 
   registerOnTouched(fn: any): void {
+    this.hasValueAccessor = true;
     this.controlOnTouched = fn;
   }
 
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  _onInput(event) {
+    if (this.hasValueAccessor) {
+      this.controlOnChanged(event.target.value);
+    }
+    this.onInput.emit(event.target.value);
+  }
+
+  _onBlur() {
+    if (this.hasValueAccessor) {
+      this.controlOnTouched();
+    }
+    this.onBlur.emit();
+  }
+
+  _onFocus() {
+    this.onFocus.emit();
   }
 
   controlIsTouchedOrDirty(): boolean {
@@ -77,21 +99,10 @@ export class InputTextComponent implements OnInit, ControlValueAccessor {
     return Object.values(error);
   }
 
-  _onInput(event) {
-    this.controlOnChange(event.target.value);
-    this.onInput.emit(event.target.value);
-  }
-
-  _onBlur() {
-    this.controlOnTouched();
-    this.onBlur.emit();
-  }
-
-  _onFocus() {}
-
   get isRtl() {
     return this.dir === 'rtl';
   }
+
   get isLtr() {
     return this.dir === 'ltr';
   }

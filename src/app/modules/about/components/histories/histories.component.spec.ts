@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoriesComponent } from './histories.component';
+import { HistoriesComponent } from '@modules/about/components/histories/histories.component';
 
 describe('HistoriesComponent', () => {
   let component: HistoriesComponent;

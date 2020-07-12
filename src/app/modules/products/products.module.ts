@@ -5,11 +5,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CountdownModule } from 'ngx-countdown';
-
-import { ProductsRoutingModule } from './products-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { COMPONENTS } from '.';
 import { RouterModule } from '@angular/router';
+
+import { ProductsRoutingModule } from '@modules/products/products-routing.module';
+import { SharedModule } from '@shared/shared.module';
+import { COMPONENTS } from '.';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [...COMPONENTS],
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
     ProductsRoutingModule,
     CountdownModule,
     RouterModule,
+    TranslateModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

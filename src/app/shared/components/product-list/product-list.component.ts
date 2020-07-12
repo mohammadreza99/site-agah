@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '@shared/models/product.model';
 
 @Component({
   selector: 'ag-product-list',
@@ -7,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   constructor() {}
-  
-  @Input() products: any[];
+
+  @Input() products: Product[];
 
   ngOnInit(): void {}
 }

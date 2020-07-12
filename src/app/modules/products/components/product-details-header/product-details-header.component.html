@@ -1,4 +1,4 @@
-<div class="row header">
+<div class="row header" *ngIf="product">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 pad-t-48">
@@ -7,19 +7,23 @@
         ></ag-breadcrumb>
       </div>
       <div class="col-9 mar-t-40 text-center">
-        <h1>{{ title }}</h1>
+        <h1>{{ "PRODUCT.TITLE" | translate: { title: product.title } }}</h1>
         <p class="mar-t-32">
-          {{ description }}
+          {{
+            "PRODUCT.DESCRIPTION"
+              | translate: { description: product.description }
+          }}
         </p>
-        <ag-button
-          [routerLink]="siteUrl"
-          class="mar-t-32"
-          label="product Website"
-        ></ag-button>
+        <a [href]="product.website">
+          <ag-button
+            class="mar-t-32"
+            label="{{ 'BUTTONS.VISIT_WEBSITE' | translate }}"
+          ></ag-button>
+        </a>
         <div class="ag-blur-effect">
           <img
-            [src]="image"
-            alt="title"
+            [src]="product.image"
+            alt="{{ 'PRODUCT.TITLE' | translate: { title: product.title } }}"
             class="img-fluid mar-t-40 w-100 ag-rounded-lg"
           />
         </div>

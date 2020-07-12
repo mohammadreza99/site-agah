@@ -1,22 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
+import { Constants } from '@core/config/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
-  
-  public get(url: string, options?: any) {
-    return this.http.get(url, options);
+  constructor(private http: HttpClient, private constants: Constants) {}
+
+  private baseUrl = this.constants.API_URL;
+
+  get<T>(endpoint: string, options?: any) {
+    return this.http
+      .get<T>(this.baseUrl + endpoint, options)
+      .pipe(map((res: any) => res.data as T));
   }
-  public post(url: string, data: any, options?: any) {
-    return this.http.post(url, data, options);
+
+  post<T>(endpoint: string, data: any, options?: any) {
+    return this.http
+      .post<T>(this.baseUrl + endpoint, data, options)
+      .pipe(map((res: any) => res.data as T));
   }
-  public put(url: string, data: any, options?: any) {
-    return this.http.put(url, data, options);
+
+  put<T>(endpoint: string, data: any, options?: any) {
+    return this.http
+      .put(this.baseUrl + endpoint, data, options)
+      .pipe(map((res: any) => res.data as T));
   }
-  public delete(url: string, options?: any) {
-    return this.http.delete(url, options);
+
+  delete<T>(endpoint: string, options?: any) {
+    return this.http
+      .delete<T>(this.baseUrl + endpoint, options)
+      .pipe(map((res: any) => res.data as T));
   }
 }

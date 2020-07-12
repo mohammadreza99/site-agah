@@ -1,0 +1,48 @@
+<div class="row social">
+  <div class="container">
+    <div class="row justify-content-start">
+      <div class="col-6 text-center">
+        <div class="row">
+          <div class="col-9">
+            <div
+              class="contact-us-form bg-white pad-32 ag-shadow-lg ag-rounded-lg text-left"
+            >
+              <p>{{ "TITLES.CONTACT_US" | translate }}</p>
+              <form
+                class="form-row"
+                [formGroup]="form"
+                (ngSubmit)="onSubmitForm()"
+              >
+                <ag-input-text
+                  formControlName="name"
+                  placeholder="Name"
+                  [errors]="[{ required: 'field is required' }]"
+                  class="col-12 mar-b-48"
+                ></ag-input-text>
+                <ag-input-text
+                  formControlName="email"
+                  [errors]="[
+                    { required: 'field is required' },
+                    { email: 'email is invalid' }
+                  ]"
+                  placeholder="Email"
+                  class="col-12 mar-b-48"
+                ></ag-input-text>
+                <ag-input-textarea
+                  formControlName="comment"
+                  [errors]="[{ required: 'field is required' }]"
+                  placeholder="Comment"
+                  class="col-12 mar-b-48"
+                ></ag-input-textarea>
+                <ag-button
+                  label="{{ 'BUTTONS.SEND_REQUEST' | translate }}"
+                  type="submit"
+                ></ag-button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

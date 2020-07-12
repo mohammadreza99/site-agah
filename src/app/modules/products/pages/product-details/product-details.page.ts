@@ -1,4 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { Product, Partner, Process } from '@shared/models/product.model';
+import { ProductService } from '@core/http/product/product.service';
+import { PartnerService } from '@core/http/partner/partner.service';
+import { ProcessService } from '@core/http/process/process.service';
 
 @Component({
   selector: 'ag-product-details',
@@ -6,32 +13,23 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private partnerService: PartnerService,
+    private processService: ProcessService
+  ) {}
 
-  processes = [];
-  partners = [];
-  otherProducts = [];
+  processes$: Observable<Process[]>;
+  product$: Observable<Product>;
+  partners$: Observable<Partner[]>;
+  otherProducts$: Observable<Product[]>;
+
   ngOnInit(): void {
-    for (let i = 0; i < 5; i++) {
-      this.processes.push({
-        title: 'Product Design',
-        image: 'assets/images/company.png',
-        description: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing.`,
-      });
-    }
-
-    for (let i = 0; i < 10; i++) {
-      this.partners.push({
-        name: 'company',
-        image: 'assets/images/partner.png',
-      });
-    }
-
-    for (let i = 0; i < 3; i++) {
-      this.otherProducts.push({
-        title: 'Crypto Currency',
-        image: 'assets/images/blog1.png',
-      });
-    }
+    const productId = +this.route.snapshot.paramMap.get('id');
+    this.product$ = this.productService.getProductById(productId);
+    this.partners$ = this.partnerService.getPartners();
+    this.processes$ = this.processService.getProcesses();
+    this.otherProducts$ = this.productService.getProducts();
   }
 }

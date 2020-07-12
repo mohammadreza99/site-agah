@@ -1,16 +1,21 @@
-<div class="row employers">
+<div class="row employees">
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <ag-lined-header class="mar-b-80" text="Agah History"></ag-lined-header>
+        <ag-lined-header *ngIf="title" class="mar-b-80" [text]="title"></ag-lined-header>
         <div class="bullets mb-5">
-          <div class="bullet" *ngFor="let h of histories; let i = index">
+          <div class="bullet" *ngFor="let history of histories; let i = index">
             <div
               class="bullet__circle"
               [class.active]="i <= activeSlide"
               (click)="onBulletClick(i)"
             >
-              <span>{{ h.year }}</span>
+              <span>
+                {{
+                  "HISTORY.TIME"
+                    | translate: { time: history.time | date: "yyyy" }
+                }}
+              </span>
             </div>
             <div class="bullet__line"></div>
           </div>
@@ -20,11 +25,8 @@
           [showArrows]="false"
           [allowTouchMove]="false"
         >
-          <div class="swiper-slide p-5" *ngFor="let h of histories">
-            <ag-history-item
-              [image]="h.image"
-              [description]="h.description"
-            ></ag-history-item>
+          <div class="swiper-slide p-5" *ngFor="let history of histories">
+            <ag-history-item [history]="history"></ag-history-item>
           </div>
         </ag-carousel>
       </div>

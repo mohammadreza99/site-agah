@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LinedHeaderComponent } from './lined-header.component';
+import { LinedHeaderComponent } from '@shared/components/lined-header/lined-header.component';
 
 describe('LinedHeaderComponent', () => {
   let component: LinedHeaderComponent;
@@ -8,9 +8,8 @@ describe('LinedHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LinedHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [LinedHeaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,16 +1,40 @@
 @import "abstracts/mixins";
 
 .vision {
+  position: relative;
   &__text {
     @include text-style($title-color3);
     margin-bottom: 84px;
   }
   &.for-about-page {
-    background-image: linear-gradient(rgb(204, 238, 238), transparent);
     .vision__text {
       background-color: $white;
       border-radius: $radius-lg;
       box-shadow: $shadow-lg rgba(0, 0, 0, 0.1);
+    }
+    &::after {
+      content: "";
+      background-image: linear-gradient(rgb(204, 238, 238), transparent);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+    }
+    &:before {
+      content: "";
+      background-image: linear-gradient(to bottom, transparent, #ffffff);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px;
+      width: 100%;
     }
   }
 }

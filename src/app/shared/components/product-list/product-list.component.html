@@ -1,8 +1,6 @@
 <ag-product-item
   *ngFor="let product of products; let odd = odd"
   [dir]="odd ? 'rtl' : 'ltr'"
-  [title]="product.title"
+  [product]="product"
   class="d-block mar-b-104"
-  [imageUrl]="product.imageUrl"
-  [description]="product.description"
 ></ag-product-item>

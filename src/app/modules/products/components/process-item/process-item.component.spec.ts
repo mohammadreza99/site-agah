@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProcessItemComponent } from './process-item.component';
+import { ProcessItemComponent } from '@modules/products/components/process-item/process-item.component';
 
 describe('ProcessItemComponent', () => {
   let component: ProcessItemComponent;

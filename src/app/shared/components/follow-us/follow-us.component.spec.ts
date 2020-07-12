@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FollowUsComponent } from './follow-us.component';
+import { FollowUsComponent } from '@shared/components/follow-us/follow-us.component';
 
 describe('FollowUsComponent', () => {
   let component: FollowUsComponent;
@@ -8,9 +8,8 @@ describe('FollowUsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FollowUsComponent ]
-    })
-    .compileComponents();
+      declarations: [FollowUsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

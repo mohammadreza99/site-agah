@@ -1,4 +1,12 @@
-import { Component, OnInit, HostListener, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Input,
+  ElementRef,
+} from '@angular/core';
+
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'ag-navbar',
@@ -6,17 +14,33 @@ import { Component, OnInit, HostListener, Input } from '@angular/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  constructor(private translationService: TranslationService) {}
 
   @Input() isHomePage: boolean;
-  isScrolled: boolean = false;
+
+  isScrolled = false;
+  selectedLang = 'En';
+  showMenu = false;
+  isOpen = false;
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    let scrollTop = event.target.scrollingElement.scrollTop;
-    if (scrollTop > 2) this.isScrolled = true;
-    else this.isScrolled = false;
+    const scrollTop = event.target.scrollingElement.scrollTop;
+    if (scrollTop > 2) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
   }
 
   ngOnInit(): void {}
+
+  changeLang(lang) {
+    this.selectedLang = lang.text;
+    this.translationService.use(this.selectedLang.toLowerCase());
+  }
+
+  toggleNavbar() {
+    this.isOpen = !this.isOpen;
+  }
 }

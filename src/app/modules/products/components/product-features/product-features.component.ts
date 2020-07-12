@@ -7,7 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductFeaturesComponent implements OnInit {
   constructor() {}
+
+  @Input() title: string;
   @Input() features: any[];
   @Input() description: string;
+
   ngOnInit(): void {}
 }

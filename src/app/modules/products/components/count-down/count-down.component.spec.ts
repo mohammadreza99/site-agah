@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CountDownComponent } from './count-down.component';
+import { CountDownComponent } from '@modules/products/components/count-down/count-down.component';
 
 describe('CountDownComponent', () => {
   let component: CountDownComponent;

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Process } from '@shared/models/product.model';
+
 @Component({
   selector: 'ag-project-process',
   templateUrl: './project-process.component.html',
@@ -8,8 +10,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProjectProcessComponent implements OnInit {
   constructor() {}
 
-  @Input() processes: any[];
-  @Input() countEnd = new Date(2020, 5, 29, 13, 21, 0);
-  
+  @Input() title: string;
+  @Input() processes: Process[];
+  @Input() countEnd = new Date(2020, 9, 3, 13, 21, 0);
+
   ngOnInit(): void {}
 }

@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="request-form ag-shadow-lg ag-rounded-lg bg-white pad-32">
+          <div class="request-form__header pad-b-32 d-flex align-items-center">
+            <img src="assets/images/save.png" alt="" />
+            <h3 class="mar-l-16 mb-0">{{ "Back-End Developer" }}</h3>
+          </div>
+          <form
+            [formGroup]="form"
+            class="form-row pad-t-32 border-top"
+            (ngSubmit)="_onSubmit()"
+          >
+            <div class="col-6 mar-b-48">
+              <ag-input-text
+                formControlName="firstName"
+                placeholder="First Name"
+              ></ag-input-text>
+            </div>
+            <div class="col-6 mar-b-48">
+              <ag-input-text
+                formControlName="lastName"
+                placeholder="Last Name"
+              ></ag-input-text>
+            </div>
+            <div class="col-6 mar-b-48">
+              <ag-input-datepicker
+                formControlName="birthday"
+                icon="fa-calendar-alt"
+                placeholder="Birthday Date"
+              ></ag-input-datepicker>
+            </div>
+            <div class="col-6 mar-b-48 d-flex align-items-center">
+              <ag-input-radio
+                class="flex-grow-1"
+                formControlName="gender"
+                label="Gender"
+                [items]="[
+                  { name: 'Male', value: 'male' },
+                  { name: 'Female', value: 'female' }
+                ]"
+              ></ag-input-radio>
+            </div>
+            <div class="col-6 mar-b-48">
+              <ag-input-text
+                formControlName="email"
+                placeholder="Email"
+              ></ag-input-text>
+            </div>
+            <div class="col-6 mar-b-48">
+              <ag-input-text
+                formControlName="phoneNumber"
+                placeholder="Phone Number"
+              ></ag-input-text>
+            </div>
+            <div class="col-12 mar-b-48">
+              <ag-input-textarea
+                formControlName="address"
+                placeholder="Address"
+              ></ag-input-textarea>
+            </div>
+            <div class="col-6">
+              <ag-input-file formControlName="image"></ag-input-file>
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+              <ag-button type="submit" label="Request"></ag-button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+{
+  "TITLES": {
+    "AGAH": "Agah electronic commerce system",
+    "PRODUCTS": "Our Products",
+    "DIRECTORS": "Board Of Directors",
+    "TESTIMONIALS": "Testimonials",
+    "BLOGS": "Blog Post",
+    "PARTNERS": "Our Partner",
+    "PROCESSES": "Project Process",
+    "OTHER_PRODUCTS": "Other Products",
+    "FEATURES": "Features",
+    "HISTORIES": "Agah History",
+    "EMPLOYEES": "Employees",
+    "STOCKHOLDERS": "Stockholders",
+    "NEWS": "News & Events",
+    "FOLLOW_US": "Follow Us",
+    "CONTACT_US": "Contact Us",
+    "JOB_REQUEST": "We are proud to work with you Join the Agah Team",
+    "COUNT_DOWN": "Time left to submit the project",
+    "LINKS": "Links",
+    "NEWSLETTERS": "Newsletters",
+    "BEST_COURSES": "Best Courses"
+  },
+  "BUTTONS": {
+    "PRODUCTS_SEE_MORE": "See More Projects",
+    "BLOGS_SEE_MORE": "See More Posts",
+    "COURSES_SEE_MORE": "See More Courses",
+    "VISIT_WEBSITE": "Visit Website",
+    "READ_MORE": "Read More",
+    "DOWNLOAD": "Download",
+    "SEND_REQUEST": "Send Request",
+    "REQUEST": "Request"
+  },
+  "PRODUCT": {
+    "TITLE": "{{title}}",
+    "DESCRIPTION": "{{description}}",
+    "FEATURE": "{{title}}",
+    "PROCESS": {
+      "TITLE": "{{title}}",
+      "DESCRIPTION": "{{description}}",
+      "COUNT_DOWN": {
+        "DAY": "day",
+        "HOUR": "hour",
+        "MIN": "min",
+        "SEC": "sec"
+      }
+    }
+  },
+  "HISTORY": {
+    "TIME": "{{time}}",
+    "DESCRIPTION": "{{description}}"
+  },
+  "VISION": {
+    "TITLE": "{{title}}",
+    "BODY": "{{body}}"
+  },
+  "SERVICES": {
+    "TITLE": "{{title}}",
+    "DESCRIPTION": "{{description}}"
+  },
+  "EMPLOYER": {
+    "NAME": "{{name}}",
+    "POSITION": "{{position}}"
+  },
+  "EMPLOYEE": {
+    "NAME": "{{name}}",
+    "POSITION": "{{position}}"
+  },
+  "CARD": {
+    "TITLE": "{{title}}",
+    "CONTENT": "{{content}}"
+  },
+  "TESTIMONIAL": {
+    "NAME": "{{name}}",
+    "POSITION": "{{position}}",
+    "OPINION": "{{opinion}}"
+  },
+  "FOOTER": {
+    "DESCRIPTION": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop"
+  },
+  "NAVIGATIONS": {
+    "PRODUCTS": "Products",
+    "SOLUTIONS": "Solutions",
+    "ACADEMY": "Academy",
+    "STOCKHOLDERS": "Stockholders",
+    "JOB_OPPURTINITY": "Job Oppurtinity",
+    "ABOUT_US": "About Us"
+  }
+}

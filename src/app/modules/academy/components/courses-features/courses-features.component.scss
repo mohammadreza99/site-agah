@@ -1,0 +1,34 @@
+@import "abstracts/mixins";
+
+.features {
+  padding-top: 68px;
+  &__video {
+    background-color: #cceeee;
+    position: relative;
+    z-index: 2;
+
+    &-capture {
+      transform: translate(68px, -68px);
+      z-index: 3;
+    }
+    .dots {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      z-index: -1;
+    }
+  }
+
+  &__list {
+    padding-left: 68px;
+    li {
+      display: flex;
+      align-items: center;
+      > span {
+        @include text-style(#414141, 20px);
+        display: block;
+        margin-left: 15px;
+      }
+    }
+  }
+}

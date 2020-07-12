@@ -1,0 +1,14 @@
+<div class="d-flex align-items-start">
+  <ag-input-text
+    [formControl]="email"
+    dir="ltr"
+    placeholder="Email"
+    [errors]="[{ email: 'email is invalid' }]"
+    class="mr-2 flex-grow-1"
+  ></ag-input-text>
+  <ag-button
+    (click)="onSubmitNewsLetter()"
+    roundedSize="md"
+    label="{{ 'BUTTONS.REQUEST' | translate }}"
+  ></ag-button>
+</div>

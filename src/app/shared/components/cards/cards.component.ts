@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { BlogPost } from '@shared/models/blog-post.model';
+
 @Component({
   selector: 'ag-cards',
   templateUrl: './cards.component.html',
@@ -9,8 +11,8 @@ export class CardsComponent implements OnInit {
   constructor() {}
 
   @Input() title: string;
-  @Input() list: any[] = [];
-  type: string;
+  @Input() cardItems: BlogPost[] = [];
+
   ngOnInit(): void {
     // TODO:
     // if (this.list[0] instanceof 'blogClass') this.type = 'blog';

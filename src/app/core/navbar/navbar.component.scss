@@ -6,14 +6,18 @@
   z-index: 1000;
   transition: all 0.4s;
   .nav-item {
-    @include text-style($title-color3, $font-size-lg);
     .nav-link {
+      @include text-style($title-color3, $font-size-md);
       padding-left: 0;
       padding-right: 0;
-      &:hover {
+      &:hover,
+      &.active {
         color: $primary;
       }
     }
+  }
+  &.expanded {
+    background-color: $white !important;
   }
   &.is-not-home {
     background-color: $white;

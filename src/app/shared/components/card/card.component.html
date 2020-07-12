@@ -1,23 +1,39 @@
 <div class="card border-0 ag-rounded-lg">
-  <img class="card-img-top img-fluid" [src]="image" [alt]="title" />
+  <div class="card-header position-relative">
+    <img
+      class="card-icon position-absolute rounded-circle"
+      [src]="$any(cardItem).icon"
+      alt="{{ 'CARD.TITLE' | translate: { title: cardItem.title } }}"
+    />
+    <img
+      class="card-img-top img-fluid"
+      [src]="cardItem.image"
+      alt="{{ 'CARD.TITLE' | translate: { title: cardItem.title } }}"
+    />
+  </div>
   <div class="card-body">
-    <h5 class="card-title">{{ title }}</h5>
+    <h5 class="card-title">
+      {{ "CARD.TITLE" | translate: { title: cardItem.title } }}
+    </h5>
     <p class="card-text card-desc">
-      {{ description }}
+      {{ "CARD.CONTENT" | translate: { content: cardItem.content } }}
     </p>
     <div
       class="d-flex align-items-center"
       [ngClass]="{ 'justify-content-between': isBlog }"
     >
-      <ag-button [link]="true" label="read more"></ag-button>
+      <ag-button
+        [link]="true"
+        label="{{ 'BUTTONS.READ_MORE' | translate }}"
+      ></ag-button>
       <div class="d-flex align-items-center card-bottom" *ngIf="isBlog">
         <div class="d-flex align-items-center mr-3">
           <ag-icon color="#b7b7b7" class="mr-2" icon="fa-comments"></ag-icon
-          >{{ commentCounts }}
+          >{{ "2" }}
         </div>
         <div class="d-flex align-items-center">
           <ag-icon color="#b7b7b7" class="mr-2" icon="fa-calendar-alt"></ag-icon
-          >{{ date }}
+          >{{ cardItem.created_at }}
         </div>
       </div>
     </div>

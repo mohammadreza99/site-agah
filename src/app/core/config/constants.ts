@@ -4,6 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Constants {
-  public readonly API_ENDPOINT: string = 'domain/api';
-  public readonly API_MOCK_ENDPOINT: string = 'mock-domain/api';
+  public readonly API_URL: string = 'http://192.168.10.207:9090/api/';
 }

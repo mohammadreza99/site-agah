@@ -2,14 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center mar-b-80">
-        <ag-lined-header text="Other Products"></ag-lined-header>
+        <ag-lined-header *ngIf="title" [text]="title"></ag-lined-header>
       </div>
-      <div class="col-4" *ngFor="let item of products | slice: 0:3">
-        <ag-other-product-item
-          [id]="2"
-          [title]="item.title"
-          [image]="item.image"
-        ></ag-other-product-item>
+      <div class="col-4" *ngFor="let p of products | slice: 0:3">
+        <ag-other-product-item [product]="p"></ag-other-product-item>
       </div>
     </div>
   </div>

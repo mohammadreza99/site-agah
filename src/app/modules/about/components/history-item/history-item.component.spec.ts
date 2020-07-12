@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HistoryItemComponent } from './history-item.component';
+import { HistoryItemComponent } from '@modules/about/components/history-item/history-item.component';
 
 describe('HistoryItemComponent', () => {
   let component: HistoryItemComponent;
@@ -8,9 +8,8 @@ describe('HistoryItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoryItemComponent ]
-    })
-    .compileComponents();
+      declarations: [HistoryItemComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

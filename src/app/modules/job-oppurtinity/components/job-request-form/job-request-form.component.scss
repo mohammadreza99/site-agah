@@ -1,0 +1,12 @@
+@import "abstracts/mixins";
+
+.request-form {
+  &__header {
+    img {
+      width: 64px;
+    }
+    h3 {
+      @include text-style(#212121, 20px);
+    }
+  }
+}

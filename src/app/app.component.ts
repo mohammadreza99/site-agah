@@ -9,7 +9,9 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
   constructor(private router: Router) {
     router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) this.currentUrl = event.url;
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url;
+      }
     });
   }
 
@@ -18,6 +20,7 @@ export class AppComponent implements OnInit {
   get isHomePage() {
     return this.currentUrl === '/';
   }
-  
+
   ngOnInit(): void {}
+
 }

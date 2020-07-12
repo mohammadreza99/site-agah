@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <section>
+    <ag-academy-header></ag-academy-header>
+  </section>
+  <section class="mar-t-104">
+    <ag-courses
+      [courses]="courses"
+      title="{{ 'TITLES.BEST_COURSES' | translate }}"
+    ></ag-courses>
+    <ag-button
+      class="mar-t-72 text-center"
+      label="{{'BUTTONS.COURSES_SEE_MORE' | translate}}"
+      [raised]="true"
+      [outline]="true"
+    ></ag-button>
+  </section>
+  <section class="mar-t-156">
+    <ag-courses-features></ag-courses-features>
+  </section>
+  <section class="mar-t-156">
+    <ag-cards
+      title="{{'TITLES.BLOGS' | translate}}"
+      [cardItems]="blogPosts$ | async"
+    ></ag-cards>
+    <ag-button
+      class="mar-t-72 text-center"
+      label="{{'BUTTONS.BLOGS_SEE_MORE' | translate}}"
+      [raised]="true"
+      [outline]="true"
+    ></ag-button>
+  </section>
+  <section class="mar-t-156">
+    <ag-news
+      title="{{'TITLES.NEWS' | translate}}"
+      [news]="news"
+    ></ag-news>
+  </section>
+  <section class="mar-y-156">
+    <div class="row justify-content-center">
+      <div class="col-7">
+        <ag-newsletter-subscribe></ag-newsletter-subscribe>
+      </div>
+    </div>
+  </section>
+</div>

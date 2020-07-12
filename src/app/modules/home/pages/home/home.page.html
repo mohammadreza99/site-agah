@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <section>
-    <ag-header></ag-header>
+    <ag-header title="{{'TITLES.AGAH' | translate}}"></ag-header>
   </section>
   <section class="mar-t-56">
     <div class="row">
@@ -9,15 +9,15 @@
           <div class="col-12">
             <ag-lined-header
               class="mar-b-80"
-              text="Our Products"
+              text="{{'TITLES.PRODUCTS' | translate}}"
             ></ag-lined-header>
-            <ag-product-list [products]="products"></ag-product-list>
+            <ag-product-list [products]="products$ | async"></ag-product-list>
             <div class="text-center">
               <ag-button
                 class="mar-t-56"
                 [outline]="true"
                 [raised]="true"
-                label="See More Projects"
+                label="{{'BUTTONS.PRODUCTS_SEE_MORE' | translate}}"
               ></ag-button>
             </div>
           </div>
@@ -26,25 +26,31 @@
     </div>
   </section>
   <section>
-    <ag-vision></ag-vision>
+    <ag-vision [vision]="vision$ | async"></ag-vision>
   </section>
   <section class="mar-t-156">
-    <ag-personnel
-      [personnel]="personnel"
-      title="Board of Directors"
-    ></ag-personnel>
+    <ag-employers
+      title="{{'TITLES.DIRECTORS' | translate}}"
+      [employers]="directors$ | async"
+    ></ag-employers>
   </section>
   <section class="pad-t-156">
-    <ag-testimonials [testimonials]="testimonials"></ag-testimonials>
+    <ag-testimonials
+      title="{{'TITLES.TESTIMONIALS' | translate}}"
+      [testimonials]="testimonials$ | async"
+    ></ag-testimonials>
   </section>
   <section class="mar-t-156">
     <ag-request></ag-request>
   </section>
   <section class="mar-t-156">
-    <ag-cards [list]="blogs" title="Blog Post"></ag-cards>
+    <ag-cards
+      title="{{'TITLES.BLOGS' | translate}}"
+      [cardItems]="blogPosts$ | async"
+    ></ag-cards>
     <ag-button
       class="mar-t-80 text-center"
-      label="See More Posts"
+      label="{{'BUTTONS.BLOGS_SEE_MORE' | translate}}"
       [raised]="true"
       [outline]="true"
     ></ag-button>

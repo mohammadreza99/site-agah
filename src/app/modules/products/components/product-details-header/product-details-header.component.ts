@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '@shared/models/product.model';
 
 @Component({
   selector: 'ag-product-details-header',
@@ -8,10 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProductDetailsHeaderComponent implements OnInit {
   constructor() {}
 
-  @Input() title: string;
-  @Input() description: string;
-  @Input() image: string;
-  @Input() siteUrl: string;
+  @Input() product: Product;
 
   ngOnInit(): void {}
 }

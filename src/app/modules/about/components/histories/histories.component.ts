@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.component';
+
+import { CarouselComponent } from '@shared/components/carousel/carousel.component';
+import { History } from '@shared/models/history.model';
 
 @Component({
   selector: 'ag-histories',
@@ -9,10 +11,11 @@ import { CarouselComponent } from 'src/app/shared/components/carousel/carousel.c
 export class HistoriesComponent implements OnInit {
   constructor() {}
 
-  @Input() histories: any[] = [];
+  @Input() title: string;
+  @Input() histories: History[] = [];
   @ViewChild(CarouselComponent) carouselCmp: CarouselComponent;
 
-  activeSlide: number = 0;
+  activeSlide = 0;
 
   ngOnInit(): void {}
 

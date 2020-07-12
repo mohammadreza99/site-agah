@@ -2,14 +2,19 @@
 
 .card {
   box-shadow: $shadow-md rgba($color: #000000, $alpha: 0.3);
-  &-title {
-    @include text-style($title-color3, $font-size-lg);
-  }
   &-img-top {
     border-radius: $radius-lg $radius-lg 0 0;
     max-height: 245px;
   }
-  &-bottom{
+  &-icon{
+    top: 16px;
+    left: 16px;
+    background-image: linear-gradient(217deg, #f25841, #ff809d);
+  }
+  &-title {
+    @include text-style($title-color3, $font-size-lg);
+  }
+  &-bottom {
     @include text-style(#b7b7b7);
   }
 }

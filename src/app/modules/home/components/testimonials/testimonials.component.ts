@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Testimonial } from '@shared/models/testimonial.model';
 
 @Component({
   selector: 'ag-testimonials',
@@ -7,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TestimonialsComponent implements OnInit {
   constructor() {}
-  @Input() testimonials: any[];
+  @Input() title: string;
+  @Input() testimonials: Testimonial[];
+
   ngOnInit(): void {}
 }

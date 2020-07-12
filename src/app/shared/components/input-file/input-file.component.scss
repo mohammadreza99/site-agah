@@ -1,0 +1,20 @@
+@import "abstracts/mixins";
+
+.fake-btn {
+  cursor: pointer;
+  background-color: $polarous-blue-001;
+  border: 1px dashed $primary;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+  &:focus {
+    outline: none;
+  }
+}

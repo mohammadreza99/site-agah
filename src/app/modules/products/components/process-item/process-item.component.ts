@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Process } from '@shared/models/product.model';
 
 @Component({
   selector: 'ag-process-item',
@@ -8,14 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProcessItemComponent implements OnInit {
   constructor() {}
 
-  @Input() title: string;
-  @Input() image: string;
-  @Input() description: string;
+  @Input() process: Process;
   @Input() direction: 'ltr' | 'rtl' = 'rtl';
 
   get isRtl() {
     return this.direction === 'rtl';
   }
-  
+
   ngOnInit(): void {}
 }

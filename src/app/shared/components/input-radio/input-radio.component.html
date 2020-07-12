@@ -1,0 +1,22 @@
+<div class="d-flex aligm-items-center justify-content-between">
+  <span>{{ label }}</span>
+  <div class="wrapper d-flex">
+    <label
+      *ngFor="let item of items"
+      class="radio-button d-flex flex-row-reverse align-items-center justify-content-end mr-3"
+    >
+      <span>
+        {{ item.name }}
+      </span>
+      <input
+        type="radio"
+        [value]="item.value"
+        [ngModel]="value"
+        (ngModelChange)="change($event)"
+        [name]="name"
+        #checked
+      />
+      <span class="checkmark mr-1" (click)="onChange(checked.value)"></span>
+    </label>
+  </div>
+</div>

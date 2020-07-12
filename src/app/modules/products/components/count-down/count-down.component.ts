@@ -10,7 +10,7 @@ import * as moment from 'moment';
 export class CountDownComponent implements OnInit {
   constructor() {}
 
-  @Input() title: string = 'Time left to submit the project';
+  @Input() title: string;
   @Input() end: Date;
 
   currentRemainigTime: number;
@@ -56,13 +56,16 @@ export class CountDownComponent implements OnInit {
     this.currentRemainigTime = event.left / 1000;
   }
 
-  getProggresssWidth(): number {
+  getProgressWidth(): number {
     return (this.currentRemainigTime * 100) / this.allRemainingTime;
   }
 
   getDateDiffInSecond(date: Date): number {
     const diff = moment(date).diff(moment(new Date()), 'seconds');
-    if (diff > 0) return diff;
-    else throw Error('the end time you enter is EXPIRED!');
+    if (diff > 0) {
+      return diff;
+    } else {
+      throw Error('the end time you enter is EXPIRED!');
+    }
   }
 }

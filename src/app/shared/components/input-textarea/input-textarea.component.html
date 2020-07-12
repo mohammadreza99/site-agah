@@ -1,0 +1,27 @@
+<div class="wrapper" class="{{ dir }}">
+  <div class="wrapper__input position-relative">
+    <ag-icon
+      *ngIf="icon"
+      class="wrapper__input-icon"
+      [color]="controlIsTouchedOrDirty() ? '#f25841' : '#414141'"
+      [icon]="icon"
+    ></ag-icon>
+    <textarea
+      class="wrapper__input-control form-control w-100 py-1"
+      [placeholder]="placeholder || ''"
+      [value]="value"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [attr.maxlength]="maxlength"
+      [ngClass]="{ 'is-invalid': controlIsTouchedOrDirty(), 'has-icon': icon }"
+      (input)="_onInput($event)"
+      (blur)="_onBlur()"
+      (focus)="_onFocus()"
+    ></textarea>
+  </div>
+  <ng-container *ngFor="let error of errors">
+    <div class="wrapper__error" *ngIf="hasError(error)">
+      {{ getErrorMessage(error) }}
+    </div>
+  </ng-container>
+</div>

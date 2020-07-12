@@ -1,23 +1,24 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgxPopperModule, Triggers } from 'ngx-popper';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 
 import { COMPONENTS } from '.';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, ],
   exports: [...COMPONENTS],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule,
-    NgxPopperModule.forRoot({
-      trigger: Triggers.CLICK,
-    }),
     NgxUsefulSwiperModule,
+    TranslateModule,
+    DpDatePickerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

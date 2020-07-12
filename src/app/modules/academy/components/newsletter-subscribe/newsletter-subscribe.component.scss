@@ -1,0 +1,22 @@
+@import "abstracts/mixins";
+
+.newsletter {
+  border: 1px solid #d4d4d4;
+  &,
+  & > .row {
+    min-height: 320px;
+  }
+  &__mask {
+    background-image: url("../../../../../assets/images/mask.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  &__input {
+    img {
+      position: absolute;
+      top: 30px;
+      right: 0;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '@shared/models/product.model';
 
 @Component({
   selector: 'ag-other-product-item',
@@ -7,10 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OtherProductItemComponent implements OnInit {
   constructor() {}
-  
-  @Input() id: string;
-  @Input() title: string;
-  @Input() image: string;
+
+  @Input() product: Product;
 
   ngOnInit(): void {}
 }

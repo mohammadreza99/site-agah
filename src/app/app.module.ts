@@ -1,32 +1,52 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import {
+  NgModule,
+  CUSTOM_ELEMENTS_SCHEMA,
+  NO_ERRORS_SCHEMA,
+} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HomeModule } from './modules/home/home.module';
-import { ProductsModule } from './modules/products/products.module';
-import { BlogModule } from './modules/blog/blog.module';
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { AboutModule } from './modules/about/about.module';
+import { AppComponent } from '@app/app.component';
+import { AppRoutingModule } from '@app/app-routing.module';
+import { CoreModule } from '@core/core.module';
+import { SharedModule } from '@shared/shared.module';
+import { HomeModule } from '@modules/home/home.module';
+import { ProductsModule } from '@modules/products/products.module';
+import { BlogModule } from '@modules/blog/blog.module';
+import { AboutModule } from '@modules/about/about.module';
+import { AcademyModule } from './modules/academy/academy.module';
+import { JobOppurtinityModule } from './modules/job-oppurtinity/job-oppurtinity.module';
 
+export function translateHttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     ReactiveFormsModule,
     AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateHttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'en',
+    }),
+    SharedModule,
+    CoreModule,
     HomeModule,
     ProductsModule,
     BlogModule,
-    SharedModule,
-    CoreModule,
     AboutModule,
+    AcademyModule,
+    JobOppurtinityModule,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

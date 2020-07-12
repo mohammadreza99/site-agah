@@ -1,25 +1,38 @@
 <div class="container-fluid">
   <section>
-    <ag-vision type="about-page"></ag-vision>
-  </section>
-
-  <section class="mar-t-156">
-    <ag-histories [histories]="histories"></ag-histories>
+    <ag-vision [vision]="vision$ | async" type="about-page"></ag-vision>
   </section>
   <section class="mar-t-156">
-    <ag-personnel
-      title="Board of Directors"
-      [personnel]="personnel"
-    ></ag-personnel>
+    <ag-histories
+      title="{{'TITLES.HISTORIES' | translate}}"
+      [histories]="histories$ | async"
+    ></ag-histories>
+  </section>
+  <section class="mar-t-156">
+    <ag-employers
+      title="{{'TITLES.DIRECTORS' | translate}}"
+      [employers]="directors$ | async"
+    ></ag-employers>
   </section>
   <section class="pad-t-156">
-    <ag-employers [employers]="employers"></ag-employers>
+    <ag-employees
+      title="{{'TITLES.EMPLOYEES' | translate}}"
+      [employees]="employees$ | async"
+    ></ag-employees>
+    <ag-button
+      class="text-center mt-3"
+      [raised]="true"
+      label="Login"
+    ></ag-button>
   </section>
   <section class="mar-t-156">
-    <ag-personnel title="Stockholders" [personnel]="personnel"></ag-personnel>
+    <ag-employers
+      title="{{'TITLES.STOCKHOLDERS' | translate}}"
+      [employers]="stockholders$ | async"
+    ></ag-employers>
   </section>
   <section class="pad-t-156">
-    <ag-cards title="News & Events" [list]="blogs"></ag-cards>
+    <ag-cards title="{{'TITLES.NEWS' | translate}}" [list]="[]"></ag-cards>
   </section>
   <section class="mar-t-156 mar-b-156">
     <ag-follow-us dotsPosition="right"></ag-follow-us>

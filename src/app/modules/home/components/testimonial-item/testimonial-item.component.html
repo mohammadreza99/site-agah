@@ -4,11 +4,29 @@
   >
     <div class="wrapper__header__owner d-flex align-items-center">
       <div class="wrapper__header__owner-image mr-3">
-        <img class="ag-rounded-lg" [src]="customerImage" [alt]="customerName" />
+        <img
+          class="ag-rounded-lg"
+          [src]="testimonial.image"
+          alt="{{
+            'TESTIMONIAL.LASTNAME'
+              | translate: { lastName: testimonial.lastName }
+          }}"
+        />
       </div>
       <div class="wrapper__header__owner-name">
-        <p class="mb-0">{{ customerName }}</p>
-        <p class="mb-0">{{ projectName }}</p>
+        <p class="mb-0">
+          {{
+            "TESTIMONIAL.NAME"
+              | translate
+                : { name: testimonial.firstName + " " + testimonial.lastName }
+          }}
+        </p>
+        <p class="mb-0">
+          {{
+            "TESTIMONIAL.POSITION"
+              | translate: { position: testimonial.position }
+          }}
+        </p>
       </div>
     </div>
     <div class="wrapper__header__quote">
@@ -17,7 +35,7 @@
   </div>
   <div class="wrapper__comment p-4">
     <p class="mb-0">
-      {{ comment }}
+      {{ "TESTIMONIAL.OPINION" | translate: { opinion: testimonial.opinion } }}
     </p>
   </div>
 </div>

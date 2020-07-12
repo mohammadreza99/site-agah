@@ -1,0 +1,12 @@
+@import "abstracts/mixins";
+
+.contact {
+  li {
+    ag-icon {
+      width: 40px;
+    }
+    span {
+      @include text-style(#212121, 20px);
+    }
+  }
+}

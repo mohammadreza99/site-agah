@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { Partner } from '@shared/models/product.model';
+
 @Component({
   selector: 'ag-partners',
   templateUrl: './partners.component.html',
@@ -7,6 +9,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PartnersComponent implements OnInit {
   constructor() {}
-  @Input() partners: any[]=[];
+
+  @Input() title: string;
+  @Input() partners: Partner[] = [];
+
   ngOnInit(): void {}
 }

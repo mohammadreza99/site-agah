@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 pad-t-104 pad-b-156">
-          <ag-product-list [products]="products"></ag-product-list>
+          <ag-product-list [products]="products$ | async"></ag-product-list>
         </div>
       </div>
     </div>

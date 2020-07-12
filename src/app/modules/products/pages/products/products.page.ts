@@ -1,25 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { Product } from '@shared/models/product.model';
+import { ProductService } from '@core/http/product/product.service';
 
 @Component({
-  selector: 'ag-products',
+  selector: 'ag-products-page',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
 })
 export class ProductsPage implements OnInit {
-  constructor() {}
-  products: any[] = [];
+  constructor(private productService: ProductService) {}
+
+  products$: Observable<Product[]>;
 
   ngOnInit(): void {
-    for (let i = 0; i < 4; i++) {
-      this.products.push({
-        title: 'Product Content & Distribution Management',
-        imageUrl: 'assets/images/service.png',
-        description: `It is a long established fact that a reader will be distracted by the readable 
-        content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a 
-        more-or-less normal distribution of letters, as opposed to using 'Content here, content 
-        here', making it look like readable English. Many desktop publishing packages and web page 
-        editors now use Lorem Ipsum as their default model text.`,
-      });
-    }
+    this.products$ = this.productService.getProducts();
   }
 }

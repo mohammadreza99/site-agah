@@ -1,0 +1,38 @@
+@import "abstracts/mixins";
+:host {
+  display: block;
+}
+.job-oppurtinity-item {
+  &__header {
+    img {
+      width: 64px;
+    }
+
+    h6 {
+      @include text-style(#212121, 20px, $font-weight: 600);
+      margin-bottom: 0;
+    }
+
+    .more {
+      @include text-style($primary);
+      cursor: pointer;
+    }
+  }
+
+  &__content {
+      position: relative;
+    ag-button {
+      top: 34x;
+      right: 0;
+    }
+    &--property {
+      h6 {
+        @include text-style(#212121, 20px);
+      }
+      img,
+      ag-icon {
+        width: 48px;
+      }
+    }
+  }
+}

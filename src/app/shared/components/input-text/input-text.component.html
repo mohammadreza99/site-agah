@@ -3,11 +3,12 @@
     <ag-icon
       *ngIf="icon"
       class="wrapper__input-icon"
+      stylePrefix="fal"
       [color]="controlIsTouchedOrDirty() ? '#f25841' : '#414141'"
       [icon]="icon"
     ></ag-icon>
     <input
-      class="wrapper__input-control form-control w-100"
+      class="wrapper__input-control form-control w-100 py-1"
       [type]="type"
       [placeholder]="placeholder || ''"
       [value]="value"

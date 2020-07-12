@@ -1,0 +1,63 @@
+<div class="job-oppurtinity-item pad-x-32 ag-shadow-sm ag-rounded-lg bg-white">
+  <div class="job-oppurtinity-item__header d-flex align-items-center pad-y-32">
+    <img class="mar-r-32" src="assets/images/save.png" alt="" />
+    <h6 class="mar-r-32">{{ "Business Analyzer" }}</h6>
+    <span class="desription">{{
+      "We need a business Analyzer for developing our software "
+    }}</span>
+    <div class="flex-grow-1"></div>
+    <div class="d-flex align-items-center more" (click)="setActive.emit()">
+      <span>{{ active ? "Less" : "More" }}</span>
+      <i class="fal fa-chevron-{{ active ? 'up' : 'down' }} ml-2"></i>
+    </div>
+  </div>
+  <div
+    style="overflow: hidden; transition: all 0.4s;"
+    [style.height.px]="active ? content.scrollHeight : 0"
+  >
+    <div #content class="job-oppurtinity-item__content pad-y-32 border-top">
+      <ag-button
+        [raised]="false"
+        class="position-absolute"
+        label="Request Form"
+        [routerLink]="['/job-request']"
+      ></ag-button>
+      <ul class="list-unstyled p-0">
+        <li class="job-oppurtinity-item__content--property mar-b-48">
+          <div class="d-flex align-items-center mar-b-16">
+            <img src="assets/images/save.png" alt="" />
+            <h6 class="mar-l-16 mb-0">{{ "Skill" }}</h6>
+          </div>
+          <ul class="list-unstyled p-0">
+            <li class="d-flex align-items-center">
+              <ag-icon color="green" size="1x" icon="fa-check"></ag-icon>
+              <span class="mar-l-16">{{
+                "You have first feature for this job possition"
+              }}</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <ag-icon color="green" size="1x" icon="fa-check"></ag-icon>
+              <span class="mar-l-16">{{
+                "You have first feature for this job possition"
+              }}</span>
+            </li>
+          </ul>
+        </li>
+        <li class="job-oppurtinity-item__content--property">
+          <div class="d-flex align-items-center mar-b-16">
+            <img src="assets/images/save.png" alt="" />
+            <h6 class="mar-l-16 mb-0">{{ "Skill" }}</h6>
+          </div>
+          <ul class="list-unstyled p-0">
+            <li class="d-flex align-items-center">
+              <ag-icon color="green" size="1x" icon="fa-check"></ag-icon>
+              <span class="mar-l-16">{{
+                "You have first feature for this job possition"
+              }}</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

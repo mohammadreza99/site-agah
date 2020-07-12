@@ -1,58 +1,72 @@
 <nav
-  class="navbar navbar-expand-lg navbar-light fixed-top justify-content-between justify-content-lg-center"
+  class="navbar navbar-expand-lg navbar-light fixed-top"
   [class.shadow-sm]="isScrolled"
   [ngClass]="{
-    'bg-white shadow-sm': isScrolled,
+    'bg-white shadow-sm': isScrolled || isOpen,
     'is-not-home': !isHomePage
   }"
 >
-  <div class="container justify-content-start">
-    <button class="navbar-toggler" type="button">
+  <div class="container">
+    <a class="navbar-brand" href="#"><ag-logo></ag-logo></a>
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand mar-r-32" href="#"><ag-logo></ag-logo></a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-none d-lg-flex w-100">
+    <div class="collapse navbar-collapse" [ngClass]="{ show: isOpen }">
+      <ul class="navbar-nav w-100">
         <li class="nav-item mar-r-32">
           <a
             class="nav-link"
             [routerLink]="['/products']"
             routerLinkActive="active"
-            >Products</a
           >
+            Products
+          </a>
         </li>
         <li class="nav-item mar-r-32">
           <a class="nav-link" href="#">Solutions</a>
         </li>
         <li class="nav-item mar-r-32">
-          <ag-menu popperText="Academy"></ag-menu>
+          <a class="nav-link" routerLinkActive="active" routerLink="/academy"
+            >Academy</a
+          >
         </li>
         <li class="nav-item mar-r-32">
-          <a class="nav-link" href="#">Stockholders</a>
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/stockholders"
+            >Stockholders</a
+          >
         </li>
         <li class="nav-item mar-r-32">
-          <a class="nav-link" href="#">Job Oppurtinity</a>
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/job-oppurtinities"
+            >Job Oppurtinity</a
+          >
         </li>
-        <li class="nav-item mar-r-48">
-          <ag-menu
-            popperText="About Us"
-            [popperList]="[
-              { text: 'About Us', path: '/about' },
-              { text: 'History', path: '/about/history' },
-              { text: 'Boared', path: '/about/boared' },
-              { text: 'Employer', path: '/about/employer' },
-              { text: 'Stockholder', path: '/about/stockholder' },
-              { text: 'Contact Us', path: '/about/contact-us' }
-            ]"
-          ></ag-menu>
-        </li>
+        <ag-dropdown
+          title="About Us"
+          [list]="[
+            { text: 'About Us', routerLink: '/about', exact: true },
+            { text: 'History', routerLink: '/about/history' },
+            { text: 'Board', routerLink: '/about/board' },
+            { text: 'Employees', routerLink: '/about/employees' },
+            { text: 'Stockholders', routerLink: '/about/stockholders' },
+            { text: 'Contact Us', routerLink: '/about/contact-us' }
+          ]"
+        >
+        </ag-dropdown>
         <li class="nav-item flex-grow-1"></li>
-        <li class="nav-item">
-          <a class="nav-link d-flex align-items-center" href="#">
-            <i class="fas fa-globe-americas mr-1"></i>
-            En
-          </a>
-        </li>
+        <ag-dropdown
+          [title]="selectedLang"
+          icon="fas fa-globe-americas"
+          iconPos="start"
+          [list]="[{ text: 'Fa' }, { text: 'En' }]"
+          (listItemClick)="changeLang($event)"
+        >
+        </ag-dropdown>
       </ul>
     </div>
   </div>

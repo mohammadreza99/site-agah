@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "ag",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,12 +23,21 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "assets/"
+              }
+            ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/swiper/css/swiper.css"
+              "./node_modules/swiper/css/swiper.css",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": ["./node_modules/popper.js/dist/esm/popper.min.js"],
+            "scripts": [],
             "stylePreprocessorOptions": {
               "includePaths": ["src/assets/styles", "src/assets"]
             }

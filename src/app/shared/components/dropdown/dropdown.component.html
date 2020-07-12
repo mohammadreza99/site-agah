@@ -1,0 +1,35 @@
+<li
+  class="nav-item dropdown"
+  [class.active]="isDropdownOpen"
+  (click)="toggleDropDown()"
+  (clickOutside)="onClickOutside()"
+>
+  <span class="d-flex align-items-center">
+    <i
+      class="nav-item-icon {{ icon }}"
+      [ngClass]="{
+        'order-1 mar-l-8': iconPos === 'end',
+        'order-0 mar-r-8': iconPos === 'start'
+      }"
+    ></i>
+    <a class="nav-link dropdown-toggle">
+      {{ title }}
+    </a>
+  </span>
+  <div
+    class="dropdown-menu border-0 pad-y-24 ag-rounded-lg ag-shadow-xsm"
+    [ngClass]="{ show: isDropdownOpen }"
+  >
+    <ng-content select=".dropdown-item"></ng-content>
+    <a
+      class="dropdown-item mar-b-24 py-0"
+      *ngFor="let item of list"
+      [routerLink]="item.routerLink"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: item.exact }"
+      (click)="listItemClick.emit(item)"
+      ><i class="fal fa-chevron-right dropdown-item-icon"></i>
+      {{ item.text }}</a
+    >
+  </div>
+</li>

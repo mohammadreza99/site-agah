@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { History } from '@shared/models/history.model';
 
 @Component({
   selector: 'ag-history-item',
@@ -8,8 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HistoryItemComponent implements OnInit {
   constructor() {}
 
-  @Input() image: string;
-  @Input() description: string;
-  
+  @Input() history: History;
+
   ngOnInit(): void {}
 }

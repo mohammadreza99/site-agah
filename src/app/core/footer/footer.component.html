@@ -5,37 +5,43 @@
         <div class="col-4 footer__description">
           <ag-logo></ag-logo>
           <p>
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English. Many desktop
+            {{ "FOOTER.DESCRIPTION" | translate }}
           </p>
         </div>
         <div class="col-4 footer__links">
-          <h3>Links</h3>
+          <h3>{{ "TITLES.LINKS" | translate }}</h3>
           <div class="row">
-            <div class="col-6 mar-b-24"><a href="">Products</a></div>
-            <div class="col-6 mar-b-24"><a href="">Solutions</a></div>
-            <div class="col-6 mar-b-24"><a href="">Academy</a></div>
-            <div class="col-6 mar-b-24"><a href="">Stockholders</a></div>
-            <div class="col-6 mar-b-24"><a href="">Job Oppurtinity</a></div>
-            <div class="col-6 mar-b-24"><a href="">About Us</a></div>
+            <div class="col-6 mar-b-24">
+              <a href="">{{ "NAVIGATIONS.PRODUCTS" | translate }}</a>
+            </div>
+            <div class="col-6 mar-b-24">
+              <a href="">{{ "NAVIGATIONS.SOLUTIONS" | translate }}</a>
+            </div>
+            <div class="col-6 mar-b-24">
+              <a href="">{{ "NAVIGATIONS.ACADEMY" | translate }}</a>
+            </div>
+            <div class="col-6 mar-b-24">
+              <a href="">{{ "NAVIGATIONS.STOCKHOLDERS" | translate }}</a>
+            </div>
+            <div class="col-6 mar-b-24">
+              <a href="">{{ "NAVIGATIONS.JOB_OPPURTINITY" | translate }}</a>
+            </div>
+            <div class="col-6 mar-b-24">
+              <a href="">{{ "NAVIGATIONS.ABOUT_US" | translate }}</a>
+            </div>
           </div>
         </div>
         <div class="col-4 footer__newsletter">
-          <h3>Newsletters</h3>
-          <div class="d-flex align-items-center mar-b-48">
-            <ag-input-text
-              dir="ltr"
-              placeholder="Email"
-              class="mr-2"
-            ></ag-input-text>
-            <ag-button roundedSize="md" label="Request"></ag-button>
-          </div>
+          <h3>{{ "TITLES.NEWSLETTERS" | translate }}</h3>
+          <ag-newsletter-textbox
+            class="d-block mar-b-48"
+          ></ag-newsletter-textbox>
           <div class="row">
             <div class="col-10">
-              <ag-social [colored]="false"></ag-social>
+              <ag-social-networks
+                [socialNetworks]="socialNetworks$ | async"
+                [colored]="false"
+              ></ag-social-networks>
             </div>
           </div>
         </div>

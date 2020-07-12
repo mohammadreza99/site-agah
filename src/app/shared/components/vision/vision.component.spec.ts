@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VisionComponent } from './vision.component';
+import { VisionComponent } from '@shared/components/vision/vision.component';
 
 describe('VisionComponent', () => {
   let component: VisionComponent;
@@ -8,9 +8,8 @@ describe('VisionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisionComponent ]
-    })
-    .compileComponents();
+      declarations: [VisionComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

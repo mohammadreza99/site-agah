@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IconStyle, IconSize, IconRotation } from '../../models/icon.model';
+import { IconStyle, IconSize, IconRotation } from '@shared/models/icon.model';
 
 @Component({
   selector: 'ag-icon',
@@ -10,13 +10,13 @@ export class IconComponent implements OnInit {
   constructor() {}
 
   @Input() icon: string = null;
-  @Input() color: string = '#414141';
+  @Input() color = '#414141';
   @Input() stylePrefix: IconStyle = 'fas';
-  @Input() fixedWidth: boolean = false;
+  @Input() fixedWidth = false;
   @Input() size: IconSize = '1x';
   @Input() rotation: IconRotation = null;
-  @Input() spin: boolean = false;
-  @Input() border: boolean = false;
+  @Input() spin = false;
+  @Input() border = false;
 
   styleClass = '';
 
@@ -24,9 +24,17 @@ export class IconComponent implements OnInit {
     this.styleClass += `${this.icon} `;
     this.styleClass += `${this.stylePrefix} `;
     this.styleClass += `fa-${this.size} `;
-    if (this.fixedWidth) this.styleClass += ' fa-fw ';
-    if (this.rotation) this.styleClass += ` fa-${this.rotation} `;
-    if (this.spin) this.styleClass += ' fa-spin';
-    if (this.border) this.styleClass += ' fa-border';
+    if (this.fixedWidth) {
+      this.styleClass += ' fa-fw ';
+    }
+    if (this.rotation) {
+      this.styleClass += ` fa-${this.rotation} `;
+    }
+    if (this.spin) {
+      this.styleClass += ' fa-spin';
+    }
+    if (this.border) {
+      this.styleClass += ' fa-border';
+    }
   }
 }

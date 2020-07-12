@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Service } from '@shared/models/service.model';
 
 @Component({
   selector: 'ag-service-item',
@@ -7,9 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ServiceItemComponent implements OnInit {
   constructor() {}
-  @Input() title: string;
-  @Input() icon: string;
-  @Input() description: string;
+
+  @Input() service: Service;
 
   ngOnInit(): void {}
 }

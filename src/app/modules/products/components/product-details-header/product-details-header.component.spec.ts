@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductDetailsHeaderComponent } from './product-details-header.component';
+import { ProductDetailsHeaderComponent } from '@modules/products/components/product-details-header/product-details-header.component';
 
 describe('ProductDetailsHeaderComponent', () => {
   let component: ProductDetailsHeaderComponent;
@@ -8,9 +8,8 @@ describe('ProductDetailsHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductDetailsHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [ProductDetailsHeaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

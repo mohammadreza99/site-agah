@@ -1,46 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { BlogPost } from '@shared/models/blog-post.model';
+import { Product } from '@shared/models/product.model';
+import { Vision } from '@shared/models/vision.model';
+import { Director } from '@shared/models/director.mode';
+import { Testimonial } from '@shared/models/testimonial.model';
+import { ProductService } from '@core/http/product/product.service';
+import { PostService } from '@core/http/post/post.service';
+import { VisionService } from '@core/http/vision/vision.service';
+import { DirectorService } from '@core/http/director/director.service';
+import { TestimonialService } from '@core/http/testimonial/testimonial.service';
 
 @Component({
-  selector: 'ag-home',
+  selector: 'ag-home-page',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  constructor() {}
+  constructor(
+    private productService: ProductService,
+    private blogService: PostService,
+    private visionService: VisionService,
+    private directorService: DirectorService,
+    private testimonialService: TestimonialService
+  ) {}
 
-  products = [];
-  testimonials = [];
-  personnel = [];
-  blogs = [];
+  products$: Observable<Product[]>;
+  blogPosts$: Observable<BlogPost[]>;
+  vision$: Observable<Vision>;
+  directors$: Observable<Director[]>;
+  testimonials$: Observable<Testimonial[]>;
+
   ngOnInit(): void {
-    for (let i = 0; i < 4; i++) {
-      this.products.push({
-        title: 'Product Content & Distribution Management',
-        imageUrl: 'assets/images/service.png',
-        description: `It is a long established fact that a reader will be distracted by the readable 
-        content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a 
-        more-or-less normal distribution of letters, as opposed to using 'Content here, content 
-        here', making it look like readable English. Many desktop publishing packages and web page 
-        editors now use Lorem Ipsum as their default model text.`,
-      });
-      this.testimonials.push({
-        customerName: 'Ali Hasani',
-        customerImage: 'assets/images/customer.png',
-        projectName: 'Alibaba Seo',
-        comment: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.`,
-      });
-      this.blogs.push({
-        image: 'assets/images/blog1.png',
-        title: 'blog title',
-        description: `this is some sample test dor description of blog.this is some sample test dor description of blog.this is some sample test dor description of blog.this is some sample test dor description of blog.`,
-        commentCounts: 3,
-        date: '2020-01-15',
-      });
-      this.personnel.push({
-        image: 'assets/images/user2.png',
-        title: 'Ali Hasani',
-        subtitle: 'Member of the Board',
-      });
-    }
+    this.blogPosts$ = this.blogService.getPosts();
+    this.products$ = this.productService.getProducts();
+    this.vision$ = this.visionService.getVisionById(1);
+    this.directors$ = this.directorService.getDirectors();
+    this.testimonials$ = this.testimonialService.getTestimonials();
   }
 }

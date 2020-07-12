@@ -1,0 +1,45 @@
+@import "abstracts/mixins";
+
+.radio-button {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &:checked ~ .checkmark {
+      &:after {
+        display: block;
+      }
+    }
+  }
+
+  .checkmark {
+    position: relative;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    border: 1px solid $primary;
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: $primary;
+    }
+  }
+
+  &:hover input ~ .checkmark {
+    background-color: #eeeeee;
+  }
+}

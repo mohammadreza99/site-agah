@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FeatureItemComponent implements OnInit {
   constructor() {}
+
   @Input() text: string;
   @Input() image: string;
-  
+
   ngOnInit(): void {}
 }

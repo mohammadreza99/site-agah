@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { BlogPost } from '@shared/models/blog-post.model';
+
 @Component({
   selector: 'ag-card',
   templateUrl: './card.component.html',
@@ -7,20 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardComponent implements OnInit {
   constructor() {}
-  @Input() image: string;
-  @Input() title: string;
-  @Input() description: string;
-  @Input() commentCounts: number;
-  @Input() date: any;
-  @Input() type: 'news' | 'blog' = 'blog';
+
+  @Input() cardItem: BlogPost;
 
   get isNews() {
-    return this.type === 'news';
+    return this.cardItem instanceof BlogPost;
   }
 
   get isBlog() {
-    return this.type === 'blog';
+    return this.cardItem instanceof BlogPost;
   }
+
+  // get isCourse() {
+  // return this.cardItem instanceof ;
+  // }
 
   ngOnInit(): void {}
 }

@@ -5,7 +5,7 @@
   display: block;
 }
 h3 {
-  @include text-style($title-color1, $font-size-xxxl, $font-weight: 600);
+  @include text-style($title-color1, $font-size-xxxl, $font-weight: bold);
   position: relative;
   img {
     width: 164px;

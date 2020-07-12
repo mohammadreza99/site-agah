@@ -18,10 +18,10 @@ import { SwiperComponent } from 'ngx-useful-swiper';
 export class CarouselComponent implements AfterViewInit {
   constructor() {}
 
-  @Input() showBullets: boolean = true;
-  @Input() showArrows: boolean = true;
-  @Input() allowTouchMove: boolean = true;
-  @Input() slideSpace: number = 30;
+  @Input() showBullets = true;
+  @Input() showArrows = true;
+  @Input() allowTouchMove = true;
+  @Input() slideSpace = 30;
   @Output() onSlideNext = new EventEmitter();
   @Output() onSlidePrev = new EventEmitter();
   @ViewChild('carousel', { static: false }) carousel: SwiperComponent;

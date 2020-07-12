@@ -1,0 +1,13 @@
+.employees {
+  .col {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    max-width: 230px;
+  }
+  .first-row-even {
+    transform: translateY(-30px);
+  }
+  .second-row-even {
+    transform: translateY(30px);
+  }
+}

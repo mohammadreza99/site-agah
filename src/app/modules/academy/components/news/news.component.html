@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ag-lined-header *ngIf="title" class="mar-b-80" [text]="title"></ag-lined-header>
+      </div>
+      <div
+        *ngFor="let n of news | slice: 0:5; let i = index"
+        class="mar-b-32"
+        [ngClass]="{ 'col-4': i != 1, 'col-8': i == 1 }"
+      >
+        <ag-news-item [news]="n"></ag-news-item>
+      </div>
+    </div>
+  </div>
+</div>

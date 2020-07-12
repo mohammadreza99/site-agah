@@ -1,44 +1,45 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { VisionService } from '@core/http/vision/vision.service';
+import { HistoryService } from '@core/http/history/history.service';
+import { DirectorService } from '@core/http/director/director.service';
+import { StockholderService } from '@core/http/stockholder/stockholder.service';
+import { EmployeeService } from '@core/http/employee/employee.service';
+import { Vision } from '@shared/models/vision.model';
+import { History } from '@shared/models/history.model';
+import { Director } from '@shared/models/director.mode';
+import { Employee } from '@shared/models/employee.model';
+import { Stockholder } from '@shared/models/stockholder.model';
+import { NewsLetter } from '@shared/models/news-letter.model';
+import { NewsLetterService } from '@core/http/news-letter/news-letter.service';
 
 @Component({
-  selector: 'ag-about',
+  selector: 'ag-about-page',
   templateUrl: './about.page.html',
   styleUrls: ['./about.page.scss'],
 })
 export class AboutPage implements OnInit {
-  constructor() {}
+  constructor(
+    private visionService: VisionService,
+    private historyService: HistoryService,
+    private directorService: DirectorService,
+    private stockholderService: StockholderService,
+    private employeeService: EmployeeService
+  ) {}
 
-  employers = [];
-  blogs = [];
-  personnel = [];
-  histories = [];
+  vision$: Observable<Vision>;
+  histories$: Observable<History[]>;
+  directors$: Observable<Director[]>;
+  employees$: Observable<Employee[]>;
+  stockholders$: Observable<Stockholder[]>;
+  newsLetters$: Observable<NewsLetter[]>;
 
   ngOnInit(): void {
-    for (let i = 0; i < 4; i++) {
-      this.blogs.push({
-        image: 'assets/images/blog1.png',
-        title: 'blog title',
-        description: `this is some sample test dor description of blog.this is some sample test dor description of blog.this is some sample test dor description of blog.this is some sample test dor description of blog.`,
-        commentCounts: 3,
-        date: '2020-01-15',
-      });
-      this.personnel.push({
-        image: 'assets/images/user2.png',
-        title: 'Ali Hasani',
-        subtitle: 'Member of the Board',
-      });
-    }
-    for (let i = 0; i < 11; i++) {
-      this.employers.push({
-        image: 'assets/images/customer.png',
-        name: 'Ali Hasani',
-        post: 'product manager',
-      });
-      this.histories.push({
-        image: 'assets/images/company.png',
-        description: `this is some sample test dor description of blog.this is some sample test dor description of blog.this is some sample test dor description of blog.this is some sample test dor description of blog.`,
-        year: '200' + i,
-      });
-    }
+    this.vision$ = this.visionService.getVisionById(1);
+    this.histories$ = this.historyService.getHistorys();
+    this.directors$ = this.directorService.getDirectors();
+    this.employees$ = this.employeeService.getEmployees();
+    this.stockholders$ = this.stockholderService.getStockholders();
   }
 }

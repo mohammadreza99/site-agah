@@ -9,6 +9,6 @@ export class LinedHeaderComponent implements OnInit {
   constructor() {}
 
   @Input() text: string;
-  
+
   ngOnInit(): void {}
 }
