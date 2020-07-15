@@ -1,0 +1,28 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+.accordion-item {
+  .accordion-header {
+      cursor: pointer;
+    .header {
+      span {
+        @include text-style(#414141, 20px, $font-weight: 600);
+      }
+    }
+  }
+  &.active {
+    .accordion-header {
+      .header,
+      span {
+        color: $primary !important;
+      }
+    }
+  }
+}
+.accordion-content {
+  overflow: hidden;
+  transition: all 0.4s;
+}

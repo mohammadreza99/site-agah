@@ -1,0 +1,23 @@
+<div class="card border-0 ag-rounded-lg">
+  <div class="card-header p-0">
+    <img
+      class="card-img-top img-fluid"
+      [src]="news.image"
+      alt="{{ 'NEWS.TITLE' | translate: { title: news.title } }}"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ "NEWS.TITLE" | translate: { title: news.title } }}
+    </h5>
+    <p class="card-text card-desc">
+      {{ "NEWS.CONTENT" | translate: { content: news.content } }}
+    </p>
+    <div class="d-flex align-items-center">
+      <ag-button
+        [link]="true"
+        label="{{ 'BUTTONS.READ_MORE' | translate }}"
+      ></ag-button>
+    </div>
+  </div>
+</div>

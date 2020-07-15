@@ -1,0 +1,22 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+.row {
+  > div {
+    text-align: center;
+    &.move {
+      margin-top: -32px;
+    }
+
+    span {
+      @include text-style(#414141, 20px);
+    }
+
+    img {
+      width: 45px;
+    }
+  }
+}

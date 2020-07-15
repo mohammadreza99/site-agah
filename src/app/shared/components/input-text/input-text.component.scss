@@ -4,12 +4,12 @@
   &__input {
     &-control {
       border: 1px solid $field-color;
-      border-radius: $radius-md;
-      text-align: right;
       font-size: $font-size-md;
       outline: 0;
       height: auto;
       @include text-style();
+      border-radius: $radius-md;
+      text-align: right;
       &.ng-dirty.ng-valid {
         background-color: $polarous-blue-001;
       }

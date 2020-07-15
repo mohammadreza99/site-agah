@@ -36,9 +36,10 @@
     ></ag-partners>
   </section>
   <section class="mar-y-156">
-    <ag-other-products
-      title="{{'TITLES.OTHER_PRODUCTS' | translate}}"
-      [products]="otherProducts$ | async"
-    ></ag-other-products>
+    <ag-container title="{{'TITLES.OTHER_PRODUCTS' | translate}}">
+      <div class="col-4" *ngFor="let p of otherProducts$ | async | slice: 0:3">
+        <ag-other-product-item [product]="p"></ag-other-product-item>
+      </div>
+    </ag-container>
   </section>
 </div>

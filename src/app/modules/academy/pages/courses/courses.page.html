@@ -1,1 +1,23 @@
-<p>courses works!</p>
+<div class="container-fluid pad-t-48">
+  <ag-container>
+    <div class="col-12">
+      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
+      <div class="row justify-content-center mar-t-80">
+        <div class="col-6">
+          <ag-input-search></ag-input-search>
+        </div>
+      </div>
+      <div class="row justify-content-start mar-t-80 mar-b-40">
+        <div class="col-2">
+          <ag-input-select
+            (listItemClick)="onListItemClick($event)"
+            [list]="['item1','item2','item3']"
+          ></ag-input-select>
+        </div>
+      </div>
+    </div>
+    <div class="col-4" *ngFor="let item of []">
+      <ag-news-item [news]="item"></ag-news-item>
+    </div>
+  </ag-container>
+</div>

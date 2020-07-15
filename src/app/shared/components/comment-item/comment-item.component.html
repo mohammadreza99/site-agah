@@ -1,0 +1,25 @@
+<div class="comment pad-y-32" [class.reply]="isReply">
+  <div
+    class="comment__header d-flex align-items-center justify-content-between mar-b-32"
+  >
+    <div class="avatar d-flex align-items-center">
+      <img src="assets/images/customer.png" alt="" />
+      <div class="mar-l-24">
+        Agah Company CEO
+      </div>
+    </div>
+    <div class="additional d-flex align-items-center">
+      <div class="d-flex align-items-center date mar-r-16">
+        <ag-icon color="#b7b7b7" class="mr-2" icon="fa-calendar-alt"></ag-icon
+        >{{ "02/04/2020" | date: "M/d/yyyy" }}
+      </div>
+      <span class="reply" (click)="appendReply()">Reply</span>
+    </div>
+  </div>
+  <div class="comment__text">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nisi quas
+    nemo. Beatae suscipit quas ad. Nihil doloremque error numquam fugit
+    cupiditate quod, sit odio obcaecati, officiis, corporis pariatur omnis.
+  </div>
+  <ng-container #container></ng-container>
+</div>

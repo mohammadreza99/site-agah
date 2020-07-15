@@ -1,0 +1,15 @@
+@import "abstracts/mixins";
+
+.side-list {
+  position: sticky;
+  top: 105px;
+  overflow: hidden;
+  margin-top: 70px;
+
+  .title {
+    @include text-style(#616161, 20px);
+  }
+  .subtitle {
+    @include text-style(#414141, 20px, $font-weight: bold);
+  }
+}

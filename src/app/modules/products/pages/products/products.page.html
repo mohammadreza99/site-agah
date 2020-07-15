@@ -1,11 +1,7 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 pad-t-104 pad-b-156">
-          <ag-product-list [products]="products$ | async"></ag-product-list>
-        </div>
-      </div>
+<div class="container-fluid pad-t-104 pad-b-156">
+  <ag-container>
+    <div class="col-12">
+      <ag-product-list [products]="products$ | async"></ag-product-list>
     </div>
-  </div>
+  </ag-container>
 </div>

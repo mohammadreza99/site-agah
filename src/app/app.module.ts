@@ -15,10 +15,11 @@ import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { HomeModule } from '@modules/home/home.module';
 import { ProductsModule } from '@modules/products/products.module';
-import { BlogModule } from '@modules/blog/blog.module';
 import { AboutModule } from '@modules/about/about.module';
-import { AcademyModule } from './modules/academy/academy.module';
-import { JobOppurtinityModule } from './modules/job-oppurtinity/job-oppurtinity.module';
+import { AcademyModule } from '@modules/academy/academy.module';
+import { JobOppurtinityModule } from '@modules/job-oppurtinity/job-oppurtinity.module';
+import { PostModule } from '@modules/post/post.module';
+import { NewsModule } from './modules/news/news.module';
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -41,10 +42,12 @@ export function translateHttpLoaderFactory(http: HttpClient) {
     CoreModule,
     HomeModule,
     ProductsModule,
-    BlogModule,
+    PostModule,
     AboutModule,
     AcademyModule,
     JobOppurtinityModule,
+    NewsModule,
+    PostModule,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

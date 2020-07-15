@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PostService } from '@core/http/post/post.service';
-import { BlogPost } from '@shared/models/blog-post.model';
+import { Post } from '@shared/models/post.model';
 
 @Component({
   selector: 'app-academy-page',
@@ -10,14 +10,14 @@ import { BlogPost } from '@shared/models/blog-post.model';
   styleUrls: ['./academy.page.scss'],
 })
 export class AcademyPage implements OnInit {
-  constructor(private blogService: PostService) {}
+  constructor(private postService: PostService) {}
 
   courses = [];
   news = [];
-  blogPosts$: Observable<BlogPost[]>;
+  posts$: Observable<Post[]>;
 
   ngOnInit(): void {
-    this.blogPosts$ = this.blogService.getPosts();
+    this.posts$ = this.postService.getPosts();
     for (let index = 0; index < 10; index++) {
       this.courses.push({
         title: 'Test Course',

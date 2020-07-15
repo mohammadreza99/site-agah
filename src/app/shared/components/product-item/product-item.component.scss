@@ -1,5 +1,9 @@
 @import "abstracts/mixins";
 
+:host {
+  padding-bottom: 47px;
+}
+
 .wrapper {
   &__image {
     flex-basis: 55%;

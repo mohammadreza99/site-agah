@@ -1,0 +1,13 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+.tags {
+  .tag-item {
+    height: 50px;
+    border: 1px solid #d4d4d4;
+    @include text-style(#414141, 20px);
+  }
+}

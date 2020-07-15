@@ -3,37 +3,47 @@
     <ag-academy-header></ag-academy-header>
   </section>
   <section class="mar-t-104">
-    <ag-courses
-      [courses]="courses"
-      title="{{ 'TITLES.BEST_COURSES' | translate }}"
-    ></ag-courses>
+    <ag-container title="{{ 'TITLES.BEST_COURSES' | translate }}">
+      <div class="col-4" *ngFor="let course of courses | slice: 0:3">
+        <a href="http://" class="stretched-link">
+          <ag-course-item-shadowed [course]="course"></ag-course-item-shadowed>
+        </a>
+      </div>
+    </ag-container>
     <ag-button
       class="mar-t-72 text-center"
       label="{{'BUTTONS.COURSES_SEE_MORE' | translate}}"
       [raised]="true"
       [outline]="true"
+      routerLink="/courses-category"
     ></ag-button>
   </section>
   <section class="mar-t-156">
-    <ag-courses-features></ag-courses-features>
+    <ag-courses-intro></ag-courses-intro>
   </section>
   <section class="mar-t-156">
-    <ag-cards
-      title="{{'TITLES.BLOGS' | translate}}"
-      [cardItems]="blogPosts$ | async"
-    ></ag-cards>
+    <ag-container title="{{'TITLES.FEATURED_POST' | translate}}">
+      <div class="col-4" *ngFor="let item of posts$ | async | slice: 0:3">
+        <ag-post-item [post]="item"></ag-post-item>
+      </div>
+    </ag-container>
     <ag-button
       class="mar-t-72 text-center"
-      label="{{'BUTTONS.BLOGS_SEE_MORE' | translate}}"
+      label="{{'BUTTONS.POSTS_SEE_MORE' | translate}}"
       [raised]="true"
       [outline]="true"
     ></ag-button>
   </section>
   <section class="mar-t-156">
-    <ag-news
-      title="{{'TITLES.NEWS' | translate}}"
-      [news]="news"
-    ></ag-news>
+    <ag-container text="{{'TITLES.NEWS' | translate}}">
+      <div
+        *ngFor="let n of news | slice: 0:5; let i = index"
+        class="mar-b-32"
+        [ngClass]="{ 'col-4': i != 1, 'col-8': i == 1 }"
+      >
+        <ag-news-item-shadowed [news]="n"></ag-news-item-shadowed>
+      </div>
+    </ag-container>
   </section>
   <section class="mar-y-156">
     <div class="row justify-content-center">

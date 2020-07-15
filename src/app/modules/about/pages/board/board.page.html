@@ -1,17 +1,13 @@
 <div class="container-fluid pad-t-48">
-  <div class="row">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
-        </div>
-        <div class="col-12 text-right mar-b-104">
-          <ag-button label="Download Chart"></ag-button>
-        </div>
-        <div class="col-3 mar-b-72" *ngFor="let director of directors$ | async">
-          <ag-employer-item [employer]="director"></ag-employer-item>
-        </div>
-      </div>
+  <ag-container>
+    <div class="col-12">
+      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
     </div>
-  </div>
+    <div class="col-12 text-right mar-b-104">
+      <ag-button label="Download Chart"></ag-button>
+    </div>
+    <div class="col-3 mar-b-72" *ngFor="let director of directors$ | async">
+      <ag-employer-item [employer]="director"></ag-employer-item>
+    </div>
+  </ag-container>
 </div>

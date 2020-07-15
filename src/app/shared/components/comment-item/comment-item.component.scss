@@ -1,0 +1,39 @@
+@import "abstracts/mixins";
+
+.comment {
+  border-bottom: 1px solid #d4d4d4;
+  .avatar {
+    img {
+      width: 100px;
+      border-radius: 50%;
+    }
+  }
+
+  .additional {
+    .date {
+      color: #b7b7b7;
+    }
+    .reply {
+      cursor: pointer;
+      @include text-style($primary, 20px);
+    }
+  }
+
+  &.reply {
+    margin-left: 100px;
+    border-bottom-color: transparent;
+    padding-bottom: 0 !important;
+    .avatar {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left: -30px;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: #d4d4d4;
+      }
+    }
+  }
+}

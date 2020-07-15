@@ -8,7 +8,6 @@ import { CountDownComponent } from '@modules/products/components/count-down/coun
 import { OtherProductItemComponent } from '@modules/products/components/other-product-item/other-product-item.component';
 import { ProcessItemComponent } from '@modules/products/components/process-item/process-item.component';
 import { PartnersComponent } from '@modules/products/components/partners/partners.component';
-import { OtherProductsComponent } from '@modules/products/components/other-products/other-products.component';
 
 export const COMPONENTS = [
   ProductsPage,
@@ -21,5 +20,4 @@ export const COMPONENTS = [
   OtherProductItemComponent,
   ProcessItemComponent,
   PartnersComponent,
-  OtherProductsComponent,
 ];

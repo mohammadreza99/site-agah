@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { BlogPost } from '@shared/models/blog-post.model';
+import { Post } from '@shared/models/post.model';
 import { Product } from '@shared/models/product.model';
 import { Vision } from '@shared/models/vision.model';
 import { Director } from '@shared/models/director.mode';
@@ -20,20 +20,20 @@ import { TestimonialService } from '@core/http/testimonial/testimonial.service';
 export class HomePage implements OnInit {
   constructor(
     private productService: ProductService,
-    private blogService: PostService,
+    private postService: PostService,
     private visionService: VisionService,
     private directorService: DirectorService,
     private testimonialService: TestimonialService
   ) {}
 
   products$: Observable<Product[]>;
-  blogPosts$: Observable<BlogPost[]>;
+  posts$: Observable<Post[]>;
   vision$: Observable<Vision>;
   directors$: Observable<Director[]>;
   testimonials$: Observable<Testimonial[]>;
 
   ngOnInit(): void {
-    this.blogPosts$ = this.blogService.getPosts();
+    this.posts$ = this.postService.getPosts();
     this.products$ = this.productService.getProducts();
     this.vision$ = this.visionService.getVisionById(1);
     this.directors$ = this.directorService.getDirectors();

@@ -32,7 +32,11 @@
     ></ag-employers>
   </section>
   <section class="pad-t-156">
-    <ag-cards title="{{'TITLES.NEWS' | translate}}" [list]="[]"></ag-cards>
+    <ag-container title="{{'TITLES.NEWS' | translate}}">
+      <div class="col-4" *ngFor="let item of [] | slice: 0:3">
+        <ag-news-item [news]="item"></ag-news-item>
+      </div>
+    </ag-container>
   </section>
   <section class="mar-t-156 mar-b-156">
     <ag-follow-us dotsPosition="right"></ag-follow-us>

@@ -1,0 +1,16 @@
+@import "abstracts/mixins";
+
+.card {
+  box-shadow: $shadow-md rgba($color: #000000, $alpha: 0.3);
+  &-img-top {
+    border-radius: $radius-lg $radius-lg 0 0;
+  }
+  &-icon{
+    top: 16px;
+    left: 16px;
+    background-image: linear-gradient(217deg, #f25841, #ff809d);
+  }
+  &-title {
+    @include text-style($title-color3, $font-size-lg);
+  }
+}

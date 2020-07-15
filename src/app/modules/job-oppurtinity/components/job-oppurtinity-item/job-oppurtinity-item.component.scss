@@ -20,7 +20,7 @@
   }
 
   &__content {
-      position: relative;
+    position: relative;
     ag-button {
       top: 34x;
       right: 0;
@@ -34,5 +34,10 @@
         width: 48px;
       }
     }
+  }
+
+  .content-wrapper {
+    overflow: hidden;
+    transition: all 0.4s;
   }
 }

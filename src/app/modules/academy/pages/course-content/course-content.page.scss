@@ -1,0 +1,33 @@
+@import "abstracts/mixins";
+
+.side-list {
+  margin-top: 70px;
+  position: sticky;
+  top: 105px;
+  overflow: hidden;
+  ul.courses-list {
+    li {
+      a {
+        @include text-style();
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          background-color: transparent;
+        }
+        &.active {
+          color: $primary;
+          &:before {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}

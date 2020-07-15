@@ -1,0 +1,53 @@
+@import "abstracts/mixins";
+
+.side-list {
+  position: sticky;
+  top: 105px;
+  overflow: hidden;
+  margin-top: 70px;
+  li {
+    @include text-style(#212121, 20px, $font-weight: 600);
+    cursor: pointer;
+    position: relative;
+    border-radius: 0 7px 7px 0;
+    i {
+      width: 24px;
+      text-align: center;
+    }
+    &:not(:last-child):after {
+      content: "";
+      position: absolute;
+      left: -8px;
+      width: 8px;
+      background-color: $primary;
+      height: 100%;
+      transition: all 0.4s;
+      border-radius: 0 10px 10px 0;
+    }
+    &.active {
+      color: $primary;
+      &:after {
+        left: 0;
+      }
+    }
+  }
+}
+.content {
+  .comments {
+    border: 1px solid #d4d4d4;
+
+    .comment-text {
+      color: #d4d4d4;
+      @include text-style(#d4d4d4, 20px, $font-weight: 600);
+    }
+  }
+}
+
+a {
+  color: blue;
+  transition: color 0.2s ease-in-out;
+}
+
+a.active {
+  color: darkblue;
+}

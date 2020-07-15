@@ -1,0 +1,14 @@
+<div class="search-box d-flex align-items-center">
+  <input
+    type="text"
+    class="ag-shadow-lg form-control w-100 py-2"
+    placeholder="Course or workshop name..."
+    [(ngModel)]="value"
+    (input)="valueChange.emit(value)"
+  />
+  <ag-icon
+    icon="fa-search"
+    color="#ffffff"
+    (click)="searchIconClick.emit(value)"
+  ></ag-icon>
+</div>

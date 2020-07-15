@@ -1,0 +1,13 @@
+@import "abstracts/mixins";
+
+.share {
+  span {
+    @include text-style(#0d2424, 20px, $font-weight: 600);
+  }
+  i {
+    color: #aae2e3;
+    &:hover {
+      color: $primary;
+    }
+  }
+}

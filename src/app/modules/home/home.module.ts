@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { SharedModule } from '@shared/shared.module';
 import { HomeRoutingModule } from '@modules/home/home-routing.module';
-import { BlogModule } from '@modules/blog/blog.module';
+import { PostModule } from '@modules/post/post.module';
 import { COMPONENTS } from '.';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { COMPONENTS } from '.';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    BlogModule,
+    PostModule,
     TranslateModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

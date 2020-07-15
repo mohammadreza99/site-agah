@@ -1,0 +1,11 @@
+<div class="wrapper ag-rounded-lg ag-blur-effect">
+  <img [src]="news.image" class="wrapper__image ag-rounded-lg" />
+  <div
+    class="wrapper__content d-flex flex-column justify-content-end align-items-start text-white pad-b-32 pad-l-24"
+  >
+    <h6 class="wrapper__content-title">
+      {{ news.title }}
+    </h6>
+    <a class="text-white" href="#">{{ "BUTTONS.READ_MORE" | translate }}</a>
+  </div>
+</div>

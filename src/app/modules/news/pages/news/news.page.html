@@ -1,0 +1,15 @@
+<div class="container-fluid pad-t-48">
+  <ag-container>
+    <div class="col-12">
+      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
+      <div class="row justify-content-center mar-y-80">
+        <div class="col-6">
+          <ag-input-search></ag-input-search>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 mar-b-40" *ngFor="let item of []">
+      <ag-news-item [news]="item"></ag-news-item>
+    </div>
+  </ag-container>
+</div>

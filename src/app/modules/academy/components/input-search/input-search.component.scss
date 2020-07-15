@@ -1,0 +1,31 @@
+@import "abstracts/mixins";
+.search-box {
+  input {
+    @include text-style();
+    border-radius: 30px !important;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    font-size: $font-size-md;
+    outline: 0;
+    height: auto;
+    &:focus {
+      border-color: $primary;
+    }
+  }
+  ag-icon {
+    margin-left: -45px;
+    cursor: pointer;
+    &::ng-deep {
+      i {
+        background-image: linear-gradient(217deg, #44c1c3, #3ddbba);
+        color: $white !important;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

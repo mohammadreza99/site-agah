@@ -47,7 +47,7 @@ export class InputDatepickerComponent implements OnInit, ControlValueAccessor {
   controlOnChanged: (value?: any) => void;
   controlOnTouched: () => void;
   hasValueAccessor = false;
-  _date: moment.Moment = null;
+  innerDate: moment.Moment = null;
   config = {
     disableKeypress: true,
     closeOnSelect: true,
@@ -104,14 +104,14 @@ export class InputDatepickerComponent implements OnInit, ControlValueAccessor {
     }
     setTimeout(() => {
       if (this.date) {
-        this._date = this.date;
+        this.innerDate = this.date;
       }
     }, 0);
   }
 
   writeValue(value: any): void {
     this.hasValueAccessor = true;
-    this._date = value;
+    this.innerDate = value;
   }
 
   registerOnChange(fn: any): void {
@@ -139,7 +139,7 @@ export class InputDatepickerComponent implements OnInit, ControlValueAccessor {
   }
 
   clearInput() {
-    this._date = undefined;
+    this.innerDate = undefined;
     this.onChange.emit(undefined);
   }
 

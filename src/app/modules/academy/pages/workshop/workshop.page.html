@@ -1,0 +1,33 @@
+<div class="container-fluid pad-t-48 pad-b-156">
+  <ag-container>
+    <div class="col-12 mar-b-80">
+      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
+    </div>
+    <div class="col-3">
+      <div class="side-list bg-white ag-rounded-lg ag-shadow-lg pad-24">
+        <div class="title mar-b-16">Time</div>
+        <div class="subtitle mar-b-24">22 June 2020</div>
+        <div class="title mar-b-16">Location</div>
+        <div class="subtitle mar-b-32">No 138, Mirdamad Blvd, Tehran.</div>
+        <ag-button class="text-center" label="Submit"></ag-button>
+      </div>
+    </div>
+    <div class="col-9 content">
+      <section #about uniScrollSpy="about" class="mar-b-40">
+        <ag-course-details-header
+          [showFeatures]="false"
+        ></ag-course-details-header>
+        <ag-tags [tags]="['Event']" class="mar-b-40"></ag-tags>
+        <ag-share></ag-share>
+      </section>
+      <section class="mar-b-156">
+        <ag-owner-info class="mar-b-32"></ag-owner-info>
+      </section>
+    </div>
+  </ag-container>
+  <ag-container class="mar-t-156" title="Other Courses">
+    <div class="col-4">
+      <ag-course-item [course]="course"></ag-course-item>
+    </div>
+  </ag-container>
+</div>

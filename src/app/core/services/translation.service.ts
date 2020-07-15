@@ -37,7 +37,7 @@ export class TranslationService {
   }
 
   /**
-   * Manually sets an object of translations for a given language, set shouldMerge to true if you want to append the translations instead of replacing them
+   * Manually sets object of translations for a given language,set shouldMerge=true if want append the translations insteadof replacing them
    */
   setTranslation(
     lang: string,
@@ -72,7 +72,7 @@ export class TranslationService {
   }
 
   /**
-   * Returns a stream of translated values of a key (or an array of keys) or the key if the value was not found. Without any onTranslationChange events this returns the same value as get but it will also emit new values whenever the translation changes.
+   * Returns a stream of translated values of a key or the key if the value wasn't found.Without any onTranslationChange events.
    */
   getStreamOnTranslationChange(
     key: string | Array<string>,
@@ -82,7 +82,7 @@ export class TranslationService {
   }
 
   /**
-   * Returns a stream of translated values of a key (or an array of keys) or the key if the value was not found. Without any onLangChange events this returns the same value as get but it will also emit new values whenever the used language changes.
+   * Returns a stream of translated values of a key (or an array of keys) or the key if the value was not found.
    */
   stream(
     key: string | Array<string>,
@@ -92,7 +92,7 @@ export class TranslationService {
   }
 
   /**
-   * Gets the instant translated value of a key (or an array of keys). /!\ This method is synchronous and the default file loader is asynchronous. You are responsible for knowing when your translations have been loaded and it is safe to use this method. If you are not sure then you should use the get method instead.
+   * Gets the instant translated value of a key. This method is synchronous and the default file loader is asynchronous.
    */
   instant(
     key: string | Array<string>,

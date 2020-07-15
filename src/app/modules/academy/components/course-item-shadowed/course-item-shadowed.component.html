@@ -1,0 +1,16 @@
+<div class="wrapper ag-rounded-lg ag-blur-effect">
+  <img [src]="course.image" class="wrapper__image ag-rounded-lg" />
+  <div class="wrapper__category text-white pad-y-12 pad-x-16">
+    {{ course.category }}
+  </div>
+  <div class="wrapper__icon rounded-circle p-2">
+    <img class="w-100" [src]="course.icon" alt="{{ course.title }}" />
+  </div>
+  <div
+    class="wrapper__content d-flex flex-column justify-content-end align-items-start text-white pad-b-32 pad-l-24"
+  >
+    <h6 class="wrapper__content-title">
+      {{ course.title }}
+    </h6>
+  </div>
+</div>

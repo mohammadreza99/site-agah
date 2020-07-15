@@ -1,0 +1,24 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+.education {
+  border: 1px solid #d4d4d4;
+  &,
+  & > .row {
+    min-height: 320px;
+  }
+  &__mask {
+    background-image: url("../../../../../assets/images/mask.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+  }
+  &__input {
+    p {
+      @include text-style(#212121, 20px);
+    }
+  }
+}

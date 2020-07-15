@@ -4,7 +4,7 @@
     "PRODUCTS": "Our Products",
     "DIRECTORS": "Board Of Directors",
     "TESTIMONIALS": "Testimonials",
-    "BLOGS": "Blog Post",
+    "BLOG_POSTS": "Blog Post",
     "PARTNERS": "Our Partner",
     "PROCESSES": "Project Process",
     "OTHER_PRODUCTS": "Other Products",
@@ -19,11 +19,12 @@
     "COUNT_DOWN": "Time left to submit the project",
     "LINKS": "Links",
     "NEWSLETTERS": "Newsletters",
-    "BEST_COURSES": "Best Courses"
+    "BEST_COURSES": "Best Courses",
+    "FEATURED_POST": "Featured Post"
   },
   "BUTTONS": {
     "PRODUCTS_SEE_MORE": "See More Projects",
-    "BLOGS_SEE_MORE": "See More Posts",
+    "POSTS_SEE_MORE": "See More Posts",
     "COURSES_SEE_MORE": "See More Courses",
     "VISIT_WEBSITE": "Visit Website",
     "READ_MORE": "Read More",
@@ -66,7 +67,15 @@
     "NAME": "{{name}}",
     "POSITION": "{{position}}"
   },
-  "CARD": {
+  "NEWS": {
+    "TITLE": "{{title}}",
+    "CONTENT": "{{content}}"
+  },
+  "COURSE": {
+    "TITLE": "{{title}}",
+    "CONTENT": "{{content}}"
+  },
+  "POST": {
     "TITLE": "{{title}}",
     "CONTENT": "{{content}}"
   },

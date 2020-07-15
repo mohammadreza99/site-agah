@@ -10,7 +10,7 @@ export class DropdownComponent implements OnInit {
 
   @Input() icon = 'fal fa-chevron-down';
   @Input() title: string;
-  @Input() list: { text: string; routerLink?: string };
+  @Input() list: { text: string; routerLink?: string; exact?: boolean }[];
   @Input() iconPos: 'start' | 'end' = 'end';
   @Output() listItemClick = new EventEmitter();
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { BlogPost } from '@shared/models/blog-post.model';
+import { Post } from '@shared/models/post.model';
 import { ApiService } from '@core/http/api.service';
 import { map } from 'rxjs/operators';
 
@@ -13,13 +13,13 @@ export class PostService {
 
   private readonly endPoint = 'posts';
 
-  getPosts(): Observable<BlogPost[]> {
+  getPosts(): Observable<Post[]> {
     return this.apiService
-      .get<BlogPost[]>(this.endPoint)
+      .get<Post[]>(this.endPoint)
       .pipe(map((res: any) => res.data));
   }
 
-  getPostById(postId: string): Observable<BlogPost> {
-    return this.apiService.get<BlogPost>(`${this.endPoint}/${postId}`);
+  getPostById(postId: string): Observable<Post> {
+    return this.apiService.get<Post>(`${this.endPoint}/${postId}`);
   }
 }

@@ -1,0 +1,33 @@
+<div class="card border-0 ag-rounded-lg">
+  <div class="card-header p-0">
+    <img
+      class="card-img-top img-fluid"
+      [src]="post.image"
+      alt="{{ 'POST.TITLE' | translate: { title: post.title } }}"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ "POST.TITLE" | translate: { title: post.title } }}
+    </h5>
+    <p class="card-text card-desc">
+      {{ "POST.CONTENT" | translate: { content: post.content } }}
+    </p>
+    <div class="d-flex align-items-center justify-content-between">
+      <ag-button
+        [link]="true"
+        label="{{ 'BUTTONS.READ_MORE' | translate }}"
+      ></ag-button>
+      <div class="d-flex align-items-center card-bottom">
+        <div class="d-flex align-items-center mr-3">
+          <ag-icon color="#b7b7b7" class="mr-2" icon="fa-comments"></ag-icon
+          >{{ "2" }}
+        </div>
+        <div class="d-flex align-items-center">
+          <ag-icon color="#b7b7b7" class="mr-2" icon="fa-calendar-alt"></ag-icon
+          >{{ post.created_at | date: "M/d/yyyy" }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

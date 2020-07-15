@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <ag-lined-header
+        *ngIf="title"
+        class="mar-b-{{titleMargin}}"
+        [text]="title"
+      ></ag-lined-header>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

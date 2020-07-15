@@ -12,8 +12,6 @@ import { ProductListComponent } from '@shared/components/product-list/product-li
 import { ServicesComponent } from '@shared/components/services/services.component';
 import { FollowUsComponent } from '@shared/components/follow-us/follow-us.component';
 import { VisionComponent } from '@shared/components/vision/vision.component';
-import { CardComponent } from '@shared/components/card/card.component';
-import { CardsComponent } from '@shared/components/cards/cards.component';
 import { BreadcrumbComponent } from '@shared/components/breadcrumb/breadcrumb.component';
 import { EmployersComponent } from '@shared/components/employers/employers.component';
 import { EmployerItemComponent } from '@shared/components/employer-item/employer-item.component';
@@ -22,38 +20,56 @@ import { EmployeesComponent } from '@shared/components/employees/employees.compo
 import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
 import { DropdownComponent } from '@shared/components/dropdown/dropdown.component';
 import { NewsletterTextboxComponent } from '@shared/components/newsletter-textbox/newsletter-textbox.component';
-import { InputTextareaComponent } from './components/input-textarea/input-textarea.component';
-import { InputDatepickerComponent } from './components/input-datepicker/input-datepicker.component';
-import { InputRadioComponent } from './components/input-radio/input-radio.component';
-import { InputFileComponent } from './components/input-file/input-file.component';
+import { InputTextareaComponent } from '@shared/components/input-textarea/input-textarea.component';
+import { InputDatepickerComponent } from '@shared/components/input-datepicker/input-datepicker.component';
+import { InputRadioComponent } from '@shared/components/input-radio/input-radio.component';
+import { InputFileComponent } from '@shared/components/input-file/input-file.component';
+import { InputSelectComponent } from '@shared/components/input-select/input-select.component';
+import { NewsItemComponent } from '@shared/components/news-item/news-item.component';
+import { CourseItemComponent } from '@shared/components/course-item/course-item.component';
+import { ContainerComponent } from './components/container/container.component';
+import { PostItemComponent } from './components/post-item/post-item.component';
+import { CommentItemComponent } from './components/comment-item/comment-item.component';
+import { AccordionComponent } from './components/accordion/accordion.component';
+import { AccordionItemComponent } from './components/accordion-item/accordion-item.component';
+import { ShareComponent } from './components/share/share.component';
+import { TagsComponent } from './components/tags/tags.component';
 
 export const COMPONENTS: Type<any>[] = [
   ButtonComponent,
   InputTextComponent,
-  ServiceItemComponent,
+  InputTextareaComponent,
+  InputDatepickerComponent,
+  InputRadioComponent,
+  InputFileComponent,
+  InputSelectComponent,
+  DropdownComponent,
+  IconComponent,
+  ContainerComponent,
+  LogoComponent,
+  SocialNetworksComponent,
+  FollowUsComponent,
+  LinedHeaderComponent,
+  CarouselComponent,
+  BreadcrumbComponent,
+  ClickOutsideDirective,
+  NewsletterTextboxComponent,
+  CommentItemComponent,
+  AccordionComponent,
+  AccordionItemComponent,
+  TagsComponent,
+  ShareComponent,
+  ///////////////////////
   EmployerItemComponent,
   EmployeeItemComponent,
   EmployersComponent,
   EmployeesComponent,
-  LinedHeaderComponent,
-  IconComponent,
-  LogoComponent,
-  SocialNetworksComponent,
-  CarouselComponent,
   ProductItemComponent,
+  ServiceItemComponent,
   ProductListComponent,
   ServicesComponent,
-  FollowUsComponent,
-  CardsComponent,
-  CardComponent,
   VisionComponent,
-  BreadcrumbComponent,
-  ClickOutsideDirective,
-  DropdownComponent,
-  NewsletterTextboxComponent,
-  InputTextareaComponent,
-  InputDatepickerComponent,
-  InputRadioComponent,
-  InputTextComponent,
-  InputFileComponent,
+  PostItemComponent,
+  NewsItemComponent,
+  CourseItemComponent,
 ];

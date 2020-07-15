@@ -1,0 +1,60 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+.wrapper {
+  border: 1px solid #d4d4d4;
+
+  .content-text {
+    color: #d4d4d4;
+    @include text-style(#d4d4d4, 20px, $font-weight: 600);
+  }
+
+  .week {
+    ul,
+    &__title {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 15px;
+        width: 1px;
+        height: 100%;
+        background-color: #cceeee;
+      }
+    }
+    &__title {
+      @include text-style(#212121, 20px, $font-weight: 600);
+      &:before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        left: -5px;
+        top: 15px;
+        border-radius: 50%;
+        background-color: $primary;
+        z-index: 10;
+      }
+    }
+
+    &__item {
+      cursor: pointer;
+      .lock {
+        opacity: 0;
+      }
+
+      &.deactive {
+        cursor: default;
+        .week__item-watch,
+        .lock {
+          opacity: 1;
+          color: #d4d4d4;
+        }
+      }
+    }
+  }
+}
