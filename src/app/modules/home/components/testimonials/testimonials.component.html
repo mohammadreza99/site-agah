@@ -1,9 +1,13 @@
 <ag-container [title]="title" class="testimonial">
   <div class="col-12">
     <div class="row justify-content-center">
-      <div class="col-8 wrapper">
-        <ag-carousel>
-          <div class="swiper-slide p-5" *ngFor="let t of testimonials">
+      <div class="col col-md-10 wrapper">
+        <ag-carousel
+          [showBullets]="true"
+          [showArrows]="true"
+          [config]="{ slidesPerView: 1 }"
+        >
+          <div class="swiper-slide p-3 p-md-5" *ngFor="let t of testimonials">
             <ag-testimonial-item [testimonial]="t"></ag-testimonial-item>
           </div>
         </ag-carousel>

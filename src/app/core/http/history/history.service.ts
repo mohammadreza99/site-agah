@@ -13,13 +13,13 @@ export class HistoryService {
 
   private readonly endPoint = 'histories';
 
-  getHistorys(): Observable<History[]> {
+  get(): Observable<History[]> {
     return this.apiService
       .get<History[]>(this.endPoint)
       .pipe(map((res: any) => res.data));
   }
 
-  getHistoryById(historyId: number): Observable<History> {
+  getById(historyId: number): Observable<History> {
     return this.apiService.get<History>(`${this.endPoint}/${historyId}`);
   }
 }

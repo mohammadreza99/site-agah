@@ -13,13 +13,13 @@ export class PartnerService {
 
   private readonly endPoint = 'partners';
 
-  getPartners(): Observable<Partner[]> {
+  get(): Observable<Partner[]> {
     return this.apiService
       .get<Partner[]>(this.endPoint)
       .pipe(map((res: any) => res.data));
   }
 
-  getPartnerById(partnerId: number): Observable<Partner> {
+  getById(partnerId: number): Observable<Partner> {
     return this.apiService.get<Partner>(`${this.endPoint}/${partnerId}`);
   }
 }

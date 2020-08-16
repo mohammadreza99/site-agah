@@ -1,16 +1,12 @@
 <div class="container-fluid pad-t-48">
   <ag-container>
-    <div class="col-12">
-      <ag-breadcrumb [breadcrumbs]="['About','Stockholders']"></ag-breadcrumb>
+    <div class="col-12 mar-b-48">
+      <ag-breadcrumb></ag-breadcrumb>
     </div>
-    <div class="col-12 text-right mar-b-104">
-      <ag-button label="Download Chart"></ag-button>
-    </div>
-    <div
-      class="col-3 mar-b-72"
-      *ngFor="let stockholder of stockholders$ | async"
-    >
-      <ag-employer-item [employer]="stockholder"></ag-employer-item>
-    </div>
+  </ag-container>
+  <ag-container title="{{'TITLES.STOCKHOLDERS' | translate }}">
+    <section class="col-12 mar-b-72">
+      <ag-stockholders [stockholders]="stockholders$ | async"></ag-stockholders>
+    </section>
   </ag-container>
 </div>

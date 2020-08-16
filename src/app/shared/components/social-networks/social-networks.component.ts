@@ -12,5 +12,7 @@ export class SocialNetworksComponent implements OnInit {
   @Input() socialNetworks: SocialNetwork[];
   @Input() colored = true;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 }

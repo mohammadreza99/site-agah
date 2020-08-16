@@ -1,59 +1,74 @@
-<footer class="container-fluid footer py-5">
+<footer class="container-fluid footer pb-0 pb-md-5 pt-5">
   <div class="row">
     <div class="container">
-      <div class="row">
-        <div class="col-4 footer__description">
-          <ag-logo></ag-logo>
-          <p>
+      <div class="row justify-content-between">
+        <div class="col-md-4 footer__description">
+          <ag-logo [isWhite]="true"></ag-logo>
+          <p class="text-justify mb-0">
             {{ "FOOTER.DESCRIPTION" | translate }}
           </p>
         </div>
-        <div class="col-4 footer__links">
-          <h3>{{ "TITLES.LINKS" | translate }}</h3>
-          <div class="row">
-            <div class="col-6 mar-b-24">
-              <a routerLink="/products">{{
-                "NAVIGATIONS.PRODUCTS" | translate
-              }}</a>
+        <div class="col-sm-6 col-md-4 footer__links">
+            <h3>
+<!--              {{ "TITLES.LINKS" | translate }}-->
+            </h3>
+            <div class="row">
+              <div class="col-6 mar-b-16">
+                <a routerLink="/products">{{
+                  "NAVIGATIONS.PRODUCTS" | translate
+                }}</a>
+              </div>
+              <div class="col-6 mar-b-16">
+                <a routerLink="/">{{ "NAVIGATIONS.SOLUTIONS" | translate }}</a>
+              </div>
+              <div class="col-6 mar-b-16">
+                <a routerLink="/academy">{{
+                  "NAVIGATIONS.ACADEMY" | translate
+                }}</a>
+              </div>
+              <div class="col-6 mar-b-16">
+                <a routerLink="/about/stockholders">{{
+                  "NAVIGATIONS.STOCKHOLDERS" | translate
+                }}</a>
+              </div>
+              <div class="col-6 mar-b-16">
+                <a routerLink="/job-oppurtinities">{{
+                  "NAVIGATIONS.JOB_OPPURTINITY" | translate
+                }}</a>
+              </div>
+              <div class="col-6 mar-b-16">
+                <a routerLink="/about">{{
+                  "NAVIGATIONS.ABOUT_US" | translate
+                }}</a>
+              </div>
             </div>
-            <div class="col-6 mar-b-24">
-              <a routerLink="/">{{ "NAVIGATIONS.SOLUTIONS" | translate }}</a>
-            </div>
-            <div class="col-6 mar-b-24">
-              <a routerLink="/academy">{{
-                "NAVIGATIONS.ACADEMY" | translate
-              }}</a>
-            </div>
-            <div class="col-6 mar-b-24">
-              <a routerLink="/about/stockholders">{{
-                "NAVIGATIONS.STOCKHOLDERS" | translate
-              }}</a>
-            </div>
-            <div class="col-6 mar-b-24">
-              <a routerLink="/job-oppurtinities">{{
-                "NAVIGATIONS.JOB_OPPURTINITY" | translate
-              }}</a>
-            </div>
-            <div class="col-6 mar-b-24">
-              <a routerLink="/about">{{
-                "NAVIGATIONS.ABOUT_US" | translate
-              }}</a>
-            </div>
-          </div>
         </div>
-        <div class="col-4 footer__newsletter">
-          <h3>{{ "TITLES.NEWSLETTERS" | translate }}</h3>
+        <div
+          class="col-sm-6 col-md-4 col-lg-3 mt-4 mt-md-0 footer__newsletter d-flex justify-content-end align-items-center flex-column"
+        >
+          <!-- <h3>{{ "TITLES.NEWSLETTERS" | translate }}</h3>
           <ag-newsletter-textbox
             class="d-block mar-b-48"
-          ></ag-newsletter-textbox>
-          <div class="row">
-            <div class="col-10">
+          ></ag-newsletter-textbox> -->
+
+          <div
+            class="namad ag-rounded-md d-flex align-items-center justify-content-center"
+          >
+            <a
+              target="_blank"
+              href="https://trustseal.enamad.ir/?id=162918&amp;Code=Zv2DIMsMwWroIJA3OEBa"
+              ><img
+                src="https://Trustseal.eNamad.ir/logo.aspx?id=162918&amp;Code=Zv2DIMsMwWroIJA3OEBa"
+                alt="eNamad"
+                style="cursor: pointer;"
+                id="Zv2DIMsMwWroIJA3OEBa"
+            /></a>
+          </div>
               <ag-social-networks
+              class="mt-5"
                 [socialNetworks]="socialNetworks$ | async"
                 [colored]="false"
               ></ag-social-networks>
-            </div>
-          </div>
         </div>
       </div>
     </div>

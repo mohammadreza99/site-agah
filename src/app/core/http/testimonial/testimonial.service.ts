@@ -12,11 +12,11 @@ export class TestimonialService {
 
   private readonly endPoint = 'testimonials';
 
-  getTestimonials(): Observable<Testimonial[]> {
+  get(): Observable<Testimonial[]> {
     return this.apiService.get<Testimonial[]>(this.endPoint);
   }
 
-  getTestimonialById(testimonialId: number): Observable<Testimonial> {
+  getById(testimonialId: number): Observable<Testimonial> {
     return this.apiService.get<Testimonial>(
       `${this.endPoint}/${testimonialId}`
     );

@@ -3,20 +3,22 @@ import { AboutPage } from '@modules/about/pages/about/about.page';
 import { HistoriesComponent } from '@modules/about/components/histories/histories.component';
 import { HistoryItemComponent } from '@modules/about/components/history-item/history-item.component';
 import { EmployeesPage } from '@modules/about/pages/employees/employees.page';
-import { BoardPage } from './pages/board/board.page';
-import { HistoryPage } from './pages/history/history.page';
-import { StockholdersPage } from './pages/stockholders/stockholders.page';
-import { ContactUsPage } from './pages/contact-us/contact-us.page';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { HistoryPage } from '@modules/about/pages/history/history.page';
+import { ContactUsPage } from '@modules/about/pages/contact-us/contact-us.page';
+import { ContactUsComponent } from '@modules/about/components/contact-us/contact-us.component';
+import { ConsulersPage } from './pages/consulers/consulers.page';
+import { DirectorsPage } from './pages/directors/directors.page';
+import { StockholdersPage } from '@modules/about/pages/stockholders/stockholders.page';
 
 export const COMPONENTS: Type<any>[] = [
   HistoriesComponent,
   HistoryItemComponent,
   AboutPage,
   EmployeesPage,
-  BoardPage,
+  DirectorsPage,
   HistoryPage,
   StockholdersPage,
   ContactUsPage,
   ContactUsComponent,
+  ConsulersPage,
 ];

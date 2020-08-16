@@ -1,8 +1,19 @@
-<div class="container-fluid pad-b-156">
-  <section>
-    <ag-vision [vision]="vision$ | async" type="about-page"></ag-vision>
-  </section>
-  <section>
+<div class="container-fluid pad-t-48">
+  <ag-container class="mar-b-48">
+    <div class="col-12">
+      <ag-breadcrumb></ag-breadcrumb>
+    </div>
+  </ag-container>
+
+  <!-- <section>
+    <ag-vision
+      [departments]="departments$ | async"
+      [vision]="vision$ | async"
+       title="{{ 'TITLES.VISION' | translate }}"
+      type="about-page"
+    ></ag-vision>
+  </section> -->
+  <section class="mar-b-104">
     <ag-histories
       title="{{'TITLES.HISTORIES' | translate}}"
       [histories]="histories$ | async"

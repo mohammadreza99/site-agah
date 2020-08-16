@@ -1,0 +1,9 @@
+ag-button {
+  &::ng-deep button {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+.newsletter {
+  direction: ltr;
+}

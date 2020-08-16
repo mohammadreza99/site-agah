@@ -1,0 +1,14 @@
+<div class="container-fluid pad-y-48">
+  <ag-container>
+    <div class="col-12 mar-b-80">
+      <ag-breadcrumb></ag-breadcrumb>
+    </div>
+    <div class="col-12">
+      <ngx-masonry-gallery
+        (clickImage)="onClickImage($event)"
+        [width]="250"
+        [images]="masonryImages"
+      ></ngx-masonry-gallery>
+    </div>
+  </ag-container>
+</div>

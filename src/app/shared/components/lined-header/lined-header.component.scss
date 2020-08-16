@@ -3,15 +3,25 @@
 :host {
   width: 100%;
   display: block;
+  user-select: none;
 }
 h3 {
-  @include text-style($title-color1, $font-size-xxxl, $font-weight: bold);
+  @include text-style($title-color1, $font-size-xl, $font-weight: bold);
   position: relative;
   img {
     width: 164px;
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
+    @include small() {
+      bottom: 0;
+    }
+  }
+  @include small() {
+    font-size: $font-size-xxl;
+  }
+  @include medium() {
+    font-size: $font-size-xxxl;
   }
 }

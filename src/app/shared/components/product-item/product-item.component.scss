@@ -6,32 +6,34 @@
 
 .wrapper {
   &__image {
-    flex-basis: 55%;
     position: relative;
     &-dots {
       position: absolute;
-      bottom: -47px;
+      bottom: 50%;
+      transform: translateY(50%);
       z-index: -1;
-      left: -50px;
+      &.right-side {
+        left: auto;
+        right: -50px;
+      }
+      &.left-side {
+        right: auto;
+        left: -50px;
+      }
     }
     img {
       max-width: 100%;
     }
   }
   &__content {
-    flex-basis: 45%;
     &-header {
-      @include text-style($title-color3, $font-size-xl, $font-weight: 600);
+      @include text-style($title-color3, $font-size-lg, $font-weight: 600);
+      @include small() {
+        font-size: $font-size-xl;
+      }
     }
     .description {
       line-height: 2;
-    }
-  }
-
-  &.flex-row-reverse {
-    .wrapper__image-dots {
-      left: auto;
-      right: -50px;
     }
   }
 }

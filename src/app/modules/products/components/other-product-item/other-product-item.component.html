@@ -1,17 +1,13 @@
 <div class="wrapper ag-blur-effect ag-rounded-lg text-center">
-  <img
-    class="w-100"
-    [src]="product.image"
-    alt="{{ 'PRODUCT.TITLE' | translate: { title: product.title } }}"
-  />
-  <div class="overlay">
-    <h5 class="mar-b-40">
-      {{ "PRODUCT.TITLE" | translate: { title: product.title } }}
+  <img class="w-100" [src]="product.image" [alt]="product.title" />
+  <div class="overlay d-flex flex-column justify-content-around">
+    <h5 class="mb-0">
+      {{ product.title }}
     </h5>
     <ag-button
       [outline]="true"
       label="{{ 'BUTTONS.READ_MORE' | translate }}"
-      [routerLink]="['/products', product.id]"
+      [routerLink]="['/products/details', product.id]"
     ></ag-button>
   </div>
 </div>

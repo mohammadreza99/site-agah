@@ -1,20 +1,17 @@
 <div class="wrapper ag-rounded-lg ag-blur-effect">
   <img
     [src]="employer.image"
-    alt="{{ 'EMPLOYER.NAME' | translate: { name: employerFullName } }}"
+    [alt]="employerFullName"
     class="wrapper__image ag-rounded-lg"
   />
   <div
     class="wrapper__content p-2 d-flex flex-column justify-content-end align-items-center text-white"
   >
     <h6 class="wrapper__content-title">
-      {{ "EMPLOYER.NAME" | translate: { name: employerFullName } }}
+      {{ employerFullName }}
     </h6>
     <p class="wrapper__content-description">
-      {{
-        "EMPLOYER.POSITION"
-          | translate: { position: employer.company_position.title }
-      }}
+      {{ employer.company_position.title }}
     </p>
   </div>
 </div>

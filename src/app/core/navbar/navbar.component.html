@@ -1,69 +1,134 @@
 <nav
-  class="navbar navbar-expand-lg navbar-light fixed-top"
+  class="navbar navbar-expand-xl navbar-light fixed-top"
   [class.shadow-sm]="isScrolled"
   [ngClass]="{
+    opened: isOpen,
     'bg-white shadow-sm': isScrolled || isOpen,
     'is-not-home': !isHomePage
   }"
 >
   <div class="container">
-    <a class="navbar-brand" routerLink="/"><ag-logo></ag-logo></a>
-    <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="d-flex align-items-center justify-content-between logo">
+      <div class="flex-grow-1 toggler-wrapper">
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          (click)="toggleNavbar()"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a
+          class="navbar-brand mar-{{ fa ? 'l' : 'r' }}-32"
+          (click)="navigate('/')"
+        >
+          <ag-logo></ag-logo>
+        </a>
+      </div>
+      <ag-dropdown
+        class="d-block d-xl-none list-unstyled"
+        [title]="selectedLang"
+        icon="fas fa-globe-americas"
+        iconPos="start"
+        [list]="[
+          { text: 'فارسی', routerLink: null },
+          { text: 'English', routerLink: null }
+        ]"
+        (listItemClick)="changeLang($event)"
+      >
+      </ag-dropdown>
+    </div>
     <div class="collapse navbar-collapse" [ngClass]="{ show: isOpen }">
-      <ul class="navbar-nav w-100">
-        <li class="nav-item mar-r-32">
+      <ul class="navbar-nav w-100 p-0">
+        <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
-            [routerLink]="['/products']"
+            (click)="navigate('/')"
             routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
           >
-            Products
+            {{ "NAVIGATIONS.HOME" | translate }}
           </a>
         </li>
-        <li class="nav-item mar-r-32">
-          <a class="nav-link" href="#">Solutions</a>
-        </li>
-        <li class="nav-item mar-r-32">
-          <a class="nav-link" routerLinkActive="active" routerLink="/academy"
-            >Academy</a
-          >
-        </li>
-        <li class="nav-item mar-r-32">
+        <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
+            (click)="navigate('/products')"
             routerLinkActive="active"
-            routerLink="/stockholders"
-            >Stockholders</a
+            [routerLinkActiveOptions]="{ exact: true }"
           >
+            {{ "NAVIGATIONS.PRODUCTS" | translate }}
+          </a>
         </li>
-        <li class="nav-item mar-r-32">
+        <!-- <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
+          <a class="nav-link" href="#">{{
+            "NAVIGATIONS.SOLUTIONS" | translate
+          }}</a>
+        </li> -->
+        <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
+            (click)="navigate('/academy')"
             routerLinkActive="active"
-            routerLink="/job-oppurtinities"
-            >Job Oppurtinity</a
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ "NAVIGATIONS.ACADEMY" | translate }}</a
+          >
+        </li>
+        <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
+          <a
+            class="nav-link"
+            (click)="navigate('/job-oppurtinities')"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ "NAVIGATIONS.JOB_OPPURTINITY" | translate }}</a
           >
         </li>
         <ag-dropdown
-          title="About Us"
+          (listItemClick)="closeNavbar()"
+          class="mar-{{ en ? 'r' : 'l' }}-32"
+          title="{{ 'NAVIGATIONS.ABOUT_US' | translate }}"
           [list]="[
-            { text: 'About Us', routerLink: '/about', exact: true },
-            { text: 'History', routerLink: '/about/history' },
-            { text: 'Board', routerLink: '/about/board' },
-            { text: 'Employees', routerLink: '/about/employees' },
-            { text: 'Stockholders', routerLink: '/about/stockholders' },
-            { text: 'Contact Us', routerLink: '/about/contact-us' }
+            {
+              text: 'NAVIGATIONS.ABOUT_US' | translate,
+              routerLink: '/about',
+              exact: true
+            },
+            {
+              text: 'NAVIGATIONS.HISTORY' | translate,
+              routerLink: '/about/history'
+            },
+            {
+              text: 'NAVIGATIONS.DIRECTORS' | translate,
+              routerLink: '/about/directors'
+            },
+            {
+              text: 'NAVIGATIONS.STOCKHOLDERS' | translate,
+              routerLink: '/about/stockholders'
+            },
+            {
+              text: 'NAVIGATIONS.CONSULERS' | translate,
+              routerLink: '/about/consulers'
+            },
+            {
+              text: 'NAVIGATIONS.EMPLOYEES' | translate,
+              routerLink: '/about/employees'
+            },
+            {
+              text: 'NAVIGATIONS.CONTACT_US' | translate,
+              routerLink: '/about/contact-us'
+            }
           ]"
         >
         </ag-dropdown>
         <li class="nav-item flex-grow-1"></li>
         <ag-dropdown
+          class="d-none d-xl-block"
           [title]="selectedLang"
           icon="fas fa-globe-americas"
           iconPos="start"
-          [list]="[{ text: 'Fa' }, { text: 'En' }]"
+          [list]="[
+            { text: 'فارسی', routerLink: null },
+            { text: 'English', routerLink: null }
+          ]"
           (listItemClick)="changeLang($event)"
         >
         </ag-dropdown>

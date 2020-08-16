@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CountdownConfig } from 'ngx-countdown';
 import * as moment from 'moment';
+import { LanguageChecker } from '@app/shared/components/language-checker/language-checker.component';
 
 @Component({
   selector: 'ag-count-down',
@@ -8,8 +9,6 @@ import * as moment from 'moment';
   styleUrls: ['./count-down.component.scss'],
 })
 export class CountDownComponent implements OnInit {
-  constructor() {}
-
   @Input() title: string;
   @Input() end: Date;
 

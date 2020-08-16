@@ -15,6 +15,6 @@ export class ProductsPage implements OnInit {
   products$: Observable<Product[]>;
 
   ngOnInit(): void {
-    this.products$ = this.productService.getProducts();
+    this.products$ = this.productService.get();
   }
 }

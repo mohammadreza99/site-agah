@@ -1,22 +1,19 @@
-<div class="wrapper container-fluid pad-t-32">
+<div class="wrapper container-fluid pad-t-32" [ngClass]="{ 'right-side': fa }">
   <div class="row justify-content-center">
-    <div class="col-4 wrapper__image ag-blur-effect ag-rounded-lg">
-      <img
-        class="img-fluid"
-        [src]="history.image"
-        alt="{{ 'HISTORY.TIME' | translate: { time: history.time } }}"
-      />
-      <img class="dots" src="assets/images/dots4.png" alt="dots" />
-    </div>
     <div
-      class="col-7 wrapper__description ag-blur-effect pad-t-32 pad-r-32 pad-b-32 bg-white ag-rounded-lg"
+      class="col-sm-10 col-md-9 col-lg-6 col-xl-4 wrapper__image ag-blur-effect ag-rounded-lg"
     >
-      <p>
-        {{
-          "HISTORY.DESCRIPTION"
-            | translate: { description: history.description }
-        }}
-      </p>
+      <img class="img-fluid" [src]="history.image" [alt]="history.time" />
+      <img
+        class="dots d-none d-lg-block"
+        src="assets/images/dots4.png"
+        alt="dots"
+      />
+    </div>
+    <div class="col-sm-10 col-md-9 col-lg-7 wrapper__description">
+      <div class="ag-blur-effect pad-t-32 pad-b-32 bg-white ag-rounded-lg">
+        <div [innerHTML]="history.description"></div>
+      </div>
     </div>
   </div>
 </div>

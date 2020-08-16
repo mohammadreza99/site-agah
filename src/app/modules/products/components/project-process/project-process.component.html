@@ -1,14 +1,14 @@
 <ag-container [title]="title">
   <div class="col-12">
     <div class="row justify-content-center">
-      <div class="col-7">
+      <div class="col-12 col-lg-7">
         <ag-count-down
           title="{{ 'TITLES.COUNT_DOWN' | translate }}"
           [end]="countEnd"
           class="d-block mar-b-80"
         ></ag-count-down>
       </div>
-      <div class="col-10">
+      <div class="col-lg-10">
         <ag-process-item
           *ngFor="let p of processes; let even = even"
           [process]="p"

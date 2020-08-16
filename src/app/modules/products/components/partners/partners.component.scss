@@ -4,6 +4,30 @@
   background-color: $polarous-blue-002;
   border-radius: $radius-xxl;
   .partner {
-    width: 20%;
+    width: 50%;
+    &:nth-child(even) {
+      margin-top: 40px;
+    }
+    @include small() {
+      width: 33.33333%;
+      &:nth-child(even) {
+        margin-top: 0;
+      }
+      &:nth-child(3n-1) {
+        margin-top: 40px;
+      }
+    }
+    @include medium() {
+      width: 20%;
+      &:nth-child(3n-1) {
+        margin-top: 0;
+      }
+      &:nth-child(5n-1) {
+        margin-top: 40px;
+      }
+      &:nth-child(5n-3) {
+        margin-top: 40px;
+      }
+    }
   }
 }

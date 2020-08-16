@@ -2,11 +2,21 @@
 
 .bullets {
   display: flex;
+  min-height: 122px;
+  overflow-x: auto;
+  @include large() {
+    overflow-x: inherit;
+  }
   .bullet {
     display: flex;
     align-items: center;
-    flex-grow: 1;
+    flex-grow: 0;
+    min-width: 100px;
     position: relative;
+    @include large() {
+      flex-grow: 1;
+      min-width: auto;
+    }
     &__circle {
       position: relative;
       width: 25px;
@@ -49,6 +59,7 @@
 
     &:last-child {
       flex-grow: 0;
+      min-width: auto;
       .bullet__line {
         display: none;
       }

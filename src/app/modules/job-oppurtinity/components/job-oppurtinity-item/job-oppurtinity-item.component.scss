@@ -9,7 +9,7 @@
     }
 
     h6 {
-      @include text-style(#212121, 20px, $font-weight: 600);
+      @include text-style($title-color3, $font-size-lg, $font-weight: 600);
       margin-bottom: 0;
     }
 
@@ -22,12 +22,29 @@
   &__content {
     position: relative;
     ag-button {
-      top: 34x;
-      right: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include small() {
+        transform: translate(0);
+        top: 34px;
+        right: 0;
+        left: auto;
+        &.right-side {
+          right: auto;
+          left: 0;
+        }
+      }
+    }
+
+    > ul {
+      margin-top: 55px;
+      @include small() {
+        margin-top: 0;
+      }
     }
     &--property {
       h6 {
-        @include text-style(#212121, 20px);
+        @include text-style($title-color3, $font-size-lg);
       }
       img,
       ag-icon {

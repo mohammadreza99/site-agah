@@ -1,0 +1,15 @@
+<div class="wrapper p-4 ag-rounded-lg ag-blur-effect">
+  <div class="wrapper__header d-flex align-items-center mb-2">
+    <div class="wrapper__header-icon m{{ fa ? 'l' : 'r' }}-2">
+      <img [src]="department.logo" [alt]="department.title" />
+    </div>
+    <h6 class="wrapper__header-title">
+      {{ department.title }}
+    </h6>
+  </div>
+  <div class="wrapper__content">
+    <p>
+      {{ department.body }}
+    </p>
+  </div>
+</div>

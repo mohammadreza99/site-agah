@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 import { Testimonial } from '@shared/models/testimonial.model';
 
 @Component({
@@ -6,9 +8,8 @@ import { Testimonial } from '@shared/models/testimonial.model';
   templateUrl: './testimonial-item.component.html',
   styleUrls: ['./testimonial-item.component.scss'],
 })
-export class TestimonialItemComponent implements OnInit {
-  constructor() {}
-
+export class TestimonialItemComponent extends LanguageChecker
+  implements OnInit {
   @Input() testimonial: Testimonial;
 
   ngOnInit(): void {}

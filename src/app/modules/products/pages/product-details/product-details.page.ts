@@ -26,10 +26,11 @@ export class ProductDetailsPage implements OnInit {
   otherProducts$: Observable<Product[]>;
 
   ngOnInit(): void {
-    const productId = +this.route.snapshot.paramMap.get('id');
-    this.product$ = this.productService.getProductById(productId);
-    this.partners$ = this.partnerService.getPartners();
-    this.processes$ = this.processService.getProcesses();
-    this.otherProducts$ = this.productService.getProducts();
+    this.route.params.subscribe((param) => {
+      this.product$ = this.productService.getProductById(param['id']);
+    });
+    this.partners$ = this.partnerService.get();
+    this.processes$ = this.processService.get();
+    this.otherProducts$ = this.productService.get();
   }
 }

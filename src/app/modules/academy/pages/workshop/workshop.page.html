@@ -1,19 +1,31 @@
 <div class="container-fluid pad-t-48 pad-b-156">
   <ag-container>
     <div class="col-12 mar-b-80">
-      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
+      <ag-breadcrumb></ag-breadcrumb>
     </div>
-    <div class="col-3">
-      <div class="side-list bg-white ag-rounded-lg ag-shadow-lg pad-24">
-        <div class="title mar-b-16">Time</div>
-        <div class="subtitle mar-b-24">22 June 2020</div>
-        <div class="title mar-b-16">Location</div>
-        <div class="subtitle mar-b-32">No 138, Mirdamad Blvd, Tehran.</div>
-        <ag-button class="text-center" label="Submit"></ag-button>
+    <div class="col-lg-4 col-xl-3 side-list-wrapper">
+      <div class="side-list bg-white ag-rounded-lg ag-shadow-lg">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6 col-lg-12">
+              <div class="title">Time</div>
+              <div class="subtitle">22 June 2020</div>
+            </div>
+            <div class="col-6 col-lg-12">
+              <div class="title">Location</div>
+              <div class="subtitle">
+                No 138, Mirdamad Blvd, Tehran.
+              </div>
+            </div>
+            <div class="col-12 px-0 px-lg-3 text-center">
+              <ag-button label="Submit"></ag-button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-9 content">
-      <section #about uniScrollSpy="about" class="mar-b-40">
+    <div class="col-lg-8 col-xl-9 content">
+      <section #about class="mar-b-40">
         <ag-course-details-header
           [showFeatures]="false"
         ></ag-course-details-header>
@@ -21,13 +33,27 @@
         <ag-share></ag-share>
       </section>
       <section class="mar-b-156">
-        <ag-owner-info class="mar-b-32"></ag-owner-info>
+        <ag-author class="mar-b-32"></ag-author>
       </section>
     </div>
   </ag-container>
   <ag-container class="mar-t-156" title="Other Courses">
-    <div class="col-4">
+    <!-- <div class="col-4">
       <ag-course-item [course]="course"></ag-course-item>
-    </div>
+    </div> -->
+    <ag-carousel
+      [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '768': { slidesPerView: 3 }}}"
+      class="col-12"
+    >
+      <div class="swiper-slide py-4">
+        <ag-course-item [course]="course"></ag-course-item>
+      </div>
+      <div class="swiper-slide py-4">
+        <ag-course-item [course]="course"></ag-course-item>
+      </div>
+      <div class="swiper-slide py-4">
+        <ag-course-item [course]="course"></ag-course-item>
+      </div>
+    </ag-carousel>
   </ag-container>
 </div>

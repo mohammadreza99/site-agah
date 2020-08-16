@@ -3,6 +3,7 @@ import { TestimonialItemComponent } from '@modules/home/components/testimonial-i
 import { TestimonialsComponent } from '@modules/home/components/testimonials/testimonials.component';
 import { RequestComponent } from '@modules/home/components/request/request.component';
 import { HeaderComponent } from '@modules/home/components/header/header.component';
+import { GalleryPage } from '@modules/home/pages/gallery/gallery.page';
 
 export const COMPONENTS = [
   HomePage,
@@ -10,4 +11,5 @@ export const COMPONENTS = [
   TestimonialsComponent,
   RequestComponent,
   HeaderComponent,
+  GalleryPage,
 ];

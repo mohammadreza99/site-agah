@@ -4,28 +4,45 @@
   </section>
   <section class="mar-t-104">
     <ag-container title="{{ 'TITLES.BEST_COURSES' | translate }}">
-      <div class="col-4" *ngFor="let course of courses | slice: 0:3">
-        <a href="http://" class="stretched-link">
-          <ag-course-item-shadowed [course]="course"></ag-course-item-shadowed>
-        </a>
-      </div>
+      <ag-carousel
+        [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '768': { slidesPerView: 3 }}}"
+        class="col-12"
+      >
+        <div class="swiper-slide" *ngFor="let course of courses">
+          <ag-course-item-shadowed
+            [hoverable]="false"
+            [course]="course"
+          ></ag-course-item-shadowed>
+        </div>
+      </ag-carousel>
     </ag-container>
     <ag-button
       class="mar-t-72 text-center"
       label="{{'BUTTONS.COURSES_SEE_MORE' | translate}}"
       [raised]="true"
       [outline]="true"
-      routerLink="/courses-category"
+      routerLink="/academy/courses-category"
     ></ag-button>
   </section>
   <section class="mar-t-156">
     <ag-courses-intro></ag-courses-intro>
   </section>
   <section class="mar-t-156">
-    <ag-container title="{{'TITLES.FEATURED_POST' | translate}}">
-      <div class="col-4" *ngFor="let item of posts$ | async | slice: 0:3">
-        <ag-post-item [post]="item"></ag-post-item>
-      </div>
+    <ag-container
+      title="{{'TITLES.FEATURED_POST' | translate}}"
+      *ngIf="posts$ | async"
+    >
+      <ag-carousel
+        [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
+        class="col-12"
+      >
+        <div
+          class="swiper-slide px-2 py-4"
+          *ngFor="let post of ((posts$ | async) | slice: 0:3)"
+        >
+          <ag-post-item [post]="post"></ag-post-item>
+        </div>
+      </ag-carousel>
     </ag-container>
     <ag-button
       class="mar-t-72 text-center"
@@ -35,19 +52,45 @@
     ></ag-button>
   </section>
   <section class="mar-t-156">
-    <ag-container text="{{'TITLES.NEWS' | translate}}">
+    <ag-container title="{{'TITLES.NEWS' | translate}}">
       <div
-        *ngFor="let n of news | slice: 0:5; let i = index"
+        *ngFor="let news of ((news$ | async) | slice: 0:5); let i = index"
         class="mar-b-32"
-        [ngClass]="{ 'col-4': i != 1, 'col-8': i == 1 }"
+        [ngClass]="{ 
+          'col-md-4': i == 0 || i > 1,
+          'col-sm-12':i == 0, 
+          'col-md-8': i == 1,
+          'col-sm-6': i >= 1
+        }"
       >
-        <ag-news-item-shadowed [news]="n"></ag-news-item-shadowed>
+        <ag-news-item-shadowed [news]="news"></ag-news-item-shadowed>
+      </div>
+
+      <div class="col-12 mar-t-80">
+        <div
+          class="row flex-column flex-sm-row align-items-center justify-content-center"
+        >
+          <ag-button
+            routerLink="/news"
+            class="mar-x-16 mb-5 mb-sm-0"
+            [raised]="true"
+            [outline]="true"
+            label="مشاهده مطالب بیشتر"
+          ></ag-button>
+          <ag-button
+            routerLink="/gallery"
+            class="mar-x-16"
+            [raised]="true"
+            [outline]="true"
+            label="گالری تصاویر"
+          ></ag-button>
+        </div>
       </div>
     </ag-container>
   </section>
   <section class="mar-y-156">
     <div class="row justify-content-center">
-      <div class="col-7">
+      <div class="col-md-11 col-lg-9 col-xl-7">
         <ag-newsletter-subscribe></ag-newsletter-subscribe>
       </div>
     </div>

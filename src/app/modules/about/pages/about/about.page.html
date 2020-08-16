@@ -1,6 +1,11 @@
 <div class="container-fluid">
   <section>
-    <ag-vision [vision]="vision$ | async" type="about-page"></ag-vision>
+    <ag-vision
+      [departments]="departments$ | async"
+      [vision]="vision$ | async"
+      title="{{ 'TITLES.VISION' | translate }}"
+      type="about-page"
+    ></ag-vision>
   </section>
   <section class="mar-t-156">
     <ag-histories
@@ -11,7 +16,28 @@
   <section class="mar-t-156">
     <ag-employers
       title="{{'TITLES.DIRECTORS' | translate}}"
+      buttonLabel="{{'BUTTONS.DIRECTORS_MORE' | translate}}"
+      buttonRouterLink="/about/directors"
       [employers]="directors$ | async"
+    ></ag-employers>
+  </section>
+  <section class="pad-t-156">
+    <ag-stockholders
+      title="{{'TITLES.STOCKHOLDERS' | translate}}"
+      [stockholders]="stockholders$ | async"
+    ></ag-stockholders>
+    <ag-button
+      class="text-center mar-t-80"
+      routerLink="/about/stockholders"
+      label="{{'BUTTONS.STOCKHOLDERS_MORE' | translate}}"
+    ></ag-button>
+  </section>
+  <section class="pad-t-156">
+    <ag-employers
+      title="{{'TITLES.CONSULERS' | translate}}"
+      buttonLabel="{{'BUTTONS.CONSULERS_MORE' | translate}}"
+      buttonRouterLink="/about/consulers"
+      [employers]="consulers"
     ></ag-employers>
   </section>
   <section class="pad-t-156">
@@ -19,22 +45,40 @@
       title="{{'TITLES.EMPLOYEES' | translate}}"
       [employees]="employees$ | async"
     ></ag-employees>
-    <ag-button
-      class="text-center mt-3"
-      [raised]="true"
-      label="Login"
-    ></ag-button>
-  </section>
-  <section class="mar-t-156">
-    <ag-employers
-      title="{{'TITLES.STOCKHOLDERS' | translate}}"
-      [employers]="stockholders$ | async"
-    ></ag-employers>
   </section>
   <section class="pad-t-156">
-    <ag-container title="{{'TITLES.NEWS' | translate}}">
-      <div class="col-4" *ngFor="let item of [] | slice: 0:3">
-        <ag-news-item [news]="item"></ag-news-item>
+    <ag-container title="{{'TITLES.NEWS' | translate}}" *ngIf="news$ | async">
+      <ag-carousel
+        [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
+        class="col-12"
+      >
+        <div
+          class="swiper-slide px-3 py-4"
+          *ngFor="let news of ((news$ | async) | slice: 0:3)"
+        >
+          <ag-news-item [news]="news"></ag-news-item>
+        </div>
+      </ag-carousel>
+
+      <div class="col-12 mar-t-80">
+        <div
+          class="row flex-column flex-sm-row align-items-center justify-content-center"
+        >
+          <ag-button
+            routerLink="/news"
+            class="mar-x-16 mb-5 mb-sm-0"
+            [raised]="true"
+            [outline]="true"
+            label="مشاهده مطالب بیشتر"
+          ></ag-button>
+          <ag-button
+            routerLink="/gallery"
+            class="mar-x-16"
+            [raised]="true"
+            [outline]="true"
+            label="گالری تصاویر"
+          ></ag-button>
+        </div>
       </div>
     </ag-container>
   </section>

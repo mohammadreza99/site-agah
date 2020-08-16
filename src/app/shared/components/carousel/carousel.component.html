@@ -1,15 +1,15 @@
 <swiper [config]="config" #carousel>
-  <div class="swiper-wrapper">
+  <div class="swiper-wrapper ag-rtl">
     <ng-content select=".swiper-slide"></ng-content>
   </div>
   <div class="swiper-pagination" *ngIf="showBullets"></div>
   <div
-    class="swiper-button-next"
+    class="swiper-button-next d-none d-sm-block"
     *ngIf="showArrows"
     (click)="_onSlideNext()"
   ></div>
   <div
-    class="swiper-button-prev"
+    class="swiper-button-prev d-none d-sm-block"
     *ngIf="showArrows"
     (click)="_onSlidePrev()"
   ></div>

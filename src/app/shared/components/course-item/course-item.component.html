@@ -3,23 +3,24 @@
     <img
       class="card-icon position-absolute rounded-circle"
       [src]="$any(course).icon"
-      alt="{{ 'COURSE.TITLE' | translate: { title: course.title } }}"
+      [alt]="course.title"
     />
     <img
       class="card-img-top img-fluid"
       [src]="course.image"
-      alt="{{ 'COURSE.TITLE' | translate: { title: course.title } }}"
+      [alt]="course.title"
     />
   </div>
   <div class="card-body">
     <h5 class="card-title">
-      {{ "COURSE.TITLE" | translate: { title: course.title } }}
+      {{ course.title }}
     </h5>
     <p class="card-text card-desc">
-      {{ "COURSE.CONTENT" | translate: { content: course.content } }}
+      {{ course.content }}
     </p>
     <div class="d-flex align-items-center">
       <ag-button
+        [routerLink]="['/courses/details', course.id]"
         [link]="true"
         label="{{ 'BUTTONS.READ_MORE' | translate }}"
       ></ag-button>

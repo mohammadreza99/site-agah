@@ -1,42 +1,67 @@
 <ag-container class="features">
-  <div class="col-6">
-    <div class="features__video ag-rounded-lg">
-      <div class="features__video-capture ag-rounded-lg">
-        <img class="w-100" src="assets/images/company.png" alt="features" />
+  <div class="col-12">
+    <div class="row justify-content-evently align-items-center">
+      <div class="col-10 col-md-5 col-lg-6 mb-5 mb-md-0">
+        <div
+          class="features__video ag-rounded-lg"
+          [ngClass]="{ 'left-side': en }"
+        >
+          <div class="features__video-capture ag-rounded-lg">
+            <img class="w-100" src="assets/images/company.png" alt="features" />
+          </div>
+          <img
+            class="dots ag-rounded-lg"
+            src="assets/images/dots5.png"
+            alt="dots"
+          />
+        </div>
       </div>
-      <img
-        class="dots ag-rounded-lg"
-        src="assets/images/dots5.png"
-        alt="dots"
-      />
+      <div class="col-md-7 col-lg-6">
+        <ul class="list-unstyled features__list pad-{{ fa ? 'r' : 'l' }}-64">
+          <li class="mar-b-32">
+            <img
+              src="assets/images/time.png"
+              alt="time"
+              class="mar-{{ fa ? 'l' : 'r' }}-16"
+            />
+            <span>
+              {{ "COURSE_INTRO.CONDUCTING_COURSES_INTENSIVELY" | translate }}
+            </span>
+          </li>
+          <li class="mar-b-32">
+            <img
+              src="assets/images/grow.png"
+              alt="grow"
+              class="mar-{{ fa ? 'l' : 'r' }}-16"
+            />
+            <span>
+              {{
+                "COURSE_INTRO.GROW_YOUR_BUSINESS_IN_A_SHORT_TIME" | translate
+              }}
+            </span>
+          </li>
+          <li class="mar-b-32">
+            <img
+              src="assets/images/save.png"
+              alt="save"
+              class="mar-{{ fa ? 'l' : 'r' }}-16"
+            />
+            <span>
+              {{ "COURSE_INTRO.SAVE_ON_YOUR_EXPENSES" | translate }}
+            </span>
+          </li>
+          <li class="mar-b-32">
+            <img
+              src="assets/images/award.png"
+              alt="award"
+              class="mar-{{ fa ? 'l' : 'r' }}-16"
+            />
+            <span>
+              {{ "COURSE_INTRO.SWARDING_A_VALID_CERTIFICATE" | translate }}
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="col-6">
-    <ul class="list-unstyled features__list">
-      <li class="mar-b-32">
-        <img src="assets/images/time.png" alt="time" />
-        <span>
-          Conducting courses intensively
-        </span>
-      </li>
-      <li class="mar-b-32">
-        <img src="assets/images/grow.png" alt="grow" />
-        <span>
-          Grow your business in a short time
-        </span>
-      </li>
-      <li class="mar-b-32">
-        <img src="assets/images/save.png" alt="save" />
-        <span>
-          Save on your expenses
-        </span>
-      </li>
-      <li class="mar-b-32">
-        <img src="assets/images/award.png" alt="award" />
-        <span>
-          Awarding a valid certificate
-        </span>
-      </li>
-    </ul>
   </div>
 </ag-container>

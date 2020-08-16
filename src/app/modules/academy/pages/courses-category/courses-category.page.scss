@@ -29,4 +29,12 @@ ag-input-text {
   span {
     @include text-style($font-weight: bold, $size: 26px);
   }
+
+  a {
+    white-space: nowrap;
+    &:hover {
+      text-decoration: none;
+      color: $primary !important;
+    }
+  }
 }

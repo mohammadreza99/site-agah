@@ -2,13 +2,17 @@
 
 .footer {
   background-color: $dark-green-005;
-  line-height: $line-height-sm;
   color: $white;
-  .col-4 > *:first-child {
+  [class*="col"] > *:first-child:not(a):not(.namad) {
     display: flex;
     align-items: center;
-    height: 110px;
+    height: 80px;
     margin: 0;
+    &:not(ag-social-networks) {
+      @include small() {
+        height: 110px;
+      }
+    }
   }
   &__newsletter {
     ag-button ::ng-deep button {
@@ -16,11 +20,33 @@
       padding-right: 1rem !important;
     }
   }
-  h3,
+
+  &__links {
+    @include large() {
+      > * {
+        width: 90%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      h3 {
+        padding-right: 15px;
+      }
+    }
+  }
+  h3 {
+    @include text-style($white, $font-size-lg);
+  }
   a {
-    @include text-style($white, $font-size-lg, normal);
+    @include text-style($white);
   }
   a:hover {
     color: $primary;
+    text-decoration: none;
+  }
+
+  .namad {
+    width: 150px;
+    height: 160px;
+    background-color: $white;
   }
 }

@@ -6,6 +6,7 @@
 
 .education {
   border: 1px solid #d4d4d4;
+  direction: ltr;
   &,
   & > .row {
     min-height: 320px;
@@ -18,7 +19,12 @@
   }
   &__input {
     p {
-      @include text-style(#212121, 20px);
+      @include text-style($title-color3, $font-size-lg);
     }
   }
+}
+
+.is-responsive > div {
+  border: 1px solid #d4d4d4;
+  border-radius: 30px;
 }

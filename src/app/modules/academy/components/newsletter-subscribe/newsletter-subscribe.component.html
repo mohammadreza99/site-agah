@@ -1,4 +1,4 @@
-<div class="container-fluid newsletter ag-rounded-lg">
+<div class="container-fluid newsletter ag-rounded-lg d-none d-md-block">
   <div class="row">
     <div
       class="col-5 ag-rounded-lg newsletter__mask d-flex align-items-center justify-content-start"
@@ -10,9 +10,27 @@
     >
       <img src="assets/images/subscribe-newsletter.png" alt="path" />
       <div class="flex-grow-1">
-        <span>Enter your email for the latest news</span>
+        <div class="mb-3">{{ "ENTER_EMAIL_NEWS" | translate }}</div>
         <ag-newsletter-textbox></ag-newsletter-textbox>
       </div>
     </div>
   </div>
 </div>
+
+<ag-container class="d-md-none pad-b-40">
+  <div class="col-12 is-responsive">
+    <div>
+      <div class="row">
+        <div class="col-12 banner">
+          <img src="assets/images/newsletter-res.png" class="w-100" alt="" />
+        </div>
+        <div class="col-12 pad-b-40 pad-x-32">
+          <div class="mar-t-40 mar-b-32 text-center">
+            {{ "ENTER_EMAIL_NEWS" | translate }}
+          </div>
+          <ag-newsletter-textbox></ag-newsletter-textbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</ag-container>

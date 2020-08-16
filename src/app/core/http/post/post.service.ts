@@ -13,13 +13,13 @@ export class PostService {
 
   private readonly endPoint = 'posts';
 
-  getPosts(): Observable<Post[]> {
+  get(): Observable<Post[]> {
     return this.apiService
       .get<Post[]>(this.endPoint)
       .pipe(map((res: any) => res.data));
   }
 
-  getPostById(postId: string): Observable<Post> {
+  getById(postId: SVGAnimatedString): Observable<Post> {
     return this.apiService.get<Post>(`${this.endPoint}/${postId}`);
   }
 }

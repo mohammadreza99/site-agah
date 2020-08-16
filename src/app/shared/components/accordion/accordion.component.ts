@@ -5,7 +5,8 @@ import {
   ContentChildren,
   QueryList,
 } from '@angular/core';
-import { AccordionItemComponent } from '../accordion-item/accordion-item.component';
+
+import { AccordionItemComponent } from '@shared/components/accordion-item/accordion-item.component';
 
 @Component({
   selector: 'ag-accordion',

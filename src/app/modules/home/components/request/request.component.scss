@@ -1,17 +1,25 @@
 @import "abstracts/mixins";
 
 .request {
-  padding: 3% 0 3% 0;
-  margin-bottom: calc(93px - 3%);
   background-image: linear-gradient(
     to right,
     $polarous-blue-003 0%,
     $polarous-blue-007 100%
   );
+  padding-top: 42px;
+  padding-bottom: 42px;
+  height: 550px;
   img {
-    margin-bottom: -93px;
+    margin-bottom: -30%;
   }
   p {
-    @include text-style($title-color1, $font-size-xl, $font-weight: 600);
+  @include text-style($title-color1, $font-size-lg, $font-weight: 600);
+  }
+  @include small() {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  @include medium() {
+    height: 380px;
   }
 }

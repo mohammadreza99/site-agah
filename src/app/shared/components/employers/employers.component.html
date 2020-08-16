@@ -1,13 +1,18 @@
-<div class="row directors">
-  <div class="directors__overlay">
-    <div class="directors__overlay-bg">
+<div class="row employers">
+  <div class="employers__overlay">
+    <div class="employers__overlay-bg">
       <img class="right-dots" src="assets/images/dots2.png" alt="dots" />
-      <img class="left-dots" src="assets/images/dots3.png" alt="dots" />
+      <img
+        class="left-dots d-none d-md-block"
+        src="assets/images/dots3.png"
+        alt="dots"
+      />
     </div>
     <ag-button
-      (click)="downloadClick.emit()"
-      class="directors__overlay-button"
-      label="{{ 'BUTTONS.DOWNLOAD' | translate }}"
+      *ngIf="buttonLabel"
+      [routerLink]="buttonRouterLink"
+      class="employers__overlay-button"
+      [label]="buttonLabel"
     ></ag-button>
   </div>
   <div class="container">
@@ -17,9 +22,29 @@
         class="mar-b-80"
         [text]="title"
       ></ag-lined-header>
-      <div class="col-3" *ngFor="let employer of employers | slice: 0:4">
+      <!-- <div class="col-3" *ngFor="let employer of employers | slice: 0:4">
         <ag-employer-item [employer]="employer"></ag-employer-item>
-      </div>
+      </div> -->
+      <ag-carousel
+        class="col-12"
+        [config]="{
+          allowTouchMove: true,
+          slidesPerView: 1,
+          spaceBetween: 15,
+          breakpoints: {
+            '575': { slidesPerView: 2 },
+            '768': { slidesPerView: 3 },
+            '992': { slidesPerView: 4, allowTouchMove: false }
+          }
+        }"
+      >
+        <div
+          class="swiper-slide py-5"
+          *ngFor="let employer of employers | slice: 0:4"
+        >
+          <ag-employer-item [employer]="employer"></ag-employer-item>
+        </div>
+      </ag-carousel>
     </div>
   </div>
 </div>

@@ -1,0 +1,30 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  background-color: $gray-001;
+  &__header {
+    &-title {
+      @include text-style($title-color1, $font-size-md, $font-weight: bold);
+      @include small() {
+        font-size: $font-size-lg;
+      }
+    }
+    &-icon {
+      img {
+        width: 36px;
+        height: 36px;
+
+        @include small() {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+  &__content {
+    p {
+      margin: 0;
+      @include text-style($title-color3, $font-size-sm, 2.29);
+    }
+  }
+}

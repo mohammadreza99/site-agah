@@ -4,13 +4,20 @@
   background-image: url("../../../../../assets/images/social.png");
   background-repeat: no-repeat;
   padding: 14% 0;
-  background-size: 110% auto;
-  background-position: top;
+  background-size: 163% auto;
+  background-position: 75% top;
+  @include medium() {
+    background-size: 110% auto;
+    background-position: top;
+  }
   p {
     @include text-style($title-color3, $font-size-lg, $font-weight: 600);
   }
 
   > .container {
-    margin-top: -100px;
+    margin-top: 50%;
+    @include medium() {
+      margin-top: -100px;
+    }
   }
 }

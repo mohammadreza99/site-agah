@@ -3,7 +3,7 @@
     <ag-header title="{{'TITLES.AGAH' | translate}}"></ag-header>
   </section>
   <section class="mar-t-56">
-    <ag-container title="{{'TITLES.PRODUCTS' | translate}}">
+    <ag-container title="{{'TITLES.OUR_PRODUCTS' | translate}}">
       <div class="col-12">
         <ag-product-list [products]="products$ | async"></ag-product-list>
         <ag-button
@@ -17,11 +17,17 @@
     </ag-container>
   </section>
   <section>
-    <ag-vision [vision]="vision$ | async"></ag-vision>
+    <ag-vision
+      [departments]="departments$ | async"
+      [vision]="vision$ | async"
+      title="{{ 'TITLES.VISION' | translate }}"
+    ></ag-vision>
   </section>
   <section class="mar-t-156">
     <ag-employers
       title="{{'TITLES.DIRECTORS' | translate}}"
+      buttonLabel="{{ 'BUTTONS.DIRECTORS_MORE' | translate }}"
+      buttonRouterLink="/about/directors"
       [employers]="directors$ | async"
     ></ag-employers>
   </section>
@@ -35,10 +41,21 @@
     <ag-request></ag-request>
   </section>
   <section class="mar-t-156">
-    <ag-container title="{{'TITLES.BLOG_POSTS' | translate}}">
-      <div class="col-4" *ngFor="let item of posts$ | async | slice: 0:3">
-        <ag-post-item [post]="item"></ag-post-item>
-      </div>
+    <ag-container
+      title="{{'TITLES.BLOG_POSTS' | translate}}"
+      *ngIf="posts$ | async"
+    >
+      <ag-carousel
+        [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
+        class="col-12"
+      >
+        <div
+          class="swiper-slide px-2 py-4"
+          *ngFor="let post of ((posts$ | async) | slice: 0:3)"
+        >
+          <ag-post-item [post]="post"></ag-post-item>
+        </div>
+      </ag-carousel>
     </ag-container>
     <ag-button
       class="mar-t-80 text-center"

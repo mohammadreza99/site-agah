@@ -1,58 +1,46 @@
 <div class="job-oppurtinity-item pad-x-32 ag-shadow-sm ag-rounded-lg bg-white">
   <div class="job-oppurtinity-item__header d-flex align-items-center pad-y-32">
-    <img class="mar-r-32" src="assets/images/save.png" alt="" />
-    <h6 class="mar-r-32">{{ "Business Analyzer" }}</h6>
-    <span class="desription">{{
-      "We need a business Analyzer for developing our software "
-    }}</span>
+    <img class="mar-{{ fa ? 'l' : 'r' }}-32" [src]="job.logo" />
+    <h6 class="mar-{{ fa ? 'l' : 'r' }}-32">{{ job.title }}</h6>
+    <span class="desription d-none d-md-block">{{ job.description }}</span>
     <div class="flex-grow-1"></div>
-    <div class="d-flex align-items-center more" (click)="setActive.emit()">
-      <span>{{ active ? "Less" : "More" }}</span>
-      <i class="fal fa-chevron-{{ active ? 'up' : 'down' }} ml-2"></i>
+    <div class="d-flex align-items-center more" (click)="onToggle()">
+      <span class="d-none d-sm-block">{{ expanded ? "Less" : "More" }}</span>
+      <i
+        class="fal fa-chevron-{{ expanded ? 'up' : 'down' }} m{{
+          fa ? 'r' : 'l'
+        }}-2"
+      ></i>
     </div>
   </div>
-  <div
-    class="content-wrapper"
-    [style.height.px]="active ? content.scrollHeight : 0"
-  >
+  <div class="content-wrapper" [@toggle]="expanded">
     <div #content class="job-oppurtinity-item__content pad-y-32 border-top">
       <ag-button
         [raised]="false"
         class="position-absolute"
+        [ngClass]="{ 'right-side': fa }"
         label="Request Form"
-        [routerLink]="['/job-request']"
+        [routerLink]="['/job-oppurtinities/job-request', job.id]"
       ></ag-button>
       <ul class="list-unstyled p-0">
-        <li class="job-oppurtinity-item__content--property mar-b-48">
+        <li
+          class="job-oppurtinity-item__content--property mar-b-48"
+          *ngFor="let jobDetail of job.details"
+        >
           <div class="d-flex align-items-center mar-b-16">
-            <img src="assets/images/save.png" alt="" />
-            <h6 class="mar-l-16 mb-0">{{ "Skill" }}</h6>
+            <img [src]="jobDetail.logo" [alt]="jobDetail.title" />
+            <h6 class="mar-{{ fa ? 'r' : 'l' }}-16 mb-0">
+              {{ jobDetail.title }}
+            </h6>
           </div>
           <ul class="list-unstyled p-0">
-            <li class="d-flex align-items-center">
+            <li
+              class="d-flex align-items-center"
+              *ngFor="let jobDetailItem of jobDetail.details"
+            >
               <ag-icon color="green" size="1x" icon="fa-check"></ag-icon>
-              <span class="mar-l-16">{{
-                "You have first feature for this job possition"
-              }}</span>
-            </li>
-            <li class="d-flex align-items-center">
-              <ag-icon color="green" size="1x" icon="fa-check"></ag-icon>
-              <span class="mar-l-16">{{
-                "You have first feature for this job possition"
-              }}</span>
-            </li>
-          </ul>
-        </li>
-        <li class="job-oppurtinity-item__content--property">
-          <div class="d-flex align-items-center mar-b-16">
-            <img src="assets/images/save.png" alt="" />
-            <h6 class="mar-l-16 mb-0">{{ "Skill" }}</h6>
-          </div>
-          <ul class="list-unstyled p-0">
-            <li class="d-flex align-items-center">
-              <ag-icon color="green" size="1x" icon="fa-check"></ag-icon>
-              <span class="mar-l-16">{{
-                "You have first feature for this job possition"
+              <span class="mar-{{ fa ? 'r' : 'l' }}-16">{{
+                jobDetailItem
               }}</span>
             </li>
           </ul>

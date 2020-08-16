@@ -1,0 +1,13 @@
+.divider {
+  border-top: 1px dashed gray;
+}
+
+ag-comment-item {
+  &:last-child {
+    ::ng-deep {
+      .comment {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+}

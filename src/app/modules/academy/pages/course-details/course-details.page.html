@@ -1,73 +1,97 @@
 <div class="container-fluid pad-y-48">
   <ag-container>
-    <div class="col-12 mar-b-80">
-      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
-    </div>
-    <div class="col-3">
-      <div class="side-list bg-white ag-rounded-lg ag-shadow-lg">
-        <ul class="list-unstyled p-0 m-0 pad-y-40">
-          <li
-            uniScrollItem="about"
-            class="mar-b-40 pad-l-16 d-flex align-items-center"
-            (click)="scroll(about)"
+    <div class="col-12">
+      <ag-breadcrumb class="mar-b-80"></ag-breadcrumb>
+      <div class="row">
+        <div class="col-lg-3 bg-white side-list-wrapper">
+          <div
+            #sideList
+            class="side-list bg-white py-3 py-lg-0"
+            [ngClass]="{'right-side': fa}"
           >
-            <i class="mar-x-16 fal fa-info-circle"></i> About Course
-          </li>
-          <li
-            uniScrollItem="teacher"
-            class="mar-b-40 pad-l-16 d-flex align-items-center"
-            (click)="scroll(teacher)"
-          >
-            <i class="mar-x-16 fal fa-chalkboard-teacher"></i>
-            Teacher
-          </li>
-          <li
-            uniScrollItem="content"
-            class="mar-b-40 pad-l-16 d-flex align-items-center"
-            (click)="scroll(content)"
-          >
-            <i class="mar-x-16 fal fa-list"></i>
-            Content
-          </li>
-          <li
-            uniScrollItem="comment"
-            class="mar-b-40 pad-l-16 d-flex align-items-center"
-            (click)="scroll(comment)"
-          >
-            <i class="mar-x-16 fal fa-comments-alt"></i>
-            Comment
-          </li>
-          <li class="text-center">
-            <ag-button label="Submit"></ag-button>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-9 content">
-      <section #about uniScrollSpy="about" class="mar-b-40">
-        <ag-course-details-header></ag-course-details-header>
-        <ag-tags [tags]="['Event']" class="mar-b-40"></ag-tags>
-        <ag-share></ag-share>
-      </section>
-      <section #teacher uniScrollSpy="teacher" class="mar-b-40">
-        <ag-owner-info class="mar-b-32"></ag-owner-info>
-      </section>
-      <section #content uniScrollSpy="content" class="mar-b-40">
-        <ag-course-timeline class="mar-b-32"></ag-course-timeline>
-      </section>
-      <section #comment uniScrollSpy="comment" class="mar-b-40">
-        <div class="comments ag-rounded-lg pad-32">
-          <div class="d-flex align-items-center comment-text">
-            <i class="mar-r-16 fa-lg fal fa-comment"></i>
-            <span>Comments</span>
+            <ul
+              class="list-unstyled p-0 m-0 d-flex justify-content-md-center d-lg-block"
+            >
+              <li
+                uniScrollItem="about"
+                class="pad-{{ fa ? 'l' : 'r' }}-16 d-flex align-items-center"
+                (click)="scroll(about)"
+              >
+                <i class="mar-x-16 d-none d-lg-block fal fa-info-circle"></i>
+                {{"TITLES.ABOUT_COURSE" | translate}}
+              </li>
+              <li
+                uniScrollItem="teacher"
+                class="pad-{{ fa ? 'l' : 'r' }}-16 d-flex align-items-center"
+                (click)="scroll(teacher)"
+              >
+                <i
+                  class="mar-x-16 d-none d-lg-block fal fa-chalkboard-teacher"
+                ></i>
+                {{"TITLES.TEACHER" | translate}}
+              </li>
+              <li
+                uniScrollItem="content"
+                class="pad-{{ fa ? 'l' : 'r' }}-16 d-flex align-items-center"
+                (click)="scroll(content)"
+              >
+                <i class="mar-x-16 d-none d-lg-block fal fa-list"></i>
+                {{"TITLES.CONTENT" | translate}}
+              </li>
+              <li
+                uniScrollItem="comment"
+                class="pad-{{ fa ? 'l' : 'r' }}-16 d-flex align-items-center"
+                (click)="scroll(comment)"
+              >
+                <i class="mar-x-16 d-none d-lg-block fal fa-comments-alt"></i>
+                {{"TITLES.COMMENT" | translate}}
+              </li>
+              <li class="text-center">
+                <ag-button label="Submit"></ag-button>
+              </li>
+            </ul>
           </div>
-          <ag-comment-item
-            *ngFor="let item of [1,2,3]"
-            class="mar-b-32"
-          ></ag-comment-item>
         </div>
-      </section>
-      <ag-education-subscribe></ag-education-subscribe>
+        <div class="col-lg-9 content mt-5 mt-lg-0">
+          <section #about uniScrollSpy="about" class="mar-b-40">
+            <ag-course-details-header></ag-course-details-header>
+            <ag-tags [tags]="['Event']" class="mar-b-40"></ag-tags>
+            <ag-share></ag-share>
+          </section>
+          <section #teacher uniScrollSpy="teacher" class="mar-b-40">
+            <ag-author
+              [author]="null"
+              title="{{'TITLES.TEACHER' | translate}}"
+              class="mar-b-32"
+            ></ag-author>
+          </section>
+          <section #content uniScrollSpy="content" class="mar-b-40">
+            <ag-course-timeline class="mar-b-32"></ag-course-timeline>
+          </section>
+          <section #comment uniScrollSpy="comment" class="mar-b-40">
+            <div class="comments ag-rounded-lg pad-32">
+              <div class="d-flex align-items-center comment-text">
+                <i
+                  [ngClass]="fa ? 'mar-l-16' : 'mar-r-16'"
+                  class="fa-lg fal fa-comment"
+                ></i>
+                <span> {{"TITLES.COMMENTS" | translate}}</span>
+              </div>
+              <ag-comment-item
+                *ngFor="let item of [1,2,3]"
+                class="mar-b-32"
+              ></ag-comment-item>
+            </div>
+          </section>
+          <ag-education-subscribe></ag-education-subscribe>
+        </div>
+      </div>
     </div>
   </ag-container>
 </div>
+
+<ag-button
+  label="Subscribe"
+  roundedSize="none"
+  class="d-sm-none fixed-bottom"
+></ag-button>

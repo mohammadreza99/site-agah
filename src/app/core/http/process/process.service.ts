@@ -13,13 +13,13 @@ export class ProcessService {
 
   private readonly endPoint = 'processes';
 
-  getProcesses(): Observable<Process[]> {
+  get(): Observable<Process[]> {
     return this.apiService
       .get<Process[]>(this.endPoint)
       .pipe(map((res: any) => res.data));
   }
 
-  getProcessById(processId: number): Observable<Process> {
+  getById(processId: number): Observable<Process> {
     return this.apiService.get<Process>(`${this.endPoint}/${processId}`);
   }
 }

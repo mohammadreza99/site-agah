@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 
 let nextUniqueId = 0;
 @Component({
@@ -14,9 +16,9 @@ let nextUniqueId = 0;
     },
   ],
 })
-export class InputRadioComponent implements ControlValueAccessor {
-  constructor() {}
-
+export class InputRadioComponent extends LanguageChecker
+  implements ControlValueAccessor {
+    
   @Input() label: string;
   @Input() items: Array<{
     name: string;

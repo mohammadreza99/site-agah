@@ -12,11 +12,13 @@ export class SocialNetworkService {
 
   private readonly endPoint = 'social-networks';
 
-  getSocialNetworks(): Observable<SocialNetwork[]> {
+  get(): Observable<SocialNetwork[]> {
     return this.apiService.get<SocialNetwork[]>(this.endPoint);
   }
 
-  getSocialNetworkById(visionId: number): Observable<SocialNetwork> {
-    return this.apiService.get<SocialNetwork>(`${this.endPoint}/${visionId}`);
+  getById(socialNetworkId: number): Observable<SocialNetwork> {
+    return this.apiService.get<SocialNetwork>(
+      `${this.endPoint}/${socialNetworkId}`
+    );
   }
 }

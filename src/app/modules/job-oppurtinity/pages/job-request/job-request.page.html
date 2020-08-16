@@ -1,13 +1,15 @@
 <div class="container-fluid">
-  <section class="mar-b-156">
+  <!-- <section class="mar-b-156">
     <ag-vision
-      [showServices]="false"
       backgroundImage="assets/images/company2.png"
       [vision]="vision$ | async"
+       title="{{ 'TITLES.VISION' | translate }}"
       type="about-page"
     ></ag-vision>
-  </section>
-  <section class="mar-b-156">
-    <ag-job-request-form></ag-job-request-form>
+  </section> -->
+  <section class="mar-y-48">
+    <ag-job-request-form
+      (onSubmit)="onSubmitForm($event)"
+    ></ag-job-request-form>
   </section>
 </div>

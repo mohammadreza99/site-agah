@@ -1,27 +1,29 @@
 <div
   class="row vision"
   [ngStyle]="{ 'background-image': 'url(' + backgroundImage + ')' }"
-  [ngClass]="{ 'for-about-page pad-t-164': forAbout, 'pad-t-156': forHome }"
+  [ngClass]="{ 'for-about-page pad-t-48': forAbout, 'pad-t-156': forHome }"
 >
   <div class="container">
     <div class="row">
+      <div class="col-12 mar-b-48" *ngIf="forAbout">
+        <ag-breadcrumb></ag-breadcrumb>
+      </div>
       <div class="col-12">
         <div
           class="vision__text"
           [ngClass]="{ 'pad-t-56 pad-x-56 pad-b-40': forAbout }"
         >
           <div class="row justify-content-center">
-            <div [ngClass]="{ 'col-10': forHome, 'col-12': forAbout }">
+            <div
+              class="col"
+              [ngClass]="{ 'col-md-10': forHome, 'col-md-12': forAbout }"
+            >
               <ag-lined-header
                 class="mar-b-24"
                 [ngClass]="{ 'mar-b-80': forHome }"
-                text="{{
-                  'VISION.TITLE' | translate: { title: vision?.title }
-                }}"
+                [text]="title"
               ></ag-lined-header>
-              <span>
-                {{ "VISION.BODY" | translate: { body: vision?.body } }}
-              </span>
+              <div class="text-right" [innerHTML]="vision?.body"></div>
             </div>
           </div>
         </div>
@@ -29,4 +31,7 @@
     </div>
   </div>
 </div>
-<ag-services *ngIf="showServices"></ag-services>
+<ag-departments
+  [departments]="departments"
+  *ngIf="departments"
+></ag-departments>

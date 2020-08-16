@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="product$">
   <section>
     <ag-product-details-header
       [product]="product$ | async"
@@ -7,20 +7,7 @@
   <section class="mar-t-156">
     <ag-product-features
       title="{{ 'TITLES.FEATURES' | translate }}"
-      [features]="[
-      {image:'assets/images/f1.png',text:'High Security'},
-      {image:'assets/images/f2.png',text:'Get Money'},
-      {image:'assets/images/f3.png',text:'Best Quality'},
-      {image:'assets/images/f4.png',text:'Save Time'}]"
-      description="It is a long established fact that a reader will be distracted by the
-      readable content of a page when looking at its layout. The point of
-      using Lorem Ipsum is that it has a more-or-less normal distribution of
-      letters, as opposed to using 'Content here, content here', making it
-      look like readable English. Many desktop publishing packages and web
-      page editors now use Lorem Ipsum as their default model text, and a
-      search for 'lorem ipsum' will uncover many web sites still in their
-      infancy. Various versions have evolved over the years, sometimes by
-      accident, sometimes on purpose (injected humour and the like)."
+      [product]="product$ | async"
     ></ag-product-features>
   </section>
   <section class="mar-t-156">
@@ -37,8 +24,11 @@
   </section>
   <section class="mar-y-156">
     <ag-container title="{{'TITLES.OTHER_PRODUCTS' | translate}}">
-      <div class="col-4" *ngFor="let p of otherProducts$ | async | slice: 0:3">
-        <ag-other-product-item [product]="p"></ag-other-product-item>
+      <div
+        class="col-sm-6 col-lg-4 mb-4 mb-lg-0"
+        *ngFor="let product of otherProducts$ | async | slice: 0:3"
+      >
+        <ag-other-product-item [product]="product"></ag-other-product-item>
       </div>
     </ag-container>
   </section>

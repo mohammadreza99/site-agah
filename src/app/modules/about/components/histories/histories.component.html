@@ -1,6 +1,6 @@
 <ag-container [title]="title">
   <div class="col-12">
-    <div class="bullets mb-5">
+    <div class="bullets mb-5 pad-x-16">
       <div class="bullet" *ngFor="let history of histories; let i = index">
         <div
           class="bullet__circle"
@@ -8,18 +8,16 @@
           (click)="onBulletClick(i)"
         >
           <span>
-            {{
-              "HISTORY.TIME" | translate: { time: history.time | date: "yyyy" }
-            }}
+            {{ getTime(history.time) }}
           </span>
         </div>
         <div class="bullet__line"></div>
       </div>
     </div>
     <ag-carousel
-      [showBullets]="false"
-      [showArrows]="false"
-      [allowTouchMove]="false"
+      [config]="{
+        allowTouchMove: false
+      }"
     >
       <div class="swiper-slide p-5" *ngFor="let history of histories">
         <ag-history-item [history]="history"></ag-history-item>

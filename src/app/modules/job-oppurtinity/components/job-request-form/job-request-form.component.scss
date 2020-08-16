@@ -6,7 +6,7 @@
       width: 64px;
     }
     h3 {
-      @include text-style(#212121, 20px);
+      @include text-style($title-color3, $font-size-lg);
     }
   }
 }

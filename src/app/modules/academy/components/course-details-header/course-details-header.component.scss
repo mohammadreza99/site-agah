@@ -1,3 +1,14 @@
+@import "abstracts/mixins";
+
 :host {
   display: block;
+}
+h1 {
+  @include text-style(#0d2424, $font-size-lg);
+  @include small() {
+    font-size: $font-size-xl;
+  }
+  @include large() {
+    font-size: $font-size-xxl;
+  }
 }

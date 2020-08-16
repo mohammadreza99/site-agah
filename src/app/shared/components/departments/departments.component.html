@@ -1,0 +1,17 @@
+<ag-container class="departments">
+  <div class="col-12">
+    <ag-lined-header
+      class="mar-b-80"
+      text="{{ 'TITLES.DEPARTMENTS' | translate }}"
+    ></ag-lined-header>
+    <div class="row">
+      <div
+        class="col-sm-9 col-md-6 col-lg-5 department-item"
+        *ngFor="let department of departments; let even = even; let i = index"
+        [ngClass]="{ move: even }"
+      >
+        <ag-department-item [department]="department"></ag-department-item>
+      </div>
+    </div>
+  </div>
+</ag-container>

@@ -1,7 +1,13 @@
 <button
-  class="px-5 py-1 ag-rounded-{{ roundedSize }}"
+  [disabled]="disabled"
+  class="px-4 px-sm-5 py-1 ag-rounded-{{ roundedSize }}"
   [type]="type"
-  [ngClass]="{ raised: raised, outline: outline, link: link }"
+  [ngClass]="{
+    raised: raised,
+    outline: outline,
+    link: link,
+    'rounded-0': roundedSize == 'none'
+  }"
 >
   {{ label }}
 </button>

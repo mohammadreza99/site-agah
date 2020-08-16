@@ -1,11 +1,8 @@
-<div class="feature">
-  <div class="p-3 ag-shadow-md bg-white">
-    <img
-      [src]="image"
-      alt="{{ 'PRODUCT.FEATURE' | translate: { title: text } }}"
-    />
+<div class="feature text-center">
+  <div class="p-3 image ag-shadow-md bg-white">
+    <img class="w-100" [src]="image" [alt]="text" />
   </div>
   <span class="mar-t-24">
-    {{ "PRODUCT.FEATURE" | translate: { title: text } }}
+    {{ text }}
   </span>
 </div>

@@ -1,42 +1,37 @@
 import {
   Component,
-  OnInit,
-  Input,
-  ViewChild,
-  Output,
   EventEmitter,
-  AfterViewInit,
+  Input,
+  Output,
+  ViewChild,
+  OnInit,
 } from '@angular/core';
-import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'ngx-useful-swiper';
+import { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'ag-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
 })
-export class CarouselComponent implements AfterViewInit {
+export class CarouselComponent implements OnInit {
   constructor() {}
 
-  @Input() showBullets = true;
-  @Input() showArrows = true;
-  @Input() allowTouchMove = true;
-  @Input() slideSpace = 30;
+  @Input() config: SwiperOptions = {};
+  @Input() showBullets = false;
+  @Input() showArrows = false;
   @Output() onSlideNext = new EventEmitter();
   @Output() onSlidePrev = new EventEmitter();
   @ViewChild('carousel', { static: false }) carousel: SwiperComponent;
 
-  config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    spaceBetween: this.slideSpace,
-  };
-
-  ngAfterViewInit(): void {
-    this.carousel.swiper.allowTouchMove = this.allowTouchMove;
+  ngOnInit(): void {
+    Object.assign(this.config, {
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   }
 
   slideNext() {

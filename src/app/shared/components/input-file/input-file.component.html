@@ -1,4 +1,6 @@
 <div class="file-drop-area">
-  <span class="fake-btn ag-rounded-md pad-16 d-inline-block">{{ file ? file.name : "Choose File" }}</span>
+  <span class="fake-btn ag-rounded-md pad-16 d-inline-block">{{
+    file ? file.name : ("TITLES.CHOOSE_FILE" | translate)
+  }}</span>
   <input class="file-input" type="file" />
 </div>

@@ -1,5 +1,9 @@
-<div class="row">
-  <ag-lined-header class="mar-b-80" *ngIf="title" [text]="title"></ag-lined-header>
+<div class="row" *ngIf="product">
+  <ag-lined-header
+    class="mar-b-80"
+    *ngIf="title"
+    [text]="title"
+  ></ag-lined-header>
   <div class="col-12 path">
     <img class="w-100" src="assets/images/path.png" alt="path" />
   </div>
@@ -10,7 +14,7 @@
           <div
             class="col-2"
             *ngFor="
-              let f of features | slice: 0:4;
+              let f of product.features | slice: 0:4;
               let even = even;
               let odd = odd
             "
@@ -18,17 +22,14 @@
             <ag-feature-item
               [class.odd]="odd"
               [class.even]="even"
-              [text]="f.text"
-              [image]="f.image"
+              [text]="f.title"
+              [image]="f.logo"
             ></ag-feature-item>
           </div>
         </div>
         <div class="decription mar-t-80 text-center">
           <p>
-            {{
-              "PRODUCT.FEATURES.DESCRIPTION"
-                | translate: { description: description }
-            }}
+            {{ product.feature_description }}
           </p>
         </div>
       </div>

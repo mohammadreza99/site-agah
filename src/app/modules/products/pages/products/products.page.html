@@ -1,5 +1,10 @@
-<div class="container-fluid pad-t-104 pad-b-156">
+<div class="container-fluid pad-y-48">
   <ag-container>
+    <div class="col-12 mar-b-48">
+      <ag-breadcrumb></ag-breadcrumb>
+    </div>
+  </ag-container>
+  <ag-container title="{{'NAVIGATIONS.PRODUCTS' | translate }}">
     <div class="col-12">
       <ag-product-list [products]="products$ | async"></ag-product-list>
     </div>

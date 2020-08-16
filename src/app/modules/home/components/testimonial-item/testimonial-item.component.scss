@@ -4,7 +4,18 @@
     &__owner {
       &-image {
         margin-top: -25px;
-        margin-left: -25px;
+        width: 93px;
+        height: 93px;
+        @include small() {
+          width: 130px;
+          height: 130px;
+        }
+        &.right-side {
+          margin-right: -25px;
+        }
+        &.left-side {
+          margin-left: -25px;
+        }
         img {
           width: 100%;
         }

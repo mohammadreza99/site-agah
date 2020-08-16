@@ -3,10 +3,40 @@
 .contact {
   li {
     ag-icon {
-      width: 40px;
+      width: 24px;
+      @include medium() {
+        width: 40px;
+      }
     }
     span {
-      @include text-style(#212121, 20px);
+      @include text-style($title-color3, $font-size-md);
+      @include medium() {
+        font-size: $font-size-lg;
+      }
     }
+
+    &.phone {
+      span {
+        direction: ltr;
+      }
+    }
+  }
+}
+ag-social-networks ::ng-deep a {
+  &,
+  > div {
+    width: 50px !important;
+    height: 50px !important;
+    @include medium() {
+      width: 70px !important;
+      height: 70px !important;
+    }
+  }
+}
+
+.map {
+  min-height: 300px;
+  @include medium() {
+    min-height: auto;
   }
 }

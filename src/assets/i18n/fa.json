@@ -1,86 +1,109 @@
 {
   "TITLES": {
-    "AGAH": "تجارت الکترونیک آگاه",
-    "PRODUCTS": "Our Products",
-    "DIRECTORS": "Board Of Directors",
-    "TESTIMONIALS": "Testimonials",
-    "BLOGS": "Blog Post",
-    "PARTNERS": "Our Partner",
-    "PROCESSES": "Project Process",
-    "OTHER_PRODUCTS": "Other Products",
-    "FEATURES": "Features",
-    "HISTORIES": "Agah History",
-    "EMPLOYEES": "Employees",
-    "STOCKHOLDERS": "Stockholders",
-    "NEWS": "News & Events",
-    "FOLLOW_US": "Follow Us",
-    "JOB_REQUEST": "We are proud to work with you Join the Agah Team",
-    "COUNT_DOWN": "Time left to submit the project",
-    "LINKS": "Links",
-    "NEWSLETTERS": "Newsletters"
+    "AGAH": "تجارت الکترونیک آگاه <br> یک راهکار جامع برای کسب و کارها",
+    "OUR_PRODUCTS": "محصولات ما",
+    "OTHER_PRODUCTS": "محصولات دیگر",
+    "TESTIMONIALS": "نظرات مشتریان",
+    "BLOG_POSTS": "مطالب وبلاگ",
+    "PARTNERS": "همراهان ما",
+    "PROCESSES": "مسیر پروژه",
+    "FEATURES": "ویژگی ها",
+    "HISTORIES": "آگاه در گذر زمان",
+    "NEWS": "اخبار و رویدادها",
+    "FOLLOW_US": "ما را در شبکه های اجتماعی دنبال کنید",
+    "CONTACT_US": "تماس با ما",
+    "JOB_REQUEST": "اگر به دنبال فرصتی برای همکاری با تیم تجارت الکترونیک آگاه هستید، می‌توانید به این صفحه نگاهی بیندازید. ما از هنر و تخصص شما استقبال می‌کنیم.",
+    "JOB_REQUEST_TITLE": "با آگاه همراه شوید",
+    "COUNT_DOWN": "زمان باقیمانده تا ارائه پروژه",
+    "LINKS": "لینک ها",
+    "NEWSLETTERS": "خبرنامه",
+    "BEST_COURSES": "دوره های برگزیده",
+    "FEATURED_POST": "مطالب برگزیده",
+    "VISION": "چشم انداز آگاه",
+    "DIRECTORS": "اعضای هیئت مدیره",
+    "STOCKHOLDERS": "سهامداران",
+    "EMPLOYEES": "اعضای آگاه",
+    "ACADEMY": "بهترین دوره های آموزشی آکادمی آگاه",
+    "SHARE": "اشتراک گذاری",
+    "SHORT_LINK": "لینک کوتاه",
+    "CONTENT": "سرفصل ها",
+    "ABOUT_COURSE": "درباره دوره",
+    "TEACHER": "مدرس دوره",
+    "COMMENT": "پرسش و پاسخ",
+    "COMMENTS": "دیدگاه های شما",
+    "OWNER": "نویسنده",
+    "REPLY": "پاسخ",
+    "FIRST_NAME": "نام",
+    "LAST_NAME": "نام خانوادگی",
+    "BIRTHDATE": "تاریخ تولد",
+    "CHOOSE_FILE": "انتخاب فایل",
+    "GENDER": "جنسیت",
+    "MALE": "آقا",
+    "FEMALE": "خانم",
+    "ADDRESS": "آدرس",
+    "PHONE_NUMBER": "َشماره همراه",
+    "EMAIL": "ایمیل",
+    "OPINION": "دیدگاه",
+    "COURSE_OR_WORKSHOP_NAME": "نام دوره یا کارگاه...",
+    "DEPARTMENTS": "واحد های آگاه",
+    "CONSULERS": "مشاوران"
   },
   "BUTTONS": {
-    "PRODUCTS_SEE_MORE": "See More Projects",
-    "BLOGS_SEE_MORE": "See More Posts",
-    "VISIT_WEBSITE": "Visit Website",
-    "READ_MORE": "Read More",
-    "DOWNLOAD": "Download",
-    "JOB_REQUEST": "Send Request",
-    "REQUEST": "Request"
-  },
-  "PRODUCT": {
-    "TITLE": "{{title}}",
-    "DESCRIPTION": "{{description}}",
-    "FEATURE": "{{title}}",
-    "PROCESS": {
-      "TITLE": "{{title}}",
-      "DESCRIPTION": "{{description}}",
-      "COUNT_DOWN": {
-        "DAY": "day",
-        "HOUR": "hour",
-        "MIN": "min",
-        "SEC": "sec"
-      }
-    }
-  },
-  "HISTORY": {
-    "TIME": "{{time}}",
-    "DESCRIPTION": "{{description}}"
-  },
-  "VISION": {
-    "TITLE": "{{title}}",
-    "BODY": "{{body}}"
-  },
-  "SERVICES": {
-    "TITLE": "{{title}}",
-    "DESCRIPTION": "{{description}}"
-  },
-  "EMPLOYER": {
-    "NAME": "{{name}}",
-    "POSITION": "{{position}}"
-  },
-  "EMPLOYEE": {
-    "NAME": "{{name}}",
-    "POSITION": "{{position}}"
-  },
-  "CARD": {
-    "TITLE": "{{title}}",
-    "CONTENT": "{{content}}"
-  },
-  "TESTIMONIAL": {
-    "NAME": "{{name}}",
-    "POSITION": "{{position}}",
-    "OPINION": "{{opinion}}"
+    "PRODUCTS_SEE_MORE": "مشاهده پروژه های بیشتر",
+    "POSTS_SEE_MORE": "مشاهده مطالب بیشتر",
+    "COURSES_SEE_MORE": "مشاهده همه دوره ها",
+    "VISIT_WEBSITE": "وبسایت محصول",
+    "READ_MORE": "اطلاعات بیشتر",
+    "MORE": "بیشتر",
+    "DOWNLOAD": "دانلود",
+    "DOWNLOAD_CHART": "دانلود چارت",
+    "SEND_REQUEST": "ارسال درخواست",
+    "REQUEST": "درخواست",
+    "REQUEST_FORM": "فرم درخواست",
+    "DIRECTORS_MORE": "همه اعضای هیئت مدیره",
+    "STOCKHOLDERS_MORE": "همه سهامداران",
+    "CONSULERS_MORE": "همه مشاوران",
+    "EMPLOYEES_MORE": "ورود کارمندان"
   },
   "FOOTER": {
-    "DESCRIPTION": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop"
+    "DESCRIPTION": "بیش از یک دهه از ورود آگاه به عرصه ی تجارت الکترونیک میگذرد. طی این سال‌ها صدای موفقیت این تیم جوان بارها شنیده شده است و امروز وقت آن رسیده که نظاره‌گر شگفتیهای آن باشیم. خانواده ی بزرگ آگاه تنها چند قدم دیگر تا جهانی شدن فاصله دارند."
   },
   "NAVIGATIONS": {
-    "PRODUCTS": "Products",
-    "SOLUTIONS": "Solutions",
-    "ACADEMY": "Academy",
-    "STOCKHOLDERS": "Stockholders",
-    "JOB_OPPURTINITY": "Job Oppurtinity",
-    "ABOUT_US": "About Us"
+    "PRODUCTS": "محصولات",
+    "SOLUTIONS": "راهکارها",
+    "ACADEMY": "آکادمی آگاه",
+    "DIRECTORS": "اعضای هیئت مدیره",
+    "HISTORY": "آگاه در گذر زمان",
+    "STOCKHOLDERS": "سهامداران",
+    "EMPLOYEES": "اعضای آگاه",
+    "JOB_OPPURTINITY": "فرصت های شغلی",
+    "ABOUT_US": "درباره آگاه",
+    "CONTACT_US": "تماس با ما",
+    "HOME": "صفحه نخست",
+    "CONSULERS": "مشاوران"
+  },
+  "COURSE_INTRO": {
+    "CONDUCTING_COURSES_INTENSIVELY": "برگزاری دورا ها بصورت فشرده",
+    "GROW_YOUR_BUSINESS_IN_A_SHORT_TIME": "رشد کسب و کار شما در مدت کوتاه",
+    "SAVE_ON_YOUR_EXPENSES": "صرفه جویی در هزینه های شما",
+    "SWARDING_A_VALID_CERTIFICATE": "اعطای مدرک معتبر از آکادمی آگاه"
+  },
+  "ENTER_EMAIL_NEWS": "برای اطلاع از آخرین مطالب و اخبار آگاه ایمیل خود را وارد کنید",
+  "ENTER_EMAIL_EDUCATION": "برای دریافت آخرین اخبار آکادمی آگاه ایمیل خود را وارد کنید",
+  "BREADCRUMBS": {
+    "ABOUT": "درباره آگاه",
+    "HISTORY": "آگاه در گذر زمان",
+    "DIRECTORS": "اعضای هیئت مدیره",
+    "EMPLOYEES": "اعضای آگاه",
+    "STOCKHOLDERS": "سهامداران",
+    "CONTACT_US": "تماس با ما",
+    "ACADEMY": "آکادمی آگاه",
+    "HOME": "صفحه اصلی",
+    "JOB_OPPURTINITIES": "فرصت های شغلی",
+    "NEWS": "اخبار و رویدادها",
+    "POSTS": "مطالب وبلاگ",
+    "PRODUCTS": "محصولات",
+    "CONSULERS": "مشاوران",
+    "GALLERY":"کالری تصاویر"
   }
 }

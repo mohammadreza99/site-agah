@@ -1,4 +1,8 @@
 @import "abstracts/mixins";
+:host {
+  display: block;
+}
+
 li {
   &:hover {
     cursor: pointer;

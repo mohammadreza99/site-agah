@@ -13,8 +13,8 @@
       #88d7d8
     );
     padding: 10px;
-    width: 115px;
-    height: 115px;
+    width: 164px;
+    height: 164px;
   }
   &__name {
     @include text-style($title-color3, $font-size-lg, $line-height-sm);
@@ -23,14 +23,22 @@
     @include text-style($body-color);
   }
   &__social {
-    opacity: 0;
     transition: all 0.3s;
     cursor: pointer;
-  }
-  &:hover {
-    box-shadow: $shadow-md rgba(0, 0, 0, 0.1);
-    .employee__social {
-      opacity: 1;
+    @include medium() {
+      opacity: 0;
     }
   }
+  @include medium() {
+    &:hover {
+      box-shadow: $shadow-md rgba(0, 0, 0, 0.1);
+      transform: scale(1.05);
+      .employee__social {
+        opacity: 1;
+      }
+    }
+  }
+}
+a:hover {
+  text-decoration: none;
 }

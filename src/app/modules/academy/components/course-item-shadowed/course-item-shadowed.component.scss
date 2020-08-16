@@ -58,7 +58,9 @@
     right: 16px;
     background-image: linear-gradient(217deg, #f25841, #ff809d);
   }
-  &:hover {
-    transform: translateY(-20px);
+  @include medium() {
+    &.hoverable:hover {
+      transform: translateY(-20px);
+    }
   }
 }

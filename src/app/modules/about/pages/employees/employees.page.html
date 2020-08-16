@@ -1,11 +1,13 @@
-<div class="container-fluid pad-y-48">
+<div class="container-fluid pad-t-48">
   <ag-container>
-    <div class="col-12">
-      <ag-breadcrumb [breadcrumbs]="['About','Employees']"></ag-breadcrumb>
+    <div class="col-12 mar-b-48">
+      <ag-breadcrumb></ag-breadcrumb>
     </div>
-    <div class="col-12 text-right mar-b-104">
+  </ag-container>
+  <ag-container title="{{'TITLES.EMPLOYEES' | translate }}">
+    <!-- <div class="col-12  text-{{fa ? 'left':'right'}} mar-b-104">
       <ag-button label="Staff Login"></ag-button>
-    </div>
+    </div> -->
     <section class="col-12">
       <ag-employees [employees]="employees$ | async"></ag-employees>
     </section>

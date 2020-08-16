@@ -1,4 +1,4 @@
-<div class="container-fluid education ag-rounded-lg">
+<div class="container-fluid education ag-rounded-lg d-none d-md-block">
   <div class="row">
     <div
       class="col-5 ag-rounded-lg education__mask d-flex align-items-center justify-content-start"
@@ -9,17 +9,27 @@
       class="col-6 pad-y-40 education__input d-flex align-items-center position-relative"
     >
       <div class="flex-grow-1">
-        <p class="mar-b-40">Enter your email for our education news</p>
-        <ag-input-text
-          placeholder="Name"
-          class="mar-b-40 d-block"
-        ></ag-input-text>
-        <ag-input-text
-          placeholder="Email"
-          class="mar-b-40 d-block"
-        ></ag-input-text>
-        <ag-button type="submit" label="Submit"></ag-button>
+        <p class="mar-b-40">{{ "ENTER_EMAIL_EDUCATION" | translate }}</p>
+        <ag-course-textbox></ag-course-textbox>
       </div>
     </div>
   </div>
 </div>
+
+<ag-container class="d-md-none pad-b-40">
+  <div class="col-12 is-responsive">
+    <div>
+      <div class="row">
+        <div class="col-12 banner">
+          <img src="assets/images/education-res.png" class="w-100" alt="" />
+        </div>
+        <div class="col-12 pad-b-40 pad-x-32">
+          <div class="mar-t-40 mar-b-32 text-center">
+            {{ "ENTER_EMAIL_EDUCATION" | translate }}
+          </div>
+          <ag-course-textbox></ag-course-textbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</ag-container>

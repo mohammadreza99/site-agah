@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StockholderService } from '@app/core/http/stockholder/stockholder.service';
 import { Observable } from 'rxjs';
-import { Stockholder } from '@app/shared/models/stockholder.model';
+
+import { Stockholder } from '@shared/models/stockholder.model';
+import { StockholderService } from '@core/http/stockholder/stockholder.service';
 
 @Component({
   selector: 'ag-stockholders-page',
@@ -14,6 +15,6 @@ export class StockholdersPage implements OnInit {
   stockholders$: Observable<Stockholder[]>;
 
   ngOnInit(): void {
-    this.stockholders$ = this.stockholderService.getStockholders();
+    this.stockholders$ = this.stockholderService.get();
   }
 }

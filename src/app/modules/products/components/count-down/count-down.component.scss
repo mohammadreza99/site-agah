@@ -16,11 +16,11 @@
       }
 
       .semi {
-        @include text-style($polarous-blue-014, 26px,1.4);
+        @include text-style($polarous-blue-014, $font-size-xl, 1.4);
       }
       .time {
         @include text-style($title-color1, $font-size-lg, $font-weight: 600);
-        span{
+        span {
           @include text-style($primary);
         }
       }
@@ -35,5 +35,13 @@
     left: 0;
     border-radius: 50px;
     transition: all 0.3s;
+  }
+
+  countdown {
+    &::ng-deep {
+      .wrapper {
+        direction: ltr;
+      }
+    }
   }
 }

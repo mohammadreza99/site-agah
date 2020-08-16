@@ -12,11 +12,11 @@ export class StockholderService {
 
   private readonly endPoint = 'stock-holders';
 
-  getStockholders(): Observable<Stockholder[]> {
+  get(): Observable<Stockholder[]> {
     return this.apiService.get<Stockholder[]>(this.endPoint);
   }
 
-  getStockholderById(stockholderId: number): Observable<Stockholder> {
+  getById(stockholderId: number): Observable<Stockholder> {
     return this.apiService.get<Stockholder>(
       `${this.endPoint}/${stockholderId}`
     );

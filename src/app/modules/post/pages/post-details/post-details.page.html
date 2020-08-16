@@ -1,0 +1,53 @@
+<div class="container-fluid pad-t-48 pad-b-156">
+  <ag-container *ngIf="post">
+    <div class="col-12">
+      <ag-breadcrumb class="mar-b-80"></ag-breadcrumb>
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <section class="mar-b-132">
+            <ag-post-details-header [post]="post"></ag-post-details-header>
+            <ag-tags [tags]="['Event']" class="mar-b-40"></ag-tags>
+            <div
+              class="d-flex flex-column flex-lg-row align-items-center justify-content-between mar-b-64"
+            >
+              <ag-share></ag-share>
+              <div
+                class="short-link mt-5 mt-lg-0 px-4 py-2 rounded-pill border"
+              >
+                <span class="mar-r-56">Short Link</span>
+                <span class="link">https://bit.ly/39NYPvn</span>
+              </div>
+            </div>
+            <ag-author
+              [author]="post.user"
+              title="{{'TITLES.OWNER' | translate}}"
+            ></ag-author>
+          </section>
+          <section>
+            <ag-comment-form></ag-comment-form>
+          </section>
+          <div class="divider w-100 mar-y-40"></div>
+          <section class="mar-b-156">
+            <ag-comment-item *ngFor="let item of [1,2,3,3]"></ag-comment-item>
+          </section>
+        </div>
+      </div>
+    </div>
+  </ag-container>
+  <ag-container
+    title="{{'TITLES.BLOG_POSTS' | translate}}"
+    *ngIf="posts$ | async"
+  >
+    <ag-carousel
+      [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
+      class="col-12"
+    >
+      <div
+        class="swiper-slide px-2 py-4"
+        *ngFor="let post of ((posts$ | async) | slice: 0:3)"
+      >
+        <ag-post-item [post]="post"></ag-post-item>
+      </div>
+    </ag-carousel>
+  </ag-container>
+</div>

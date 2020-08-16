@@ -8,26 +8,40 @@
     z-index: 2;
 
     &-capture {
-      transform: translate(68px, -68px);
+      transform: translate(-45px, -45px);
+      @include medium() {
+        transform: translate(-68px, -68px);
+      }
       z-index: 3;
     }
     .dots {
       position: absolute;
       bottom: 15px;
-      left: 15px;
+      right: 15px;
       z-index: -1;
+    }
+
+    &.left-side {
+      .features__video-capture {
+        transform: translate(68px, -68px);
+      }
+      .dots {
+        right: auto;
+        left: 15px;
+      }
     }
   }
 
   &__list {
-    padding-left: 68px;
+    @include extraSmall() {
+      padding-right: 0 !important;
+    }
     li {
       display: flex;
       align-items: center;
       > span {
-        @include text-style(#414141, 20px);
+        @include text-style($body-color, $font-size-lg);
         display: block;
-        margin-left: 15px;
       }
     }
   }

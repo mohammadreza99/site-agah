@@ -3,16 +3,28 @@
 .social {
   background-image: url("../../../../assets/images/social.png");
   background-repeat: no-repeat;
-  padding: 14% 0;
-  background-size: 110% auto;
+  background-size: 190% auto;
+  background-position: 74%;
   position: relative;
-  background-position: top;
   p {
-    @include text-style($title-color3, $font-size-xxl, $line-height-sm, 600);
+    @include text-style($title-color3, $font-size-lg, $line-height-sm, 600);
     margin-bottom: 65px;
   }
   .dot {
     position: absolute;
     top: -200px;
+    z-index: -1;
+  }
+  .social-networks {
+    margin-top: 100%;
+  }
+
+  @include medium() {
+    padding: 14% 0;
+    background-size: 110% auto;
+    background-position: top;
+    .social-networks {
+      margin-top: 0;
+    }
   }
 }

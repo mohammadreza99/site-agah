@@ -3,95 +3,19 @@
 html,
 body {
   height: 100%;
-  font-family: $muli-font, $yekan-font;
   line-height: $line-height-lg;
   color: $body-color;
-  font-size: $font-size-md;
+  font-size: $font-size-sm;
   margin: 0;
+  @include medium() {
+    font-size: $font-size-md;
+  }
 }
-
-// .yekan-font {
-//   font-family: $yekan-font;
-// }
-
-// .muli-font {
-//   font-family: $muli-font;
-// }
-
-// .lead {
-//   font-size: 1.25rem;
-//   font-weight: 300;
-// }
-
-// .display-1 {
-//   font-size: 6rem;
-//   font-weight: 300;
-//   line-height: 1.2;
-// }
-
-// .display-2 {
-//   font-size: 5.5rem;
-//   font-weight: 300;
-//   line-height: 1.2;
-// }
-
-// .display-3 {
-//   font-size: 4.5rem;
-//   font-weight: 300;
-//   line-height: 1.2;
-// }
-
-// .display-4 {
-//   font-size: 3.5rem;
-//   font-weight: 300;
-//   line-height: 1.2;
-// }
-
-// hr {
-//   margin-top: 1rem;
-//   margin-bottom: 1rem;
-//   border: 0;
-//   border-top: 1px solid rgba(0, 0, 0, 0.1);
-// }
-
-// small,
-// .small {
-//   font-size: 80%;
-//   font-weight: 400;
-// }
-
-// mark,
-// .mark {
-//   padding: 0.2em;
-//   background-color: #fcf8e3;
-// }
-
-// .list-unstyled {
-//   padding-left: 0;
-//   list-style: none;
-// }
-
-// .img-fluid {
-//   max-width: 100%;
-//   height: auto;
-// }
-
-// .img-thumbnail {
-//   padding: 0.25rem;
-//   background-color: #fff;
-//   border: 1px solid #dee2e6;
-//   border-radius: 0.25rem;
-//   max-width: 100%;
-//   height: auto;
-// }
-
-// code {
-//   font-size: 87.5%;
-//   color: #e83e8c;
-//   word-break: break-word;
-// }
-
-// .pre-scrollable {
-//   max-height: 340px;
-//   overflow-y: scroll;
-// }
+body {
+  &.ag-rtl {
+    font-family: $yekan-font;
+  }
+  &.ag-ltr {
+    font-family: $muli-font;
+  }
+}

@@ -1,0 +1,15 @@
+<div class="search-box d-flex align-items-center">
+  <input
+    type="text"
+    class="ag-shadow-lg w-100 py-2"
+    placeholder="{{ 'TITLES.COURSE_OR_WORKSHOP_NAME' | translate }}"
+    [(ngModel)]="value"
+    (input)="valueChange.emit(value)"
+  />
+  <ag-icon
+    [ngClass]="{ 'right-side': fa }"
+    icon="fa-search"
+    color="#ffffff"
+    (click)="searchIconClick.emit(value)"
+  ></ag-icon>
+</div>

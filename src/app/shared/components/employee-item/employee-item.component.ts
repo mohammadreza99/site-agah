@@ -19,5 +19,6 @@ export class EmployeeItemComponent implements OnInit {
     return `${this.employee.first_name} ${this.employee.last_name}`;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }

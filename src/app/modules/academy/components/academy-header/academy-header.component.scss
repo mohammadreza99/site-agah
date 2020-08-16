@@ -1,6 +1,8 @@
 @import "abstracts/mixins";
 
 .header {
+  height: 500px;
+  position:relative;
   &__text {
     top: 50%;
     left: 50%;
@@ -8,7 +10,13 @@
     width: 100%;
     text-align: center;
     h1 {
-      @include text-style(#0d2424, 68px, $font-weight: 600);
+      @include text-style($title-color1, $font-size-xl, $font-weight: 600);
+      @include medium() {
+        font-size: $font-size-xxxxl;
+      }
     }
+  }
+  img{
+    height: 100%;
   }
 }

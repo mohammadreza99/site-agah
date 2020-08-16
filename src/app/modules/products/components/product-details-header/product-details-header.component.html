@@ -2,28 +2,25 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 pad-t-48">
-        <ag-breadcrumb
-          [breadcrumbs]="['Home', 'Products', 'Simple']"
-        ></ag-breadcrumb>
+        <ag-breadcrumb></ag-breadcrumb>
       </div>
-      <div class="col-9 mar-t-40 text-center">
-        <h1>{{ "PRODUCT.TITLE" | translate: { title: product.title } }}</h1>
-        <p class="mar-t-32">
-          {{
-            "PRODUCT.DESCRIPTION"
-              | translate: { description: product.description }
-          }}
-        </p>
-        <a [href]="product.website">
+      <div class="col-lg-11 mar-t-40">
+        <div class="text-sm-center text-{{ fa ? 'right' : 'left' }}">
+          <h1 class="space">{{ product.title }}</h1>
+          <p class="space">
+            {{ product.description }}
+          </p>
+        </div>
+        <a [href]="product.website" target="_blank">
           <ag-button
-            class="mar-t-32"
+            class="space text-center"
             label="{{ 'BUTTONS.VISIT_WEBSITE' | translate }}"
           ></ag-button>
         </a>
         <div class="ag-blur-effect">
           <img
             [src]="product.image"
-            alt="{{ 'PRODUCT.TITLE' | translate: { title: product.title } }}"
+            [alt]="product.title"
             class="img-fluid mar-t-40 w-100 ag-rounded-lg"
           />
         </div>

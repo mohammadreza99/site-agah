@@ -8,7 +8,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { Validations } from '@app/shared/models/validation.model';
+import { Validations } from '@shared/models/validation.model';
 
 @Component({
   selector: 'ag-input-textarea',
@@ -27,7 +27,6 @@ export class InputTextareaComponent implements OnInit, ControlValueAccessor {
   @Input() label: string;
   @Input() icon: string;
   @Input() type = 'text';
-  @Input() dir: 'ltr' | 'rtl' = 'rtl';
   @Input() disabled: boolean;
   @Input() readonly: boolean;
   @Input() maxlength: number;
@@ -39,6 +38,7 @@ export class InputTextareaComponent implements OnInit, ControlValueAccessor {
   controlOnTouched: () => void;
   value: any = '';
   hasValueAccessor = false;
+  filled = false;
 
   ngOnInit(): void {}
 
@@ -64,6 +64,11 @@ export class InputTextareaComponent implements OnInit, ControlValueAccessor {
   _onInput(event) {
     if (this.hasValueAccessor) {
       this.controlOnChanged(event.target.value);
+    }
+    if (event.target.value !== '') {
+      this.filled = true;
+    } else {
+      this.filled = false;
     }
     this.onInput.emit(event.target.value);
   }
@@ -96,13 +101,5 @@ export class InputTextareaComponent implements OnInit, ControlValueAccessor {
 
   getErrorMessage(error: Validations) {
     return Object.values(error);
-  }
-
-  get isRtl() {
-    return this.dir === 'rtl';
-  }
-
-  get isLtr() {
-    return this.dir === 'ltr';
   }
 }

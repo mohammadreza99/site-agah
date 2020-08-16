@@ -8,6 +8,9 @@
     }
   }
   .dropdown-menu {
+    left: 0;
+    right: auto;
+
     .dropdown-item {
       @include text-style($body-color, $font-size-md);
       &-icon {
@@ -31,6 +34,26 @@
         color: $primary;
         background-color: transparent;
       }
+    }
+
+    &.right-side {
+      left: auto;
+      right: 0;
+      .dropdown-item {
+        &-icon {
+          transform: translateX(8px);
+        }
+        &:hover,
+        &:active {
+          .dropdown-item-icon {
+            transform: translateX(3px);
+          }
+        }
+      }
+    }
+    @include extraSmall() {
+      left: 0 !important;
+      right: auto !important;
     }
   }
   &:hover,

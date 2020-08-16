@@ -11,6 +11,9 @@ import { PostService } from '@core/http/post/post.service';
 import { VisionService } from '@core/http/vision/vision.service';
 import { DirectorService } from '@core/http/director/director.service';
 import { TestimonialService } from '@core/http/testimonial/testimonial.service';
+import { Department } from '@shared/models/department.model';
+import { DepartmentService } from '@core/http/department/department.service';
+import { GalleryService } from '@app/core/http/gallery/gallery.service';
 
 @Component({
   selector: 'ag-home-page',
@@ -23,20 +26,23 @@ export class HomePage implements OnInit {
     private postService: PostService,
     private visionService: VisionService,
     private directorService: DirectorService,
+    private departmentService: DepartmentService,
     private testimonialService: TestimonialService
   ) {}
 
   products$: Observable<Product[]>;
   posts$: Observable<Post[]>;
   vision$: Observable<Vision>;
+  departments$: Observable<Department[]>;
   directors$: Observable<Director[]>;
   testimonials$: Observable<Testimonial[]>;
 
   ngOnInit(): void {
-    this.posts$ = this.postService.getPosts();
-    this.products$ = this.productService.getProducts();
-    this.vision$ = this.visionService.getVisionById(1);
-    this.directors$ = this.directorService.getDirectors();
-    this.testimonials$ = this.testimonialService.getTestimonials();
+    this.posts$ = this.postService.get();
+    this.products$ = this.productService.getByLimit(3);
+    this.vision$ = this.visionService.get();
+    this.directors$ = this.directorService.get();
+    this.testimonials$ = this.testimonialService.get();
+    this.departments$ = this.departmentService.get();
   }
 }

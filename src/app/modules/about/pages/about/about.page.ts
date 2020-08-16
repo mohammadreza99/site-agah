@@ -13,6 +13,10 @@ import { Employee } from '@shared/models/employee.model';
 import { Stockholder } from '@shared/models/stockholder.model';
 import { NewsLetter } from '@shared/models/news-letter.model';
 import { NewsLetterService } from '@core/http/news-letter/news-letter.service';
+import { Department } from '@shared/models/department.model';
+import { DepartmentService } from '@core/http/department/department.service';
+import { News } from '@app/shared/models/news.model';
+import { NewsService } from '@app/core/http/news/news.service';
 
 @Component({
   selector: 'ag-about-page',
@@ -25,7 +29,9 @@ export class AboutPage implements OnInit {
     private historyService: HistoryService,
     private directorService: DirectorService,
     private stockholderService: StockholderService,
-    private employeeService: EmployeeService
+    private departmentService: DepartmentService,
+    private employeeService: EmployeeService,
+    private newsService: NewsService
   ) {}
 
   vision$: Observable<Vision>;
@@ -33,13 +39,24 @@ export class AboutPage implements OnInit {
   directors$: Observable<Director[]>;
   employees$: Observable<Employee[]>;
   stockholders$: Observable<Stockholder[]>;
+  departments$: Observable<Department[]>;
   newsLetters$: Observable<NewsLetter[]>;
-
+  news$: Observable<News[]>;
+  consulers = [
+    {
+      firstName: 'George',
+      lastName: 'Verghese',
+      image: 'assets/images/moshaver.jpg',
+      company_position: {},
+    },
+  ];
   ngOnInit(): void {
-    this.vision$ = this.visionService.getVisionById(1);
-    this.histories$ = this.historyService.getHistorys();
-    this.directors$ = this.directorService.getDirectors();
-    this.employees$ = this.employeeService.getEmployees();
-    this.stockholders$ = this.stockholderService.getStockholders();
+    this.vision$ = this.visionService.get();
+    this.histories$ = this.historyService.get();
+    this.directors$ = this.directorService.get();
+    this.employees$ = this.employeeService.get();
+    this.stockholders$ = this.stockholderService.get();
+    this.departments$ = this.departmentService.get();
+    this.news$ = this.newsService.get();
   }
 }

@@ -6,29 +6,34 @@ import {
   Output,
   EventEmitter,
   forwardRef,
+  Self,
+  Optional,
 } from '@angular/core';
 import * as moment from 'moment';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from '@angular/forms';
+import { Validations } from '@app/shared/models/validation.model';
 
 @Component({
   selector: 'ag-input-datepicker',
   templateUrl: './input-datepicker.component.html',
   styleUrls: ['./input-datepicker.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputDatepickerComponent),
-      multi: true,
-    },
-  ],
 })
 export class InputDatepickerComponent implements OnInit, ControlValueAccessor {
-  constructor(public el: ElementRef) {}
+  constructor(@Self() @Optional() public ngControl?: NgControl) {
+    if (this.ngControl) {
+      this.ngControl.valueAccessor = this;
+    }
+  }
 
   @Input() disabled = false;
   @Input() placeholder: string;
   @Input() readonly = false;
   @Input() icon: string;
+  @Input() errors: Validations[] = [];
   @Input() minDate: moment.Moment | string = undefined;
   @Input() maxDate: moment.Moment | string = undefined;
   @Input() minTime: moment.Moment | string = undefined;
@@ -173,6 +178,9 @@ export class InputDatepickerComponent implements OnInit, ControlValueAccessor {
 
   _onClose() {
     this.onClose.emit();
+    if (this.hasValueAccessor) {
+      this.controlOnTouched();
+    }
   }
 
   _onGoToCurrent() {
@@ -187,11 +195,14 @@ export class InputDatepickerComponent implements OnInit, ControlValueAccessor {
     this.onRightNav.emit();
   }
 
-  _onFocus() {
-    this.onFocus.emit();
+  _onBlur() {
+    if (this.hasValueAccessor) {
+      this.controlOnTouched();
+    }
+    this.onBlur.emit();
   }
 
-  _onBlur() {
-    this.onBlur.emit();
+  _onFocus() {
+    this.onFocus.emit();
   }
 }

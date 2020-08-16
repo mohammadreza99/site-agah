@@ -3,13 +3,25 @@
 .header {
   position: relative;
   text-align: center;
+  background-image: url("../../../../../assets/images/home-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 700px;
+  background-position: bottom center;
   .text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     h2 {
-      @include text-style($title-color1, $font-size-xxxxl, $font-weight: 600);
+      text-shadow: 0 4px 20px rgba(13, 36, 36, 0.35);
+      @include text-style($white, $font-size-xl, $font-weight: 900);
+      @include small() {
+        font-size: $font-size-xxxl;
+      }
+      @include medium() {
+        font-size: $font-size-xxxxl;
+      }
     }
   }
 }

@@ -9,7 +9,7 @@
 
   .content-text {
     color: #d4d4d4;
-    @include text-style(#d4d4d4, 20px, $font-weight: 600);
+    @include text-style($gray-002, $font-size-lg, $font-weight: 600);
   }
 
   .week {
@@ -27,7 +27,7 @@
       }
     }
     &__title {
-      @include text-style(#212121, 20px, $font-weight: 600);
+      @include text-style($title-color3, $font-size-lg, $font-weight: 600);
       &:before {
         content: "";
         position: absolute;
@@ -53,6 +53,29 @@
         .lock {
           opacity: 1;
           color: #d4d4d4;
+        }
+
+        @include extraSmall() {
+          .lock-res {
+            color: #d4d4d4;
+            display: inline-block !important;
+          }
+        }
+      }
+    }
+
+    &.right-side {
+      ul,
+      .week__title {
+        &:after {
+          right: 0;
+          left: auto;
+        }
+      }
+      .week__title {
+        &:before {
+          left: auto;
+          right: -5px;
         }
       }
     }

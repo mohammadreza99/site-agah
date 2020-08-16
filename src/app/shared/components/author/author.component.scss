@@ -1,0 +1,40 @@
+@import "abstracts/mixins";
+
+:host {
+  display: block;
+}
+
+.wrapper {
+  border: 1px solid #d4d4d4;
+
+  .teacher-text {
+    color: #d4d4d4;
+    @include text-style($gray-002, $font-size-lg, $font-weight: 600);
+  }
+
+  .teacher-info {
+    .avatar {
+      img {
+        width: 100px;
+        border-radius: 50%;
+      }
+      h5 {
+        @include text-style($primary, $font-size-lg, $font-weight: 600);
+      }
+      h6 {
+        @include text-style(#b7b7b7);
+        margin: 0;
+      }
+    }
+    .social {
+      i {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #ddf3f4;
+      }
+    }
+  }
+}

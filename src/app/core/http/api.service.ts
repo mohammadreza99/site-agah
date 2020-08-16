@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 
 import { Constants } from '@core/config/constants';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +11,19 @@ import { Constants } from '@core/config/constants';
 export class ApiService {
   constructor(private http: HttpClient, private constants: Constants) {}
 
-  private baseUrl = this.constants.API_URL;
+  // private baseUrl = this.constants.API_URL;
+  private baseUrl = environment.apiUrl;
+  private headers = new HttpHeaders({
+    // TODO
+    'Accept-Language': 'en',
+  });
 
   get<T>(endpoint: string, options?: any) {
+    if (!options) {
+      options = {};
+    }
+    options.headers = this.headers;
+
     return this.http
       .get<T>(this.baseUrl + endpoint, options)
       .pipe(map((res: any) => res.data as T));

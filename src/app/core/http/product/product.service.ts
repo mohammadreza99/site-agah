@@ -13,9 +13,15 @@ export class ProductService {
 
   private readonly endPoint = 'products';
 
-  getProducts(): Observable<Product[]> {
+  get(): Observable<Product[]> {
     return this.apiService
       .get<Product[]>(this.endPoint)
+      .pipe(map((res: any) => res.data));
+  }
+
+  getByLimit(limit: number): Observable<Product[]> {
+    return this.apiService
+      .get<Product[]>(`${this.endPoint}?limit=${limit}`)
       .pipe(map((res: any) => res.data));
   }
 

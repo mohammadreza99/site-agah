@@ -5,10 +5,10 @@
     &-control {
       border: 1px solid $field-color;
       border-radius: $radius-md;
-      text-align: right;
       font-size: $font-size-md;
       outline: 0;
       height: auto;
+      padding: 0.375rem 0.75rem;
       @include text-style();
       &.ng-dirty.ng-valid {
         background-color: $polarous-blue-001;
@@ -19,43 +19,12 @@
       &.is-invalid {
         border-color: $orange;
       }
-    }
-    &-icon {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      color: $body-color;
+      &.filled {
+        background-color: $polarous-blue-001;
+      }
     }
   }
   &__error {
     color: $orange;
-  }
-  &.rtl {
-    text-align: right;
-    .wrapper__input {
-      &-control {
-        text-align: right;
-        &.has-icon {
-          padding-right: 2rem !important;
-        }
-      }
-      &-icon {
-        right: 0.5rem;
-      }
-    }
-  }
-  &.ltr {
-    text-align: left;
-    .wrapper__input {
-      &-control {
-        text-align: left;
-        &.has-icon {
-          padding-left: 2rem !important;
-        }
-      }
-      &-icon {
-        left: 0.5rem;
-      }
-    }
   }
 }

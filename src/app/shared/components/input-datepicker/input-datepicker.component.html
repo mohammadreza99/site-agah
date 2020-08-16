@@ -1,9 +1,11 @@
 <ag-input-text
   theme="dp-material"
+  [formControl]="ngControl.control"
   [dpDayPicker]="config"
   [icon]="icon"
   [(ngModel)]="innerDate"
   [placeholder]="placeholder"
+  [errors]="errors"
   [disabled]="disabled"
   [readonly]="readonly"
   [minDate]="minDate"
@@ -16,6 +18,6 @@
   (onGoToCurrent)="_onGoToCurrent()"
   (onLeftNav)="_onLeftNav()"
   (onRightNav)="_onRightNav()"
-  (focus)="_onFocus()"
-  (blur)="_onBlur()"
+  (onFocus)="_onFocus()"
+  (onBlur)="_onBlur()"
 ></ag-input-text>

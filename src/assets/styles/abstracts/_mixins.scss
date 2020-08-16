@@ -1,15 +1,23 @@
+@use "sass:list";
 @import "abstracts/variables";
 
 @mixin text-style(
   $color: $body-color /*#414141*/,
-  $size: $font-size-md /*16px*/,
+  $size: null,
   $line-height: $line-height-lg /*2*/,
   $font-weight: normal
 ) {
   color: $color;
-  font-size: $size;
-  font-weight: $font-weight;
   line-height: $line-height;
+  font-weight: $font-weight;
+  @if ($size) {
+    font-size: $size;
+  } @else {
+    font-size: $font-size-sm;
+    @include medium() {
+      font-size: $font-size-md;
+    }
+  }
 }
 
 @each $spaceSize in $spaces {
@@ -49,5 +57,35 @@
   .mar-x-#{$spaceSize} {
     margin-left: #{$spaceSize}px !important;
     margin-right: #{$spaceSize}px !important;
+  }
+}
+
+@mixin extraSmall {
+  @media (max-width: #{$extraSmall-width}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (min-width: #{$small-min-width}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$medium-min-width}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-min-width}) {
+    @content;
+  }
+}
+
+@mixin extraLarge {
+  @media (min-width: #{$extraLarge-min-width}) {
+    @content;
   }
 }

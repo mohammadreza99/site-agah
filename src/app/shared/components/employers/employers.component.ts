@@ -13,8 +13,8 @@ export class EmployersComponent implements OnInit {
 
   @Input() title: string;
   @Input() employers: Director[] | Stockholder[] = [];
-  @Input() showDownloadButton: boolean;
-  @Output() downloadClick = new EventEmitter();
+  @Input() buttonLabel: string;
+  @Input() buttonRouterLink: string;
 
   ngOnInit(): void {}
 }

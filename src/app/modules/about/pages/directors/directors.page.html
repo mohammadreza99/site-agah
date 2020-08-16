@@ -1,0 +1,18 @@
+<div class="container-fluid pad-t-48">
+  <ag-container>
+    <div class="col-12 mar-b-48">
+      <ag-breadcrumb></ag-breadcrumb>
+    </div>
+  </ag-container>
+  <ag-container title="{{'TITLES.DIRECTORS' | translate }}">
+    <!-- <div class="col-12  text-{{fa?'left':'right'}} mar-b-104">
+      <ag-button label="{{'BUTTONS.DOWNLOAD_CHART' | translate}}"></ag-button>
+    </div> -->
+    <div
+      class="col-sm-6 col-lg-3 mar-b-72"
+      *ngFor="let director of directors$ | async"
+    >
+      <ag-employer-item [employer]="director"></ag-employer-item>
+    </div>
+  </ag-container>
+</div>

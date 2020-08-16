@@ -1,4 +1,8 @@
-<div class="wrapper ag-rounded-lg ag-blur-effect">
+<div
+  class="wrapper ag-rounded-lg ag-blur-effect"
+  [class.hoverable]="hoverable"
+  [routerLink]="['/academy/courses/details', course.id]"
+>
   <img [src]="course.image" class="wrapper__image ag-rounded-lg" />
   <div class="wrapper__category text-white pad-y-12 pad-x-16">
     {{ course.category }}
@@ -7,7 +11,9 @@
     <img class="w-100" [src]="course.icon" alt="{{ course.title }}" />
   </div>
   <div
-    class="wrapper__content d-flex flex-column justify-content-end align-items-start text-white pad-b-32 pad-l-24"
+    class="wrapper__content d-flex flex-column justify-content-end align-items-start text-white pad-b-32 pad-{{
+      fa ? 'r' : 'l'
+    }}-24"
   >
     <h6 class="wrapper__content-title">
       {{ course.title }}

@@ -12,11 +12,11 @@ export class DirectorService {
 
   private readonly endPoint = 'directors';
 
-  getDirectors(): Observable<Director[]> {
+  get(): Observable<Director[]> {
     return this.apiService.get<Director[]>(this.endPoint);
   }
 
-  getDirectorById(directorId: number): Observable<Director> {
+  getById(directorId: number): Observable<Director> {
     return this.apiService.get<Director>(`${this.endPoint}/${directorId}`);
   }
 }

@@ -1,7 +1,9 @@
 @import "abstracts/mixins";
 
 .newsletter {
+  direction: ltr;
   border: 1px solid #d4d4d4;
+  overflow: hidden;
   &,
   & > .row {
     min-height: 320px;
@@ -16,7 +18,12 @@
     img {
       position: absolute;
       top: 30px;
-      right: 0;
+      right: -36px;
     }
   }
+}
+
+.is-responsive > div {
+  border: 1px solid #d4d4d4;
+  border-radius: 30px;
 }

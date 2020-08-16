@@ -1,15 +1,55 @@
 @import "abstracts/mixins";
 
-.side-list {
-  position: sticky;
-  top: 105px;
-  overflow: hidden;
-  margin-top: 70px;
-
-  .title {
-    @include text-style(#616161, 20px);
+.side-list-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0;
+  z-index: 200;
+  box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.1);
+  @include large() {
+    position: static;
+    box-shadow: none;
   }
-  .subtitle {
-    @include text-style(#414141, 20px, $font-weight: bold);
+  ag-button ::ng-deep button {
+    height: 60px;
+    width: 100%;
+    border-radius: 0;
+    @include small() {
+      height: auto;
+    }
+  }
+  .side-list {
+    padding-top: 10px;
+    @include small() {
+      padding: 32px 24px;
+      ag-button ::ng-deep button {
+        border-radius: 20px;
+      }
+    }
+    @include large() {
+      position: sticky;
+      top: 105px;
+      overflow: hidden;
+      margin-top: 80px;
+      padding: 24px;
+    }
+
+    .title {
+      @include text-style($gray-006, $font-size-sm);
+      margin-bottom: 16px;
+      @include small() {
+        font-size: $font-size-lg;
+      }
+    }
+    .subtitle {
+      @include text-style($body-color, $font-size-sm, $font-weight: bold);
+      margin-bottom: 16px;
+      @include small() {
+        font-size: $font-size-lg;
+      }
+    }
   }
 }

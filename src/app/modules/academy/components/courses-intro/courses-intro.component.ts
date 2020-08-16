@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+
 @Component({
   selector: 'ag-courses-intro',
   templateUrl: './courses-intro.component.html',
-  styleUrls: ['./courses-intro.component.scss']
+  styleUrls: ['./courses-intro.component.scss'],
 })
-export class CoursesIntroComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class CoursesIntroComponent extends LanguageChecker implements OnInit {
+  ngOnInit(): void {}
 }

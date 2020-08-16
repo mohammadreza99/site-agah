@@ -2,7 +2,7 @@
   <div class="accordion-header" (click)="setActive.emit()">
     <div class="header d-flex align-items-center justify-content-between">
       <div class="d-flex align-items-center">
-        <i class="fas mar-r-8 {{ icon }}"></i>
+        <i [ngClass]="fa ? 'mar-l-8' : 'mar-r-8'" class="fas {{ icon }}"></i>
         <span>{{ title }}</span>
       </div>
       <i class="fal fa-chevron-{{ active ? 'up' : 'down' }}"></i>

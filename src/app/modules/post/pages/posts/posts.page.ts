@@ -15,7 +15,7 @@ export class PostsPage implements OnInit {
   posts$: Observable<Post[]>;
 
   ngOnInit(): void {
-    this.posts$ = this.postService.getPosts();
+    this.posts$ = this.postService.get();
   }
 
   onListItemClick(item) {}

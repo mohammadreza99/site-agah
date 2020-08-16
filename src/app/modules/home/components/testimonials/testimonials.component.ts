@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Testimonial } from '@shared/models/testimonial.model';
 
 @Component({
@@ -10,6 +10,7 @@ export class TestimonialsComponent implements OnInit {
   constructor() {}
   @Input() title: string;
   @Input() testimonials: Testimonial[];
+
 
   ngOnInit(): void {}
 }

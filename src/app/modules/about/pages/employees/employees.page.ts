@@ -3,56 +3,21 @@ import { Observable, of } from 'rxjs';
 
 import { EmployeeService } from '@core/http/employee/employee.service';
 import { Employee } from '@shared/models/employee.model';
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 
 @Component({
   selector: 'ag-employees-page',
   templateUrl: './employees.page.html',
   styleUrls: ['./employees.page.scss'],
 })
-export class EmployeesPage implements OnInit {
-  constructor(private employeeService: EmployeeService) {}
+export class EmployeesPage extends LanguageChecker implements OnInit {
+  constructor(private employeeService: EmployeeService) {
+    super();
+  }
 
   employees$: Observable<Employee[]>;
 
   ngOnInit(): void {
-    // this.employees$ = this.employeeService.getEmployees();
-    this.employees$ = of([
-      {
-        first_name: 'string',
-        last_name: 'string',
-        image: 'assets/images/company.png',
-        position_id: 1,
-      },
-      {
-        first_name: 'string',
-        last_name: 'string',
-        image: 'assets/images/company.png',
-        position_id: 1,
-      },
-      {
-        first_name: 'string',
-        last_name: 'string',
-        image: 'assets/images/company.png',
-        position_id: 1,
-      },
-      {
-        first_name: 'string',
-        last_name: 'string',
-        image: 'assets/images/company.png',
-        position_id: 1,
-      },
-      {
-        first_name: 'string',
-        last_name: 'string',
-        image: 'assets/images/company.png',
-        position_id: 1,
-      },
-      {
-        first_name: 'string',
-        last_name: 'string',
-        image: 'assets/images/company.png',
-        position_id: 1,
-      },
-    ] as Employee[]);
+    this.employees$ = this.employeeService.get();
   }
 }

@@ -1,31 +1,32 @@
-<div class="wrapper bg-white ag-rounded-lg ag-blur-effect m-4">
+<div
+  class="wrapper bg-white ag-rounded-lg ag-blur-effect m-4"
+  [ngClass]="{ 'ag-rtl': fa, 'ag-ltr': en }"
+>
   <div
-    class="wrapper__header d-flex align-items-center justify-content-between pr-4"
+    class="wrapper__header d-flex align-items-center justify-content-between p{{
+      fa ? 'l' : 'r'
+    }}-4"
   >
-    <div class="wrapper__header__owner d-flex align-items-center">
-      <div class="wrapper__header__owner-image mr-3">
+    <div
+      class="wrapper__header__owner d-flex align-items-center flex-column flex-sm-row px-4 px-sm-0"
+    >
+      <div
+        class="wrapper__header__owner-image m{{ fa ? 'l' : 'r' }}-3 {{
+          fa ? 'right-side' : 'left-side'
+        }}"
+      >
         <img
           class="ag-rounded-lg"
           [src]="testimonial.image"
-          alt="{{
-            'TESTIMONIAL.LASTNAME'
-              | translate: { lastName: testimonial.lastName }
-          }}"
+          [alt]="testimonial.lastName"
         />
       </div>
-      <div class="wrapper__header__owner-name">
+      <div class="wrapper__header__owner-name mt-3 mt-sm-0">
         <p class="mb-0">
-          {{
-            "TESTIMONIAL.NAME"
-              | translate
-                : { name: testimonial.firstName + " " + testimonial.lastName }
-          }}
+          {{ testimonial.firstName + " " + testimonial.lastName }}
         </p>
         <p class="mb-0">
-          {{
-            "TESTIMONIAL.POSITION"
-              | translate: { position: testimonial.position }
-          }}
+          {{ testimonial.position }}
         </p>
       </div>
     </div>
@@ -35,7 +36,7 @@
   </div>
   <div class="wrapper__comment p-4">
     <p class="mb-0">
-      {{ "TESTIMONIAL.OPINION" | translate: { opinion: testimonial.opinion } }}
+      {{ testimonial.opinion }}
     </p>
   </div>
 </div>

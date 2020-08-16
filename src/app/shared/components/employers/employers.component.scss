@@ -5,7 +5,7 @@
   margin-bottom: 162px;
 }
 
-.directors {
+.employers {
   position: relative;
   img {
     position: absolute;
@@ -23,11 +23,11 @@
     width: 100%;
     &-bg {
       position: absolute;
-      width: 100%;
-      padding: 12%;
+      width: calc(100% - 110px);
+      height: 400px;
       background: $polarous-blue-002;
       border-radius: 0 22px 22px 0;
-      left: -40px;
+      left: 0;
       bottom: -162px;
     }
     &-button {

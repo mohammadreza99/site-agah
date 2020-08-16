@@ -2,32 +2,66 @@
 
 .side-list {
   position: sticky;
-  top: 105px;
-  overflow: hidden;
-  margin-top: 70px;
-  li {
-    @include text-style(#212121, 20px, $font-weight: 600);
-    cursor: pointer;
-    position: relative;
-    border-radius: 0 7px 7px 0;
-    i {
-      width: 24px;
-      text-align: center;
+  overflow-x: auto;
+  @include large() {
+    overflow: hidden;
+    margin-top: 70px;
+    top: 105px;
+    box-shadow: 0 10px 20px 0 rgba(68, 193, 195, 0.3);
+    border-radius: 20px;
+  }
+  ul {
+    @include large() {
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
-    &:not(:last-child):after {
-      content: "";
-      position: absolute;
-      left: -8px;
-      width: 8px;
-      background-color: $primary;
-      height: 100%;
-      transition: all 0.4s;
-      border-radius: 0 10px 10px 0;
+    li {
+      @include text-style($title-color3, $font-size-md);
+      cursor: pointer;
+      position: relative;
+      border-radius: 0 7px 7px 0;
+      max-width: 240px;
+      white-space: nowrap;
+      i {
+        width: 24px;
+        text-align: center;
+      }
+      &.active {
+        color: $primary;
+      }
+      @include large() {
+        font-size: $font-size-lg;
+        margin-bottom: 40px;
+        &:not(:last-child):after {
+          content: "";
+          position: absolute;
+          left: -8px;
+          width: 8px;
+          background-color: $primary;
+          height: 100%;
+          transition: all 0.4s;
+          border-radius: 0 10px 10px 0;
+        }
+        &.active {
+          &:after {
+            left: 0;
+          }
+        }
+      }
     }
-    &.active {
-      color: $primary;
-      &:after {
-        left: 0;
+  }
+  &.right-side {
+    li {
+      &:not(:last-child):after {
+        left: auto;
+        right: -8px;
+        border-radius: 10px 0 0 10px;
+      }
+      &.active {
+        &:after {
+          left: auto;
+          right: 0;
+        }
       }
     }
   }
@@ -38,7 +72,7 @@
 
     .comment-text {
       color: #d4d4d4;
-      @include text-style(#d4d4d4, 20px, $font-weight: 600);
+      @include text-style($gray-002, $font-size-lg, $font-weight: 600);
     }
   }
 }
@@ -50,4 +84,18 @@ a {
 
 a.active {
   color: darkblue;
+}
+
+.side-list-wrapper {
+  z-index: 200;
+  position: sticky;
+  top: 90px;
+  @include large() {
+    position: static;
+  }
+}
+
+.fixed-bottom ::ng-deep button {
+  height: 60px;
+  width: 100%;
 }

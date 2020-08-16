@@ -10,7 +10,7 @@ export class NewsLetterUserService {
 
   private readonly endPoint = 'news-letter-users';
 
-  subscribeUserToNewsLetter(emailAddress: any) {
+  subscribe(emailAddress: any) {
     return this.apiService.post(this.endPoint, { email: emailAddress });
   }
 }

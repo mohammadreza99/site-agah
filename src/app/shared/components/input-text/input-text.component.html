@@ -1,5 +1,11 @@
-<div class="wrapper" class="{{ dir }}">
-  <div class="wrapper__input position-relative">
+<div class="wrapper">
+  <div
+    class="wrapper__input position-relative"
+    [ngClass]="{
+      'icon-right': icon != null && fa,
+      'icon-left': icon != null && en
+    }"
+  >
     <ag-icon
       *ngIf="icon"
       class="wrapper__input-icon"
@@ -8,14 +14,14 @@
       [icon]="icon"
     ></ag-icon>
     <input
-      class="wrapper__input-control form-control w-100 py-1"
+      class="wrapper__input-control w-100 py-1"
       [type]="type"
       [placeholder]="placeholder || ''"
       [value]="value"
       [disabled]="disabled"
       [readonly]="readonly"
       [attr.maxlength]="maxlength"
-      [ngClass]="{ 'is-invalid': controlIsTouchedOrDirty(), 'has-icon': icon }"
+      [ngClass]="{ 'is-invalid': controlIsTouchedOrDirty(), filled: filled }"
       (input)="_onInput($event)"
       (blur)="_onBlur()"
       (focus)="_onFocus()"

@@ -1,17 +1,13 @@
 <ag-container [title]="title" class="employees">
-  <div
-    class="col"
-    [class.first-row-even]="even"
-    *ngFor="let employee of employees | slice: 0:5; let even = even"
-  >
-    <ag-employee-item [employee]="employee"></ag-employee-item>
-  </div>
-  <div class="w-100"></div>
-  <div
-    [class.second-row-even]="even"
-    class="col"
-    *ngFor="let employee of employees | slice: 5:10; let even = even"
-  >
-    <ag-employee-item [employee]="employee"></ag-employee-item>
+  <div class="col-12">
+    <div class="row flex-wrap justify-content-center">
+      <div
+        class="col"
+        [class.first-row-even]="even"
+        *ngFor="let employee of employees; let even = even"
+      >
+        <ag-employee-item [employee]="employee"></ag-employee-item>
+      </div>
+    </div>
   </div>
 </ag-container>

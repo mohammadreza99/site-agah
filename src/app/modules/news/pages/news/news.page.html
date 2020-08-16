@@ -1,15 +1,28 @@
 <div class="container-fluid pad-t-48">
   <ag-container>
     <div class="col-12">
-      <ag-breadcrumb [breadcrumbs]="['About','Board']"></ag-breadcrumb>
+      <ag-breadcrumb></ag-breadcrumb>
       <div class="row justify-content-center mar-y-80">
-        <div class="col-6">
+        <div class="col-sm-9 col-md-7 col-lg-6">
           <ag-input-search></ag-input-search>
         </div>
       </div>
     </div>
-    <div class="col-4 mar-b-40" *ngFor="let item of []">
-      <ag-news-item [news]="item"></ag-news-item>
-    </div>
+    <!-- <div class="col-4 mar-b-40" *ngFor="let news of news$ | async">
+      <ag-news-item [news]="news"></ag-news-item>
+    </div> -->
+  </ag-container>
+  <ag-container *ngIf="news$ | async">
+    <ag-carousel
+      [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
+      class="col-12"
+    >
+      <div
+        class="swiper-slide px-3 py-4"
+        *ngFor="let news of ((news$ | async) | slice: 0:3)"
+      >
+        <ag-news-item [news]="news"></ag-news-item>
+      </div>
+    </ag-carousel>
   </ag-container>
 </div>

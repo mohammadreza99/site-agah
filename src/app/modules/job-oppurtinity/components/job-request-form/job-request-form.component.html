@@ -1,68 +1,95 @@
 <ag-container>
+  <div class="col-12 mar-b-48">
+    <ag-breadcrumb></ag-breadcrumb>
+  </div>
+</ag-container>
+<ag-container>
   <div class="col-12">
     <div class="request-form ag-shadow-lg ag-rounded-lg bg-white pad-32">
       <div class="request-form__header pad-b-32 d-flex align-items-center">
-        <img src="assets/images/save.png" alt="" />
-        <h3 class="mar-l-16 mb-0">{{ "Back-End Developer" }}</h3>
+        <img [src]="(job$ | async)?.logo" [alt]="(job$ | async)?.title" />
+        <h3 class="mar-{{ fa ? 'r' : 'l' }}-16 mb-0">
+          {{ (job$ | async)?.title }}
+        </h3>
       </div>
       <form
         [formGroup]="form"
         class="form-row pad-t-32 border-top"
         (ngSubmit)="_onSubmit()"
       >
-        <div class="col-6 mar-b-48">
+        <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            formControlName="firstName"
-            placeholder="First Name"
+            [errors]="[{ required: 'field is required' }]"
+            formControlName="first_name"
+            placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
           ></ag-input-text>
         </div>
-        <div class="col-6 mar-b-48">
+        <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            formControlName="lastName"
-            placeholder="Last Name"
+            [errors]="[{ required: 'field is required' }]"
+            formControlName="last_name"
+            placeholder="{{ 'TITLES.LAST_NAME' | translate }}"
           ></ag-input-text>
         </div>
-        <div class="col-6 mar-b-48">
+        <div class="col-sm-6 mar-b-48">
           <ag-input-datepicker
+            [errors]="[{ required: 'field is required' }]"
             formControlName="birthday"
             icon="fa-calendar-alt"
-            placeholder="Birthday Date"
+            placeholder="{{ 'TITLES.BIRTHDATE' | translate }}"
           ></ag-input-datepicker>
         </div>
-        <div class="col-6 mar-b-48 d-flex align-items-center">
+        <div class="col-sm-6 mar-b-48 d-flex align-items-center">
           <ag-input-radio
+            [errors]="[{ required: 'field is required' }]"
             class="flex-grow-1"
             formControlName="gender"
-            label="Gender"
+            label="{{ 'TITLES.GENDER' | translate }}"
             [items]="[
-              { name: 'Male', value: 'male' },
-              { name: 'Female', value: 'female' }
+              { name: 'TITLES.MALE' | translate, value: 'male' },
+              { name: 'TITLES.FEMALE' | translate, value: 'female' }
             ]"
           ></ag-input-radio>
         </div>
-        <div class="col-6 mar-b-48">
+        <div class="col-sm-6 mar-b-48">
           <ag-input-text
+            [errors]="[
+              { required: 'field is required' },
+              { email: 'email is invalid' }
+            ]"
             formControlName="email"
-            placeholder="Email"
+            placeholder="{{ 'TITLES.EMAIL' | translate }}"
           ></ag-input-text>
         </div>
-        <div class="col-6 mar-b-48">
+        <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            formControlName="phoneNumber"
-            placeholder="Phone Number"
+            [errors]="[{ required: 'field is required' }]"
+            formControlName="phone"
+            placeholder="{{ 'TITLES.PHONE_NUMBER' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-12 mar-b-48">
           <ag-input-textarea
+            [errors]="[{ required: 'field is required' }]"
             formControlName="address"
-            placeholder="Address"
+            placeholder="{{ 'TITLES.ADDRESS' | translate }}"
           ></ag-input-textarea>
         </div>
-        <div class="col-6">
-          <ag-input-file formControlName="image"></ag-input-file>
+
+        <div class="col-sm-6">
+          <ag-input-file
+            [errors]="[{ required: 'field is required' }]"
+            formControlName="resume"
+          ></ag-input-file>
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-end">
-          <ag-button type="submit" label="Request"></ag-button>
+        <div
+          class="col-sm-6 mt-5 mt-sm-0 d-flex align-items-center justify-content-center justify-content-sm-end"
+        >
+          <ag-button
+            [disabled]="form.invalid"
+            type="submit"
+            label="{{ 'BUTTONS.REQUEST' | translate }}"
+          ></ag-button>
         </div>
       </form>
     </div>

@@ -1,34 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient } from '@angular/common/http';
 import {
-  NgModule,
   CUSTOM_ELEMENTS_SCHEMA,
+  NgModule,
   NO_ERRORS_SCHEMA,
 } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from '@app/app.component';
 import { AppRoutingModule } from '@app/app-routing.module';
+import { AppComponent } from '@app/app.component';
 import { CoreModule } from '@core/core.module';
-import { SharedModule } from '@shared/shared.module';
-import { HomeModule } from '@modules/home/home.module';
-import { ProductsModule } from '@modules/products/products.module';
-import { AboutModule } from '@modules/about/about.module';
-import { AcademyModule } from '@modules/academy/academy.module';
-import { JobOppurtinityModule } from '@modules/job-oppurtinity/job-oppurtinity.module';
-import { PostModule } from '@modules/post/post.module';
-import { NewsModule } from './modules/news/news.module';
+import { LoadingComponent } from '@shared/components/loading/loading.component';
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoadingComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    ReactiveFormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     TranslateModule.forRoot({
       loader: {
@@ -36,20 +29,12 @@ export function translateHttpLoaderFactory(http: HttpClient) {
         useFactory: translateHttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: 'en',
+      defaultLanguage: 'fa',
     }),
-    SharedModule,
     CoreModule,
-    HomeModule,
-    ProductsModule,
-    PostModule,
-    AboutModule,
-    AcademyModule,
-    JobOppurtinityModule,
-    NewsModule,
-    PostModule,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+  providers: [],
 })
 export class AppModule {}

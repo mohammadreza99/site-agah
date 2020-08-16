@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TranslationService {
   constructor(private translate: TranslateService) {}
+
+  currentLang = new BehaviorSubject<string>('fa');
+
+  /**
+   * Get the current language sets by service
+   */
+  getCurrentLang() {
+    return this.currentLang.asObservable();
+  }
 
   /**
    * Sets the default language to use as a fallback
@@ -26,6 +35,7 @@ export class TranslationService {
    * Changes the lang currently used
    */
   use(lang: string): Observable<any> {
+    this.currentLang.next(lang);
     return this.translate.use(lang);
   }
 

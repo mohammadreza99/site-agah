@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '@shared/models/product.model';
 
 @Component({
   selector: 'ag-product-features',
@@ -9,8 +10,7 @@ export class ProductFeaturesComponent implements OnInit {
   constructor() {}
 
   @Input() title: string;
-  @Input() features: any[];
-  @Input() description: string;
+  @Input() product: Product;
 
   ngOnInit(): void {}
 }

@@ -1,9 +1,15 @@
-<ul class="list-unstyled d-flex align-items-center m-0">
+<ul class="list-unstyled d-flex align-items-center m-0 p-0 mt-1">
+  <li class="d-flex align-items-center">
+    <span routerLink="/">{{ "BREADCRUMBS.HOME" | translate }}</span>
+    <i class="fa fa-chevron-{{ fa ? 'left' : 'right' }} mx-3"></i>
+  </li>
   <li
     class="d-flex align-items-center"
-    *ngFor="let item of breadcrumbs; let i = index; let last = last"
+    *ngFor="let breadcrumb of breadcrumbs; let last = last"
   >
-    <span>{{ item }}</span>
-    <i class="fa fa-chevron-right mx-3" *ngIf="!last"></i>
+    <span [routerLink]="breadcrumb.url">{{
+      breadcrumb.label | translate
+    }}</span>
+    <i class="fa fa-chevron-{{ fa ? 'left' : 'right' }} mx-3" *ngIf="!last"></i>
   </li>
 </ul>

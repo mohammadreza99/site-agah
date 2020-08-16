@@ -10,12 +10,9 @@
   }
 
   .additional {
-    .date {
-      color: #b7b7b7;
-    }
     .reply {
       cursor: pointer;
-      @include text-style($primary, 20px);
+      @include text-style($primary, $font-size-lg);
     }
   }
 
@@ -33,6 +30,23 @@
         width: 1px;
         height: 100%;
         background-color: #d4d4d4;
+      }
+    }
+  }
+
+  .date {
+    color: #b7b7b7;
+  }
+
+  &.right-side {
+    &.reply {
+      margin-left: 0;
+      margin-right: 100px;
+      .avatar {
+        &:after {
+          left: auto;
+          right: -30px;
+        }
       }
     }
   }

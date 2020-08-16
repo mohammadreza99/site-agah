@@ -1,27 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { NewsLetterUserService } from '@app/core/http/news-letter-user/news-letter-user.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { NewsLetterUserService } from '@core/http/news-letter-user/news-letter-user.service';
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 
 @Component({
   selector: 'ag-newsletter-textbox',
   templateUrl: './newsletter-textbox.component.html',
   styleUrls: ['./newsletter-textbox.component.scss'],
 })
-export class NewsletterTextboxComponent implements OnInit {
-  constructor(private newsLetterUserService: NewsLetterUserService) {}
+export class NewsletterTextboxComponent extends LanguageChecker
+  implements OnInit {
+  constructor(private newsLetterUserService: NewsLetterUserService) {
+    super();
+  }
 
-  email = new FormControl('', [Validators.email]);
+  form = new FormGroup({
+    email: new FormControl('', [Validators.email, Validators.required]),
+  });
 
   ngOnInit(): void {}
 
   onSubmitNewsLetter() {
-    if (this.email.value === '') {
-      alert('please enter your email!');
-    } else {
+    if (this.form.valid) {
       this.newsLetterUserService
-        .subscribeUserToNewsLetter(this.email.value)
+        .subscribe(this.form.get('email').value)
         .subscribe((a) => {
-          this.email.setValue(null);
+          this.form.get('email').setValue(null);
         });
     }
   }

@@ -1,9 +1,23 @@
 <div class="share d-flex align-items-center">
-  <span class="mar-r-16">Share : </span>
+  <span class="mar-l-16">
+    <span> {{ "TITLES.SHARE" | translate }}</span> :
+  </span>
   <div class="socials">
-    <a href=""><i class="fab fa-twitter fa-2x mar-r-32"></i></a>
-    <a href=""><i class="fab fa-linkedin-in fa-2x mar-r-32"></i></a>
-    <a href=""><i class="fab fa-telegram fa-2x mar-r-32"></i></a>
-    <a href=""><i class="fab fa-facebook-f fa-2x mar-r-32"></i></a>
+    <a
+      target="_blank"
+      [href]="'https://www.facebook.com/sharer/sharer.php?u=' + url"
+      ><i class="fab fa-facebook-f fa-2x mar-{{ fa ? 'l' : 'r' }}-32"></i
+    ></a>
+    <a target="_blank" [href]="'http://twitter.com/share?url=' + url"
+      ><i class="fab fa-twitter fa-2x mar-{{ fa ? 'l' : 'r' }}-32"></i
+    ></a>
+    <a target="_blank" [href]="'https://telegram.me/share?url=' + url"
+      ><i class="fab fa-telegram fa-2x mar-{{ fa ? 'l' : 'r' }}-32"></i
+    ></a>
+    <a
+      target="_blank"
+      [href]="'https://www.linkedin.com/shareArticle?mini=true&url=' + url"
+      ><i class="fab fa-linkedin-in fa-2x mar-{{ fa ? 'l' : 'r' }}-32"></i
+    ></a>
   </div>
 </div>

@@ -12,9 +12,19 @@ import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 
 import { COMPONENTS } from '.';
 
+
 @NgModule({
   declarations: [...COMPONENTS],
-  exports: [...COMPONENTS],
+  exports: [
+    ...COMPONENTS,
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule,
+    NgxUsefulSwiperModule,
+    TranslateModule,
+    DpDatePickerModule,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

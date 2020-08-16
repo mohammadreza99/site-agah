@@ -1,0 +1,8 @@
+<ag-container [title]="title" class="consulers">
+  <div
+    class="col-sm-6 col-lg-3 stockholder-item mb-4 mb-lg-0"
+    *ngFor="let stockholder of stockholders; let even = even"
+  >
+    <ag-stockholder-item [stockholder]="stockholder"></ag-stockholder-item>
+  </div>
+</ag-container>

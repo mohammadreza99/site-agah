@@ -1,31 +1,31 @@
-<div class="container-fluid pad-t-48 pad-b-156">
+<div class="container-fluid pad-t-48 pad-b-156" *ngIf="contactInfo">
   <ag-container>
     <div class="col-12">
-      <ag-breadcrumb [breadcrumbs]="['About','Contact Us']"></ag-breadcrumb>
+      <ag-breadcrumb></ag-breadcrumb>
     </div>
   </ag-container>
   <ag-contact-us class="mar-b-80"></ag-contact-us>
   <ag-container>
-    <div class="col-5">
+    <div class="col-md-7 col-lg-5 mb-4 mb-md-0">
       <div class="bg-white ag-rounded-lg ag-shadow-lg pad-32">
         <ul class="list-unstyled contact m-0">
-          <li class="d-flex align-items-center mar-b-48">
+          <li class="d-flex align-items-start mar-b-48">
             <ag-icon
               color="#44c1c3"
               icon="fa-map-marker-alt"
               stylePrefix="fal"
               size="2x"
             ></ag-icon
-            ><span class="ml-2">Mirdamad St, 4 Alley, 138 No</span>
+            ><span class="m{{fa ? 'r' : 'l'}}-2">{{contactInfo.address}}</span>
           </li>
-          <li class="d-flex align-items-center mar-b-48">
+          <li class="d-flex align-items-center mar-b-48 phone">
             <ag-icon
               stylePrefix="fal"
               size="2x"
               color="#44c1c3"
               icon="fa-phone"
             ></ag-icon
-            ><span class="ml-2">021- 88327832-4</span>
+            ><span class="m{{fa ? 'r' : 'l'}}-2">{{contactInfo.phone}}</span>
           </li>
           <li class="d-flex align-items-center mar-b-48">
             <ag-icon
@@ -34,7 +34,7 @@
               icon="fa-envelope"
               stylePrefix="fal"
             ></ag-icon
-            ><span class="ml-2">info@myagah.com</span>
+            ><span class="m{{fa ? 'r' : 'l'}}-2">{{contactInfo.email}}</span>
           </li>
         </ul>
 
@@ -43,9 +43,9 @@
         ></ag-social-networks>
       </div>
     </div>
-    <div class="col-7">
+    <div class="map col-md-5 col-lg-7">
       <div
-        class="ag-shadow-lg h-100"
+        class="ag-shadow-lg h-100 w-100"
         leaflet
         [leafletOptions]="options"
         [leafletLayers]="layers"

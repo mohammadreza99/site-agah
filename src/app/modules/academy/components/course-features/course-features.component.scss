@@ -12,11 +12,15 @@
     }
 
     span {
-      @include text-style(#414141, 20px);
+      @include text-style($body-color, $font-size-lg);
     }
 
     img {
       width: 45px;
+      margin-bottom: 16px;
+      @include medium(){
+        margin-bottom: 32px;
+      }
     }
   }
 }

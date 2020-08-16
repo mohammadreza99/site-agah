@@ -3,9 +3,25 @@
 .header {
   background-image: linear-gradient(rgb(204, 238, 238), transparent);
   h1 {
-    @include text-style(#484848, $font-size-xxxl, $font-weight: 600);
+    @include text-style(#484848, $font-size-md, $font-weight: 600);
+    @include small() {
+      font-size: $font-size-xxl;
+    }
+    @include medium() {
+      font-size: $font-size-xxxl;
+    }
   }
   p {
     @include text-style(#484848);
+    @include medium() {
+      font-size: $font-size-md;
+    }
+  }
+
+  .space {
+    margin-bottom: 24px;
+    @include small() {
+      margin-bottom: 32px;
+    }
   }
 }

@@ -1,0 +1,20 @@
+@import "abstracts/mixins";
+
+.wrapper {
+  background-color: $polarous-blue-001;
+  text-align: center;
+  .image-wrapper {
+    img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+  .content-wrapper {
+    h6 {
+      @include text-style($body-color, $font-size-md, $font-weight: 600);
+      @include medium() {
+        font-size: $font-size-lg;
+      }
+    }
+  }
+}

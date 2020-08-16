@@ -1,26 +1,13 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  Optional,
-  Self,
-  forwardRef,
-} from '@angular/core';
-import {
-  ControlValueAccessor,
-  NgControl,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 
 @Component({
   selector: 'ag-input-select',
   templateUrl: './input-select.component.html',
   styleUrls: ['./input-select.component.scss'],
 })
-export class InputSelectComponent implements OnInit {
-
+export class InputSelectComponent extends LanguageChecker implements OnInit {
   @Input() icon = 'fal fa-chevron-down';
   @Input() list: string[];
   @Input() iconPos: 'start' | 'end' = 'end';

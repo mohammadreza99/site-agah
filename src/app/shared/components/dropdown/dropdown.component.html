@@ -8,28 +8,30 @@
     <i
       class="nav-item-icon {{ icon }}"
       [ngClass]="{
-        'order-1 mar-l-8': iconPos === 'end',
-        'order-0 mar-r-8': iconPos === 'start'
+        'order-1': iconPos === 'end',
+        'order-0': iconPos === 'start',
+        'mar-r-8': (iconPos === 'end' && fa) || (iconPos === 'start' && en),
+        'mar-l-8': (iconPos === 'end' && en) || (iconPos === 'start' && fa)
       }"
     ></i>
-    <a class="nav-link dropdown-toggle">
-      {{ title }}
-    </a>
+    <a class="nav-link dropdown-toggle"> {{ title }}</a>
   </span>
   <div
     class="dropdown-menu border-0 pad-y-24 ag-rounded-lg ag-shadow-xsm"
-    [ngClass]="{ show: isDropdownOpen }"
+    [ngClass]="{ show: isDropdownOpen, 'right-side': fa }"
   >
     <ng-content select=".dropdown-item"></ng-content>
     <a
-      class="dropdown-item mar-b-24 py-0"
+      class="dropdown-item mar-b-24 py-0 text-{{ fa ? 'right' : 'left' }}"
       *ngFor="let item of list"
       [routerLink]="item.routerLink"
-      routerLinkActive="active"
+      [routerLinkActive]="item.routerLink ? 'active' : ''"
       [routerLinkActiveOptions]="{ exact: item.exact }"
       (click)="listItemClick.emit(item)"
-      ><i class="fal fa-chevron-right dropdown-item-icon"></i>
-      {{ item.text }}</a
-    >
+      ><i
+        class="fal fa-chevron-{{ fa ? 'left' : 'right' }} dropdown-item-icon"
+      ></i>
+      {{ item.text }}
+    </a>
   </div>
 </li>

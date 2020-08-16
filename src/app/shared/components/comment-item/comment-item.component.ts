@@ -7,14 +7,21 @@ import {
   ViewContainerRef,
   ComponentFactoryResolver,
 } from '@angular/core';
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { TranslationService } from '@app/core/services/translation.service';
 
 @Component({
   selector: 'ag-comment-item',
   templateUrl: './comment-item.component.html',
   styleUrls: ['./comment-item.component.scss'],
 })
-export class CommentItemComponent implements OnInit {
-  constructor(private resolver: ComponentFactoryResolver) {}
+export class CommentItemComponent extends LanguageChecker implements OnInit {
+  constructor(
+    private resolver: ComponentFactoryResolver,
+    private translation: TranslationService
+  ) {
+    super(translation);
+  }
 
   @Output() replyClick = new EventEmitter();
   @ViewChild('container', { read: ViewContainerRef })

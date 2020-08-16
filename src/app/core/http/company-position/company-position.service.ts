@@ -13,13 +13,13 @@ export class CompanyPositionService {
 
   private readonly endPoint = 'company-positions';
 
-  getPositions(): Observable<CompanyPosition[]> {
+  get(): Observable<CompanyPosition[]> {
     return this.apiService
       .get<CompanyPosition[]>(this.endPoint)
       .pipe(map((res: any) => res.data));
   }
 
-  getPositionById(positionId: number): Observable<CompanyPosition> {
+  getById(positionId: number): Observable<CompanyPosition> {
     return this.apiService.get<CompanyPosition>(
       `${this.endPoint}/${positionId}`
     );

@@ -2,7 +2,10 @@
 
 .share {
   span {
-    @include text-style(#0d2424, 20px, $font-weight: 600);
+    @include text-style($title-color1, $font-size-md, $font-weight: 600);
+    @include medium() {
+      font-size: $font-size-lg;
+    }
   }
   i {
     color: #aae2e3;

@@ -1,30 +1,27 @@
-<div class="wrapper container-fluid pad-t-32 {{ direction }}">
+<div
+  class="wrapper container-fluid {{ direction }}"
+  [ngClass]="{ 'right-side': fa }"
+>
   <div class="row justify-content-start" [class.flex-row-reverse]="isRtl">
-    <div class="col-5 wrapper__image ag-blur-effect ag-rounded-lg">
-      <img
-        class="img-fluid"
-        [src]="process.image"
-        alt="{{
-          'PRODUCT.PROCESS.TITLE' | translate: { title: process.title }
-        }}"
-      />
+    <div
+      class="col-sm-10 col-md-8 col-lg-6 col-xl-5 wrapper__image ag-blur-effect"
+    >
+      <img class="img-fluid" [src]="process.image" [alt]="process.title" />
     </div>
     <div
-      class="col-6 wrapper__description ag-blur-effect pad-t-32 pad-b-32 bg-white ag-rounded-lg"
+      class="col-sm-10 col-lg-6 wrapper__description ag-blur-effect"
+      [style.direction]="fa ? 'rtl' : 'ltr'"
     >
-      <h6>
-        {{ "PRODUCT.PROCESS.TITLE" | translate: { title: process.title } }}
-      </h6>
-      <p>
-        {{
-          "PRODUCT.PROCESS.DESCRIPTION"
-            | translate: { description: process.description }
-        }}
-      </p>
+      <div class="bg-white pad-y-32">
+        <h6>{{ process.title }}</h6>
+        <p class="mb-0">
+          {{ process.description }}
+        </p>
+      </div>
     </div>
   </div>
   <img
-    class="path"
+    class="path d-none d-sm-block"
     src="assets/images/{{ isRtl ? 'process-r' : 'process' }}.png"
     alt="path"
   />

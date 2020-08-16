@@ -9,7 +9,7 @@
       cursor: pointer;
     .header {
       span {
-        @include text-style(#414141, 20px, $font-weight: 600);
+        @include text-style($body-color, $font-size-lg, $font-weight: 600);
       }
     }
   }
