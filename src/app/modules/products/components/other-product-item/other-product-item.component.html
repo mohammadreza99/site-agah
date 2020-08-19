@@ -1,9 +1,7 @@
 <div class="wrapper ag-blur-effect ag-rounded-lg text-center">
   <img class="w-100" [src]="product.image" [alt]="product.title" />
   <div class="overlay d-flex flex-column justify-content-around">
-    <h5 class="mb-0">
-      {{ product.title }}
-    </h5>
+    <h5 class="mb-0" [innerHTML]="product.title"></h5>
     <ag-button
       [outline]="true"
       label="{{ 'BUTTONS.READ_MORE' | translate }}"

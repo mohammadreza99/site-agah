@@ -46,7 +46,8 @@
     "OPINION": "Comment",
     "COURSE_OR_WORKSHOP_NAME": "Course or workshop name...",
     "DEPARTMENTS": "Departments",
-    "CONSULERS": "Consulers"
+    "CONSULERS": "Consulers",
+    "DAY": "day"
   },
   "BUTTONS": {
     "PRODUCTS_SEE_MORE": "See More Projects",

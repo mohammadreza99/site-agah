@@ -6,7 +6,7 @@
       </div>
       <div class="col-lg-11 mar-t-40">
         <div class="text-sm-center text-{{ fa ? 'right' : 'left' }}">
-          <h1 class="space">{{ product.title }}</h1>
+          <h1 class="space" [innerHTML]="product.title"></h1>
           <p class="space">
             {{ product.description }}
           </p>

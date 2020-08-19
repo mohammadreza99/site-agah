@@ -23,8 +23,8 @@
       />
     </div>
     <div class="col-lg-6 col-xl-5 wrapper__content mt-5 mt-lg-0">
-      <h3 class="wrapper__content-header mar-b-24">
-        {{ product.title }}
+      <h3 class="wrapper__content-header mar-b-24" [innerHtml]="product.title">
+        <!-- {{ product.title }} -->
       </h3>
       <div class="description mar-b-24">
         {{ product.description | dots: 300 }}

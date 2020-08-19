@@ -8,7 +8,7 @@ import { LanguageChecker } from '@app/shared/components/language-checker/languag
   templateUrl: './count-down.component.html',
   styleUrls: ['./count-down.component.scss'],
 })
-export class CountDownComponent implements OnInit {
+export class CountDownComponent extends LanguageChecker implements OnInit {
   @Input() title: string;
   @Input() end: Date;
 
@@ -19,27 +19,29 @@ export class CountDownComponent implements OnInit {
     format: 'dd:HH:mm:ss',
     prettyText: (text: string) => {
       return `
-      <div class="d-flex align-items-start wrapper justify-content-end">
+      <div class="d-flex align-items-start wrapper justify-content-${
+        this.fa ? 'start' : 'end'
+      }">
       <span class="time d-flex flex-column mx-3">
       ${text[0]}${+text[1] - 1}
-      <span>Day</span>
+      <span>${this.fa ? 'روز' : 'Day'}</span>
       </span>
       <span class="semi">${text[2]}</span>
       <span class="time d-flex flex-column mx-3">
       ${text[3]}${text[4]}
-      <span>Hour</span>
+      <span>${this.fa ? 'ساعت' : 'Hour'}</span>
       </span>
       <span class="semi">
       ${text[5]}
       </span>
       <span class="time d-flex flex-column mx-3">
       ${text[6]}${text[7]}
-      <span>Min</span>
+      <span>${this.fa ? 'دقیقه' : 'Min'}</span>
       </span>
       <span class="semi">${text[8]}</span>
       <span class="time d-flex flex-column mx-3">
       ${text[9]}${text[10]}
-      <span>Sec</span>
+      <span>${this.fa ? 'ثانیه' : 'Sec'}</span>
         </span>
       </div>
       `;

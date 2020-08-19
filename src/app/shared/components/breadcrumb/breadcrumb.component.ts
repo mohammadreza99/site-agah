@@ -4,16 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 import { Breadcrumb } from '@shared/models/breadcrumb.model';
 
-
 @Component({
   selector: 'ag-breadcrumb',
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent extends LanguageChecker implements OnInit {
-  constructor(
-    private route: ActivatedRoute
-  ) {
+  constructor(private route: ActivatedRoute) {
     super();
     this.breadcrumbs = this.buildBreadCrumb(this.route.root);
   }

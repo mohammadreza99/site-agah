@@ -36,7 +36,7 @@ export class AppComponent extends LanguageChecker implements OnInit {
         mergeMap((r) => r.data),
         // to prevent nested subscription, we use switchMap. if we dont use switchMap, next subscription return object of Date. so need to another subscription of translation.get().
         switchMap((event) => {
-          return this.translation.stream(event['breadcrumb'] || 'nullString');
+          return this.translation.stream(event['breadcrumb']);
         })
       )
       .subscribe((titleString) => {
