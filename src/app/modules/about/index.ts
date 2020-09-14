@@ -6,7 +6,7 @@ import { EmployeesPage } from '@modules/about/pages/employees/employees.page';
 import { HistoryPage } from '@modules/about/pages/history/history.page';
 import { ContactUsPage } from '@modules/about/pages/contact-us/contact-us.page';
 import { ContactUsComponent } from '@modules/about/components/contact-us/contact-us.component';
-import { ConsulersPage } from './pages/consulers/consulers.page';
+import { CounselorsPage } from './pages/counselors/counselors.page';
 import { DirectorsPage } from './pages/directors/directors.page';
 import { StockholdersPage } from '@modules/about/pages/stockholders/stockholders.page';
 
@@ -20,5 +20,5 @@ export const COMPONENTS: Type<any>[] = [
   StockholdersPage,
   ContactUsPage,
   ContactUsComponent,
-  ConsulersPage,
+  CounselorsPage,
 ];

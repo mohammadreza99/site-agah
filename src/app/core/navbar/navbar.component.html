@@ -19,7 +19,7 @@
         </button>
         <a
           class="navbar-brand mar-{{ fa ? 'l' : 'r' }}-32"
-          (click)="navigate('/')"
+          (click)="closeNavbar()"
         >
           <ag-logo></ag-logo>
         </a>
@@ -42,7 +42,8 @@
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
-            (click)="navigate('/')"
+            (click)="closeNavbar()"
+            routerLink="/"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
@@ -52,7 +53,8 @@
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
-            (click)="navigate('/products')"
+            (click)="closeNavbar()"
+            routerLink="/products"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
@@ -67,7 +69,8 @@
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
-            (click)="navigate('/academy')"
+            (click)="closeNavbar()"
+            routerLink="/academy"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             >{{ "NAVIGATIONS.ACADEMY" | translate }}</a
@@ -76,7 +79,8 @@
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a
             class="nav-link"
-            (click)="navigate('/job-oppurtinities')"
+            (click)="closeNavbar()"
+            routerLink="/job-oppurtinities"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
             >{{ "NAVIGATIONS.JOB_OPPURTINITY" | translate }}</a
@@ -106,7 +110,7 @@
             },
             {
               text: 'NAVIGATIONS.CONSULERS' | translate,
-              routerLink: '/about/consulers'
+              routerLink: '/about/counselors'
             },
             {
               text: 'NAVIGATIONS.EMPLOYEES' | translate,

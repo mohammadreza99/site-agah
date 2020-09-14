@@ -10,10 +10,10 @@ import { Vision } from '@shared/models/vision.model';
 export class VisionService {
   constructor(private apiService: ApiService) {}
 
-  private readonly endPoint = 'vision-bodies';
+  private readonly endPoint = 'text?key=vision';
 
   get(): Observable<Vision> {
-    return this.apiService.get<Vision>(this.endPoint);
+    return this.apiService.get<Vision>('text?key=vision');
   }
 
   getById(visionId: number): Observable<Vision> {

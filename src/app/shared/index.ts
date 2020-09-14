@@ -11,8 +11,6 @@ import { ProductListComponent } from '@shared/components/product-list/product-li
 import { FollowUsComponent } from '@shared/components/follow-us/follow-us.component';
 import { VisionComponent } from '@shared/components/vision/vision.component';
 import { BreadcrumbComponent } from '@shared/components/breadcrumb/breadcrumb.component';
-import { EmployersComponent } from '@shared/components/employers/employers.component';
-import { EmployerItemComponent } from '@shared/components/employer-item/employer-item.component';
 import { EmployeeItemComponent } from '@shared/components/employee-item/employee-item.component';
 import { EmployeesComponent } from '@shared/components/employees/employees.component';
 import { ClickOutsideDirective } from '@shared/directives/click-outside.directive';
@@ -40,7 +38,11 @@ import { StockholderItemComponent } from './components/stockholder-item/stockhol
 import { StockholdersComponent } from './components/stockholders/stockholders.component';
 import { CourseTextboxComponent } from './components/course-textbox/course-textbox.component';
 import { InputSearchComponent } from './components/input-search/input-search.component';
-import {AuthorComponent} from "./components/author/author.component";
+import { AuthorComponent } from './components/author/author.component';
+import { CounselorItemComponent } from './components/counselor-item/counselor-item.component';
+import { CounselorsComponent } from './components/counselors/counselors.component';
+import { DirectorsComponent } from './components/directors/directors.component';
+import { DirectorItemComponent } from './components/director-item/director-item.component';
 export const COMPONENTS: Type<any>[] = [
   ButtonComponent,
   InputTextComponent,
@@ -66,13 +68,11 @@ export const COMPONENTS: Type<any>[] = [
   AccordionItemComponent,
   TagsComponent,
   ShareComponent,
- AuthorComponent,
+  AuthorComponent,
   LanguageChecker,
   DotsPipe,
   ///////////////////////
-  EmployerItemComponent,
   EmployeeItemComponent,
-  EmployersComponent,
   EmployeesComponent,
   ProductItemComponent,
   DepartmentsComponent,
@@ -85,4 +85,8 @@ export const COMPONENTS: Type<any>[] = [
   StockholderItemComponent,
   StockholdersComponent,
   CourseTextboxComponent,
+  CounselorItemComponent,
+  CounselorsComponent,
+  DirectorsComponent,
+  DirectorItemComponent,
 ];

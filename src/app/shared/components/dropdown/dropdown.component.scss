@@ -3,6 +3,7 @@
 .nav-item {
   .nav-link {
     @include text-style($title-color3, $font-size-md);
+    font-family:$yekan-font;
     &:after {
       content: none;
     }

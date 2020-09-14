@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { Director } from '@shared/models/director.mode';
-import { Stockholder } from '@shared/models/stockholder.model';
+import { Director } from '@shared/models/director.model';
+import { Counselor } from '@app/shared/models/counselor.model';
 
 @Component({
   selector: 'ag-employers',
@@ -12,7 +12,7 @@ export class EmployersComponent implements OnInit {
   constructor() {}
 
   @Input() title: string;
-  @Input() employers: Director[] | Stockholder[] = [];
+  @Input() employers: Director[] | Counselor[] = [];
   @Input() buttonLabel: string;
   @Input() buttonRouterLink: string;
 

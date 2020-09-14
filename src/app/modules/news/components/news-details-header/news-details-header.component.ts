@@ -8,11 +8,10 @@ import { News } from '@app/shared/models/news.model';
   templateUrl: './news-details-header.component.html',
   styleUrls: ['./news-details-header.component.scss'],
 })
-export class NewsDetailsHeaderComponent extends LanguageChecker
+export class NewsDetailsHeaderComponent
+  extends LanguageChecker
   implements OnInit {
   @Input() news: News;
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 }

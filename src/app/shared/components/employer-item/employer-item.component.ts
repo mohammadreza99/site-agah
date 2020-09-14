@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Stockholder } from '@shared/models/stockholder.model';
-import { Director } from '@shared/models/director.mode';
+import { Director } from '@shared/models/director.model';
 
 @Component({
   selector: 'ag-employer-item',
@@ -12,9 +12,9 @@ export class EmployerItemComponent implements OnInit {
 
   @Input() employer: Director | Stockholder;
 
-  get employerFullName() {
-    return `${this.employer.firstName} ${this.employer.lastName}`;
-  }
+  // get employerFullName() {
+  // return `${this.employer.firstName} ${this.employer.lastName}`;
+  // }
 
   ngOnInit(): void {}
 }

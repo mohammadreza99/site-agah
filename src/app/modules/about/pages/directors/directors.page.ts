@@ -3,10 +3,10 @@ import { Observable } from 'rxjs';
 
 import { DirectorService } from '@core/http/director/director.service';
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Director } from '@shared/models/director.mode';
+import { Director } from '@shared/models/director.model';
 
 @Component({
-  selector: 'ag-directors',
+  selector: 'ag-directors-page',
   templateUrl: './directors.page.html',
   styleUrls: ['./directors.page.scss'],
 })

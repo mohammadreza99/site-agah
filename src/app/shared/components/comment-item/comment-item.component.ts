@@ -16,11 +16,8 @@ import { TranslationService } from '@app/core/services/translation.service';
   styleUrls: ['./comment-item.component.scss'],
 })
 export class CommentItemComponent extends LanguageChecker implements OnInit {
-  constructor(
-    private resolver: ComponentFactoryResolver,
-    private translation: TranslationService
-  ) {
-    super(translation);
+  constructor(private resolver: ComponentFactoryResolver) {
+    super();
   }
 
   @Output() replyClick = new EventEmitter();

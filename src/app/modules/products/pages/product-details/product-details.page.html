@@ -1,25 +1,23 @@
-<div class="container-fluid" *ngIf="product$">
+<div class="container-fluid" *ngIf="(product$ | async) as product">
   <section>
-    <ag-product-details-header
-      [product]="product$ | async"
-    ></ag-product-details-header>
+    <ag-product-details-header [product]="product"></ag-product-details-header>
   </section>
   <section class="mar-t-156">
     <ag-product-features
       title="{{ 'TITLES.FEATURES' | translate }}"
-      [product]="product$ | async"
+      [product]="product"
     ></ag-product-features>
   </section>
   <section class="mar-t-156">
     <ag-project-process
       title="{{'TITLES.PROCESSES' | translate}}"
-      [processes]="processes$ | async"
+      [processes]="product.processes"
     ></ag-project-process>
   </section>
   <section class="mar-t-156">
     <ag-partners
       title="{{'TITLES.PARTNERS' | translate}}"
-      [partners]="partners$ | async"
+      [partners]="product.partners"
     ></ag-partners>
   </section>
   <section class="mar-y-156">

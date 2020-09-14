@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from '@core/http/api.service';
-import { JobRequest, JobItem } from '@app/shared/models/job.model';
+import {
+  JobRequest,
+  JobItem,
+  JobItemDetails,
+} from '@app/shared/models/job.model';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -22,6 +26,12 @@ export class JobService {
 
   getById(id: number) {
     return this.apiService.get<JobItem>(`${this.jobsEndPoint}/${id}`);
+  }
+
+  getDetails(jobId: string) {
+    return this.apiService
+      .get<JobItemDetails[]>(`${this.jobsEndPoint}/${jobId}/details`)
+      .pipe(map((res: any) => res.data));
   }
 
   request(form: JobRequest): Observable<JobRequest> {

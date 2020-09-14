@@ -18,12 +18,13 @@ export class CountDownComponent extends LanguageChecker implements OnInit {
     notify: 0,
     format: 'dd:HH:mm:ss',
     prettyText: (text: string) => {
+      // ${text[0]}${+text[1] - 1}
       return `
       <div class="d-flex align-items-start wrapper justify-content-${
         this.fa ? 'start' : 'end'
       }">
       <span class="time d-flex flex-column mx-3">
-      ${text[0]}${+text[1] - 1}
+      ${text[0]}${text[1]}
       <span>${this.fa ? 'روز' : 'Day'}</span>
       </span>
       <span class="semi">${text[2]}</span>

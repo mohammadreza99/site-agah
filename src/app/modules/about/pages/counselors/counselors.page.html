@@ -1,0 +1,15 @@
+<div class="container-fluid pad-t-48">
+  <ag-container>
+    <div class="col-12 mar-b-48">
+      <ag-breadcrumb></ag-breadcrumb>
+    </div>
+  </ag-container>
+  <ag-container
+    *ngIf="counselors$ | async as counselors"
+    title="{{'TITLES.CONSULERS' | translate }}"
+  >
+    <div class="col-3 mar-b-72" *ngFor="let counselor of counselors">
+      <ag-counselor-item [counselor]="counselor"></ag-counselor-item>
+    </div>
+  </ag-container>
+</div>

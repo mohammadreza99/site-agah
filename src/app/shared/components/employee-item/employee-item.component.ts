@@ -7,10 +7,8 @@ import { Employee } from '@shared/models/employee.model';
   styleUrls: ['./employee-item.component.scss'],
 })
 export class EmployeeItemComponent implements OnInit {
-  constructor() {}
 
   @Input() employee: Employee;
-
   @Input() title: string;
   @Input() subtitle: string;
   @Input() image: string;
@@ -19,6 +17,5 @@ export class EmployeeItemComponent implements OnInit {
     return `${this.employee.first_name} ${this.employee.last_name}`;
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

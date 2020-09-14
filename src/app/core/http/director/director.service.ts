@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Director } from '@shared/models/director.mode';
+import { Director } from '@shared/models/director.model';
 import { ApiService } from '@core/http/api.service';
 
 @Injectable({

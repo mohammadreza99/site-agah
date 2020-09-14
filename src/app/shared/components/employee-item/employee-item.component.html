@@ -10,7 +10,7 @@
     {{ employeeFullName }}
   </p>
   <p class="employee__post">
-    {{ employee.position.title }}
+    {{ $any(employee).position.title }}
   </p>
   <div class="employee__social">
     <a [href]="employee?.social_accounts?.linkedin" target="_blank">

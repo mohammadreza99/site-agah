@@ -12,6 +12,7 @@ ngx-masonry-gallery {
 .masonry-item {
   width: 200px;
   background-color: lightblue;
+  cursor:pointer
 }
 @media (max-width: 767px) {
   .msnr {

@@ -3,8 +3,8 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap, switchMap } from 'rxjs/operators';
 
-import { TranslationService } from '@core/services/translation.service';
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { LangService } from './core/http/lang/lang.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +16,10 @@ export class AppComponent extends LanguageChecker implements OnInit {
     private router: Router,
     private title: Title,
     private route: ActivatedRoute,
-    private translation: TranslationService
+    private langService: LangService
   ) {
-    super(translation);
+    super();
+    this.getLang();
     router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
@@ -36,7 +37,7 @@ export class AppComponent extends LanguageChecker implements OnInit {
         mergeMap((r) => r.data),
         // to prevent nested subscription, we use switchMap. if we dont use switchMap, next subscription return object of Date. so need to another subscription of translation.get().
         switchMap((event) => {
-          return this.translation.stream(event['breadcrumb']);
+          return this.translationService.stream(event['breadcrumb']);
         })
       )
       .subscribe((titleString) => {
@@ -51,6 +52,17 @@ export class AppComponent extends LanguageChecker implements OnInit {
 
   get isHomePage() {
     return this.currentUrl === '/';
+  }
+
+  async getLang() {
+    const loaclStorageLang = localStorage.getItem('lang');
+    if (loaclStorageLang) {
+      this.translationService.use(loaclStorageLang);
+    } else {
+      const lang = await this.langService.getLang().toPromise();
+      localStorage.setItem('lang', lang['lang']);
+      this.translationService.use(lang['lang']);
+    }
   }
 
   ngOnInit(): void {}

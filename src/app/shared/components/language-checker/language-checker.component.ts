@@ -2,6 +2,7 @@ import { Component, OnInit, Optional } from '@angular/core';
 
 import { TranslationService } from '@core/services/translation.service';
 import { Observable } from 'rxjs';
+import { ServiceLocator } from '@app/service-locator';
 
 @Component({
   selector: 'ag-language-checker',
@@ -9,8 +10,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./language-checker.component.scss'],
 })
 export class LanguageChecker implements OnInit {
-  constructor(@Optional() private translationService?: TranslationService) {
-    this.translationService?.getCurrentLang()?.subscribe((lang: string) => {
+  constructor() {
+    this.translationService = ServiceLocator.injector.get(TranslationService);
+    this.translationService.getCurrentLang().subscribe((lang: string) => {
       this.activeLang = lang;
       const body = document.querySelector('body');
       if (this.fa) {
@@ -23,7 +25,8 @@ export class LanguageChecker implements OnInit {
     });
   }
 
-  activeLang = 'fa';
+  activeLang;
+  translationService: TranslationService;
 
   get en() {
     return this.activeLang === 'en';

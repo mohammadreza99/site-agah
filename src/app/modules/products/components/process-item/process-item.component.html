@@ -2,27 +2,27 @@
   class="wrapper container-fluid {{ direction }}"
   [ngClass]="{ 'right-side': fa }"
 >
-  <div class="row justify-content-start" [class.flex-row-reverse]="isRtl">
+  <div class="row align-items-center" [class.flex-row-reverse]="isRtl">
     <div
-      class="col-sm-10 col-md-8 col-lg-6 col-xl-5 wrapper__image ag-blur-effect"
+      class="col-lg-5 col-xl-5 wrapper__image ag-blur-effect"
     >
       <img class="img-fluid" [src]="process.image" [alt]="process.title" />
     </div>
     <div
-      class="col-sm-10 col-lg-6 wrapper__description ag-blur-effect"
+      class="col-lg-7 wrapper__description col-xl-7"
       [style.direction]="fa ? 'rtl' : 'ltr'"
     >
-      <div class="bg-white pad-y-32">
-        <h6>{{ process.title }}</h6>
+      <div>
+        <h6 class="mt-3 mt-lg-0">{{ process.title }}</h6>
         <p class="mb-0">
           {{ process.description }}
         </p>
       </div>
     </div>
   </div>
-  <img
+  <!-- <img
     class="path d-none d-sm-block"
     src="assets/images/{{ isRtl ? 'process-r' : 'process' }}.png"
     alt="path"
-  />
+  /> -->
 </div>

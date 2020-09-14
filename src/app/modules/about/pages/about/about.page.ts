@@ -8,7 +8,7 @@ import { StockholderService } from '@core/http/stockholder/stockholder.service';
 import { EmployeeService } from '@core/http/employee/employee.service';
 import { Vision } from '@shared/models/vision.model';
 import { History } from '@shared/models/history.model';
-import { Director } from '@shared/models/director.mode';
+import { Director } from '@shared/models/director.model';
 import { Employee } from '@shared/models/employee.model';
 import { Stockholder } from '@shared/models/stockholder.model';
 import { NewsLetter } from '@shared/models/news-letter.model';
@@ -42,7 +42,7 @@ export class AboutPage implements OnInit {
   departments$: Observable<Department[]>;
   newsLetters$: Observable<NewsLetter[]>;
   news$: Observable<News[]>;
-  consulers = [
+  counselors = [
     {
       firstName: 'George',
       lastName: 'Verghese',

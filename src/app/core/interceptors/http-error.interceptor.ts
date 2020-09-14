@@ -5,6 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
   HttpErrorResponse,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -17,7 +18,12 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(
+    const clonedReq = request.clone({
+      headers: new HttpHeaders({
+        'Accept-Language': localStorage.getItem('lang'),
+      }),
+    });
+    return next.handle(clonedReq).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error) {
           const errorMessage = `Code: ${error.status}\nERROR Message: ${error.message}`;

@@ -3,47 +3,35 @@ import { IAlbum, LightboxEvent, Lightbox, LIGHTBOX_EVENT } from 'ngx-lightbox';
 import { IMasonryGalleryImage } from 'ngx-masonry-gallery';
 import { Subscription } from 'rxjs';
 import { GalleryService } from '@app/core/http/gallery/gallery.service';
+import { ActivatedRoute } from '@angular/router';
+import { GalleryItem } from '@app/shared/models/gallery.model';
 
 @Component({
-  selector: 'ag-gallery',
-  templateUrl: './gallery.page.html',
-  styleUrls: ['./gallery.page.scss'],
+  selector: 'ag-gallery-details',
+  templateUrl: './gallery-details.page.html',
+  styleUrls: ['./gallery-details.page.scss'],
 })
-export class GalleryPage implements OnInit {
+export class GalleryDetailsPage implements OnInit {
   constructor(
     private lightboxEvent: LightboxEvent,
     private lightbox: Lightbox,
-    private galleryService: GalleryService
+    private galleryService: GalleryService,
+    private route: ActivatedRoute
   ) {}
-  masonryItems = [
-    { title: 'item 1' },
-    { title: 'item 2' },
-    { title: 'item 3' },
-  ];
-  images = [
-    'https://via.placeholder.com/150x150',
-    'http://via.placeholder.com/150x250',
-    'https://via.placeholder.com/180x350',
-    'https://via.placeholder.com/130x80',
-    'http://via.placeholder.com/115x150',
-  ];
+
+  images: string[] = [];
   lightboxSubscription: Subscription;
+  masonryImages: IMasonryGalleryImage[];
 
   ngOnInit() {
-    this.galleryService.get().subscribe((res) => {
-      console.log(res);
-      // for (const item of res) {
-      // this.masonryImages.push({
-      //   // imageUrl:item.
-      // })
-      // }
-    });
-  }
+    const id = this.route.snapshot.paramMap.get('id');
 
-  get masonryImages(): IMasonryGalleryImage[] {
-    return this.images.map(
-      (image: string) => ({ imageUrl: image } as IMasonryGalleryImage)
-    );
+    this.galleryService.get().subscribe((res) => {
+      this.images = res.find((item) => item.id == id).images;
+      this.masonryImages = this.images.map(
+        (image: string) => ({ imageUrl: image } as IMasonryGalleryImage)
+      );
+    });
   }
 
   get lightboxImages(): IAlbum[] {

@@ -2,7 +2,6 @@ import { Component, HostListener, Input, OnInit } from '@angular/core';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 import { Router } from '@angular/router';
-import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'ag-navbar',
@@ -10,14 +9,14 @@ import { TranslationService } from '../services/translation.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent extends LanguageChecker implements OnInit {
-  constructor(private router: Router, private translation: TranslationService) {
+  constructor(private router: Router) {
     super();
   }
 
   @Input() isHomePage: boolean;
 
   isScrolled = false;
-  selectedLang = 'فارسی';
+  selectedLang = localStorage.getItem('lang') === 'fa' ? 'فارسی' : 'English';
   showMenu = false;
   isOpen = false;
 
@@ -37,11 +36,10 @@ export class NavbarComponent extends LanguageChecker implements OnInit {
     this.selectedLang = lang.text;
     switch (lang.text) {
       case 'English':
-        this.translation.use('en');
+        this.translationService.use('en');
         break;
-      case 'English':
-      default:
-        this.translation.use('fa');
+      case 'فارسی':
+        this.translationService.use('fa');
         break;
     }
     this.closeNavbar();
@@ -53,10 +51,5 @@ export class NavbarComponent extends LanguageChecker implements OnInit {
 
   closeNavbar() {
     this.isOpen = false;
-  }
-
-  navigate(path: string) {
-    this.closeNavbar();
-    this.router.navigate([path]);
   }
 }

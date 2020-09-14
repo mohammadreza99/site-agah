@@ -21,6 +21,7 @@ export class VisionComponent implements OnInit {
   get forHome() {
     return this.type === 'home-page';
   }
+
   get forAbout() {
     return this.type === 'about-page';
   }

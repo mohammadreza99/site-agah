@@ -46,7 +46,7 @@
     "OPINION": "Comment",
     "COURSE_OR_WORKSHOP_NAME": "Course or workshop name...",
     "DEPARTMENTS": "Departments",
-    "CONSULERS": "Consulers",
+    "CONSULERS": "Counselors",
     "DAY": "day"
   },
   "BUTTONS": {
@@ -63,7 +63,7 @@
     "REQUEST_FORM": "Request Form",
     "DIRECTORS_MORE": "All Directors",
     "STOCKHOLDERS_MORE": "All Stockholders",
-    "CONSULERS_MORE": "All Consulers",
+    "CONSULERS_MORE": "All Counselors",
     "EMPLOYEES_MORE": "Login"
   },
   "FOOTER": {
@@ -81,7 +81,7 @@
     "ABOUT_US": "About Us",
     "CONTACT_US": "Contact Us",
     "HOME": "Home",
-    "CONSULERS": "Consulers",
+    "CONSULERS": "Counselors",
     "GALERRY": "Gallery"
   },
   "COURSE_INTRO": {
@@ -105,7 +105,7 @@
     "NEWS": "News",
     "POSTS": "Blog Posts",
     "PRODUCTS": "Products",
-    "CONSULERS": "Consulers",
+    "CONSULERS": "Counselors",
     "GALLERY": "Gallery"
   }
 }

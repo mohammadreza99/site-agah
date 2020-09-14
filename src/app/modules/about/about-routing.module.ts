@@ -4,7 +4,7 @@ import { AboutPage } from './pages/about/about.page';
 import { EmployeesPage } from './pages/employees/employees.page';
 import { HistoryPage } from './pages/history/history.page';
 import { ContactUsPage } from './pages/contact-us/contact-us.page';
-import { ConsulersPage } from './pages/consulers/consulers.page';
+import { CounselorsPage } from './pages/counselors/counselors.page';
 import { DirectorsPage } from './pages/directors/directors.page';
 import { StockholdersPage } from './pages/stockholders/stockholders.page';
 
@@ -17,8 +17,8 @@ const routes: Routes = [
         component: AboutPage,
       },
       {
-        path: 'consulers',
-        component: ConsulersPage,
+        path: 'counselors',
+        component: CounselorsPage,
         data: { breadcrumb: 'BREADCRUMBS.CONSULERS' },
       },
       {

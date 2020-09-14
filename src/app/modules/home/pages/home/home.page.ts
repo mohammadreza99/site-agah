@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Post } from '@shared/models/post.model';
 import { Product } from '@shared/models/product.model';
 import { Vision } from '@shared/models/vision.model';
-import { Director } from '@shared/models/director.mode';
+import { Director } from '@shared/models/director.model';
 import { Testimonial } from '@shared/models/testimonial.model';
 import { ProductService } from '@core/http/product/product.service';
 import { PostService } from '@core/http/post/post.service';
@@ -13,7 +13,6 @@ import { DirectorService } from '@core/http/director/director.service';
 import { TestimonialService } from '@core/http/testimonial/testimonial.service';
 import { Department } from '@shared/models/department.model';
 import { DepartmentService } from '@core/http/department/department.service';
-import { GalleryService } from '@app/core/http/gallery/gallery.service';
 
 @Component({
   selector: 'ag-home-page',

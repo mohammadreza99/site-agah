@@ -3,6 +3,7 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   NgModule,
   NO_ERRORS_SCHEMA,
+  Injector,
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -13,6 +14,7 @@ import { AppRoutingModule } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { CoreModule } from '@core/core.module';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
+import { ServiceLocator } from './service-locator';
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,4 +39,8 @@ export function translateHttpLoaderFactory(http: HttpClient) {
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private injector: Injector) {
+    ServiceLocator.injector = this.injector;
+  }
+}

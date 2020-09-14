@@ -13,7 +13,11 @@
       ></i>
     </div>
   </div>
-  <div class="content-wrapper" [@toggle]="expanded">
+  <div
+    class="content-wrapper"
+    [@toggle]="expanded"
+    *ngIf="$any(job).details.length != 0"
+  >
     <div #content class="job-oppurtinity-item__content pad-y-32 border-top">
       <ag-button
         [raised]="false"
@@ -25,7 +29,7 @@
       <ul class="list-unstyled p-0">
         <li
           class="job-oppurtinity-item__content--property mar-b-48"
-          *ngFor="let jobDetail of job.details"
+          *ngFor="let jobDetail of $any(job).details"
         >
           <div class="d-flex align-items-center mar-b-16">
             <img [src]="jobDetail.logo" [alt]="jobDetail.title" />

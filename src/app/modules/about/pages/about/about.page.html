@@ -14,12 +14,12 @@
     ></ag-histories>
   </section>
   <section class="mar-t-156">
-    <ag-employers
+    <ag-directors
       title="{{'TITLES.DIRECTORS' | translate}}"
       buttonLabel="{{'BUTTONS.DIRECTORS_MORE' | translate}}"
       buttonRouterLink="/about/directors"
-      [employers]="directors$ | async"
-    ></ag-employers>
+      [directors]="directors$ | async"
+    ></ag-directors>
   </section>
   <section class="pad-t-156">
     <ag-stockholders
@@ -33,12 +33,12 @@
     ></ag-button>
   </section>
   <section class="pad-t-156">
-    <ag-employers
+    <ag-counselors
       title="{{'TITLES.CONSULERS' | translate}}"
       buttonLabel="{{'BUTTONS.CONSULERS_MORE' | translate}}"
-      buttonRouterLink="/about/consulers"
-      [employers]="consulers"
-    ></ag-employers>
+      buttonRouterLink="/about/counselors"
+      [counselors]="counselors"
+    ></ag-counselors>
   </section>
   <section class="pad-t-156">
     <ag-employees

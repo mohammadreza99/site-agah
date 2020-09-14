@@ -3,13 +3,13 @@
 .wrapper {
   position: relative;
   direction: ltr;
-  @include large() {
-    padding-bottom: 50px;
-    padding-top: 32px;
-  }
+  // @include large() {
+  //   padding-bottom: 50px;
+  //   padding-top: 32px;
+  // }
   &__image {
     z-index: 15;
-    margin-left: auto;
+    // margin-left: auto;
     &,
     img {
       border-radius: 20px 20px 0 0;
@@ -17,24 +17,24 @@
         border-radius: 20px;
       }
     }
-    @include large() {
-      margin-top: -32px;
-      margin-right: -108px;
-      margin-left: 0;
-    }
+    // @include large() {
+    //   margin-top: -32px;
+    //   margin-right: -108px;
+    //   margin-left: 0;
+    // }
   }
   &__description {
-    margin-left: 0;
-    margin-right: auto;
+    // margin-left: 0;
+    // margin-right: auto;
     > div {
-      padding-left: 32px;
-      padding-right: 32px;
+      // padding-left: 32px;
+      // padding-right: 32px;
       border-radius: 0 0 20px 20px;
-      @include large() {
-        border-radius: 20px;
-        margin-bottom: -32px;
-        padding-left: 115px;
-      }
+      // @include large() {
+      //   border-radius: 20px;
+      //   margin-bottom: -32px;
+      //   padding-left: 115px;
+      // }
     }
     p {
       @include text-style();
@@ -51,47 +51,47 @@
     }
   }
 
-  .path {
-    position: absolute;
-    z-index: -1;
-    right: -19px;
-    left: auto;
-    bottom: 20px;
-    width: 100px;
+  // .path {
+  //   position: absolute;
+  //   z-index: -1;
+  //   right: -19px;
+  //   left: auto;
+  //   bottom: 20px;
+  //   width: 100px;
 
-    @include large() {
-      right: 15px;
-      width: 100px;
-    }
-    @include extraLarge() {
-      width: 137px;
-    }
-  }
+  //   @include large() {
+  //     right: 15px;
+  //     width: 100px;
+  //   }
+  //   @include extraLarge() {
+  //     width: 137px;
+  //   }
+  // }
 
-  &.rtl {
-    .wrapper__image {
-      margin-left: 0;
-      margin-right: auto;
-      @include large() {
-        margin-left: -108px;
-        margin-right: 0;
-      }
-    }
-    .wrapper__description {
-      margin-left: auto;
-      margin-right: 0;
-      > div {
-        @include large() {
-          padding-right: 115px;
-          padding-left: 32px;
-        }
-      }
-    }
-    .path {
-      left: -15px;
-      @include large() {
-        left: 15px;
-      }
-    }
-  }
+  // &.rtl {
+  //   .wrapper__image {
+  //     margin-left: 0;
+  //     margin-right: auto;
+  //     @include large() {
+  //       margin-left: -108px;
+  //       margin-right: 0;
+  //     }
+  //   }
+    // .wrapper__description {
+    //   margin-left: auto;
+    //   margin-right: 0;
+      // > div {
+      //   @include large() {
+      //     padding-right: 115px;
+      //     padding-left: 32px;
+      //   }
+      // }
+    // }
+    // .path {
+    //   left: -15px;
+    //   @include large() {
+    //     left: 15px;
+    //   }
+    // }
+  // }
 }

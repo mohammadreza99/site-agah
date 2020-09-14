@@ -10,7 +10,7 @@ import { ApiService } from '@core/http/api.service';
 export class DepartmentService {
   constructor(private apiService: ApiService) {}
 
-  private readonly endPoint = 'visions';
+  private readonly endPoint = 'teams';
 
   get(): Observable<Department[]> {
     return this.apiService.get<Department[]>(this.endPoint);

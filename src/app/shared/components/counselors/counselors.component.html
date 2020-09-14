@@ -1,0 +1,47 @@
+<div class="row employers">
+  <div class="employers__overlay">
+    <div class="employers__overlay-bg">
+      <img class="right-dots" src="assets/images/dots2.png" alt="dots" />
+      <img
+        class="left-dots d-none d-md-block"
+        src="assets/images/dots3.png"
+        alt="dots"
+      />
+    </div>
+    <ag-button
+      *ngIf="buttonLabel"
+      [routerLink]="buttonRouterLink"
+      class="employers__overlay-button"
+      [label]="buttonLabel"
+    ></ag-button>
+  </div>
+  <div class="container">
+    <div class="row">
+      <ag-lined-header
+        *ngIf="title"
+        class="mar-b-80"
+        [text]="title"
+      ></ag-lined-header>
+      <ag-carousel
+        class="col-12"
+        [config]="{
+          allowTouchMove: true,
+          slidesPerView: 1,
+          spaceBetween: 15,
+          breakpoints: {
+            '575': { slidesPerView: 2 },
+            '768': { slidesPerView: 3 },
+            '992': { slidesPerView: 4, allowTouchMove: false }
+          }
+        }"
+      >
+        <div
+          class="swiper-slide py-5"
+          *ngFor="let counselor of counselors | slice: 0:4"
+        >
+          <ag-counselor-item [counselor]="counselor"></ag-counselor-item>
+        </div>
+      </ag-carousel>
+    </div>
+  </div>
+</div>

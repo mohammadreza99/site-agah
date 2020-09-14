@@ -1,8 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { JobItem } from '@app/shared/models/job.model';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { JobItem, JobItemDetails } from '@app/shared/models/job.model';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
+import { JobService } from '@app/core/http/job/job.service';
 
 @Component({
   selector: 'ag-job-oppurtinity-item',
@@ -16,8 +23,12 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
     ]),
   ],
 })
-export class JobOppurtinityItemComponent extends LanguageChecker
+export class JobOppurtinityItemComponent
+  extends LanguageChecker
   implements OnInit {
+  constructor(private jobService: JobService) {
+    super();
+  }
 
   @Input() job: JobItem;
   @Output() toggleEmitter = new EventEmitter();

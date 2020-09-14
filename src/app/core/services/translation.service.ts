@@ -8,7 +8,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class TranslationService {
   constructor(private translate: TranslateService) {}
 
-  currentLang = new BehaviorSubject<string>('fa');
+  currentLang = new BehaviorSubject<string>(localStorage.getItem('lang'));
 
   /**
    * Get the current language sets by service
@@ -35,6 +35,7 @@ export class TranslationService {
    * Changes the lang currently used
    */
   use(lang: string): Observable<any> {
+    localStorage.setItem('lang', lang);
     this.currentLang.next(lang);
     return this.translate.use(lang);
   }

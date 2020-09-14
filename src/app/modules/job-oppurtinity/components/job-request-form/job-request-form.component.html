@@ -6,10 +6,13 @@
 <ag-container>
   <div class="col-12">
     <div class="request-form ag-shadow-lg ag-rounded-lg bg-white pad-32">
-      <div class="request-form__header pad-b-32 d-flex align-items-center">
-        <img [src]="(job$ | async)?.logo" [alt]="(job$ | async)?.title" />
+      <div
+        class="request-form__header pad-b-32 d-flex align-items-center"
+        *ngIf="job$ | async as job"
+      >
+        <img [src]="job.logo" [alt]="job.title" />
         <h3 class="mar-{{ fa ? 'r' : 'l' }}-16 mb-0">
-          {{ (job$ | async)?.title }}
+          {{ job.title }}
         </h3>
       </div>
       <form
@@ -19,21 +22,21 @@
       >
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             formControlName="first_name"
             placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             formControlName="last_name"
             placeholder="{{ 'TITLES.LAST_NAME' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-datepicker
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             formControlName="birthday"
             icon="fa-calendar-alt"
             placeholder="{{ 'TITLES.BIRTHDATE' | translate }}"
@@ -41,7 +44,7 @@
         </div>
         <div class="col-sm-6 mar-b-48 d-flex align-items-center">
           <ag-input-radio
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             class="flex-grow-1"
             formControlName="gender"
             label="{{ 'TITLES.GENDER' | translate }}"
@@ -54,8 +57,8 @@
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
             [errors]="[
-              { required: 'field is required' },
-              { email: 'email is invalid' }
+              { required: 'این فیلد الزامیست.' },
+              { email: 'ایمیل نامعتبر است.' }
             ]"
             formControlName="email"
             placeholder="{{ 'TITLES.EMAIL' | translate }}"
@@ -63,14 +66,14 @@
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             formControlName="phone"
             placeholder="{{ 'TITLES.PHONE_NUMBER' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-12 mar-b-48">
           <ag-input-textarea
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             formControlName="address"
             placeholder="{{ 'TITLES.ADDRESS' | translate }}"
           ></ag-input-textarea>
@@ -78,7 +81,7 @@
 
         <div class="col-sm-6">
           <ag-input-file
-            [errors]="[{ required: 'field is required' }]"
+            [errors]="[{ required: 'این فیلد الزامیست.' }]"
             formControlName="resume"
           ></ag-input-file>
         </div>

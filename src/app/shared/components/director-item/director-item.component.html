@@ -1,0 +1,17 @@
+<div class="wrapper ag-rounded-lg ag-blur-effect">
+  <img
+    [src]="director.image"
+    [alt]="directorFullName"
+    class="wrapper__image ag-rounded-lg"
+  />
+  <div
+    class="wrapper__content p-2 d-flex flex-column justify-content-end align-items-center text-white"
+  >
+    <h6 class="wrapper__content-title">
+      {{ directorFullName }}
+    </h6>
+    <p class="wrapper__content-description">
+      {{ $any(director).company_position.title }}
+    </p>
+  </div>
+</div>

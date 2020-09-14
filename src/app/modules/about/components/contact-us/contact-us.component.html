@@ -16,37 +16,35 @@
                 <ag-input-text
                   formControlName="name"
                   placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
-                  [errors]="[{ required: 'field is required' }]"
+                  [errors]="[{ required: 'این فیلد الزامیست.' }]"
                   class="col-12 mar-b-48"
                 ></ag-input-text>
                 <ag-input-text
                   formControlName="email"
                   [errors]="[
-                    { required: 'field is required' },
-                    { email: 'email is invalid' }
+                    { required: 'این فیلد الزامیست.' },
+                    { email: 'ایمیل نامعتبر است.' }
                   ]"
                   placeholder="{{ 'TITLES.EMAIL' | translate }}"
                   class="col-12 mar-b-48"
                 ></ag-input-text>
                 <ag-input-textarea
                   formControlName="comment"
-                  [errors]="[{ required: 'field is required' }]"
+                  [errors]="[{ required: 'این فیلد الزامیست.' }]"
                   placeholder="{{ 'TITLES.OPINION' | translate }}"
                   class="col-12 mar-b-48"
                 ></ag-input-textarea>
-                <!-- <ngx-recaptcha2
-                  class="col-12 mar-b-48"
-                  #captchaElem
-                  [siteKey]="'siteKey'"
-                  (reset)="handleReset()"
-                  (expire)="handleExpire()"
-                  (load)="handleLoad()"
-                  (success)="handleSuccess($event)"
-                  [useGlobalDomain]="false"
-                  formControlName="recaptcha"
-                >
-                </ngx-recaptcha2> -->
+                <div class="captcha d-flex align-items-center col-12 mar-b-48" *ngIf="captchaImage">
+                  <ag-input-text
+                  formControlName="value"
+                  [errors]="[{ required: 'این فیلد الزامیست.' }]"
+                  ></ag-input-text>
+                  <img class="mr-1" [src]="captchaImage" />
+                </div>
+                <p class="text-center text-success my-4" *ngIf="showSuccess">درخواست شما با موفقیت ارسال شد</p>
                 <ag-button
+                class="text-center"
+                  [disabled]="form.invalid"
                   label="{{ 'BUTTONS.SEND_REQUEST' | translate }}"
                   type="submit"
                 ></ag-button>

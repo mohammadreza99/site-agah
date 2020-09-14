@@ -42,11 +42,15 @@
             label="{{ 'BUTTONS.VISIT_WEBSITE' | translate }}"
           ></ag-button>
         </a>
-        <ag-button
+        <a
           [routerLink]="['/products/details', product.id]"
-          [outline]="true"
-          label="{{ 'BUTTONS.READ_MORE' | translate }}"
-        ></ag-button>
+          class="mar-{{ fa ? 'l' : 'r' }}-32"
+        >
+          <ag-button
+            [outline]="true"
+            label="{{ 'BUTTONS.READ_MORE' | translate }}"
+          ></ag-button>
+        </a>
       </div>
     </div>
   </div>

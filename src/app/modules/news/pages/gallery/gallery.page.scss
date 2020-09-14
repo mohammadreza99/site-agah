@@ -1,0 +1,21 @@
+@import "abstracts/mixins";
+ngx-masonry-gallery {
+  &::ng-deep img {
+    cursor: pointer;
+
+    @include extraSmall() {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+  }
+}
+.masonry-item {
+  width: 200px;
+  background-color: lightblue;
+  cursor:pointer
+}
+@media (max-width: 767px) {
+  .msnr {
+    width: 50% !important;
+  }
+}
