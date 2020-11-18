@@ -3,12 +3,12 @@
     <ag-academy-header></ag-academy-header>
   </section>
   <section class="mar-t-104">
-    <ag-container title="{{ 'TITLES.BEST_COURSES' | translate }}">
+    <ag-container title="{{ 'modules.academy.bestCourses' | translate }}">
       <ag-carousel
         [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '768': { slidesPerView: 3 }}}"
         class="col-12"
       >
-        <div class="swiper-slide" *ngFor="let course of courses">
+        <div class="swiper-slide" *ngFor="let course of bestCourses$ | async">
           <ag-course-item-shadowed
             [hoverable]="false"
             [course]="course"
@@ -18,7 +18,7 @@
     </ag-container>
     <ag-button
       class="mar-t-72 text-center"
-      label="{{'BUTTONS.COURSES_SEE_MORE' | translate}}"
+      [label]="'buttons.seeMore' | translate:{value:fa ? 'همه دوره ها': 'all courses'}"
       [raised]="true"
       [outline]="true"
       routerLink="/academy/courses-category"
@@ -28,17 +28,14 @@
     <ag-courses-intro></ag-courses-intro>
   </section>
   <section class="mar-t-156">
-    <ag-container
-      title="{{'TITLES.FEATURED_POST' | translate}}"
-      *ngIf="posts$ | async"
-    >
+    <ag-container title="{{'modules.posts.featuredPosts' | translate}}">
       <ag-carousel
         [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
         class="col-12"
       >
         <div
           class="swiper-slide px-2 py-4"
-          *ngFor="let post of ((posts$ | async) | slice: 0:3)"
+          *ngFor="let post of ((featuredPosts$ | async) | slice: 0:3)"
         >
           <ag-post-item [post]="post"></ag-post-item>
         </div>
@@ -46,13 +43,14 @@
     </ag-container>
     <ag-button
       class="mar-t-72 text-center"
-      label="{{'BUTTONS.POSTS_SEE_MORE' | translate}}"
+      [label]="'buttons.seeMore' | translate:{value:fa ? 'مطالب بیشتر': 'more posts'}"
       [raised]="true"
       [outline]="true"
+      routerLink="/posts"
     ></ag-button>
   </section>
   <section class="mar-t-156">
-    <ag-container title="{{'TITLES.NEWS' | translate}}">
+    <ag-container title="{{'modules.news.news&Events' | translate}}">
       <div
         *ngFor="let news of ((news$ | async) | slice: 0:5); let i = index"
         class="mar-b-32"
@@ -75,14 +73,14 @@
             class="mar-x-16 mb-5 mb-sm-0"
             [raised]="true"
             [outline]="true"
-            label="مشاهده مطالب بیشتر"
+            [label]="'buttons.seeMore' | translate:{value:fa?'مطالب بیشتر':'more posts'}"
           ></ag-button>
           <ag-button
-            routerLink="/gallery"
+            routerLink="/news/gallery"
             class="mar-x-16"
             [raised]="true"
             [outline]="true"
-            label="گالری تصاویر"
+            [label]="'buttons.gallery' | translate"
           ></ag-button>
         </div>
       </div>

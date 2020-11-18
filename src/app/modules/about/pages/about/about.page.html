@@ -3,51 +3,54 @@
     <ag-vision
       [departments]="departments$ | async"
       [vision]="vision$ | async"
-      title="{{ 'TITLES.VISION' | translate }}"
+      title="{{ 'agah.vision' | translate }}"
       type="about-page"
     ></ag-vision>
   </section>
   <section class="mar-t-156">
     <ag-histories
-      title="{{'TITLES.HISTORIES' | translate}}"
+      title="{{'agah.history' | translate}}"
       [histories]="histories$ | async"
     ></ag-histories>
   </section>
   <section class="mar-t-156">
     <ag-directors
-      title="{{'TITLES.DIRECTORS' | translate}}"
-      buttonLabel="{{'BUTTONS.DIRECTORS_MORE' | translate}}"
+      title="{{'agah.boardOfDirectors' | translate}}"
+      [buttonLabel]="'buttons.all' | translate:{value: fa ? 'اعضای هیئت مدیره':'directors'}"
       buttonRouterLink="/about/directors"
       [directors]="directors$ | async"
     ></ag-directors>
   </section>
   <section class="pad-t-156">
     <ag-stockholders
-      title="{{'TITLES.STOCKHOLDERS' | translate}}"
+      title="{{'agah.stockholders' | translate}}"
       [stockholders]="stockholders$ | async"
     ></ag-stockholders>
     <ag-button
       class="text-center mar-t-80"
       routerLink="/about/stockholders"
-      label="{{'BUTTONS.STOCKHOLDERS_MORE' | translate}}"
+      [label]="'buttons.all' | translate:{value: fa ? 'سهامداران':'stockholders'}"
     ></ag-button>
   </section>
   <section class="pad-t-156">
     <ag-counselors
-      title="{{'TITLES.CONSULERS' | translate}}"
-      buttonLabel="{{'BUTTONS.CONSULERS_MORE' | translate}}"
+      title="{{'agah.counselors' | translate}}"
+      [buttonLabel]="'buttons.all' | translate:{value: fa ? 'مشاوران':'counselors'}"
       buttonRouterLink="/about/counselors"
-      [counselors]="counselors"
+      [counselors]="counselors$ | async"
     ></ag-counselors>
   </section>
   <section class="pad-t-156">
     <ag-employees
-      title="{{'TITLES.EMPLOYEES' | translate}}"
+      title="{{'agah.employees' | translate}}"
       [employees]="employees$ | async"
     ></ag-employees>
   </section>
   <section class="pad-t-156">
-    <ag-container title="{{'TITLES.NEWS' | translate}}" *ngIf="news$ | async">
+    <ag-container
+      title="{{'modules.news.news&Events' | translate}}"
+      *ngIf="news$ | async"
+    >
       <ag-carousel
         [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
         class="col-12"
@@ -69,14 +72,14 @@
             class="mar-x-16 mb-5 mb-sm-0"
             [raised]="true"
             [outline]="true"
-            label="مشاهده مطالب بیشتر"
+            [label]="'buttons.seeMore' | translate:{value:fa?'مطالب بیشتر':'more posts'}"
           ></ag-button>
           <ag-button
-            routerLink="/gallery"
+            routerLink="/news/gallery"
             class="mar-x-16"
             [raised]="true"
             [outline]="true"
-            label="گالری تصاویر"
+            [label]="'buttons.gallery' | translate"
           ></ag-button>
         </div>
       </div>

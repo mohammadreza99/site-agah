@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Director } from '@app/shared/models/director.model';
+import { Director } from '@shared/models';
 
 @Component({
   selector: 'ag-directors',

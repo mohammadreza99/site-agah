@@ -1,7 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
-import { Director } from '@shared/models/director.model';
-import { Counselor } from '@app/shared/models/counselor.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { Director, Counselor } from '@shared/models';
 
 @Component({
   selector: 'ag-employers',

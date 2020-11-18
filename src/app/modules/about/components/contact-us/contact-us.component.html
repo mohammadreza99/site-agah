@@ -7,7 +7,7 @@
             <div
               class="contact-us-form bg-white pad-32 ag-shadow-lg ag-rounded-lg"
             >
-              <p>{{ "TITLES.CONTACT_US" | translate }}</p>
+              <p>{{ "agah.contactUs" | translate }}</p>
               <form
                 class="form-row"
                 [formGroup]="form"
@@ -15,37 +15,45 @@
               >
                 <ag-input-text
                   formControlName="name"
-                  placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
-                  [errors]="[{ required: 'این فیلد الزامیست.' }]"
+                  placeholder="{{ 'forms.firstName' | translate }}"
+                  [errors]="[{ required: 'forms.required' | translate }]"
                   class="col-12 mar-b-48"
                 ></ag-input-text>
                 <ag-input-text
                   formControlName="email"
                   [errors]="[
-                    { required: 'این فیلد الزامیست.' },
-                    { email: 'ایمیل نامعتبر است.' }
+                    { required: 'forms.required' | translate },
+                    { email: 'forms.invalidEmail' | translate }
                   ]"
-                  placeholder="{{ 'TITLES.EMAIL' | translate }}"
+                  placeholder="{{ 'forms.email' | translate }}"
                   class="col-12 mar-b-48"
                 ></ag-input-text>
                 <ag-input-textarea
                   formControlName="comment"
-                  [errors]="[{ required: 'این فیلد الزامیست.' }]"
-                  placeholder="{{ 'TITLES.OPINION' | translate }}"
+                  [errors]="[{ required: 'forms.required' | translate }]"
+                  placeholder="{{ 'forms.opinion' | translate }}"
                   class="col-12 mar-b-48"
                 ></ag-input-textarea>
-                <div class="captcha d-flex align-items-center col-12 mar-b-48" *ngIf="captchaImage">
+                <div
+                  class="captcha d-flex align-items-center col-12 mar-b-48"
+                  *ngIf="captchaImage"
+                >
                   <ag-input-text
-                  formControlName="value"
-                  [errors]="[{ required: 'این فیلد الزامیست.' }]"
+                    formControlName="value"
+                    [errors]="[{ required: 'forms.required' | translate }]"
                   ></ag-input-text>
                   <img class="mr-1" [src]="captchaImage" />
                 </div>
-                <p class="text-center text-success my-4" *ngIf="showSuccess">درخواست شما با موفقیت ارسال شد</p>
+                <p class="text-center text-success my-4" *ngIf="showSuccess">
+                  {{ "forms.successRequest" | translate }}
+                </p>
                 <ag-button
-                class="text-center"
+                  class="text-center"
                   [disabled]="form.invalid"
-                  label="{{ 'BUTTONS.SEND_REQUEST' | translate }}"
+                  [label]="
+                    'buttons.request'
+                      | translate: { value: fa ? 'ارسال' : 'send' }
+                  "
                   type="submit"
                 ></ag-button>
               </form>

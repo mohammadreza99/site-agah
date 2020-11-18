@@ -42,6 +42,7 @@ export class NavbarComponent extends LanguageChecker implements OnInit {
         this.translationService.use('fa');
         break;
     }
+    window.location.reload();
     this.closeNavbar();
   }
 

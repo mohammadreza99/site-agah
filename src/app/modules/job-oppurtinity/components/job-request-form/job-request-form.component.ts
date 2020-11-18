@@ -3,8 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { JobItem } from '@app/shared/models/job.model';
-import { JobService } from '@app/core/http/job/job.service';
+import { JobItem } from '@shared/models';
+import { JobService } from '@core/http/job/job.service';
 import { Observable } from 'rxjs';
 
 @Component({

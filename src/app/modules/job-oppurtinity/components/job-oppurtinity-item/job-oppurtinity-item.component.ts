@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { JobItem, JobItemDetails } from '@app/shared/models/job.model';
+import { JobItem } from '@shared/models';
 import {
   trigger,
   state,
@@ -9,7 +9,7 @@ import {
   transition,
   animate,
 } from '@angular/animations';
-import { JobService } from '@app/core/http/job/job.service';
+import { JobService } from '@core/http/job/job.service';
 
 @Component({
   selector: 'ag-job-oppurtinity-item',

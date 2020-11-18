@@ -3,55 +3,55 @@
     <div class="col-12 mar-b-80">
       <ag-breadcrumb></ag-breadcrumb>
     </div>
-    <div class="col-lg-4 col-xl-3 side-list-wrapper">
-      <div class="side-list bg-white ag-rounded-lg ag-shadow-lg">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-6 col-lg-12">
-              <div class="title">Time</div>
-              <div class="subtitle">22 June 2020</div>
-            </div>
-            <div class="col-6 col-lg-12">
-              <div class="title">Location</div>
-              <div class="subtitle">
-                No 138, Mirdamad Blvd, Tehran.
+    <ng-container *ngIf="workshop$ | async as workshop">
+      <div class="col-lg-4 col-xl-3 side-list-wrapper">
+        <div class="side-list bg-white ag-rounded-lg ag-shadow-lg">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-6 col-lg-12">
+                <div class="title">{{'modules.academy.time' | translate}}</div>
+                <div class="subtitle">{{workshop.time}}</div>
               </div>
-            </div>
-            <div class="col-12 px-0 px-lg-3 text-center">
-              <ag-button label="Submit"></ag-button>
+              <div class="col-6 col-lg-12">
+                <div class="title">
+                  {{'modules.academy.location' | translate}}
+                </div>
+                <div class="subtitle">{{workshop.address}}</div>
+              </div>
+              <div class="col-12 px-0 px-lg-3 text-center">
+                <ag-button [label]="'buttons.submit' | translate"></ag-button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-lg-8 col-xl-9 content">
-      <section #about class="mar-b-40">
-        <ag-course-details-header
-          [showFeatures]="false"
-        ></ag-course-details-header>
-        <ag-tags [tags]="['Event']" class="mar-b-40"></ag-tags>
-        <ag-share></ag-share>
-      </section>
-      <section class="mar-b-156">
-        <ag-author class="mar-b-32"></ag-author>
-      </section>
-    </div>
+      <div class="col-lg-8 col-xl-9 content">
+        <section #about class="mar-b-40">
+          <ag-course-details-header
+            [course]="workshop"
+            [showFeatures]="false"
+          ></ag-course-details-header>
+          <!-- <ag-tags [tags]="workshop" class="mar-b-40"></ag-tags> -->
+          <ag-share></ag-share>
+        </section>
+        <section class="mar-b-156">
+          <ag-author [author]="workshop.teacher" class="mar-b-32"></ag-author>
+        </section>
+      </div>
+    </ng-container>
   </ag-container>
-  <ag-container class="mar-t-156" title="Other Courses">
-    <!-- <div class="col-4">
-      <ag-course-item [course]="course"></ag-course-item>
-    </div> -->
+  <ag-container
+    class="mar-t-156"
+    [title]="'modules.academy.otherCourses' | translate"
+  >
     <ag-carousel
       [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '768': { slidesPerView: 3 }}}"
       class="col-12"
     >
-      <div class="swiper-slide py-4">
-        <ag-course-item [course]="course"></ag-course-item>
-      </div>
-      <div class="swiper-slide py-4">
-        <ag-course-item [course]="course"></ag-course-item>
-      </div>
-      <div class="swiper-slide py-4">
+      <div
+        class="swiper-slide py-4"
+        *ngFor="let course of (otherCourses$ | async) | slice:0:3"
+      >
         <ag-course-item [course]="course"></ag-course-item>
       </div>
     </ag-carousel>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { PostService } from '@core/http/post/post.service';
-import { Post } from '@shared/models/post.model';
+import { Post } from '@shared/models';
+import { MultimediaService } from '@core/http';
 
 @Component({
   selector: 'ag-posts-page',
@@ -10,12 +10,12 @@ import { Post } from '@shared/models/post.model';
   styleUrls: ['./posts.page.scss'],
 })
 export class PostsPage implements OnInit {
-  constructor(private postService: PostService) {}
+  constructor(private multimediaService: MultimediaService) {}
 
   posts$: Observable<Post[]>;
 
   ngOnInit(): void {
-    this.posts$ = this.postService.get();
+    this.posts$ = this.multimediaService.getPosts();
   }
 
   onListItemClick(item) {}

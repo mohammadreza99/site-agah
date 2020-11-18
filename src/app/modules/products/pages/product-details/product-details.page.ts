@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { Product } from '@shared/models/product.model';
 import { ProductService } from '@core/http/product/product.service';
+import { Product } from '@shared/models';
 
 @Component({
   selector: 'ag-product-details',

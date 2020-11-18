@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Partner } from '@shared/models/product.model';
+import { Partner } from '@shared/models';
 
 @Component({
   selector: 'ag-partners',

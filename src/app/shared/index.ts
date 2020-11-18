@@ -43,6 +43,7 @@ import { CounselorItemComponent } from './components/counselor-item/counselor-it
 import { CounselorsComponent } from './components/counselors/counselors.component';
 import { DirectorsComponent } from './components/directors/directors.component';
 import { DirectorItemComponent } from './components/director-item/director-item.component';
+import { ShamsiPipe } from './pipes/shamsi.pipe';
 export const COMPONENTS: Type<any>[] = [
   ButtonComponent,
   InputTextComponent,
@@ -71,6 +72,7 @@ export const COMPONENTS: Type<any>[] = [
   AuthorComponent,
   LanguageChecker,
   DotsPipe,
+  ShamsiPipe,
   ///////////////////////
   EmployeeItemComponent,
   EmployeesComponent,

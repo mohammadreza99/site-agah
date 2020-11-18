@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Stockholder } from '@shared/models/stockholder.model';
+import { Stockholder } from '@shared/models';
 
 @Component({
   selector: 'ag-stockholder-item',

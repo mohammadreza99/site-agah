@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '@shared/models';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Post } from '@shared/models/post.model';
 
 @Component({
   selector: 'ag-post-item',

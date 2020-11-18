@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Course, Workshop } from '@app/shared/models';
 
 @Component({
   selector: 'ag-course-details-header',
@@ -8,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CourseDetailsHeaderComponent implements OnInit {
   constructor() {}
 
+  @Input() course: Course | Workshop;
   @Input() showFeatures = true;
 
   ngOnInit(): void {}

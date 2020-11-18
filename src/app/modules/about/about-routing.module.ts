@@ -19,32 +19,32 @@ const routes: Routes = [
       {
         path: 'counselors',
         component: CounselorsPage,
-        data: { breadcrumb: 'BREADCRUMBS.CONSULERS' },
+        data: { breadcrumb: 'agah.counselors' },
       },
       {
         path: 'employees',
         component: EmployeesPage,
-        data: { breadcrumb: 'BREADCRUMBS.EMPLOYEES' },
+        data: { breadcrumb: 'agah.employees' },
       },
       {
         path: 'directors',
         component: DirectorsPage,
-        data: { breadcrumb: 'BREADCRUMBS.DIRECTORS' },
+        data: { breadcrumb: 'agah.boardOfDirectors' },
       },
       {
         path: 'history',
         component: HistoryPage,
-        data: { breadcrumb: 'BREADCRUMBS.HISTORY' },
+        data: { breadcrumb: 'agah.history' },
       },
       {
         path: 'stockholders',
         component: StockholdersPage,
-        data: { breadcrumb: 'BREADCRUMBS.STOCKHOLDERS' },
+        data: { breadcrumb: 'agah.stockholders' },
       },
       {
         path: 'contact-us',
         component: ContactUsPage,
-        data: { breadcrumb: 'BREADCRUMBS.CONTACT_US' },
+        data: { breadcrumb: 'agah.contactUs' },
       },
     ],
   },

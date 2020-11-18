@@ -15,6 +15,7 @@ import { AppComponent } from '@app/app.component';
 import { CoreModule } from '@core/core.module';
 import { LoadingComponent } from '@shared/components/loading/loading.component';
 import { ServiceLocator } from './service-locator';
+import { LangGuard } from './core/guard/lang.guard';
 
 export function translateHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -31,13 +32,13 @@ export function translateHttpLoaderFactory(http: HttpClient) {
         useFactory: translateHttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: 'fa',
+      defaultLanguage: localStorage.getItem('lang'),
     }),
     CoreModule,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [LangGuard],
 })
 export class AppModule {
   constructor(private injector: Injector) {

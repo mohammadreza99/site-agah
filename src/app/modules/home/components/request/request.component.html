@@ -7,12 +7,16 @@
         <img class="img-fluid" src="assets/images/company.png" alt="Agah" />
       </div>
       <div class="col-md-5 text-center">
-        <h4 class="mb-4">{{ "TITLES.JOB_REQUEST_TITLE" | translate }}</h4>
-        <p>{{ "TITLES.JOB_REQUEST" | translate }}</p>
+        <h4 class="mb-4">
+          {{ "modules.jobs.joinUs" | translate }}
+        </h4>
+        <p>{{ "modules.jobs.joinDescription" | translate }}</p>
         <ag-button
           class="mb-4 mb-lg-0"
           routerLink="/job-oppurtinities"
-          label="{{ 'BUTTONS.SEND_REQUEST' | translate }}"
+          [label]="
+            'buttons.request' | translate: { value: fa ? 'ارسال ' : 'send' }
+          "
           [outline]="true"
           [raised]="true"
         ></ag-button>

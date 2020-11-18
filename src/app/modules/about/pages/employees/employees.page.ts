@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { EmployeeService } from '@core/http/employee/employee.service';
-import { Employee } from '@shared/models/employee.model';
+
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { Employee } from '@shared/models';
+import { AgahService } from '@core/http';
 
 @Component({
   selector: 'ag-employees-page',
@@ -11,13 +12,13 @@ import { LanguageChecker } from '@shared/components/language-checker/language-ch
   styleUrls: ['./employees.page.scss'],
 })
 export class EmployeesPage extends LanguageChecker implements OnInit {
-  constructor(private employeeService: EmployeeService) {
+  constructor(private agahService: AgahService) {
     super();
   }
 
   employees$: Observable<Employee[]>;
 
   ngOnInit(): void {
-    this.employees$ = this.employeeService.get();
+    this.employees$ = this.agahService.getEmployees();
   }
 }

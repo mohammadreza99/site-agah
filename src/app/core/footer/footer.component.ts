@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { SocialNetworkService } from '@core/http/social-network/social-network.service';
-import { SocialNetwork } from '@shared/models/social-network.model';
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { SocialNetwork } from '@shared/models';
+import { ContactService } from '@core/http';
 
 @Component({
   selector: 'ag-footer',
@@ -11,13 +11,13 @@ import { LanguageChecker } from '@shared/components/language-checker/language-ch
   styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent extends LanguageChecker implements OnInit {
-  constructor(private socialNetworkService: SocialNetworkService) {
+  constructor(private contactService: ContactService) {
     super();
   }
 
   socialNetworks$: Observable<SocialNetwork[]>;
 
   ngOnInit(): void {
-    this.socialNetworks$ = this.socialNetworkService.get();
+    this.socialNetworks$ = this.contactService.getSpcialNetworks();
   }
 }

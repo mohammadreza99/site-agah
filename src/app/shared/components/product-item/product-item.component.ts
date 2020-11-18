@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Product } from '@shared/models/product.model';
+import { Product } from '@shared/models';
 
 
 @Component({

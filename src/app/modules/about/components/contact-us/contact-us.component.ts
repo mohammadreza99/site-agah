@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { ContactCommentService } from '@app/core/http/contact-comment/contact-comment.service';
+import { ContactService } from '@app/core/http';
 
 @Component({
   selector: 'ag-contact-us',
@@ -10,7 +10,7 @@ import { ContactCommentService } from '@app/core/http/contact-comment/contact-co
   styleUrls: ['./contact-us.component.scss'],
 })
 export class ContactUsComponent extends LanguageChecker implements OnInit {
-  constructor(private contactCommentService: ContactCommentService) {
+  constructor(private contactService: ContactService) {
     super();
   }
 
@@ -29,10 +29,22 @@ export class ContactUsComponent extends LanguageChecker implements OnInit {
   ngOnInit(): void {}
 
   onSubmitForm() {
-    this.contactCommentService.post(this.form.value).subscribe((res: any) => {
+    this.contactService.sendContactComment(this.form.value).subscribe((res: any) => {
       if (res.img) {
         this.captchaImage = res.img;
         this.form.get('key').setValue(res.key);
+      } else {
+        this.form.controls['name'].setValue('');
+        this.form.controls['email'].setValue('');
+        this.form.controls['comment'].setValue('');
+        this.form.controls['key'].setValue('');
+        this.form.controls['value'].setValue('');
+        this.form.markAsPristine();
+        this.form.markAsUntouched();
+        this.showSuccess = true;
+        setTimeout(() => {
+          this.showSuccess = false;
+        }, 2000);
       }
     });
   }

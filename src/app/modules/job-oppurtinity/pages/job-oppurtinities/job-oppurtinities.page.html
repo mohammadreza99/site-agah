@@ -1,15 +1,12 @@
 <div class="container-fluid pad-b-48" *ngIf="jobs">
   <section class="mar-b-56">
-    <ag-vision title="فرصت های شغلی" [vision]="vision" type="about-page"></ag-vision>
+    <ag-vision
+      [title]="'modules.jobs.oppurtinity' | translate"
+      [vision]="vision"
+      type="about-page"
+    ></ag-vision>
   </section>
   <ag-container>
-    <!-- <section class="col-12 mar-b-156">
-      <ag-vision
-        backgroundImage="assets/images/company2.png"
-        [vision]="vision"
-        type="about-page"
-      ></ag-vision>
-    </section> -->
     <section class="col-12">
       <ag-job-oppurtinities>
         <ag-job-oppurtinity-item

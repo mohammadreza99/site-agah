@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '@shared/models/product.model';
-import { LanguageChecker } from '@app/shared/components/language-checker/language-checker.component';
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { Product } from '@shared/models';
 
 @Component({
   selector: 'ag-product-details-header',

@@ -2,24 +2,40 @@
   <div class="col-12">
     <ag-lined-header
       class="mar-b-64"
-      text="{{ 'TITLES.COMMENTS' | translate }}"
+      text="{{ 'modules.academy.f&q' | translate }}"
     ></ag-lined-header>
-    <form class="form-row">
+    <p class="text-muted font-bold" *ngIf="replyComment">
+      {{ "general.inReplyTo" | translate: { value: replyComment.user.name } }}
+      <span class="mx-4 text-danger" (click)="cancelReply.emit()">{{
+        "general.cancelReply" | translate
+      }}</span>
+    </p>
+    <form class="form-row" [formGroup]="form" (ngSubmit)="onSubmit()">
       <ag-input-text
-        placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
+        formControlName="name"
+        [errors]="[{ required: 'forms.required' | translate }]"
+        placeholder="{{ 'forms.firstName' | translate }}"
         class="col-6"
       ></ag-input-text>
       <ag-input-text
-        placeholder="{{ 'TITLES.EMAIL' | translate }}"
+        [errors]="[
+          { required: 'forms.required' | translate },
+          { email: 'forms.invalidEmail' | translate }
+        ]"
+        formControlName="email"
+        placeholder="{{ 'forms.email' | translate }}"
         class="col-6"
       ></ag-input-text>
       <ag-input-textarea
-        placeholder="{{ 'TITLES.OPINION' | translate }}"
+        [errors]="[{ required: 'forms.required' | translate }]"
+        formControlName="comment"
+        placeholder="{{ 'forms.opinion' | translate }}"
         class="col-12 mar-y-48"
       ></ag-input-textarea>
       <ag-button
+        [disabled]="form.invalid"
         class="col-12 text-right"
-        label="Submit"
+        [label]="'buttons.submit' | translate"
         type="submit"
       ></ag-button>
     </form>

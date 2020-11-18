@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-import { Department } from '@shared/models/department.model';
+import { Department } from '@shared/models';
 
 @Component({
   selector: 'ag-departments',

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { News } from '@app/shared/models/news.model';
 import { Observable } from 'rxjs';
-import { NewsService } from '@app/core/http/news/news.service';
+
+import { News } from '@shared/models';
+import { MultimediaService } from '@core/http';
 
 @Component({
   selector: 'ag-news-page',
@@ -9,12 +10,12 @@ import { NewsService } from '@app/core/http/news/news.service';
   styleUrls: ['./news.page.scss'],
 })
 export class NewsPage implements OnInit {
-  constructor(private newsService: NewsService) {}
+  constructor(private multimediaService: MultimediaService) {}
 
   news$: Observable<News[]>;
 
   ngOnInit(): void {
-    this.news$ = this.newsService.get();
+    this.news$ = this.multimediaService.getNews();
   }
 
   onListItemClick(item) {}

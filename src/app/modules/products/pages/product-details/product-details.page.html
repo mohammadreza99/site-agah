@@ -4,24 +4,24 @@
   </section>
   <section class="mar-t-156">
     <ag-product-features
-      title="{{ 'TITLES.FEATURES' | translate }}"
+      title="{{ 'modules.products.features' | translate }}"
       [product]="product"
     ></ag-product-features>
   </section>
   <section class="mar-t-156">
     <ag-project-process
-      title="{{'TITLES.PROCESSES' | translate}}"
+      title="{{'modules.products.proccesses' | translate}}"
       [processes]="product.processes"
     ></ag-project-process>
   </section>
   <section class="mar-t-156">
     <ag-partners
-      title="{{'TITLES.PARTNERS' | translate}}"
+      title="{{'modules.products.partners' | translate}}"
       [partners]="product.partners"
     ></ag-partners>
   </section>
   <section class="mar-y-156">
-    <ag-container title="{{'TITLES.OTHER_PRODUCTS' | translate}}">
+    <ag-container title="{{'modules.products.otherProducts' | translate}}">
       <div
         class="col-sm-6 col-lg-4 mb-4 mb-lg-0"
         *ngFor="let product of otherProducts$ | async | slice: 0:3"

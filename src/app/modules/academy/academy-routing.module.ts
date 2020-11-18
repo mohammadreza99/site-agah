@@ -11,12 +11,12 @@ const routes: Routes = [
   {
     path: '',
     component: AcademyPage,
-    data: { breadcrumb: 'BREADCRUMBS.ACADEMY' },
+    data: { breadcrumb: 'agah.academy' },
   },
   {
     path: 'workshop',
     component: WorkshopPage,
-    data: { breadcrumb: 'BREADCRUMBS.WORKSHOP' },
+    data: { breadcrumb: 'agah.workshop' },
   },
   {
     path: 'courses-category',

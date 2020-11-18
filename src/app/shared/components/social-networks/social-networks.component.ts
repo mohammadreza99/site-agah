@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SocialNetwork } from '@shared/models/social-network.model';
+import { SocialNetwork } from '@shared/models';
 
 @Component({
   selector: 'ag-social-networks',
@@ -12,7 +12,5 @@ export class SocialNetworksComponent implements OnInit {
   @Input() socialNetworks: SocialNetwork[];
   @Input() colored = true;
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 }

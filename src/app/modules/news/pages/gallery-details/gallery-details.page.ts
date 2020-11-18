@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { IAlbum, LightboxEvent, Lightbox, LIGHTBOX_EVENT } from 'ngx-lightbox';
 import { IMasonryGalleryImage } from 'ngx-masonry-gallery';
 import { Subscription } from 'rxjs';
-import { GalleryService } from '@app/core/http/gallery/gallery.service';
 import { ActivatedRoute } from '@angular/router';
-import { GalleryItem } from '@app/shared/models/gallery.model';
+
+import { AgahService } from '@core/http';
 
 @Component({
   selector: 'ag-gallery-details',
@@ -15,7 +15,7 @@ export class GalleryDetailsPage implements OnInit {
   constructor(
     private lightboxEvent: LightboxEvent,
     private lightbox: Lightbox,
-    private galleryService: GalleryService,
+    private agahService: AgahService,
     private route: ActivatedRoute
   ) {}
 
@@ -26,7 +26,7 @@ export class GalleryDetailsPage implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.galleryService.get().subscribe((res) => {
+    this.agahService.getGalleries().subscribe((res) => {
       this.images = res.find((item) => item.id == id).images;
       this.masonryImages = this.images.map(
         (image: string) => ({ imageUrl: image } as IMasonryGalleryImage)

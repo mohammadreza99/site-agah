@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap, switchMap } from 'rxjs/operators';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { LangService } from './core/http/lang/lang.service';
+import { AgahService } from '@core/http';
 
 @Component({
   selector: 'app-root',
@@ -16,10 +16,21 @@ export class AppComponent extends LanguageChecker implements OnInit {
     private router: Router,
     private title: Title,
     private route: ActivatedRoute,
-    private langService: LangService
+    private agahService: AgahService
   ) {
     super();
-    this.getLang();
+    /**
+     * !!!!! ATTENTION START !!!!!
+     */
+    // uncomment this if you have english content! :
+    // this.getLang();
+    // and comment these two lines :
+    localStorage.setItem('lang', 'fa');
+    this.translationService.use('fa');
+    /**
+     * !!!!! ATTENTION END !!!!!
+     */
+
     router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
@@ -50,19 +61,19 @@ export class AppComponent extends LanguageChecker implements OnInit {
 
   currentUrl: string;
 
-  get isHomePage() {
-    return this.currentUrl === '/';
-  }
-
   async getLang() {
-    const loaclStorageLang = localStorage.getItem('lang');
-    if (loaclStorageLang) {
-      this.translationService.use(loaclStorageLang);
+    const localStorageLang = localStorage.getItem('lang');
+    if (localStorageLang) {
+      this.translationService.use(localStorageLang);
     } else {
-      const lang = await this.langService.getLang().toPromise();
+      const lang = await this.agahService.getLang().toPromise();
       localStorage.setItem('lang', lang['lang']);
       this.translationService.use(lang['lang']);
     }
+  }
+
+  get isHomePage() {
+    return this.currentUrl === '/';
   }
 
   ngOnInit(): void {}

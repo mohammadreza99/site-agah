@@ -1,70 +1,24 @@
-<div class="container-fluid pad-y-48">
+<div class="container-fluid pad-y-48" *ngIf="course$ | async as course">
   <ag-container>
     <div class="col-12 mar-b-80">
       <ag-breadcrumb></ag-breadcrumb>
     </div>
 
-    <div class="col-3">
+    <div class="col-lg-3">
       <div class="side-list bg-white ag-rounded-lg ag-shadow-lg pad-24">
         <ag-accordion>
-          <ag-accordion-item icon="fa-book" title="1st Week" class="mar-b-16">
+          <ag-accordion-item
+            *ngFor="let item of course.contents | keyvalue;let last = last"
+            icon="fa-book"
+            [title]="item.key"
+            [ngClass]="{'mar-b-16': !last}"
+          >
             <accordion-content>
-              <ul class="courses-list list-unstyled">
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-              </ul>
-            </accordion-content>
-          </ag-accordion-item>
-          <ag-accordion-item icon="fa-book" title="2st Week">
-            <accordion-content>
-              <ul class="courses-list list-unstyled">
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
-                </li>
-                <li class="mar-t-16">
-                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#"
-                    >Title of first week</a
-                  >
+              <ul class="courses-list p{{fa ? 'r' : 'l'}}-3 m{{fa ? 'r' : 'l'}}-2">
+                <li class="mar-t-16" *ngFor="let c of item.value">
+                  <a class="pad-{{fa ? 'l' : 'r'}}-24" href="#">
+                    {{ c.title }}
+                  </a>
                 </li>
               </ul>
             </accordion-content>
@@ -72,8 +26,9 @@
         </ag-accordion>
       </div>
     </div>
-    <div class="col-9 content">
+    <div class="col-lg-9 content mt-5 mt-lg-0">
       <ag-course-details-header
+        [course]="course"
         [showFeatures]="false"
       ></ag-course-details-header>
     </div>

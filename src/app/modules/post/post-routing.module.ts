@@ -10,7 +10,6 @@ const routes: Routes = [
       {
         path: '',
         component: PostsPage,
-        data: { breadcrumb: 'BREADCRUMBS.POSTS' },
       },
       {
         path: 'details/:postId',

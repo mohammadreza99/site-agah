@@ -8,7 +8,7 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { Validations } from '@shared/models/validation.model';
+import { Validations } from '@shared/models';
 
 @Component({
   selector: 'ag-input-textarea',

@@ -1,32 +1,43 @@
 <div class="wrapper ag-rounded-lg pad-32">
   <div class="d-flex align-items-center content-text mar-b-24">
     <i class="mar-{{ fa ? 'l' : 'r' }}-16 fa-lg fal fa-list"></i>
-    <span>{{ "TITLES.CONTENT" | translate }}</span>
+    <span>{{ "modules.academy.content" | translate }}</span>
   </div>
   <div class="timeline">
-    <div class="week" [ngClass]="{ 'right-side': fa }">
-      <h3 class="week__title mb-0 pad-x-16">1st Week</h3>
+    <div
+      class="week"
+      *ngFor="let item of course.contents | keyvalue"
+      [ngClass]="{ 'right-side': fa }"
+    >
+      <h3 class="week__title mb-0 pad-x-16">{{ item.key }}</h3>
       <ul class="list-unstyled pad-16 m-0">
+        <!-- add deactive class to <li> for disable it. -->
         <li
-          class="week__item d-flex font-size-lg flex-column flex-sm-row align-items-sm-center mar-b-8 deactive"
+          class="week__item d-flex font-size-lg flex-column flex-sm-row align-items-sm-center mar-b-8"
+          [routerLink]="['/academy/courses/content', course.id]"
+          *ngFor="let c of item.value"
         >
           <span class="week__item-title flex-grow-1">
             <i class="lock-res fas fa-lock-alt d-sm-none"></i>
-            Title of first week courses
+            {{ c.title }}
           </span>
           <div
             class="week__item-watch d-flex align-items-center flex-grow-1 text-center"
           >
             <div [ngClass]="fa ? 'mar-l-16' : 'mar-r-16'">
               <i [ngClass]="fa ? 'mar-l-4' : 'mar-r-4'" class="fas fa-book"></i
-              ><span>7 min read</span>
+              ><small>{{
+                "modules.academy.readTime" | translate: { value: c.read_time }
+              }}</small>
             </div>
             <div>
               <i
                 [ngClass]="fa ? 'mar-l-4' : 'mar-r-4'"
                 class="fab fa-youtube"
               ></i
-              ><span>7 min read</span>
+              ><small>{{
+                "modules.academy.watchTime" | translate: { value: c.watch_time }
+              }}</small>
             </div>
           </div>
           <div
@@ -39,46 +50,5 @@
         </li>
       </ul>
     </div>
-    <!-- <div class="week">
-      <h3 class="week__title mb-0 pad-x-16">1st Week</h3>
-      <ul class="list-unstyled pad-16 m-0">
-        <li class="week__item d-flex align-items-center mar-b-8">
-          <span class="week__item-title flex-grow-1"
-            >Title of first week courses</span
-          >
-          <div
-            class="week__item-watch d-flex align-items-center flex-grow-1 text-center"
-          >
-            <div class="mar-r-16">
-              <i class="fas mar-r-4 fa-book"></i><span>7 min read</span>
-            </div>
-            <div>
-              <i class="fab mar-r-4 fa-youtube"></i><span>7 min read</span>
-            </div>
-          </div>
-          <div class="lock flex-grow-1 text-right">
-            <i class="fas fa-lock-alt"></i>
-          </div>
-        </li>
-        <li class="week__item d-flex align-items-center mar-b-8 deactive">
-          <span class="week__item-title flex-grow-1"
-            >Title of first week courses</span
-          >
-          <div
-            class="week__item-watch d-flex align-items-center flex-grow-1 text-center"
-          >
-            <div class="mar-r-16">
-              <i class="fas mar-r-4 fa-book"></i><span>7 min read</span>
-            </div>
-            <div>
-              <i class="fab mar-r-4 fa-youtube"></i><span>7 min read</span>
-            </div>
-          </div>
-          <div class="lock flex-grow-1 text-right">
-            <i class="fas fa-lock-alt"></i>
-          </div>
-        </li>
-      </ul>
-    </div> -->
   </div>
 </div>

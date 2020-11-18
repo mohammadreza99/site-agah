@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Product } from '@shared/models/product.model';
+import { Product } from '@shared/models';
 import { ProductService } from '@core/http/product/product.service';
 
 @Component({

@@ -10,14 +10,15 @@ import {
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Validations } from '@shared/models/validation.model';
+import { Validations } from '@shared/models';
 
 @Component({
   selector: 'ag-input-text',
   templateUrl: './input-text.component.html',
   styleUrls: ['./input-text.component.scss'],
 })
-export class InputTextComponent extends LanguageChecker
+export class InputTextComponent
+  extends LanguageChecker
   implements OnInit, ControlValueAccessor {
   constructor(@Self() @Optional() private ngControl?: NgControl) {
     super();

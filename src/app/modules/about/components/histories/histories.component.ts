@@ -3,7 +3,7 @@ import * as moment from 'moment-jalaali';
 
 import { CarouselComponent } from '@shared/components/carousel/carousel.component';
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { History } from '@shared/models/history.model';
+import { HistoryItem } from '@shared/models';
 
 @Component({
   selector: 'ag-histories',
@@ -12,7 +12,7 @@ import { History } from '@shared/models/history.model';
 })
 export class HistoriesComponent extends LanguageChecker implements OnInit {
   @Input() title: string;
-  @Input() histories: History[] = [];
+  @Input() histories: HistoryItem[] = [];
   @ViewChild(CarouselComponent) carouselCmp: CarouselComponent;
 
   activeSlide = 0;

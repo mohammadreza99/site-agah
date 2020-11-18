@@ -10,7 +10,7 @@ const routes: Routes = [
       {
         path: '',
         component: ProductsPage,
-        // data: { breadcrumb: 'BREADCRUMBS.PRODUCTS' },
+        // data: { breadcrumb: 'agah.products' },
       },
       {
         path: 'details/:id',

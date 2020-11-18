@@ -11,7 +11,7 @@ const routes: Routes = [
       {
         path: '',
         component: NewsPage,
-        data: { breadcrumb: 'BREADCRUMBS.NEWS' },
+        data: { breadcrumb: 'modules.news.news&Events' },
       },
       {
         path: 'details/:newsId',
@@ -20,6 +20,7 @@ const routes: Routes = [
       {
         path: 'gallery',
         component: GalleryPage,
+        data: { breadcrumb: 'buttons.gallery' },
       },
       {
         path: 'gallery/:id',

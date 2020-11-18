@@ -2,7 +2,9 @@
   <input
     type="text"
     class="ag-shadow-lg w-100 py-2"
-    placeholder="{{ 'TITLES.COURSE_OR_WORKSHOP_NAME' | translate }}"
+    placeholder="{{
+      'modules.academy.courseOrWorkshopName' | translate
+    }}"
     [(ngModel)]="value"
     (input)="valueChange.emit(value)"
   />

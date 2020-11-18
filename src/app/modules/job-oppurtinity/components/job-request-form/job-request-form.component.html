@@ -22,66 +22,66 @@
       >
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             formControlName="first_name"
-            placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
+            placeholder="{{ 'forms.firstName' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             formControlName="last_name"
-            placeholder="{{ 'TITLES.LAST_NAME' | translate }}"
+            placeholder="{{ 'forms.lastName' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-datepicker
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             formControlName="birthday"
             icon="fa-calendar-alt"
-            placeholder="{{ 'TITLES.BIRTHDATE' | translate }}"
+            placeholder="{{ 'forms.birthDate' | translate }}"
           ></ag-input-datepicker>
         </div>
         <div class="col-sm-6 mar-b-48 d-flex align-items-center">
           <ag-input-radio
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             class="flex-grow-1"
             formControlName="gender"
-            label="{{ 'TITLES.GENDER' | translate }}"
+            label="{{ 'forms.gender' | translate }}"
             [items]="[
-              { name: 'TITLES.MALE' | translate, value: 'male' },
-              { name: 'TITLES.FEMALE' | translate, value: 'female' }
+              { name: 'forms.male' | translate, value: 'male' },
+              { name: 'forms.female' | translate, value: 'female' }
             ]"
           ></ag-input-radio>
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
             [errors]="[
-              { required: 'این فیلد الزامیست.' },
-              { email: 'ایمیل نامعتبر است.' }
+              { required: 'forms.required' | translate },
+              { email: 'forms.invalidEmail' | translate }
             ]"
             formControlName="email"
-            placeholder="{{ 'TITLES.EMAIL' | translate }}"
+            placeholder="{{ 'forms.email' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-sm-6 mar-b-48">
           <ag-input-text
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             formControlName="phone"
-            placeholder="{{ 'TITLES.PHONE_NUMBER' | translate }}"
+            placeholder="{{ 'forms.phoneNumber' | translate }}"
           ></ag-input-text>
         </div>
         <div class="col-12 mar-b-48">
           <ag-input-textarea
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             formControlName="address"
-            placeholder="{{ 'TITLES.ADDRESS' | translate }}"
+            placeholder="{{ 'forms.address' | translate }}"
           ></ag-input-textarea>
         </div>
 
         <div class="col-sm-6">
           <ag-input-file
-            [errors]="[{ required: 'این فیلد الزامیست.' }]"
+            [errors]="[{ required: 'forms.required' | translate }]"
             formControlName="resume"
           ></ag-input-file>
         </div>
@@ -91,7 +91,7 @@
           <ag-button
             [disabled]="form.invalid"
             type="submit"
-            label="{{ 'BUTTONS.REQUEST' | translate }}"
+            [label]="'buttons.request' | translate: { value: '' }"
           ></ag-button>
         </div>
       </form>

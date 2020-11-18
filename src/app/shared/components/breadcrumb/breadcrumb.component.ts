@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Breadcrumb } from '@shared/models';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Breadcrumb } from '@shared/models/breadcrumb.model';
 
 @Component({
   selector: 'ag-breadcrumb',

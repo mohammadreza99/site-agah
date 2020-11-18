@@ -20,6 +20,10 @@
         direction: ltr;
       }
     }
+
+    a:hover {
+      text-decoration: none;
+    }
   }
 }
 ag-social-networks ::ng-deep a {

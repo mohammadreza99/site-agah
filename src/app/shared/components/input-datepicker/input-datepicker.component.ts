@@ -15,7 +15,7 @@ import {
   NG_VALUE_ACCESSOR,
   NgControl,
 } from '@angular/forms';
-import { Validations } from '@app/shared/models/validation.model';
+import { Validations } from '@shared/models';
 
 @Component({
   selector: 'ag-input-datepicker',

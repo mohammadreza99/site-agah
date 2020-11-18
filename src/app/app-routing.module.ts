@@ -1,40 +1,47 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LangGuard } from './core/guard/lang.guard';
 
 const routes: Routes = [
   {
     path: '',
-    data: { breadcrumb: 'BREADCRUMBS.HOME' },
+    data: { breadcrumb: 'agah.home' },
+    canActivate: [LangGuard],
     loadChildren: () =>
       import('@modules/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'products',
-    data: { breadcrumb: 'BREADCRUMBS.PRODUCTS' },
+    canActivate: [LangGuard],
+    data: { breadcrumb: 'agah.products' },
     loadChildren: () =>
       import('@modules/products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'academy',
-    data: { breadcrumb: 'BREADCRUMBS.ACADEMY' },
+    canActivate: [LangGuard],
+    data: { breadcrumb: 'agah.academy' },
     loadChildren: () =>
       import('@modules/academy/academy.module').then((m) => m.AcademyModule),
   },
   {
     path: 'posts',
-    data: { breadcrumb: 'BREADCRUMBS.POSTS' },
+    canActivate: [LangGuard],
+    data: { breadcrumb: 'modules.posts.blogPosts' },
     loadChildren: () =>
       import('@modules/post/post.module').then((m) => m.PostModule),
   },
   {
     path: 'news',
-    data: { breadcrumb: 'BREADCRUMBS.NEWS' },
+    canActivate: [LangGuard],
+    data: { breadcrumb: 'modules.news.news&Events' },
     loadChildren: () =>
       import('@modules/news/news.module').then((m) => m.NewsModule),
   },
   {
     path: 'job-oppurtinities',
-    data: { breadcrumb: 'BREADCRUMBS.JOB_OPPURTINITIES' },
+    canActivate: [LangGuard],
+    data: { breadcrumb: 'modules.jobs.oppurtinity' },
     loadChildren: () =>
       import('@modules/job-oppurtinity/job-oppurtinity.module').then(
         (m) => m.JobOppurtinityModule
@@ -42,7 +49,8 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    data: { breadcrumb: 'BREADCRUMBS.ABOUT' },
+    canActivate: [LangGuard],
+    data: { breadcrumb: 'agah.about' },
     loadChildren: () =>
       import('@modules/about/about.module').then((m) => m.AboutModule),
   },

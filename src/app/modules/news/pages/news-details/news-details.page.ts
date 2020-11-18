@@ -1,29 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '@app/core/http/news/news.service';
 import { Observable } from 'rxjs';
-import { News } from '@app/shared/models/news.model';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap, flatMap } from 'rxjs/operators';
+import { flatMap } from 'rxjs/operators';
+
+import { News } from '@shared/models';
+import { MultimediaService } from '@core/http';
+import { LanguageChecker } from '@app/shared/components/language-checker/language-checker.component';
 
 @Component({
   selector: 'ag-news-details',
   templateUrl: './news-details.page.html',
   styleUrls: ['./news-details.page.scss'],
 })
-export class NewsDetailsPage implements OnInit {
+export class NewsDetailsPage extends LanguageChecker implements OnInit {
   constructor(
-    private newsService: NewsService,
+    private multimediaService: MultimediaService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    super();
+  }
 
   news$: Observable<News[]>;
   news: News;
+
   ngOnInit(): void {
-    this.news$ = this.newsService.get();
+    this.news$ = this.multimediaService.getNews();
     this.route.params
       .pipe(
         flatMap((params) => {
-          return this.newsService.getById(params['newsId']);
+          return this.multimediaService.getNewsById(params['newsId']);
         })
       )
       .subscribe((news) => {

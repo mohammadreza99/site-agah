@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Employee } from '@shared/models/employee.model';
+import { Employee } from '@shared/models';
 
 @Component({
   selector: 'ag-employees',

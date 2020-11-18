@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CountdownConfig } from 'ngx-countdown';
 import * as moment from 'moment';
-import { LanguageChecker } from '@app/shared/components/language-checker/language-checker.component';
+import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
 
 @Component({
   selector: 'ag-count-down',

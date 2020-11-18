@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { VisionService } from '@core/http/vision/vision.service';
-import { Vision } from '@shared/models/vision.model';
-import { JobService } from '@app/core/http/job/job.service';
-import { JobItem } from '@app/shared/models/job.model';
+import { JobService } from '@core/http/job/job.service';
+import { JobItem, Vision } from '@shared/models';
+import { AgahService } from '@core/http';
 
 @Component({
   selector: 'ag-job-oppurtinities-page',
@@ -13,7 +12,7 @@ import { JobItem } from '@app/shared/models/job.model';
 })
 export class JobOppurtinitiesPage implements OnInit {
   constructor(
-    private visionService: VisionService,
+    private agahService: AgahService,
     private jobService: JobService
   ) {}
 
@@ -25,7 +24,7 @@ export class JobOppurtinitiesPage implements OnInit {
 در مجموعه‌ی جوان آگاه ، کمی فرصت‌ها متفاوت‌اند. ما بیشتر از هر چیز به تعادل در کار و تفاهم در تصمیم‌گیری معتقدیم. دوستان ما خودشان تصمیم گرفته‌اند جزو آگاه باشند و اصلاً یکی از افتخارات مدیریت آگاه این است که هیچ‌گاه، عذر هیچ فردی را نخواسته است؛ مگر اینکه خود شخص تصمیم به رفتن گرفته باشد. کمتر پیش می‌آید مجموعه‌ای بر تفریحات جمعی، اصرار ورزد و از مراسم‌های مناسبتی، استقبال کند. ما معتقد هستیم وقتی از طریق فرصت‌های شغلی، پنجره‌ای را به‌سوی افرادی می‌گشاییم، بیش از هر چیز، مسئول تأمین امنیت خاطر آن‌ها هستیم. شما باید اطمینان داشته باشید بخش مهمی از شبانه‌روز خود را در مکانی آرام و محیطی شاد زندگی می‌کنید. بنا بر آنچه گفتیم، نگران نباشید و با لبخند برای ما بنویسید چه تخصصی دارید.`,
   };
   ngOnInit(): void {
-    this.vision$ = this.visionService.get();
+    this.vision$ = this.agahService.getVision();
     this.jobService.get().subscribe((res) => {
       this.jobs = res;
     });

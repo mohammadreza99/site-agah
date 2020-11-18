@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { History } from '@shared/models/history.model';
+import { HistoryItem } from '@shared/models';
 
 @Component({
   selector: 'ag-history-item',
@@ -9,7 +9,7 @@ import { History } from '@shared/models/history.model';
   styleUrls: ['./history-item.component.scss'],
 })
 export class HistoryItemComponent extends LanguageChecker implements OnInit {
-  @Input() history: History;
+  @Input() history: HistoryItem;
 
   ngOnInit(): void {}
 }

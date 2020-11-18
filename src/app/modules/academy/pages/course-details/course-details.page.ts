@@ -8,6 +8,10 @@ import {
 import { ScrollSpyService } from '@uniprank/ngx-scrollspy';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { ActivatedRoute } from '@angular/router';
+import { AcademyService } from '@app/core/http/academy/academy.service';
+import { Course } from '@app/shared/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ag-course-details',
@@ -15,7 +19,11 @@ import { LanguageChecker } from '@shared/components/language-checker/language-ch
   styleUrls: ['./course-details.page.scss'],
 })
 export class CourseDetailsPage extends LanguageChecker implements OnInit {
-  constructor(private scrollSpyService: ScrollSpyService) {
+  constructor(
+    private route: ActivatedRoute,
+    private academyService: AcademyService,
+    private scrollSpyService: ScrollSpyService
+  ) {
     super();
   }
 
@@ -31,7 +39,11 @@ export class CourseDetailsPage extends LanguageChecker implements OnInit {
     }
   }
 
+  course$: Observable<Course>;
+
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('courseId');
+    this.course$ = this.academyService.getCourseById(id);
     this.scrollSpyService.setOffset('window', 90);
   }
 

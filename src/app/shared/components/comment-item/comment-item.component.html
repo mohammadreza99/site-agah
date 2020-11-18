@@ -5,9 +5,7 @@
     <div class="avatar d-flex align-items-center">
       <img src="assets/images/customer.png" alt="" />
       <div class="mar-{{ fa ? 'r' : 'l' }}-24">
-        <div>
-          Agah Company CEO
-        </div>
+        <div>{{ comment.user.name }}</div>
         <div
           class="d-sm-none d-flex align-items-center mar-{{
             fa ? 'l' : 'r'
@@ -18,7 +16,7 @@
             class="m{{ fa ? 'l' : 'l' }}-2"
             icon="fa-calendar-alt"
           ></ag-icon>
-          <span class="date">{{ "02/04/2020" | date: "M/d/yyyy" }}</span>
+          <span class="date">{{ comment.created_at | shamsi }}</span>
         </div>
       </div>
     </div>
@@ -31,17 +29,19 @@
           class="m{{ fa ? 'l' : 'l' }}-2"
           icon="fa-calendar-alt"
         ></ag-icon>
-        <span class="date">{{ "02/04/2020" | date: "M/d/yyyy" }}</span>
+        <span class="date">{{ comment.created_at | shamsi }}</span>
       </div>
-      <span class="reply" (click)="appendReply()">{{
-        "TITLES.REPLY" | translate
+      <span *ngIf="!isReply" class="reply" (click)="replyClick.emit(comment)">{{
+        "general.reply" | translate
       }}</span>
     </div>
   </div>
   <div class="comment__text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nisi quas
-    nemo. Beatae suscipit quas ad. Nihil doloremque error numquam fugit
-    cupiditate quod, sit odio obcaecati, officiis, corporis pariatur omnis.
+    {{ comment.comment }}
   </div>
-  <ng-container #container></ng-container>
+  <ag-comment-item
+    [isReply]="true"
+    *ngFor="let item of comment.replies"
+    [comment]="item"
+  ></ag-comment-item>
 </div>

@@ -11,6 +11,8 @@
     border-radius: 20px;
   }
   ul {
+    padding: 0;
+    margin: 0;
     @include large() {
       padding-top: 40px;
       padding-bottom: 40px;
@@ -31,16 +33,18 @@
       }
       @include large() {
         font-size: $font-size-lg;
-        margin-bottom: 40px;
-        &:not(:last-child):after {
-          content: "";
-          position: absolute;
-          left: -8px;
-          width: 8px;
-          background-color: $primary;
-          height: 100%;
-          transition: all 0.4s;
-          border-radius: 0 10px 10px 0;
+        &:not(:last-child) {
+          margin-bottom: 40px;
+          &:after {
+            content: "";
+            position: absolute;
+            left: -8px;
+            width: 8px;
+            background-color: $primary;
+            height: 100%;
+            transition: all 0.4s;
+            border-radius: 0 10px 10px 0;
+          }
         }
         &.active {
           &:after {
@@ -55,7 +59,7 @@
       &:not(:last-child):after {
         left: auto;
         right: -8px;
-        border-radius: 10px 0 0 10px;
+        border-radius: 10px 0 0 10px !important;
       }
       &.active {
         &:after {
@@ -69,6 +73,9 @@
 .content {
   .comments {
     border: 1px solid #d4d4d4;
+    ag-comment-item:last-child ::ng-deep .comment {
+      border-bottom: 0;
+    }
 
     .comment-text {
       color: #d4d4d4;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '@shared/models/product.model';
+import { Product } from '@shared/models';
 
 @Component({
   selector: 'ag-product-list',

@@ -1,4 +1,4 @@
-<div class="container-fluid pad-t-48 pad-b-156" *ngIf="contactInfo">
+<div class="container-fluid pad-t-48 pad-b-156" *ngIf="contactUsInfo">
   <ag-container>
     <div class="col-12">
       <ag-breadcrumb></ag-breadcrumb>
@@ -16,25 +16,41 @@
               stylePrefix="fal"
               size="2x"
             ></ag-icon
-            ><span class="m{{fa ? 'r' : 'l'}}-2">{{contactInfo.address}}</span>
+            ><span class="m{{fa ? 'r' : 'l'}}-2"
+              >{{contactUsInfo.address}}</span
+            >
           </li>
-          <li class="d-flex align-items-center mar-b-48 phone">
-            <ag-icon
-              stylePrefix="fal"
-              size="2x"
-              color="#44c1c3"
-              icon="fa-phone"
-            ></ag-icon
-            ><span class="m{{fa ? 'r' : 'l'}}-2">{{contactInfo.phone}}</span>
+          <li class="mar-b-48 phone">
+            <a
+              class="d-flex align-items-center"
+              href="tel:{{contactUsInfo.phone}}"
+            >
+              <ag-icon
+                stylePrefix="fal"
+                size="2x"
+                color="#44c1c3"
+                icon="fa-phone"
+              ></ag-icon
+              ><span class="m{{fa ? 'r' : 'l'}}-2"
+                >{{contactUsInfo.phone}}</span
+              >
+            </a>
           </li>
-          <li class="d-flex align-items-center mar-b-48">
-            <ag-icon
-              size="2x"
-              color="#44c1c3"
-              icon="fa-envelope"
-              stylePrefix="fal"
-            ></ag-icon
-            ><span class="m{{fa ? 'r' : 'l'}}-2">{{contactInfo.email}}</span>
+          <li class="mar-b-48">
+            <a
+              class="d-flex align-items-center"
+              href="mailto:{{contactUsInfo.email}}"
+            >
+              <ag-icon
+                size="2x"
+                color="#44c1c3"
+                icon="fa-envelope"
+                stylePrefix="fal"
+              ></ag-icon
+              ><span class="m{{fa ? 'r' : 'l'}}-2"
+                >{{contactUsInfo.email}}</span
+              >
+            </a>
           </li>
         </ul>
 

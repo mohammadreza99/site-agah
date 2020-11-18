@@ -1,18 +1,18 @@
 <form [formGroup]="form" (ngSubmit)="onSubmitCourseEmail()">
   <ag-input-text
     formControlName="firstName"
-    [errors]="[{ required: 'firstName is required' }]"
-    placeholder="{{ 'TITLES.FIRST_NAME' | translate }}"
+    [errors]="[{ required: 'forms.required' | translate  }]"
+    placeholder="{{ 'forms.firstName' | translate }}"
     class="mar-b-40 d-block"
   ></ag-input-text>
   <ag-input-text
     formControlName="email"
     [errors]="[
-      { email: 'ایمیل نامعتبر است.' },
-      { required: 'Email is required' }
+      { email: 'forms.invalidEmail' | translate },
+      { required: 'forms.required' | translate }
     ]"
-    placeholder="{{ 'TITLES.EMAIL' | translate }}"
+    placeholder="{{ 'forms.email' | translate }}"
     class="mar-b-40 d-block"
   ></ag-input-text>
-  <ag-button type="submit" label="Submit"></ag-button>
+  <ag-button type="submit" [label]="'buttons.submit' | translate"></ag-button>
 </form>

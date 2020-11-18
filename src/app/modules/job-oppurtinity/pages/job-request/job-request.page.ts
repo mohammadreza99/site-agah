@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { VisionService } from '@core/http/vision/vision.service';
-import { Vision } from '@shared/models/vision.model';
 import { JobService } from '@core/http/job/job.service';
-import { JobRequest } from '@app/shared/models/job.model';
+import { JobRequest, Vision } from '@shared/models';
+import { AgahService } from '@core/http';
 
 @Component({
   selector: 'ag-job-request',
@@ -13,14 +12,14 @@ import { JobRequest } from '@app/shared/models/job.model';
 })
 export class JobRequestPage implements OnInit {
   constructor(
-    private visionService: VisionService,
+    private agahService: AgahService,
     private jobRequestServie: JobService
   ) {}
 
   vision$: Observable<Vision>;
 
   ngOnInit(): void {
-    this.vision$ = this.visionService.get();
+    this.vision$ = this.agahService.getVision();
   }
 
   onSubmitForm(form: JobRequest) {

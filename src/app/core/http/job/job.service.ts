@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from '@core/http/api.service';
-import {
-  JobRequest,
-  JobItem,
-  JobItemDetails,
-} from '@app/shared/models/job.model';
+import { JobRequest, JobItem, JobItemDetails } from '@shared/models';
 import { map } from 'rxjs/operators';
 
 @Injectable({

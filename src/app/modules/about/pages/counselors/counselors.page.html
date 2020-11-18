@@ -6,7 +6,7 @@
   </ag-container>
   <ag-container
     *ngIf="counselors$ | async as counselors"
-    title="{{'TITLES.CONSULERS' | translate }}"
+    title="{{'agah.counselors' | translate }}"
   >
     <div class="col-3 mar-b-72" *ngFor="let counselor of counselors">
       <ag-counselor-item [counselor]="counselor"></ag-counselor-item>

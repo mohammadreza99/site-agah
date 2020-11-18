@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Process } from '@shared/models';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Process } from '@shared/models/product.model';
 
 @Component({
   selector: 'ag-process-item',

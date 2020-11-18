@@ -9,7 +9,7 @@
       {{ news.title }}
     </h6>
     <a class="text-white" [routerLink]="['/news/details', news.id]">{{
-      "BUTTONS.READ_MORE" | translate
+      "buttons.more" | translate: { value: fa ? "اطلاعات" : "info" }
     }}</a>
   </div>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Vision } from '@shared/models/vision.model';
-import { Department } from '@shared/models/department.model';
+import { Department, Vision } from '@shared/models';
 
 @Component({
   selector: 'ag-vision',

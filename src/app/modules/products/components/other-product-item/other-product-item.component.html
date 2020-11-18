@@ -4,7 +4,7 @@
     <h5 class="mb-0" [innerHTML]="product.title"></h5>
     <ag-button
       [outline]="true"
-      label="{{ 'BUTTONS.READ_MORE' | translate }}"
+      [label]="'buttons.more' | translate: { value: fa ? 'اطلاعات' : 'info' }"
       [routerLink]="['/products/details', product.id]"
     ></ag-button>
   </div>

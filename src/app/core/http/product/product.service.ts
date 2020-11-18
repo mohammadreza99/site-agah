@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { ApiService } from '@core/http/api.service';
-import { Product } from '@shared/models/product.model';
+import { Product } from '@shared/models';
 
 @Injectable({
   providedIn: 'root',

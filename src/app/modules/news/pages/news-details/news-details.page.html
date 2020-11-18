@@ -6,7 +6,7 @@
         <div class="col-10">
           <section class="mar-b-132">
             <ag-news-details-header [news]="news"></ag-news-details-header>
-            <ag-tags [tags]="['Event']" class="mar-b-40"></ag-tags>
+            <ag-tags [tags]="news.tags" class="mar-b-40"></ag-tags>
             <div
               class="d-flex flex-column flex-lg-row align-items-center justify-content-between mar-b-64"
             >
@@ -14,8 +14,10 @@
               <div
                 class="short-link mt-5 mt-lg-0 px-4 py-2 rounded-pill border"
               >
-                <span class="mar-r-56">Short Link</span>
-                <span class="link">https://bit.ly/39NYPvn</span>
+                <span class="mar-{{fa ? 'l' : 'r'}}-56">
+                  {{'general.shortLink' | translate}}
+                </span>
+                <span class="link">{{news.short_link}}</span>
               </div>
             </div>
           </section>
@@ -43,14 +45,14 @@
             class="mar-x-16 mb-5 mb-sm-0"
             [raised]="true"
             [outline]="true"
-            label="مشاهده مطالب بیشتر"
+            [label]="'buttons.seeMore' | translate:{value:fa?'مطالب بیشتر':'more posts'}"
           ></ag-button>
           <ag-button
-            routerLink="/gallery"
+            routerLink="/news/gallery"
             class="mar-x-16"
             [raised]="true"
             [outline]="true"
-            label="گالری تصاویر"
+            [label]="'buttons.gallery' | translate"
           ></ag-button>
         </div>
       </div>

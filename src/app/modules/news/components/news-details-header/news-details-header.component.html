@@ -1,13 +1,13 @@
 <div class="d-flex align-items-center justify-content-between">
-  <h1 class="m-0">{{ news.title }}</h1>
+  <h1 class="m-0" [innerHTML]="news.title"></h1>
   <div class="d-flex align-items-center card-bottom">
     <div class="d-flex align-items-center ml-3">
       <ag-icon color="#b7b7b7" class="ml-2" icon="fa-user"></ag-icon
-      >{{ "admin" }}
+      >{{ news.user.username }}
     </div>
     <div class="d-flex align-items-center">
       <ag-icon color="#b7b7b7" class="ml-2" icon="fa-calendar-alt"></ag-icon
-      >{{ news.created_at | date: "M/d/yyyy" }}
+      >{{ news.created_at | shamsi }}
     </div>
   </div>
 </div>
@@ -16,6 +16,4 @@
   [src]="news.image"
   [alt]="news.title"
 />
-<div class="mb-3">
-  {{ news.content }}
-</div>
+<div class="mb-3" [innerHTML]="news.content"></div>

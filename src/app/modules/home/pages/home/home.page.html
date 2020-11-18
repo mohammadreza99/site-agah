@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <section>
-    <ag-header title="{{'TITLES.AGAH' | translate}}"></ag-header>
+    <ag-header title="{{'agah.title' | translate}}"></ag-header>
   </section>
   <section class="mar-t-56">
-    <ag-container title="{{'TITLES.OUR_PRODUCTS' | translate}}">
+    <ag-container title="{{'modules.products.ourProducts' | translate}}">
       <div class="col-12">
         <ag-product-list [products]="products$ | async"></ag-product-list>
         <ag-button
@@ -11,7 +11,7 @@
           [outline]="true"
           [raised]="true"
           routerLink="/products"
-          label="{{'BUTTONS.PRODUCTS_SEE_MORE' | translate}}"
+          [label]="'buttons.seeMore' | translate:{value:fa ? 'پروژه های بیشتر':'products'}"
         ></ag-button>
       </div>
     </ag-container>
@@ -20,20 +20,20 @@
     <ag-vision
       [departments]="departments$ | async"
       [vision]="vision$ | async"
-      title="{{ 'TITLES.VISION' | translate }}"
+      title="{{ 'agah.vision' | translate }}"
     ></ag-vision>
   </section>
   <section class="mar-t-156">
     <ag-directors
-      title="{{'TITLES.DIRECTORS' | translate}}"
-      buttonLabel="{{ 'BUTTONS.DIRECTORS_MORE' | translate }}"
+      title="{{'agah.boardOfDirectors' | translate}}"
+      [buttonLabel]="'buttons.all' | translate:{value: fa ? 'اعضای هیئت مدیره':'directors'}"
       buttonRouterLink="/about/directors"
       [directors]="directors$ | async"
     ></ag-directors>
   </section>
   <section class="pad-t-156">
     <ag-testimonials
-      title="{{'TITLES.TESTIMONIALS' | translate}}"
+      title="{{'agah.testimonials' | translate}}"
       [testimonials]="testimonials$ | async"
     ></ag-testimonials>
   </section>
@@ -42,8 +42,8 @@
   </section>
   <section class="mar-t-156">
     <ag-container
-      title="{{'TITLES.BLOG_POSTS' | translate}}"
-      *ngIf="posts$ | async"
+      title="{{'modules.posts.blogPosts' | translate}}"
+      *ngIf="featuredPosts"
     >
       <ag-carousel
         [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '992': { slidesPerView: 3, allowTouchMove:false }}}"
@@ -51,7 +51,7 @@
       >
         <div
           class="swiper-slide px-2 py-4"
-          *ngFor="let post of ((posts$ | async) | slice: 0:3)"
+          *ngFor="let post of (featuredPosts | slice: 0:3)"
         >
           <ag-post-item [post]="post"></ag-post-item>
         </div>
@@ -59,7 +59,7 @@
     </ag-container>
     <ag-button
       class="mar-t-80 text-center"
-      label="{{'BUTTONS.POSTS_SEE_MORE' | translate}}"
+      [label]="'buttons.seeMore' | translate:{value : fa ? 'مطالب بیشتر':'more posts'}"
       routerLink="/posts"
       [raised]="true"
       [outline]="true"

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Process } from '@shared/models/product.model';
+import { Process } from '@shared/models';
 
 @Component({
   selector: 'ag-project-process',

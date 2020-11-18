@@ -12,7 +12,6 @@ import { CourseContentPage } from '@modules/academy/pages/course-content/course-
 import { CourseFeaturesComponent } from '@modules/academy/components/course-features/course-features.component';
 import { CourseDetailsHeaderComponent } from '@modules/academy/components/course-details-header/course-details-header.component';
 import { CourseTimelineComponent } from '@modules/academy/components/course-timeline/course-timeline.component';
-import { EducationSubscribeComponent } from '@modules/academy/components/education-subscribe/education-subscribe.component';
 import { WorkshopPage } from '@modules/academy/pages/workshop/workshop.page';
 
 export const COMPONENTS: Type<any>[] = [
@@ -30,5 +29,4 @@ export const COMPONENTS: Type<any>[] = [
   CourseFeaturesComponent,
   CourseDetailsHeaderComponent,
   CourseTimelineComponent,
-  EducationSubscribeComponent,
 ];

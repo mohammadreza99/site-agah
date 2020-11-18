@@ -6,17 +6,20 @@
   >
     <ag-input-text
       formControlName="email"
-      placeholder="{{ 'TITLES.EMAIL' | translate }}"
+      placeholder="{{ 'forms.email' | translate }}"
       [errors]="[
-        { email: 'ایمیل نامعتبر است.' },
-        { required: 'Email is required' }
+        { email: 'forms.invalidEmail' | translate },
+        { required: 'forms.required' | translate }
       ]"
       class="mr-2 flex-grow-1"
     ></ag-input-text>
     <ag-button
       roundedSize="md"
       type="submit"
-      label="{{ 'BUTTONS.REQUEST' | translate }}"
+      [label]="'buttons.request' | translate: { value: '' }"
     ></ag-button>
   </form>
+  <p class="text-center text-success my-4" *ngIf="showSuccess">
+    {{ "forms.successRequest" | translate }}
+  </p>
 </div>

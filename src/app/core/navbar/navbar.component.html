@@ -24,7 +24,7 @@
           <ag-logo></ag-logo>
         </a>
       </div>
-      <ag-dropdown
+      <!-- <ag-dropdown
         class="d-block d-xl-none list-unstyled"
         [title]="selectedLang"
         icon="fas fa-globe-americas"
@@ -35,7 +35,7 @@
         ]"
         (listItemClick)="changeLang($event)"
       >
-      </ag-dropdown>
+      </ag-dropdown> -->
     </div>
     <div class="collapse navbar-collapse" [ngClass]="{ show: isOpen }">
       <ul class="navbar-nav w-100 p-0">
@@ -47,7 +47,7 @@
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            {{ "NAVIGATIONS.HOME" | translate }}
+            {{ "agah.home" | translate }}
           </a>
         </li>
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
@@ -58,12 +58,12 @@
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
           >
-            {{ "NAVIGATIONS.PRODUCTS" | translate }}
+            {{ "agah.products" | translate }}
           </a>
         </li>
         <!-- <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
           <a class="nav-link" href="#">{{
-            "NAVIGATIONS.SOLUTIONS" | translate
+            "agah.solutions" | translate
           }}</a>
         </li> -->
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
@@ -73,7 +73,7 @@
             routerLink="/academy"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >{{ "NAVIGATIONS.ACADEMY" | translate }}</a
+            >{{ "agah.academy" | translate }}</a
           >
         </li>
         <li class="nav-item mar-{{ en ? 'r' : 'l' }}-32">
@@ -83,48 +83,48 @@
             routerLink="/job-oppurtinities"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }"
-            >{{ "NAVIGATIONS.JOB_OPPURTINITY" | translate }}</a
+            >{{ "modules.jobs.oppurtinity" | translate }}</a
           >
         </li>
         <ag-dropdown
           (listItemClick)="closeNavbar()"
           class="mar-{{ en ? 'r' : 'l' }}-32"
-          title="{{ 'NAVIGATIONS.ABOUT_US' | translate }}"
+          title="{{ 'agah.about' | translate }}"
           [list]="[
             {
-              text: 'NAVIGATIONS.ABOUT_US' | translate,
+              text: 'agah.about' | translate,
               routerLink: '/about',
               exact: true
             },
             {
-              text: 'NAVIGATIONS.HISTORY' | translate,
+              text: 'agah.history' | translate,
               routerLink: '/about/history'
             },
             {
-              text: 'NAVIGATIONS.DIRECTORS' | translate,
+              text: 'agah.boardOfDirectors' | translate,
               routerLink: '/about/directors'
             },
             {
-              text: 'NAVIGATIONS.STOCKHOLDERS' | translate,
+              text: 'agah.stockholders' | translate,
               routerLink: '/about/stockholders'
             },
             {
-              text: 'NAVIGATIONS.CONSULERS' | translate,
+              text: 'agah.counselors' | translate,
               routerLink: '/about/counselors'
             },
             {
-              text: 'NAVIGATIONS.EMPLOYEES' | translate,
+              text: 'agah.employees' | translate,
               routerLink: '/about/employees'
             },
             {
-              text: 'NAVIGATIONS.CONTACT_US' | translate,
+              text: 'agah.contactUs' | translate,
               routerLink: '/about/contact-us'
             }
           ]"
         >
         </ag-dropdown>
         <li class="nav-item flex-grow-1"></li>
-        <ag-dropdown
+        <!-- <ag-dropdown
           class="d-none d-xl-block"
           [title]="selectedLang"
           icon="fas fa-globe-americas"
@@ -135,7 +135,7 @@
           ]"
           (listItemClick)="changeLang($event)"
         >
-        </ag-dropdown>
+        </ag-dropdown> -->
       </ul>
     </div>
   </div>

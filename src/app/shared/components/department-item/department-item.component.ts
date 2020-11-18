@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Department } from '@shared/models';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { Department } from '@shared/models/department.model';
 
 @Component({
   selector: 'ag-department-item',

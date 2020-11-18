@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { VisionService } from '@core/http/vision/vision.service';
-import { HistoryService } from '@core/http/history/history.service';
-import { Vision } from '@shared/models/vision.model';
-import { History } from '@shared/models/history.model';
-import { DepartmentService } from '@core/http/department/department.service';
-import { Department } from '@shared/models/department.model';
+import { Vision, HistoryItem, Department } from '@shared/models';
+import { AgahService } from '@core/http';
 
 @Component({
   selector: 'ag-history',
@@ -15,18 +11,16 @@ import { Department } from '@shared/models/department.model';
 })
 export class HistoryPage implements OnInit {
   constructor(
-    private visionService: VisionService,
-    private historyService: HistoryService,
-    private departmentService: DepartmentService
+    private agahService: AgahService,
   ) {}
 
   vision$: Observable<Vision>;
-  histories$: Observable<History[]>;
+  histories$: Observable<HistoryItem[]>;
   departments$: Observable<Department[]>;
 
   ngOnInit(): void {
-    this.vision$ = this.visionService.get();
-    this.histories$ = this.historyService.get();
-    this.departments$ = this.departmentService.get();
+    this.vision$ = this.agahService.getVision();
+    this.histories$ = this.agahService.getHistories();
+    this.departments$ = this.agahService.getDepartments();
   }
 }

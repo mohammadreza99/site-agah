@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Counselor } from '@app/shared/models/counselor.model';
+import { Counselor } from '@shared/models';
 
 @Component({
   selector: 'ag-counselor-item',

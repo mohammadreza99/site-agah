@@ -23,9 +23,10 @@
       />
     </div>
     <div class="col-lg-6 col-xl-5 wrapper__content mt-5 mt-lg-0">
-      <h3 class="wrapper__content-header mar-b-24" [innerHtml]="product.title">
-        <!-- {{ product.title }} -->
-      </h3>
+      <h3
+        class="wrapper__content-header mar-b-24"
+        [innerHtml]="product.title"
+      ></h3>
       <div class="description mar-b-24">
         {{ product.description | dots: 300 }}
       </div>
@@ -39,7 +40,7 @@
         >
           <ag-button
             [raised]="true"
-            label="{{ 'BUTTONS.VISIT_WEBSITE' | translate }}"
+            [label]="'buttons.visitWebsite' | translate"
           ></ag-button>
         </a>
         <a
@@ -48,7 +49,9 @@
         >
           <ag-button
             [outline]="true"
-            label="{{ 'BUTTONS.READ_MORE' | translate }}"
+            [label]="
+              'buttons.more' | translate: { value: fa ? 'اطلاعات' : 'info' }
+            "
           ></ag-button>
         </a>
       </div>

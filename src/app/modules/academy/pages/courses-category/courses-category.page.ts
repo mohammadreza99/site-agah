@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AcademyService } from '@app/core/http/academy/academy.service';
+import { Category, Course } from '@app/shared/models';
 
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ag-courses-category-page',
@@ -16,5 +19,27 @@ export class CoursesCategoryPage extends LanguageChecker implements OnInit {
     icon: 'assets/images/outline.png',
   };
 
-  ngOnInit(): void {}
+  constructor(private academyService: AcademyService) {
+    super();
+  }
+
+  bestCourses$: Observable<Course[]>;
+  coursesCategory: { category: Category; courses: Course[] }[] = [];
+
+  ngOnInit(): void {
+    this.bestCourses$ = this.academyService.getBestCourses();
+    this.loadCoursesCategory();
+  }
+
+  async loadCoursesCategory() {
+    const categories = await this.academyService.getCategories().toPromise();
+    const courses = await this.academyService.getCourses().toPromise();
+    for (const cat of categories) {
+      const filteredCourses = courses.filter((c) => c.catagory_id == cat.id);
+      this.coursesCategory.push({
+        category: cat,
+        courses: filteredCourses,
+      });
+    }
+  }
 }

@@ -18,12 +18,16 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const clonedReq = request.clone({
-      headers: new HttpHeaders({
-        'Accept-Language': localStorage.getItem('lang'),
-      }),
-    });
-    return next.handle(clonedReq).pipe(
+    if (localStorage.getItem('lang')) {
+      request = request.clone({
+        headers: new HttpHeaders({
+          'Accept-Language': localStorage.getItem('lang'),
+        }),
+      });
+    } else {
+      request = request.clone({ setHeaders: {} });
+    }
+    return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         if (error) {
           const errorMessage = `Code: ${error.status}\nERROR Message: ${error.message}`;

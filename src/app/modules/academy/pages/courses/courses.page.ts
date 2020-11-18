@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { PostService } from '@core/http/post/post.service';
-import { Post } from '@shared/models/post.model';
-import { News } from '@app/shared/models/news.model';
-import { NewsService } from '@app/core/http/news/news.service';
+import { Course } from '@shared/models';
+import { ActivatedRoute } from '@angular/router';
+import { AcademyService } from '@app/core/http/academy/academy.service';
 
 @Component({
   selector: 'ag-courses-page',
@@ -12,13 +11,15 @@ import { NewsService } from '@app/core/http/news/news.service';
   styleUrls: ['./courses.page.scss'],
 })
 export class CoursesPage implements OnInit {
-  constructor(private newsService: NewsService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private academyService: AcademyService
+  ) {}
 
-  news$: Observable<News[]>;
+  courses$: Observable<Course[]>;
 
   ngOnInit(): void {
-    this.news$ = this.newsService.get();
+    const category = this.route.snapshot.paramMap.get('categoryId');
+    this.courses$ = this.academyService.getCoursesByCategory(category);
   }
-
-  onListItemClick(item) {}
 }

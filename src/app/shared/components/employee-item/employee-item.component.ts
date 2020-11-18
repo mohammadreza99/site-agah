@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Employee } from '@shared/models/employee.model';
+import { Employee } from '@shared/models';
 
 @Component({
   selector: 'ag-employee-item',
@@ -7,7 +7,6 @@ import { Employee } from '@shared/models/employee.model';
   styleUrls: ['./employee-item.component.scss'],
 })
 export class EmployeeItemComponent implements OnInit {
-
   @Input() employee: Employee;
   @Input() title: string;
   @Input() subtitle: string;

@@ -7,14 +7,12 @@
       <div class="col-lg-11 mar-t-40">
         <div class="text-sm-center text-{{ fa ? 'right' : 'left' }}">
           <h1 class="space" [innerHTML]="product.title"></h1>
-          <p class="space">
-            {{ product.description }}
-          </p>
+          <div class="space" [innerHTML]="product.description"></div>
         </div>
         <a [href]="product.website" target="_blank">
           <ag-button
             class="space text-center"
-            label="{{ 'BUTTONS.VISIT_WEBSITE' | translate }}"
+            [label]="'buttons.visitWebsite' | translate"
           ></ag-button>
         </a>
         <div class="ag-blur-effect">

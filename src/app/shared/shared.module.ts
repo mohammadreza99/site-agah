@@ -12,7 +12,6 @@ import { DpDatePickerModule } from 'ng2-jalali-date-picker';
 
 import { COMPONENTS } from '.';
 
-
 @NgModule({
   declarations: [...COMPONENTS],
   exports: [

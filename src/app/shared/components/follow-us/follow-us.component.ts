@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { SocialNetworkService } from '@core/http/social-network/social-network.service';
 import { LanguageChecker } from '@shared/components/language-checker/language-checker.component';
-import { SocialNetwork } from '@shared/models/social-network.model';
+import { SocialNetwork } from '@shared/models';
+import { ContactService } from '@core/http';
 
 @Component({
   selector: 'ag-follow-us',
@@ -11,7 +11,7 @@ import { SocialNetwork } from '@shared/models/social-network.model';
   styleUrls: ['./follow-us.component.scss'],
 })
 export class FollowUsComponent extends LanguageChecker implements OnInit {
-  constructor(private socialNetworkService: SocialNetworkService) {
+  constructor(private contactService: ContactService) {
     super();
   }
 
@@ -20,7 +20,7 @@ export class FollowUsComponent extends LanguageChecker implements OnInit {
   socialNetworks$: Observable<SocialNetwork[]>;
 
   ngOnInit(): void {
-    this.socialNetworks$ = this.socialNetworkService.get();
+    this.socialNetworks$ = this.contactService.getSpcialNetworks();
   }
 
   get dotsInRight() {

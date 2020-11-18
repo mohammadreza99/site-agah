@@ -3,17 +3,13 @@
     <img class="card-img-top img-fluid" [src]="news.image" [alt]="news.title" />
   </div>
   <div class="card-body">
-    <h5 class="card-title">
-      {{ news.title }}
-    </h5>
-    <p class="card-text card-desc">
-      {{ news.content }}
-    </p>
+    <h5 class="card-title" [innerHTML]="news.title"></h5>
+    <div class="card-text card-desc" [innerHTML]="news.summary"></div>
     <div class="d-flex align-items-center">
       <ag-button
         [routerLink]="['/news/details', news.id]"
         [link]="true"
-        label="{{ 'BUTTONS.READ_MORE' | translate }}"
+        [label]="'buttons.more' | translate: { value: fa ? 'اطلاعات' : 'info' }"
       ></ag-button>
     </div>
   </div>

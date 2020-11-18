@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IconStyle, IconSize, IconRotation } from '@shared/models/icon.model';
+import { IconStyle, IconSize, IconRotation } from '@shared/models';
 
 @Component({
   selector: 'ag-icon',

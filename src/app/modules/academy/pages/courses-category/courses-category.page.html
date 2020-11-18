@@ -9,67 +9,69 @@
       </div>
     </div>
   </ag-container>
-  <ag-container class="mar-b-104" title="Featured Post">
+  <ag-container
+    class="mar-b-104"
+    [title]="'modules.academy.bestCourses' | translate"
+    *ngIf="(bestCourses$ | async) as bestCourses"
+  >
     <div class="col-sm-12 col-lg-8 mb-4 mb-lg-0">
-      <ag-course-item-shadowed
+      <!-- <ag-course-item-shadowed
         [hoverable]="false"
-        [course]="course"
-      ></ag-course-item-shadowed>
+        [course]="bestCourses[0]"
+      ></ag-course-item-shadowed> -->
     </div>
     <div class="col-sm-12 col-lg-4 d-flex">
       <div class="row">
         <div class="col-sm-6 col-lg-12 mb-4 mb-sm-0 mb-lg-4">
-          <ag-course-item-shadowed
+          <!-- <ag-course-item-shadowed
             [hoverable]="false"
-            [course]="course"
-          ></ag-course-item-shadowed>
+            [course]="bestCourses[1]"
+          ></ag-course-item-shadowed> -->
         </div>
         <div class="col-sm-6 col-lg-12">
-          <ag-course-item-shadowed
+          <!-- <ag-course-item-shadowed
             [hoverable]="false"
-            [course]="course"
-          ></ag-course-item-shadowed>
+            [course]="bestCourses[2]"
+          ></ag-course-item-shadowed> -->
         </div>
       </div>
     </div>
   </ag-container>
-  <ag-container class="mar-b-48 header">
-    <div
-      class="col-sm-10 d-flex align-items-center justify-content-center justify-content-sm-start"
-    >
-      <img src="assets/images/save.png" alt="" />
-      <span class="m{{fa ? 'r' : 'l'}}-2">Business Courses</span>
-    </div>
-    <div
-      class="col-sm-2 d-none d-sm-flex align-items-center justify-content-end"
-    >
-      <a
-        routerLink="/academy/courses/2"
-        class="d-flex justify-content-end align-items-center text-dark"
-        >See More
-        <i
-          class="m{{fa ? 'r' : 'l'}}-2 fal fa-chevron-{{fa ? 'left' : 'right'}}"
-        ></i>
-      </a>
-    </div>
-  </ag-container>
-  <ag-container class="mar-b-104">
-    <!-- <div class="col-4">
-      <ag-course-item [course]="course"></ag-course-item>
-    </div> -->
-    <ag-carousel
-      [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '768': { slidesPerView: 3 }}}"
-      class="col-12"
-    >
-      <div class="swiper-slide py-4">
-        <ag-course-item [course]="course"></ag-course-item>
-      </div>
-      <div class="swiper-slide py-4">
-        <ag-course-item [course]="course"></ag-course-item>
-      </div>
-      <div class="swiper-slide py-4">
-        <ag-course-item [course]="course"></ag-course-item>
-      </div>
-    </ag-carousel>
-  </ag-container>
+  <ng-container *ngIf="coursesCategory.length != 0">
+    <ng-container *ngFor="let item of coursesCategory">
+      <ag-container class="mar-b-48 header">
+        <div
+          class="col-sm-10 d-flex align-items-center justify-content-center justify-content-sm-start"
+        >
+          <img src="assets/images/save.png" alt="" />
+          <span class="m{{fa ? 'r' : 'l'}}-2">{{item.category.label}}</span>
+        </div>
+        <div
+          class="col-sm-2 d-none d-sm-flex align-items-center justify-content-end"
+        >
+          <a
+            [routerLink]="'/academy/courses/'+item.category.id"
+            class="d-flex justify-content-end align-items-center text-dark"
+            >{{'buttons.seeMore' | translate:{value:fa ? 'بیشتر':'more'} }}
+            <i
+              class="m{{fa ? 'r' : 'l'}}-2 fal fa-chevron-{{fa ? 'left' : 'right'}}"
+            ></i>
+          </a>
+        </div>
+      </ag-container>
+      <ag-container class="mar-b-104">
+        <ag-carousel
+          [config]="{spaceBetween:15, breakpoints: { '575': { slidesPerView: 2 }, '768': { slidesPerView: 3 }}}"
+          class="col-12"
+        >
+          <div class="swiper-slide py-4">
+            <ag-course-item
+              *ngFor="let c of item.courses"
+              [course]="c"
+            ></ag-course-item>
+          </div>
+        </ag-carousel>
+      </ag-container>
+    </ng-container>
+  </ng-container>
 </div>
